@@ -107,7 +107,25 @@ export const parseRoute = (pathname = '/') => {
     };
   }
 
-  // 6.1 Directory & All Pages Hub / Explore Panama:
+  // 6.1 Gallery / Girls Photos Hub: /galeria/ or /fotos/ or /gallery/ or /photos/
+  if (
+    cleanSegments[0] === 'galeria' || 
+    cleanSegments[0] === 'gallery' || 
+    cleanSegments[0] === 'fotos' || 
+    cleanSegments[0] === 'photos' ||
+    cleanSegments[0] === 'fotos-chicas' ||
+    cleanSegments[0] === 'girls-photos'
+  ) {
+    return {
+      type: 'gallery',
+      locale,
+      path,
+      canonicalPath: `/${locale}/galeria/`,
+      params: {}
+    };
+  }
+
+  // 6.2 Directory & All Pages Hub / Explore Panama:
   if (
     cleanSegments[0] === 'directory' || 
     cleanSegments[0] === 'directorio' || 
@@ -265,6 +283,9 @@ export const getAllCanonicalRoutes = (events = [], venues = []) => {
     routes.push({ path: `/${loc}/blog/como-reservar-mesa-vip-bottle-service-panama/`, priority: 0.8, changefreq: 'monthly' });
     routes.push({ path: `/${loc}/blog/mejores-rooftops-vista-al-mar-panama/`, priority: 0.8, changefreq: 'monthly' });
     routes.push({ path: `/${loc}/blog/dress-code-discotecas-clubs-panama/`, priority: 0.8, changefreq: 'monthly' });
+
+    // 6.1 Gallery & Girls High-Res Photos
+    routes.push({ path: `/${loc}/galeria/`, priority: 0.85, changefreq: 'weekly' });
 
     // 7. Directory & Legal Pages
     routes.push({ path: `/${loc}/explore/`, priority: 0.85, changefreq: 'weekly' });

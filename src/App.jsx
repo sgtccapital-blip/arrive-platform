@@ -22,6 +22,7 @@ import { BlogListPage } from './views/BlogListPage';
 import { BlogPostPage } from './views/BlogPostPage';
 import { DirectoryPage } from './views/DirectoryPage';
 import { InfoPage } from './views/InfoPage';
+import { GalleryPage } from './views/GalleryPage';
 import { getBlogPostBySlug } from './data/blogData';
 import { INFO_PAGES } from './data/infoPagesData';
 
@@ -78,7 +79,8 @@ export const App = () => {
   const isBlogPostPage = route.type === 'blog_post';
   const isDirectoryPage = route.type === 'directory';
   const isInfoPage = route.type === 'info_page';
-  const isHomePage = !isVenuePage && !isVenuesListPage && !isConciergePage && !isBlogListPage && !isBlogPostPage && !isDirectoryPage && !isInfoPage;
+  const isGalleryPage = route.type === 'gallery';
+  const isHomePage = !isVenuePage && !isVenuesListPage && !isConciergePage && !isBlogListPage && !isBlogPostPage && !isDirectoryPage && !isInfoPage && !isGalleryPage;
 
   // Synchronize route state with head metadata
   useEffect(() => {
@@ -290,6 +292,23 @@ export const App = () => {
           { name: pageData.title, path: `/${locale}/${pageSlug}/` }
         ]
       });
+    } else if (isGalleryPage) {
+      updateHeadMetadata({
+        title: isEs
+          ? 'Galería de Fotos Exclusiva • Arrive Girls & Nightlife | ARRIVE Panamá'
+          : 'Girls & Nightlife Photo Gallery • High-Res Downloads | ARRIVE Panama',
+        description: isEs
+          ? 'Descarga fotos oficiales en alta resolución 4K de fiestas y eventos en Furia, Piano Bar, Terraplén y Casco Viejo. Galería exclusiva para modelos y chicas Arrive.'
+          : 'Download uncompressed 4K official photos from parties at Furia, Piano Bar, Terraplén and Casco Viejo. Exclusive gallery for Arrive models and guests.',
+        canonicalUrl: `${BASE_CANONICAL_URL}/${locale}/galeria/`,
+        pathname: `/${locale}/galeria/`,
+        locale,
+        ogType: 'website',
+        breadcrumbs: [
+          { name: isEs ? 'Inicio' : 'Home', path: `/${locale}/` },
+          { name: isEs ? 'Galería de Fotos' : 'Photo Gallery', path: `/${locale}/galeria/` }
+        ]
+      });
     } else if (activeHub) {
       // Hub landing metadata
       const hubData = activeHub[locale] || activeHub.es;
@@ -389,6 +408,10 @@ export const App = () => {
 
       {isInfoPage && (
         <InfoPage pageSlug={route.infoSlug || route.params?.infoSlug} locale={locale} />
+      )}
+
+      {isGalleryPage && (
+        <GalleryPage locale={locale} navigate={navigate} />
       )}
 
       {isHomePage && (

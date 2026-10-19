@@ -1,6 +1,6 @@
 import React from 'react';
 import { useApp } from '../context/AppContext';
-import { Crown, Ticket } from 'lucide-react';
+import { Crown, Ticket, Camera } from 'lucide-react';
 
 export const Navbar = ({ 
   onOpenMenu,
@@ -20,8 +20,9 @@ export const Navbar = ({
 
   const isVenuesActive = !isBookVipModalOpen && (route?.type === 'venue' || route?.type === 'venues_list');
   const isConciergeActive = !isBookVipModalOpen && (route?.type === 'concierge');
+  const isGalleryActive = !isBookVipModalOpen && (route?.type === 'gallery');
   const isBookVipActive = Boolean(isBookVipModalOpen);
-  const isTicketsActive = !isBookVipModalOpen && !isVenuesActive && !isConciergeActive;
+  const isTicketsActive = !isBookVipModalOpen && !isVenuesActive && !isConciergeActive && !isGalleryActive;
 
   const scrollToEvents = (e) => {
     e.preventDefault();
@@ -109,6 +110,28 @@ export const Navbar = ({
           className={`nav_links underline-trail w-inline-block ${isConciergeActive ? 'w--current active' : ''}`}
         >
           <p>{locale === 'es' ? 'SERVICIOS & CONCIERGE' : 'SERVICES & CONCIERGE'}</p>
+        </a>
+
+        <a 
+          href={`/${locale}/galeria/`}
+          className={`nav_links underline-trail w-inline-block nav_gallery_link ${isGalleryActive ? 'w--current active' : ''}`}
+          onClick={(e) => {
+            e.preventDefault();
+            if (navigate) {
+              navigate(`/${locale}/galeria/`);
+            } else {
+              window.history.pushState(null, '', `/${locale}/galeria/`);
+              window.dispatchEvent(new PopStateEvent('popstate'));
+            }
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          }}
+          title={locale === 'es' ? 'Descargar Fotos Chicas & Modelos en 4K' : 'Download Girls & Models 4K Photos'}
+        >
+          <div style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
+            <Camera size={13} color={isGalleryActive ? '#ff3b5c' : 'currentColor'} />
+            <p>{locale === 'es' ? 'FOTOS CHICAS' : 'GIRLS PHOTOS'}</p>
+            <span className="nav_gallery_badge">HD</span>
+          </div>
         </a>
 
         {/* 4. Book VIP Zone — de última en una burbuja dorada VIP */}

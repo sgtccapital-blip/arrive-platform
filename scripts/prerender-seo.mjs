@@ -2098,6 +2098,28 @@ export const prerenderAllPages = () => {
       });
     });
 
+    // 7.1 Gallery & Girls High-Res Photos
+    pagesToPrerender.push({
+      relPath: `${loc}/galeria/`,
+      title: isEs 
+        ? 'Galería de Fotos Exclusiva • Arrive Girls & Nightlife | ARRIVE Panamá' 
+        : 'Girls & Nightlife Photo Gallery • High-Res Downloads | ARRIVE Panama',
+      description: isEs 
+        ? 'Descarga fotos oficiales en alta resolución 4K de fiestas y eventos en Furia, Piano Bar, Terraplén y Casco Viejo. Galería exclusiva para modelos y chicas Arrive.' 
+        : 'Download uncompressed 4K official photos from parties at Furia, Piano Bar, Terraplén and Casco Viejo. Exclusive gallery for Arrive models and guests.',
+      h1: isEs ? 'Galería de Fotos • Arrive Girls' : 'Girls & Nightlife Photo Hub',
+      intro: isEs 
+        ? 'Encuentra y descarga todas las fotos de tus noches en Furia, Piano Bar, Terraplén y Cielo en máxima resolución. Sin marcas invasivas, 100% libre de compresión y listas para tus historias y posts de Instagram.' 
+        : 'Browse and download all photos from your nights at Furia, Piano Bar, Terraplén, and Cielo in ultra-high resolution. Free of heavy watermarks, uncompressed, and ready for your Instagram stories and feed.',
+      breadcrumbs: [{ name: isEs ? 'Inicio' : 'Home', url: `/${loc}/` }, { name: isEs ? 'Galería de Fotos' : 'Photo Gallery', url: `/${loc}/galeria/` }],
+      items: [
+        { title: isEs ? 'Furia Club • VIP Lounge & Arcángel Weekend' : 'Furia Club • VIP Lounge & Arcángel Weekend', url: `/${loc}/galeria/`, sub: '6 Fotos 4K' },
+        { title: isEs ? 'Red Carpet Photocall • Arrive Models' : 'Red Carpet Photocall • Arrive Models', url: `/${loc}/galeria/`, sub: '4 Fotos 4K' },
+        { title: isEs ? 'Terraplén • Rooftop Sunset & Boiler Sessions' : 'Terraplén • Rooftop Sunset & Boiler Sessions', url: `/${loc}/galeria/`, sub: '5 Fotos 4K' },
+        { title: isEs ? 'Piano Bar • Ladies Night & Reggaetón Society' : 'Piano Bar • Ladies Night & Reggaetón Society', url: `/${loc}/galeria/`, sub: '5 Fotos 4K' }
+      ]
+    });
+
     // 8. Directory / Site Index
     pagesToPrerender.push({
       relPath: `${loc}/directorio/`,

@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useApp } from '../context/AppContext';
-import { X, Settings, MessageCircle, Crown } from 'lucide-react';
+import { X, Settings, MessageCircle, Crown, Camera } from 'lucide-react';
 
 export const MenuDrawer = ({ isOpen, onClose, route }) => {
   const { 
@@ -13,10 +13,11 @@ export const MenuDrawer = ({ isOpen, onClose, route }) => {
 
   const isVenuesActive = !isBookVipModalOpen && (route?.type === 'venues_list' || route?.type === 'venue');
   const isConciergeActive = !isBookVipModalOpen && (route?.type === 'concierge');
+  const isGalleryActive = !isBookVipModalOpen && (route?.type === 'gallery');
   const isBlogActive = !isBookVipModalOpen && (route?.type === 'blog_list' || route?.type === 'blog_post');
   const isDirectoryActive = !isBookVipModalOpen && (route?.type === 'directory');
   const isBookVipActive = Boolean(isBookVipModalOpen);
-  const isTicketsActive = !isBookVipModalOpen && !isVenuesActive && !isConciergeActive && !isBlogActive && !isDirectoryActive && route?.type !== 'info_page';
+  const isTicketsActive = !isBookVipModalOpen && !isVenuesActive && !isConciergeActive && !isBlogActive && !isDirectoryActive && !isGalleryActive && route?.type !== 'info_page';
 
   // Close on ESC
   useEffect(() => {
@@ -106,7 +107,31 @@ export const MenuDrawer = ({ isOpen, onClose, route }) => {
               </span>
             </div>
 
-            {/* 3.1 Blog & VIP Guide */}
+            {/* 3.1 Descargar Fotos Chicas & Modelos */}
+            <div className="menu_item_row">
+              <a 
+                href={`/${activeLocale}/galeria/`} 
+                className={`menu_main_link ${isGalleryActive ? 'active w--current' : ''}`}
+                onClick={(e) => {
+                  e.preventDefault();
+                  onClose();
+                  window.history.pushState(null, '', `/${activeLocale}/galeria/`);
+                  window.dispatchEvent(new PopStateEvent('popstate'));
+                  window.scrollTo(0, 0);
+                }}
+              >
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <Camera size={19} color="#ff3b5c" />
+                  <span>{isEs ? 'DESCARGAR FOTOS' : 'DOWNLOAD PHOTOS'}</span>
+                  <span className="nav_gallery_badge" style={{ fontSize: '0.62rem', padding: '2px 6px' }}>4K VIP</span>
+                </div>
+              </a>
+              <span className="menu_sublink_desc">
+                {isEs ? 'Galería oficial de fiestas para chicas & modelos Arrive' : 'Official party photo hub for Arrive models & guests'}
+              </span>
+            </div>
+
+            {/* 3.2 Blog & VIP Guide */}
             <div className="menu_item_row">
               <a 
                 href={`/${activeLocale}/blog/`} 

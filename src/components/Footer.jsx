@@ -170,6 +170,14 @@ export const Footer = ({ locale = 'es', navigate }) => {
                 <span className="arrive_footer_new_badge">NEW</span>
               </a>
               <a 
+                href={`/${locale}/galeria/`} 
+                className="arrive_footer_nav_link"
+                onClick={(e) => handleLinkClick(e, `/${locale}/galeria/`)}
+              >
+                <span>{isEs ? 'FOTOS CHICAS' : 'GIRLS PHOTOS'}</span>
+                <span className="arrive_footer_new_badge" style={{ background: '#ff3b5c' }}>HD</span>
+              </a>
+              <a 
                 href={`/${locale}/explore/`} 
                 className="arrive_footer_nav_link arrive_footer_explore_link"
                 onClick={(e) => handleLinkClick(e, `/${locale}/explore/`)}
