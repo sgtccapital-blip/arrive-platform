@@ -15,7 +15,7 @@ export const AdminPanel = () => {
   const { 
     isAdminModalOpen, 
     setIsAdminModalOpen, 
-    events, 
+    allEvents: events, 
     benefits, 
     saveEvent, 
     deleteEvent, 
@@ -27,6 +27,8 @@ export const AdminPanel = () => {
   const [adminTab, setAdminTab] = useState('events'); // 'events' | 'benefits'
   const [editingEvent, setEditingEvent] = useState(null);
   const [editingBenefit, setEditingBenefit] = useState(null);
+
+  if (!isAdminModalOpen) return null;
 
   const [eventForm, setEventForm] = useState({
     title: '',
@@ -252,7 +254,7 @@ export const AdminPanel = () => {
                         }}
                       >
                         <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-                          <img 
+                          <img loading="lazy" decoding="async" 
                             src={evt.image} 
                             alt={evt.title} 
                             style={{ width: '48px', height: '48px', borderRadius: 'var(--radius-sm)', objectFit: 'cover' }}
@@ -473,7 +475,7 @@ export const AdminPanel = () => {
                         }}
                       >
                         <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-                          <img 
+                          <img loading="lazy" decoding="async" 
                             src={ben.image} 
                             alt={ben.partner} 
                             style={{ width: '48px', height: '48px', borderRadius: 'var(--radius-sm)', objectFit: 'cover' }}

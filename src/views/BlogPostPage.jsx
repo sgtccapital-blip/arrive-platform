@@ -54,7 +54,7 @@ export const BlogPostPage = ({ postSlug, locale = 'es' }) => {
 
             <div className="blog_post_meta_bar">
               <div className="blog_post_author_info">
-                <img 
+                <img loading="lazy" decoding="async" 
                   src={post.author.avatar} 
                   alt={post.author.name} 
                   className="blog_author_avatar"
@@ -87,7 +87,7 @@ export const BlogPostPage = ({ postSlug, locale = 'es' }) => {
 
       {/* Featured Cover Image */}
       <div className="blog_post_cover_wrapper">
-        <img 
+        <img loading="lazy" decoding="async" 
           src={post.coverImage} 
           alt={postData.title} 
           className="blog_post_cover_img"
@@ -148,7 +148,7 @@ export const BlogPostPage = ({ postSlug, locale = 'es' }) => {
                 const relData = rel[locale] || rel.es;
                 return (
                   <a key={rel.id} href={`/${locale}/blog/${rel.slug}/`} className="blog_related_card">
-                    <img src={rel.coverImage} alt={relData.title} className="blog_related_img" />
+                    <img loading="lazy" decoding="async" src={rel.coverImage} alt={relData.title} className="blog_related_img" />
                     <div>
                       <span className="blog_related_cat">{rel.category}</span>
                       <h4 className="blog_related_card_title">{relData.title}</h4>

@@ -141,7 +141,7 @@ export const VenuePage = ({ venueSlug, locale = 'es' }) => {
   const [activeTab, setActiveTab] = useState('info');
   const [activeMenuCat, setActiveMenuCat] = useState('entradas');
   const [activeLightboxIndex, setActiveLightboxIndex] = useState(null);
-  const [showFlashVideo, setShowFlashVideo] = useState(true);
+  const [showFlashVideo, setShowFlashVideo] = useState(false);
 
   // Resolve venue from slug
   useEffect(() => {
@@ -165,7 +165,11 @@ export const VenuePage = ({ venueSlug, locale = 'es' }) => {
   useEffect(() => {
     if (selectedVenue) {
       setActiveTab('info');
-      setShowFlashVideo(true);
+      // Auto-play the teaser only until it has been seen once per venue per
+      // browser session (marked on close); the "reel" chip still opens it.
+      let seen = false;
+      try { seen = sessionStorage.getItem(`arrive_flash_seen_${selectedVenue.id}`) === '1'; } catch {}
+      setShowFlashVideo(!seen);
       if (selectedVenue.menu) {
         const keys = Object.keys(selectedVenue.menu);
         if (keys.length > 0) setActiveMenuCat(keys[0]);
@@ -244,13 +248,16 @@ export const VenuePage = ({ venueSlug, locale = 'es' }) => {
         <VenueFlashPreview 
           venue={selectedVenue} 
           locale={locale} 
-          onClose={() => setShowFlashVideo(false)} 
+          onClose={() => {
+            try { sessionStorage.setItem(`arrive_flash_seen_${selectedVenue.id}`, '1'); } catch {}
+            setShowFlashVideo(false);
+          }} 
         />
       )}
 
       {/* ── HERO BANNER ── */}
       <header className="venue_page_hero">
-        <img 
+        <img loading="lazy" decoding="async" 
           src={selectedVenue.coverImage} 
           alt={`${selectedVenue.name} — ${selectedVenue.category} en ${selectedVenue.area}, Panamá`}
           className="venue_page_hero_img"
@@ -763,7 +770,7 @@ export const VenuePage = ({ venueSlug, locale = 'es' }) => {
                 {venueEvents.map((evt) => (
                   <div key={evt.id} className="venue_event_card">
                     <div className="venue_event_thumb_wrap">
-                      <img src={evt.image} alt={evt.title} className="venue_event_thumb" />
+                      <img loading="lazy" decoding="async" src={evt.image} alt={evt.title} className="venue_event_thumb" />
                       <span className="venue_event_date_badge">{evt.dateFormatted}</span>
                     </div>
                     <div className="venue_event_content">
@@ -828,7 +835,7 @@ export const VenuePage = ({ venueSlug, locale = 'es' }) => {
               onClick={() => setActiveLightboxIndex((prev) => prev < selectedVenue.gallery.length - 1 ? prev + 1 : 0)}
               title={locale === 'es' ? "Clic para ver la siguiente imagen" : "Click to view next image"} style={{ cursor: 'pointer' }}
             >
-              <img src={selectedVenue.gallery[activeLightboxIndex].url} alt={selectedVenue.gallery[activeLightboxIndex].title} className="lightbox_img"
+              <img loading="lazy" decoding="async" src={selectedVenue.gallery[activeLightboxIndex].url} alt={selectedVenue.gallery[activeLightboxIndex].title} className="lightbox_img"
                 onError={(e) => { e.currentTarget.src = 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=1200&auto=format&fit=crop&q=80'; }}
               />
             </div>

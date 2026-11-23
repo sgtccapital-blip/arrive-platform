@@ -262,7 +262,7 @@ export const GalleryPage = ({ locale = 'es', navigate }) => {
               <div className="hero_title_row">
                 <img 
                   loading="eager" 
-                  fetchPriority="high"
+                  fetchpriority="high"
                   src="/images/gifs/Discoball.gif" 
                   alt="Disco Ball Arrive Left" 
                   className="heart_title_flame left hero_gif_discoball" 
@@ -274,7 +274,7 @@ export const GalleryPage = ({ locale = 'es', navigate }) => {
                 </h1>
                 <img 
                   loading="eager" 
-                  fetchPriority="high"
+                  fetchpriority="high"
                   src="/images/gifs/Discoball.gif" 
                   alt="Disco Ball Arrive Right" 
                   className="heart_title_flame right hero_gif_discoball" 
@@ -765,7 +765,7 @@ export const GalleryPage = ({ locale = 'es', navigate }) => {
             onClick={(e) => e.stopPropagation()}
             onDoubleClick={() => setIsZoomed(prev => !prev)}
           >
-            <img 
+            <img loading="lazy" decoding="async" 
               src={activePhoto.image} 
               alt={activePhoto.title[locale] || activePhoto.title.es}
               className="gallery_lightbox_img"

@@ -34,7 +34,7 @@ export const BlogListPage = ({ locale = 'es' }) => {
               <div className="hero_title_row">
                 <img 
                   loading="eager" 
-                  fetchPriority="high"
+                  fetchpriority="high"
                   src="/images/heart.gif" 
                   alt="Corazón Arrive Izquierda" 
                   className="heart_title_flame left" 
@@ -46,7 +46,7 @@ export const BlogListPage = ({ locale = 'es' }) => {
                 </h1>
                 <img 
                   loading="eager" 
-                  fetchPriority="high"
+                  fetchpriority="high"
                   src="/images/heart.gif" 
                   alt="Corazón Arrive Derecha" 
                   className="heart_title_flame right" 
@@ -134,7 +134,7 @@ export const BlogListPage = ({ locale = 'es' }) => {
 
                     <div className="blog_card_footer">
                       <div className="blog_card_author">
-                        <img 
+                        <img loading="lazy" decoding="async" 
                           src={post.author.avatar} 
                           alt={post.author.name} 
                           className="blog_author_avatar"

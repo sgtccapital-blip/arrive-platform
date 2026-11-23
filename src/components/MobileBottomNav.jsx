@@ -20,8 +20,19 @@ export const MobileBottomNav = ({
   const isBookVipActive = Boolean(isBookVipModalOpen);
   const isTicketsActive = !isBookVipModalOpen && !isVenuesActive && !isConciergeActive;
 
+  const triggerHaptic = () => {
+    try {
+      if (typeof navigator !== 'undefined' && navigator.vibrate) {
+        navigator.vibrate(12);
+      }
+    } catch {
+      // ignore
+    }
+  };
+
   const handleNavClick = (path, e) => {
     if (e) e.preventDefault();
+    triggerHaptic();
     if (navigate) {
       navigate(path);
     } else {
@@ -33,6 +44,7 @@ export const MobileBottomNav = ({
 
   const handleEventsClick = (e) => {
     e.preventDefault();
+    triggerHaptic();
     const isAlreadyOnHome = route?.type === 'home' || route?.type === 'hub' || route?.type === 'temporal_hub';
     if (isAlreadyOnHome) {
       const el = document.getElementById('events-section') || document.getElementById('all-events');
@@ -48,6 +60,7 @@ export const MobileBottomNav = ({
 
   const handleBookVipClick = (e) => {
     e.preventDefault();
+    triggerHaptic();
     setIsBookVipModalOpen(true);
   };
 

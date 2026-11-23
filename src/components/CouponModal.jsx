@@ -45,7 +45,7 @@ export const CouponModal = () => {
         </button>
 
         <div style={{ position: 'relative', height: '200px', overflow: 'hidden' }}>
-          <img 
+          <img loading="lazy" decoding="async" 
             src={selectedBenefit.image} 
             alt={selectedBenefit.partner} 
             className="modal-hero-image"

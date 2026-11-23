@@ -6,6 +6,9 @@
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { INITIAL_EVENTS } from '../src/data/initialData.js';
+import { INITIAL_VENUES } from '../src/data/venuesData.js';
+import { BLOG_POSTS } from '../src/data/blogData.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT_DIR = path.resolve(__dirname, '..');
@@ -50,34 +53,14 @@ const CORE_HUBS = [
 ];
 
 // Slugs for canonical venues
-const VENUE_SLUGS = [
-  'furia-club',
-  'piano-bar',
-  'terraplen-rooftop',
-  'la-rosalia',
-  'primavera-panama',
-  'primavera-rooftop',
-  'cielo-rooftop'
-];
+const VENUE_SLUGS = INITIAL_VENUES.map(v => v.slug).filter(Boolean);
 
 // Slugs for canonical events
-const EVENT_SLUGS = [
-  'furia-midweek-boiler-style',
-  'furia-on-campus-reloaded-pre-party-arcangel',
-  'terraplen-rooftop-hip-hop-reggaeton',
-  'piano-bar-piano-ladies-night-jueves',
-  'furia-house-viernes-18-septiembre',
-  'terraplen-rooftop-reggaeton-viejito',
-  'terraplen-piso-002-reggaeton-sinfonico',
-  'la-rosalia-after-party-concierto-donaty',
-  'piano-bar-reggaeton-del-viejito-party-viernes',
-  'furia-mansion-reggaeton-jorge-pascual',
-  'terraplen-piso-002-red-room-party-k4g',
-  'terraplen-rooftop-sabado-skyline-party',
-  'la-rosalia-la-connect-party-sabado',
-  'piano-bar-the-reggaeton-society-sabado',
-  'terraplen-rooftop-tardeo-party-domingo'
-];
+// Read from the app's data so the sitemap always matches the live cartelera.
+// Slugs with spaces or other unsafe characters are skipped (they'd be broken URLs).
+const EVENT_SLUGS = INITIAL_EVENTS
+  .filter(e => e.indexable !== false && /^[a-z0-9-]+$/.test(e.slug || ''))
+  .map(e => e.slug);
 
 // Slugs for restaurant dining
 const RESTAURANT_SLUGS = [
@@ -85,17 +68,11 @@ const RESTAURANT_SLUGS = [
   'piano-bar',
   'terraplen-rooftop',
   'primavera-panama',
-  'primavera-rooftop',
   'cielo-rooftop'
-];
+].filter(slug => VENUE_SLUGS.includes(slug));
 
 // Slugs for blog articles
-const BLOG_SLUGS = [
-  'guia-nightlife-casco-antiguo-panama',
-  'como-reservar-mesa-vip-bottle-service-panama',
-  'mejores-rooftops-vista-al-mar-panama',
-  'dress-code-discotecas-clubs-panama'
-];
+const BLOG_SLUGS = BLOG_POSTS.map(p => p.slug);
 
 const buildUrlXml = ({ path, priority = '0.8', changefreq = 'weekly' }) => {
   const esUrl = `${BASE_URL}/es/${path}`;

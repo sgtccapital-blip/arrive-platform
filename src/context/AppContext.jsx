@@ -4,7 +4,7 @@ import { INITIAL_VENUES } from '../data/venuesData';
 import { t as translateHelper } from '../data/translations';
 
 const AppContext = createContext();
-const DATA_VERSION = "arrive_v20_furia_video_preview";
+const DATA_VERSION = "arrive_v21_nov_official_catalog";
 
 export const AppProvider = ({ children }) => {
   // Load saved state or fall back to initialData with versioning
@@ -19,8 +19,7 @@ export const AppProvider = ({ children }) => {
       const saved = localStorage.getItem('arrive_events');
       if (saved) {
         const parsed = JSON.parse(saved);
-        const filtered = parsed.filter(e => e.id !== 'evt-furia-tini-martes' && e.slug !== 'furia-tini-after-party');
-        return filtered.length > 0 ? filtered : INITIAL_EVENTS;
+        return parsed.length > 0 ? parsed : INITIAL_EVENTS;
       }
       return INITIAL_EVENTS;
     } catch {
@@ -238,8 +237,22 @@ export const AppProvider = ({ children }) => {
     showToast('Beneficio eliminado.', 'info');
   };
 
+  // Hide events that already ended (eventDate + 8h covers late-night parties).
+  // Re-evaluated every 10 minutes so an open tab doesn't keep stale events.
+  const [now, setNow] = useState(() => Date.now());
+  useEffect(() => {
+    const id = setInterval(() => setNow(Date.now()), 10 * 60 * 1000);
+    return () => clearInterval(id);
+  }, []);
+  const EVENT_GRACE_MS = 8 * 60 * 60 * 1000;
+  const upcomingEvents = events.filter(evt => {
+    if (!evt.eventDate) return true;
+    const start = new Date(evt.eventDate).getTime();
+    return Number.isNaN(start) || start + EVENT_GRACE_MS > now;
+  });
+
   // Filtered events
-  const filteredEvents = events.filter(evt => {
+  const filteredEvents = upcomingEvents.filter(evt => {
     if (selectedCity !== 'all') {
       const cityClean = selectedCity.replace(/-/g, ' ').toLowerCase();
       const locClean = evt.location.toLowerCase();
@@ -282,7 +295,8 @@ export const AppProvider = ({ children }) => {
       locale,
       setLocale,
       t,
-      events,
+      events: upcomingEvents,
+      allEvents: events,
       benefits,
       myPasses,
       claimedBenefits,

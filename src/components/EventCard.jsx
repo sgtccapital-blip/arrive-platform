@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useApp } from '../context/AppContext';
-import { Wine, MapPin, QrCode } from 'lucide-react';
+import { Wine, MapPin, QrCode, Share2 } from 'lucide-react';
 
 const InstagramIcon = ({ size = 13, color = 'currentColor' }) => (
   <svg 
@@ -93,7 +93,27 @@ export const EventCard = ({ event }) => {
     window.open(igUrl, '_blank', 'noopener,noreferrer');
   };
 
-  // Format date accurately for all days of the week
+  const handleShare = async (e) => {
+    e.stopPropagation();
+    const shareUrl = `${window.location.origin}/${activeLocale}/events/${event.slug || 'event'}/`;
+    const shareData = {
+      title: `${event.title} • ${cleanVenueName}`,
+      text: `${event.title} en ${cleanVenueName} | Beneficios y entradas en ARRIVE:`,
+      url: shareUrl
+    };
+    if (navigator.share) {
+      try {
+        await navigator.share(shareData);
+      } catch (err) {
+        // user cancelled or share failed
+      }
+    } else {
+      navigator.clipboard.writeText(shareUrl);
+      alert(isEs ? '¡Enlace copiado al portapapeles!' : 'Link copied to clipboard!');
+    }
+  };
+
+  // Format date accurately for all days of the week & dynamic month
   const getDayShort = (day) => {
     const d = normalizeText(day);
     if (d.includes('mar')) return isEs ? 'Mar' : 'Tue';
@@ -104,10 +124,29 @@ export const EventCard = ({ event }) => {
     if (d.includes('dom')) return isEs ? 'Dom' : 'Sun';
     return isEs ? 'Vie' : 'Fri';
   };
+
+  const getMonthShort = (str) => {
+    const s = normalizeText(str);
+    if (s.includes('nov')) return isEs ? 'Nov' : 'Nov';
+    if (s.includes('dic')) return isEs ? 'Dic' : 'Dec';
+    if (s.includes('ene')) return isEs ? 'Ene' : 'Jan';
+    if (s.includes('feb')) return isEs ? 'Feb' : 'Feb';
+    if (s.includes('mar')) return isEs ? 'Mar' : 'Mar';
+    if (s.includes('abr')) return isEs ? 'Abr' : 'Apr';
+    if (s.includes('may')) return isEs ? 'May' : 'May';
+    if (s.includes('jun')) return isEs ? 'Jun' : 'Jun';
+    if (s.includes('jul')) return isEs ? 'Jul' : 'Jul';
+    if (s.includes('ago')) return isEs ? 'Ago' : 'Aug';
+    if (s.includes('sep')) return isEs ? 'Sep' : 'Sep';
+    if (s.includes('oct')) return isEs ? 'Oct' : 'Oct';
+    return isEs ? 'Nov' : 'Nov';
+  };
+
   const dayShort = getDayShort(event.dayOfWeek || event.date);
   const dayMatch = (event.date || '').match(/\b(\d{1,2})\b/);
-  const dayNum = dayMatch ? dayMatch[1] : (event.date ? (event.date.split(' ')[1] || '16') : '16');
-  const dateStr = isEs ? `${dayShort}, ${dayNum} Sep 2026` : `${dayShort}, Sep ${dayNum}, 2026`;
+  const dayNum = dayMatch ? dayMatch[1] : (event.date ? (event.date.split(' ')[1] || '18') : '18');
+  const monthShort = getMonthShort(event.date || event.eventDate || 'Nov');
+  const dateStr = isEs ? `${dayShort}, ${dayNum} ${monthShort} 2026` : `${dayShort}, ${monthShort} ${dayNum}, 2026`;
 
   return (
     <article 
@@ -123,10 +162,11 @@ export const EventCard = ({ event }) => {
             alt={event.imageAlt || `${event.title} en ${cleanVenueName}, Ciudad de Panamá`} 
             className="event_image"
             loading="lazy"
+            decoding="async"
             width="320"
             height="320"
           />
-          {/* After Party 8AM Alert Badge for La Rosalía */}
+          {/* After Party Alert Badge for La Rosalía */}
           {Boolean(
             normalizeText(cleanVenueName).includes('rosalia') || 
             normalizeText(event.location).includes('rosalia') ||
@@ -137,186 +177,45 @@ export const EventCard = ({ event }) => {
               <span>AFTER PARTY HASTA LAS 8:00 AM</span>
             </div>
           )}
-          {/* Selling Fast Badge: only on Tuesday's event as requested */}
+          {/* Selling Fast Badge */}
           {Boolean(
-            event.dayOfWeek === 'Martes' || 
-            (event.date && event.date.toLowerCase().includes('martes')) ||
-            event.id?.includes('martes')
+            event.spotsLeft && event.spotsLeft <= 10 && event.spotsLeft > 0
           ) && (
-            <div className="selling-fast">{isEs ? '🔥 CASI AGOTADO' : '🔥 SELLING FAST'}</div>
+            <div className="selling-fast">{isEs ? `🔥 ÚLTIMOS ${event.spotsLeft} CUPOS` : `🔥 ONLY ${event.spotsLeft} SPOTS`}</div>
           )}
         </div>
 
-        {/* Content Box with Refined Margins */}
+        {/* Clean Pacha-Style Content Hierarchy */}
         <div className="event_content">
-          {/* Header Row: Date on the left, small Venue Link on the right */}
-          <div className="event_meta_header">
-            <span className="event_date">{dateStr}</span>
+          {/* 1. Date (clean minimalist grey, like Pacha Icons) */}
+          <p className="para_16px light_grey event_card_date">{dateStr}</p>
 
-            {/* Small Venue Link (Hover for Express Venue Profile, Click for Venue Profile in Platform) */}
-            <a 
-              href={`/${activeLocale}/venues/${matchedVenue?.slug || 'furia-club'}/`}
-              className="venue_inline_link"
-              onMouseEnter={() => setShowMapPreview(true)}
-              onMouseLeave={() => setShowMapPreview(false)}
-              onClick={(e) => {
-                e.stopPropagation();
-                openVenueDetail(matchedVenue?.id || 'venue-furia');
-              }}
-              title={isEs ? `Ver perfil, Google Maps y menú de ${cleanVenueName}` : `View profile, Google Maps and menu of ${cleanVenueName}`}
-              style={{ textDecoration: 'none', color: 'inherit' }}
-            >
-              <MapPin size={11} color="#ff3b5c" style={{ flexShrink: 0 }} />
-              <span className="venue_inline_text">{cleanVenueName}</span>
-
-              {/* Floating Express Venue Profile on Hover with Google Maps & Photos */}
-              {showMapPreview && matchedVenue && (
-                <div 
-                  className="venue_express_popover"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    openVenueDetail(matchedVenue.id);
-                  }}
-                >
-                  {/* Top Bar: Badges & Venue Name */}
-                  <div className="venue_express_header">
-                    <div className="venue_express_badges_row">
-                      <span className="venue_express_cat_badge">{matchedVenue.category || 'Nightlife & Dining'}</span>
-                      <span className="venue_express_area_badge">
-                        <MapPin size={9} /> {matchedVenue.area || 'Panamá'}
-                      </span>
-                    </div>
-                    <h4 className="venue_express_name">{matchedVenue.name}</h4>
-                  </div>
-
-                  {/* Real Google Maps Embed with Pin */}
-                  <div className="venue_express_map_container">
-                    <iframe
-                      title={`Ubicación de ${matchedVenue.name} en Google Maps`}
-                      src={matchedVenue.googleMapsEmbedUrl || `https://maps.google.com/maps?q=${encodeURIComponent(matchedVenue.googleMapsQuery || (matchedVenue.name + ', ' + (matchedVenue.address || 'Panamá')))}&t=&z=15&ie=UTF8&iwloc=&output=embed`}
-                      className="venue_express_map_iframe"
-                      loading="lazy"
-                    />
-                    <a
-                      href={matchedVenue.googleMapsUrl || `https://maps.google.com/?q=${encodeURIComponent(matchedVenue.name + ' Panama')}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="venue_express_maps_app_badge"
-                      onClick={(e) => e.stopPropagation()}
-                      title="Abrir en app de Google Maps"
-                    >
-                      <MapPin size={10} color="#ff3b5c" />
-                      <span>Google Maps ↗</span>
-                    </a>
-                  </div>
-
-                  {/* Photos Strip (Gallery Thumbnails) */}
-                  {matchedVenue.gallery && matchedVenue.gallery.length > 0 && (
-                    <div className="venue_express_gallery_strip">
-                      <div className="venue_express_gallery_label">
-                        <span>{isEs ? 'FOTOS DEL VENUE' : 'VENUE PHOTOS'}</span>
-                        <span className="venue_express_gallery_count">{matchedVenue.gallery.length} {isEs ? 'fotos' : 'photos'}</span>
-                      </div>
-                      <div className="venue_express_thumbs_grid">
-                        {matchedVenue.gallery.slice(0, 3).map((item, idx) => (
-                          <div key={idx} className="venue_express_thumb_box">
-                            <img 
-                              src={item.url} 
-                              alt={item.title || `${matchedVenue.name} foto`}
-                              className="venue_express_thumb_img"
-                              loading="lazy"
-                              onError={(e) => {
-                                e.currentTarget.src = matchedVenue.coverImage || '/images/venues/furia/cover.jpg';
-                              }}
-                            />
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-
-                  {/* Info Express Rows */}
-                  <div className="venue_express_info_block">
-                    <div className="venue_express_info_item">
-                      <span className="venue_express_icon">📍</span>
-                      <span className="venue_express_text">{matchedVenue.address || 'Ciudad de Panamá'}</span>
-                    </div>
-                    {matchedVenue.partyTime && (
-                      <div className="venue_express_info_item">
-                        <span className="venue_express_icon">⏰</span>
-                        <span className="venue_express_text">{isEs ? 'Fiesta:' : 'Party:'} {matchedVenue.partyTime}</span>
-                      </div>
-                    )}
-                    {matchedVenue.dressCode && (
-                      <div className="venue_express_info_item">
-                        <span className="venue_express_icon">👔</span>
-                        <span className="venue_express_text">Dress Code: {matchedVenue.dressCode}</span>
-                      </div>
-                    )}
-                  </div>
-
-                  {/* Bottom Action: Direct to Venue Page */}
-                  <div className="venue_express_action_footer">
-                    <span className="venue_express_action_text">{isEs ? 'VER PERFIL & RESERVAS' : 'VIEW PROFILE & BOOKINGS'}</span>
-                    <span className="venue_express_action_arrow">→</span>
-                  </div>
-                </div>
-              )}
-            </a>
+          {/* 2. Main Title */}
+          <div className="heading_date_wrapper">
+            <h2 className="para_24px is_caps name">
+              <a 
+                href={`/${activeLocale}/events/${event.slug || 'event'}/`}
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleOpenDetail(e);
+                }}
+                style={{ color: 'inherit', textDecoration: 'none' }}
+              >
+                {event.title}
+              </a>
+            </h2>
           </div>
 
-          {/* Event Title */}
-          <h2 className="para_24px is_caps name">
-            <a 
-              href={`/${activeLocale}/events/${event.slug || 'event'}/`}
-              onClick={(e) => {
-                e.preventDefault();
-                handleOpenDetail(e);
-              }}
-              style={{ color: 'inherit', textDecoration: 'none' }}
-            >
-              {event.title}
-            </a>
-          </h2>
-
-          {/* Schedules: Show, Dinner, Party, or After Party */}
-          <div className="event_schedule_block">
-            {event.showTime && (
-              <div className="schedule_line">
-                <span className="schedule_label show" style={{ color: '#00f2fe', fontWeight: 800 }}>{isEs ? 'SHOW:' : 'SHOW:'}</span>
-                <span className="schedule_time">{event.showTime}</span>
-              </div>
-            )}
-            {event.dinnerTime && (
-              <div className="schedule_line">
-                <span className="schedule_label">{isEs ? 'CENA:' : 'DINNER:'}</span>
-                <span className="schedule_time">{event.dinnerTime}</span>
-              </div>
-            )}
-            <div className="schedule_line">
-              <span className="schedule_label party">{isEs ? 'FIESTA:' : 'PARTY:'}</span>
-              <span className="schedule_time">{event.partyTime || '10:00 PM - 04:00 AM'}</span>
-            </div>
-            {event.afterPartyTime && (
-              <div className="schedule_line">
-                <span className="schedule_label after" style={{ color: '#ffb703', fontWeight: 800 }}>{isEs ? 'AFTER PARTY:' : 'AFTER PARTY:'}</span>
-                <span className="schedule_time">{event.afterPartyTime}</span>
-              </div>
-            )}
-          </div>
-
-          {/* Bottom Pinned Section: Lineup + Perk (always at same position) */}
-          <div className="event_card_bottom_pinned">
-            {/* Lineup */}
+          {/* 3. Lineup */}
+          {event.artists && event.artists.length > 0 && (
             <p className="para_16px lineup">
-              {event.artists && event.artists.length > 0
-                ? `LINEUP: ${event.artists.map(a => a.shortName || a.name).join(', ')}`
-                : '\u00A0'
-              }
+              LINEUP : {event.artists.map(a => a.shortName || a.name).join(', ')}
             </p>
+          )}
 
-            {/* Weekly Courtesy Benefit Badge (Signature Red) */}
-            {event.perkHeadline && (
+          {/* 4. Bottom Pinned: Courtesy Perk Badge (Clean signature) */}
+          {event.perkHeadline && (
+            <div className="event_card_bottom_pinned">
               <div className="perk_badge_red">
                 <span className="perk_icon_wrap">
                   <Wine size={12} color="#ff3b5c" className="perk_icon" />
@@ -325,26 +224,53 @@ export const EventCard = ({ event }) => {
                   {event.perkHeadline.replace(/^[\s\p{Extended_Pictographic}\p{Emoji_Component}\u200d\uFE0F\u200E]+/gu, '').trim()}
                 </span>
               </div>
-            )}
-          </div>
+            </div>
+          )}
         </div>
       </div>
 
-      {/* Action Buttons: Adjusted Sleek Heights */}
-      <div className="card_buttons_wrapper">
+      {/* 5. Location Tag (Pacha Icons style: clean full-width uppercase venue bar) */}
+      <div className="location_tag">
         <a 
-          href={`/${activeLocale}/events/${event.slug || 'event'}/`}
-          className="general w-inline-block"
+          href={`/${activeLocale}/venues/${matchedVenue?.slug || 'furia-club'}/`}
           onClick={(e) => {
-            e.preventDefault();
-            handleOpenDetail(e);
+            e.stopPropagation();
+            openVenueDetail(matchedVenue?.id || 'venue-furia');
           }}
-          aria-label={isEs ? `Tickets y pase QR para ${event.title}` : `Tickets and QR pass for ${event.title}`}
-          style={{ textDecoration: 'none' }}
+          className="location_tag_link"
         >
-          <QrCode size={13} color="#ffffff" style={{ flexShrink: 0, opacity: 0.9 }} />
-          <span>{isEs ? 'ENTRADAS / QR' : 'TICKETS / QR'}</span>
+          <MapPin size={11} color="#c10230" style={{ flexShrink: 0 }} />
+          <span>{cleanVenueName}, PANAMÁ</span>
         </a>
+      </div>
+
+      {/* 6. Action Buttons */}
+      <div className="card_buttons_wrapper">
+        <div style={{ display: 'flex', gap: '0.45rem', width: '100%' }}>
+          <a 
+            href={`/${activeLocale}/events/${event.slug || 'event'}/`}
+            className="general w-inline-block"
+            onClick={(e) => {
+              e.preventDefault();
+              handleOpenDetail(e);
+            }}
+            aria-label={isEs ? `Tickets y pase QR para ${event.title}` : `Tickets and QR pass for ${event.title}`}
+            style={{ textDecoration: 'none', flex: 1 }}
+          >
+            <QrCode size={13} color="#ffffff" style={{ flexShrink: 0, opacity: 0.9 }} />
+            <span>{isEs ? 'ENTRADAS / QR' : 'TICKETS / QR'}</span>
+          </a>
+
+          <button
+            type="button"
+            className="general general_icon w-inline-block"
+            onClick={handleShare}
+            aria-label={isEs ? 'Compartir evento' : 'Share event'}
+            title={isEs ? 'Compartir evento' : 'Share event'}
+          >
+            <Share2 size={14} color="#ffffff" />
+          </button>
+        </div>
 
         <button 
           type="button"

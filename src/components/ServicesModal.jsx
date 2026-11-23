@@ -86,7 +86,7 @@ export const ServicesModal = () => {
             <>
               {/* Header */}
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.5rem' }}>
-                <Sparkles size={24} color="var(--accent-lime)" />
+                <Sparkles size={24} color="var(--accent-red)" />
                 <h2 style={{ fontSize: '1.65rem', fontWeight: '900', color: '#fff', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
                   ARRIVE CONCIERGE & VIP SERVICES
                 </h2>
@@ -112,13 +112,13 @@ export const ServicesModal = () => {
                     padding: '1rem 0.85rem',
                     borderRadius: 'var(--radius-md)',
                     background: selectedCategory === 'restaurants' ? 'rgba(163, 230, 53, 0.1)' : 'rgba(255, 255, 255, 0.03)',
-                    border: '1px solid ' + (selectedCategory === 'restaurants' ? 'var(--accent-lime)' : 'rgba(255, 255, 255, 0.08)'),
+                    border: '1px solid ' + (selectedCategory === 'restaurants' ? 'var(--accent-red)' : 'rgba(255, 255, 255, 0.08)'),
                     textAlign: 'left',
                     cursor: 'pointer',
                     transition: 'all var(--transition-fast)'
                   }}
                 >
-                  <Utensils size={20} color={selectedCategory === 'restaurants' ? 'var(--accent-lime)' : '#ffffff'} />
+                  <Utensils size={20} color={selectedCategory === 'restaurants' ? 'var(--accent-red)' : '#ffffff'} />
                   <div style={{ fontWeight: '800', color: '#fff', fontSize: '0.88rem', marginTop: '0.5rem' }}>
                     Restaurantes
                   </div>
@@ -137,13 +137,13 @@ export const ServicesModal = () => {
                     padding: '1rem 0.85rem',
                     borderRadius: 'var(--radius-md)',
                     background: selectedCategory === 'transport' ? 'rgba(163, 230, 53, 0.1)' : 'rgba(255, 255, 255, 0.03)',
-                    border: '1px solid ' + (selectedCategory === 'transport' ? 'var(--accent-lime)' : 'rgba(255, 255, 255, 0.08)'),
+                    border: '1px solid ' + (selectedCategory === 'transport' ? 'var(--accent-red)' : 'rgba(255, 255, 255, 0.08)'),
                     textAlign: 'left',
                     cursor: 'pointer',
                     transition: 'all var(--transition-fast)'
                   }}
                 >
-                  <Car size={20} color={selectedCategory === 'transport' ? 'var(--accent-lime)' : '#ffffff'} />
+                  <Car size={20} color={selectedCategory === 'transport' ? 'var(--accent-red)' : '#ffffff'} />
                   <div style={{ fontWeight: '800', color: '#fff', fontSize: '0.88rem', marginTop: '0.5rem' }}>
                     Transporte VIP
                   </div>
@@ -162,13 +162,13 @@ export const ServicesModal = () => {
                     padding: '1rem 0.85rem',
                     borderRadius: 'var(--radius-md)',
                     background: selectedCategory === 'yachts' ? 'rgba(163, 230, 53, 0.1)' : 'rgba(255, 255, 255, 0.03)',
-                    border: '1px solid ' + (selectedCategory === 'yachts' ? 'var(--accent-lime)' : 'rgba(255, 255, 255, 0.08)'),
+                    border: '1px solid ' + (selectedCategory === 'yachts' ? 'var(--accent-red)' : 'rgba(255, 255, 255, 0.08)'),
                     textAlign: 'left',
                     cursor: 'pointer',
                     transition: 'all var(--transition-fast)'
                   }}
                 >
-                  <Compass size={20} color={selectedCategory === 'yachts' ? 'var(--accent-lime)' : '#ffffff'} />
+                  <Compass size={20} color={selectedCategory === 'yachts' ? 'var(--accent-red)' : '#ffffff'} />
                   <div style={{ fontWeight: '800', color: '#fff', fontSize: '0.88rem', marginTop: '0.5rem' }}>
                     Yates & Mar
                   </div>
@@ -187,13 +187,13 @@ export const ServicesModal = () => {
                     padding: '1rem 0.85rem',
                     borderRadius: 'var(--radius-md)',
                     background: selectedCategory === 'villas' ? 'rgba(163, 230, 53, 0.1)' : 'rgba(255, 255, 255, 0.03)',
-                    border: '1px solid ' + (selectedCategory === 'villas' ? 'var(--accent-lime)' : 'rgba(255, 255, 255, 0.08)'),
+                    border: '1px solid ' + (selectedCategory === 'villas' ? 'var(--accent-red)' : 'rgba(255, 255, 255, 0.08)'),
                     textAlign: 'left',
                     cursor: 'pointer',
                     transition: 'all var(--transition-fast)'
                   }}
                 >
-                  <Building2 size={20} color={selectedCategory === 'villas' ? 'var(--accent-lime)' : '#ffffff'} />
+                  <Building2 size={20} color={selectedCategory === 'villas' ? 'var(--accent-red)' : '#ffffff'} />
                   <div style={{ fontWeight: '800', color: '#fff', fontSize: '0.88rem', marginTop: '0.5rem' }}>
                     Penthouses
                   </div>
@@ -217,7 +217,7 @@ export const ServicesModal = () => {
                       <h4 style={{ fontSize: '0.9rem', fontWeight: '800', color: '#fff', margin: 0, display: 'flex', alignItems: 'center', gap: '6px' }}>
                         <span>🍽️ Reservas en Restaurantes de la Plataforma</span>
                       </h4>
-                      <span style={{ fontSize: '0.68rem', color: 'var(--accent-lime)', fontWeight: '800', padding: '2px 8px', borderRadius: '4px', background: 'rgba(163, 230, 53, 0.1)', border: '1px solid rgba(163, 230, 53, 0.25)' }}>
+                      <span style={{ fontSize: '0.68rem', color: 'var(--accent-red)', fontWeight: '800', padding: '2px 8px', borderRadius: '4px', background: 'rgba(163, 230, 53, 0.1)', border: '1px solid rgba(163, 230, 53, 0.25)' }}>
                         {venues ? venues.length : 5} Venues Oficiales
                       </span>
                     </div>
@@ -242,7 +242,7 @@ export const ServicesModal = () => {
                             }}
                           >
                             <div className="concierge_restaurant_img_wrap">
-                              <img 
+                              <img loading="lazy" decoding="async" 
                                 src={venue.coverImage} 
                                 alt={venue.name} 
                                 className="concierge_restaurant_img"
@@ -462,7 +462,7 @@ export const ServicesModal = () => {
                     onClick={() => openWhatsAppConcierge()}
                     style={{ justifyContent: 'center', gap: '0.5rem', padding: '1rem 1.25rem' }}
                   >
-                    <MessageCircle size={16} color="var(--accent-lime)" />
+                    <MessageCircle size={16} color="var(--accent-red)" />
                     <span>Chat WhatsApp</span>
                   </button>
                 </div>
@@ -476,12 +476,12 @@ export const ServicesModal = () => {
                 height: '65px',
                 borderRadius: '50%',
                 background: 'rgba(163, 230, 53, 0.1)',
-                border: '2px solid var(--accent-lime)',
+                border: '2px solid var(--accent-red)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
                 margin: '0 auto 1.5rem',
-                color: 'var(--accent-lime)'
+                color: 'var(--accent-red)'
               }}>
                 <CheckCircle2 size={32} />
               </div>

@@ -40,7 +40,7 @@ import { VENUES_FAQS, CONCIERGE_FAQS } from './data/faqData';
 
 export const App = () => {
   const { 
-    events, 
+    allEvents: events, 
     venues,
     filteredEvents, 
     notification,

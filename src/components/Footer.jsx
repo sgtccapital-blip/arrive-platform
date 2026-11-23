@@ -74,7 +74,7 @@ export const Footer = ({ locale = 'es', navigate }) => {
                 title="ARRIVE Home"
                 onClick={(e) => handleLinkClick(e, `/${locale}/`)}
               >
-                <img 
+                <img loading="lazy" decoding="async" 
                   src="/images/arrive-logo-white.png" 
                   alt="ARRIVE" 
                   className="arrive_footer_logo_img"

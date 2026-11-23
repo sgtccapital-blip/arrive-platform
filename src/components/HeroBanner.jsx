@@ -48,7 +48,7 @@ export const HeroBanner = ({ hubInfo, locale = 'es' }) => {
             <div className="hero_title_row">
               <img 
                 loading="eager" 
-                fetchPriority="high"
+                fetchpriority="high"
                 src="/images/heart.gif" 
                 alt="Corazón Arrive Izquierda" 
                 className="heart_title_flame left" 
@@ -78,7 +78,7 @@ export const HeroBanner = ({ hubInfo, locale = 'es' }) => {
               </div>
               <img 
                 loading="eager" 
-                fetchPriority="high"
+                fetchpriority="high"
                 src="/images/heart.gif" 
                 alt="Corazón Arrive Derecha" 
                 className="heart_title_flame right" 

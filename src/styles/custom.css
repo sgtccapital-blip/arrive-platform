@@ -8,12 +8,6 @@
   src: local('Arial');
 }
 
-.dirham-symbol {
-  font-family: inherit;
-  display: inline-block;
-  margin-right: 2px;
-}
-
 :root {
   --pacha-red: #bb092c;
   --pacha-red-hover: #d60035;
@@ -32,7 +26,7 @@ body, .body, .main-wrapper {
   background-position: 50% 0 !important;
   background-repeat: no-repeat !important;
   background-size: cover !important;
-  background-attachment: fixed !important;
+  background-attachment: scroll !important;
   color: var(--text-primary);
   font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -77,7 +71,7 @@ body, .body, .main-wrapper {
   width: auto !important;
   max-width: 170px !important;
   aspect-ratio: auto !important;
-  object-fit: contain !important;
+  object-fit: contain;
   display: block !important;
   transition: transform 0.2s ease;
 }
@@ -102,7 +96,9 @@ body, .body, .main-wrapper {
   gap: 2rem;
 }
 
-@media (max-width: 900px) {
+/* The desktop links need ~1100px; below that they pushed the ☰ toggle off-screen
+   (clipped by body overflow-x:hidden), so collapse to the toggle earlier. */
+@media (max-width: 1120px) {
   .navlink_wrapper {
     display: none;
   }
@@ -172,8 +168,8 @@ body, .body, .main-wrapper {
   text-decoration: none !important;
   box-shadow: 0 0 12px rgba(255, 215, 0, 0.22), inset 0 0 6px rgba(255, 215, 0, 0.1) !important;
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
-  cursor: pointer !important;
-  white-space: nowrap !important;
+  cursor: pointer;
+  white-space: nowrap;
 }
 
 .nav_vip_gold_bubble:hover {
@@ -194,12 +190,12 @@ body, .body, .main-wrapper {
 
 .nav_vip_gold_bubble.active .nav_vip_gold_crown {
   color: #080808 !important;
-  stroke: #080808 !important;
+  stroke: #080808;
 }
 
 .nav_vip_gold_crown {
   color: #ffd700 !important;
-  flex-shrink: 0 !important;
+  flex-shrink: 0;
   transition: transform 0.2s ease !important;
 }
 
@@ -379,7 +375,7 @@ body, .body, .main-wrapper {
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
-  flex-wrap: wrap !important;
+  flex-wrap: wrap;
   gap: 0.4rem 0.85rem !important;
   font-family: 'Montserrat', sans-serif !important;
   font-size: clamp(0.74rem, 0.92vw, 0.88rem) !important;
@@ -424,19 +420,6 @@ body, .body, .main-wrapper {
 .venues_page_hero_section,
 .concierge_page_hero_section {
   padding-bottom: 0 !important;
-}
-
-.heart_bottomright {
-  width: 66px !important;
-  height: 66px !important;
-  min-height: unset !important;
-  max-height: unset !important;
-  min-width: unset !important;
-  max-width: unset !important;
-  object-fit: contain !important;
-  margin: 4px auto 8px auto !important;
-  display: block !important;
-  filter: drop-shadow(0 0 14px rgba(193, 2, 48, 0.55)) !important;
 }
 
 /* =========================================================================
@@ -486,15 +469,15 @@ body, .body, .main-wrapper {
   letter-spacing: 0.03em !important;
   text-transform: uppercase !important;
   border: none !important;
-  outline: none !important;
+  outline: none;
   background-color: #ffffff !important;
   color: #000000 !important;
-  cursor: pointer !important;
+  cursor: pointer;
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
   transition: all 0.2s ease !important;
-  box-sizing: border-box !important;
+  box-sizing: border-box;
   white-space: nowrap !important;
 }
 
@@ -506,51 +489,6 @@ body, .body, .main-wrapper {
 .btn_venue.w--current {
   background-color: #c10230 !important;
   color: #ffffff !important;
-}
-
-.search_box_wrapper {
-  height: 38px !important;
-  width: 280px !important;
-  background-color: rgba(255, 255, 255, 0.11) !important;
-  border: 1px solid rgba(255, 255, 255, 0.18) !important;
-  border-radius: 6px !important;
-  display: flex !important;
-  align-items: center !important;
-  padding: 0 12px !important;
-  gap: 8px !important;
-  box-sizing: border-box !important;
-  backdrop-filter: blur(10px) !important;
-  -webkit-backdrop-filter: blur(10px) !important;
-  transition: border-color 0.2s ease, background-color 0.2s ease !important;
-}
-
-.search_box_wrapper:focus-within {
-  border-color: rgba(255, 255, 255, 0.45) !important;
-  background-color: rgba(255, 255, 255, 0.18) !important;
-}
-
-.search_box_wrapper .search_icon,
-.search_box_wrapper .calendar_icon {
-  color: rgba(255, 255, 255, 0.55) !important;
-  flex-shrink: 0 !important;
-}
-
-.search_box_wrapper input {
-  background: transparent !important;
-  border: none !important;
-  outline: none !important;
-  color: #ffffff !important;
-  font-family: 'Montserrat', sans-serif !important;
-  font-size: 0.75rem !important;
-  font-weight: 500 !important;
-  width: 100% !important;
-  padding: 0 !important;
-  margin: 0 !important;
-}
-
-.search_box_wrapper input::placeholder {
-  color: rgba(255, 255, 255, 0.5) !important;
-  font-weight: 400 !important;
 }
 
 /* =========================================================================
@@ -573,11 +511,11 @@ body, .body, .main-wrapper {
   justify-content: space-between !important;
   gap: 10px !important;
   color: #ffffff !important;
-  cursor: pointer !important;
+  cursor: pointer;
   backdrop-filter: blur(10px) !important;
   -webkit-backdrop-filter: blur(10px) !important;
   transition: all 0.2s ease !important;
-  box-sizing: border-box !important;
+  box-sizing: border-box;
 }
 
 .day_dropdown_trigger:hover {
@@ -637,7 +575,7 @@ body, .body, .main-wrapper {
   border: none !important;
   background-color: transparent !important;
   color: #ffffff !important;
-  cursor: pointer !important;
+  cursor: pointer;
   text-align: left !important;
   width: 100% !important;
   transition: all 0.15s ease !important;
@@ -735,10 +673,73 @@ body, .body, .main-wrapper {
   background-color: #141414 !important;
 }
 
+@media screen and (max-width: 560px) {
+  .event_image_wrapper {
+    aspect-ratio: 16 / 11 !important;
+  }
+
+  .event_item {
+    border-radius: 1rem !important;
+    padding: 0.75rem !important;
+  }
+
+  .event_date {
+    font-size: 0.78rem !important;
+  }
+
+  .venue_inline_text {
+    font-size: 0.72rem !important;
+  }
+
+  .para_24px.is_caps.name {
+    font-size: 0.95rem !important;
+    line-height: 1.28 !important;
+    min-height: auto !important;
+    margin: 0.35rem 0 !important;
+  }
+
+  .schedule_label {
+    font-size: 0.70rem !important;
+  }
+
+  .schedule_time {
+    font-size: 0.74rem !important;
+  }
+
+  .para_16px.lineup {
+    font-size: 0.74rem !important;
+  }
+
+  .perk_badge_red {
+    padding: 5px 10px !important;
+    font-size: 0.72rem !important;
+  }
+
+  .perk_text {
+    font-size: 0.70rem !important;
+    font-weight: 800 !important;
+  }
+
+  .general {
+    height: 44px !important;
+    font-size: 0.78rem !important;
+    font-weight: 800 !important;
+  }
+
+  .red_button {
+    height: 46px !important;
+    min-height: 46px !important;
+  }
+
+  .section_home_events {
+    padding-bottom: calc(5.5rem + env(safe-area-inset-bottom, 0px)) !important;
+  }
+}
+
 .event_image {
   width: 100% !important;
   height: 100% !important;
-  object-fit: cover !important;
+  object-fit: cover;
   display: block !important;
   border-radius: 0.85rem !important;
   transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1) !important;
@@ -761,7 +762,7 @@ body, .body, .main-wrapper {
   font-weight: 800 !important;
   letter-spacing: 0.05em !important;
   text-transform: uppercase !important;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4) !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
   z-index: 5 !important;
   line-height: 1 !important;
 }
@@ -772,22 +773,6 @@ body, .body, .main-wrapper {
   display: flex !important;
   flex-direction: column !important;
   flex-grow: 1 !important;
-}
-
-.heading_date_wrapper {
-  margin-top: 0.25rem !important;
-  margin-bottom: 0.2rem !important;
-  display: flex !important;
-  flex-direction: column !important;
-  gap: 0.2rem !important;
-}
-
-.heading_date_wrapper .para_16px.light_grey {
-  font-size: 0.72rem !important;
-  font-weight: 600 !important;
-  color: #8c8c8c !important;
-  letter-spacing: 0.02em !important;
-  margin: 0 !important;
 }
 
 .event_meta_header {
@@ -807,11 +792,10 @@ body, .body, .main-wrapper {
   color: #9e9e9e !important;
   letter-spacing: 0.02em !important;
   text-transform: uppercase !important;
-  white-space: nowrap !important;
+  white-space: nowrap;
 }
 
-.venue_inline_link,
-.venue_inline_badge {
+.venue_inline_link {
   position: relative !important;
   display: inline-flex !important;
   align-items: center !important;
@@ -823,11 +807,10 @@ body, .body, .main-wrapper {
   box-shadow: none !important;
   cursor: pointer !important;
   transition: all 0.2s ease !important;
-  user-select: none !important;
+  user-select: none;
 }
 
-.venue_inline_link:hover,
-.venue_inline_badge:hover {
+.venue_inline_link:hover {
   background: transparent !important;
   border: none !important;
   box-shadow: none !important;
@@ -840,24 +823,20 @@ body, .body, .main-wrapper {
   letter-spacing: 0.03em !important;
   text-transform: uppercase !important;
   color: #ffffff !important;
-  white-space: nowrap !important;
+  white-space: nowrap;
   text-decoration: underline !important;
   text-decoration-color: rgba(255, 59, 92, 0.5) !important;
   text-underline-offset: 3px !important;
   transition: all 0.2s ease !important;
 }
 
-.venue_inline_link:hover .venue_inline_text,
-.venue_inline_badge:hover .venue_inline_text {
+.venue_inline_link:hover .venue_inline_text {
   color: #ff3b5c !important;
   text-decoration-color: #ff3b5c !important;
   text-shadow: 0 0 10px rgba(255, 59, 92, 0.6) !important;
 }
 
-.venue_inline_link .venue_express_popover,
-.venue_inline_badge .venue_express_popover,
-.venue_inline_link .venue_map_popover,
-.venue_inline_badge .venue_map_popover {
+.venue_inline_link .venue_express_popover {
   position: absolute !important;
   bottom: calc(100% + 8px) !important;
   right: 0 !important;
@@ -868,7 +847,6 @@ body, .body, .main-wrapper {
   z-index: 99999 !important;
 }
 
-.heading_date_wrapper h2,
 .para_24px.is_caps.name {
   font-size: 0.88rem !important;
   font-weight: 800 !important;
@@ -931,7 +909,7 @@ body, .body, .main-wrapper {
   font-weight: 500 !important;
   color: #777777 !important;
   margin: 0.15rem 0 0 0 !important;
-  white-space: nowrap !important;
+  white-space: nowrap;
   overflow: hidden !important;
   text-overflow: ellipsis !important;
   letter-spacing: 0.01em !important;
@@ -947,61 +925,6 @@ body, .body, .main-wrapper {
 }
 
 /* Interactive Venue / Location with Live Map & Instagram */
-.venue_location_interactive {
-  position: relative !important;
-  margin: 0.4rem 0 0.55rem 0 !important;
-  padding: 0.4rem 0.65rem !important;
-  background: rgba(255, 255, 255, 0.04) !important;
-  border: 1px solid rgba(255, 255, 255, 0.1) !important;
-  border-radius: 6px !important;
-  cursor: pointer !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: space-between !important;
-  transition: all 0.25s ease !important;
-  user-select: none !important;
-}
-
-.venue_location_interactive:hover {
-  background: rgba(193, 2, 48, 0.12) !important;
-  border-color: rgba(193, 2, 48, 0.65) !important;
-  box-shadow: 0 0 14px rgba(193, 2, 48, 0.22) !important;
-}
-
-.venue_name_row {
-  display: flex !important;
-  align-items: center !important;
-  gap: 6px !important;
-  min-width: 0 !important;
-}
-
-.venue_name_text {
-  font-family: 'Montserrat', sans-serif !important;
-  font-size: 0.72rem !important;
-  font-weight: 800 !important;
-  letter-spacing: 0.04em !important;
-  text-transform: uppercase !important;
-  color: #ffffff !important;
-  white-space: nowrap !important;
-  overflow: hidden !important;
-  text-overflow: ellipsis !important;
-}
-
-.venue_ig_hint {
-  display: flex !important;
-  align-items: center !important;
-  gap: 4px !important;
-  color: #ff3b5c !important;
-  font-size: 0.62rem !important;
-  font-weight: 700 !important;
-  flex-shrink: 0 !important;
-  margin-left: 6px !important;
-  transition: transform 0.2s ease !important;
-}
-
-.venue_location_interactive:hover .venue_ig_hint {
-  transform: scale(1.08) !important;
-}
 
 /* =========================================================================
    EXPRESS VENUE PROFILE POPOVER (Hover on Venue in Event Card)
@@ -1027,10 +950,10 @@ body, .body, .main-wrapper {
   border-radius: 14px !important;
   overflow: hidden !important;
   z-index: 150 !important;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.95), 0 0 25px rgba(193, 2, 48, 0.22) !important;
-  animation: expressPopIn 0.22s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.95), 0 0 25px rgba(193, 2, 48, 0.22);
+  animation: expressPopIn 0.22s cubic-bezier(0.16, 1, 0.3, 1);
   text-align: left !important;
-  pointer-events: auto !important;
+  pointer-events: auto;
 }
 
 @keyframes expressPopIn {
@@ -1078,7 +1001,7 @@ body, .body, .main-wrapper {
   font-size: 0.60rem !important;
   font-weight: 700 !important;
   padding: 2px 6px !important;
-  border-radius: 4px !important;
+  border-radius: 4px;
 }
 
 .venue_express_name {
@@ -1104,9 +1027,9 @@ body, .body, .main-wrapper {
 .venue_express_map_iframe {
   width: 100% !important;
   height: 100% !important;
-  border: 0 !important;
+  border: 0;
   display: block !important;
-  filter: invert(90%) hue-rotate(180deg) contrast(95%) brightness(90%) !important;
+  filter: invert(90%) hue-rotate(180deg) contrast(95%) brightness(90%);
 }
 
 .venue_express_maps_app_badge {
@@ -1124,9 +1047,9 @@ body, .body, .main-wrapper {
   display: inline-flex !important;
   align-items: center !important;
   gap: 4px !important;
-  backdrop-filter: blur(8px) !important;
+  backdrop-filter: blur(8px);
   transition: all 0.2s ease !important;
-  z-index: 2 !important;
+  z-index: 2;
 }
 
 .venue_express_maps_app_badge:hover {
@@ -1173,7 +1096,7 @@ body, .body, .main-wrapper {
 .venue_express_thumb_img {
   width: 100% !important;
   height: 100% !important;
-  object-fit: cover !important;
+  object-fit: cover;
   display: block !important;
   transition: transform 0.3s ease !important;
 }
@@ -1187,7 +1110,7 @@ body, .body, .main-wrapper {
   display: flex !important;
   flex-direction: column !important;
   gap: 4px !important;
-  border-top: 1px solid rgba(255, 255, 255, 0.05) !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .venue_express_info_item {
@@ -1207,7 +1130,7 @@ body, .body, .main-wrapper {
 .venue_express_text {
   overflow: hidden !important;
   text-overflow: ellipsis !important;
-  white-space: nowrap !important;
+  white-space: nowrap;
 }
 
 .venue_express_action_footer {
@@ -1221,7 +1144,7 @@ body, .body, .main-wrapper {
   font-weight: 900 !important;
   letter-spacing: 0.06em !important;
   text-transform: uppercase !important;
-  cursor: pointer !important;
+  cursor: pointer;
   transition: background 0.2s ease !important;
 }
 
@@ -1265,8 +1188,8 @@ body, .body, .main-wrapper {
 
 .perk_badge_red .perk_text {
   flex: 1 !important;
-  white-space: normal !important;
-  word-break: normal !important;
+  white-space: normal;
+  word-break: normal;
   overflow-wrap: break-word !important;
   line-height: 1.3 !important;
 }
@@ -1282,7 +1205,7 @@ body, .body, .main-wrapper {
   position: absolute !important;
   top: 10px !important;
   left: 10px !important;
-  z-index: 10 !important;
+  z-index: 10;
   display: inline-flex !important;
   align-items: center !important;
   gap: 5px !important;
@@ -1295,10 +1218,10 @@ body, .body, .main-wrapper {
   text-transform: uppercase !important;
   padding: 4px 9px !important;
   border-radius: 6px !important;
-  box-shadow: 0 4px 15px rgba(255, 158, 0, 0.35), inset 0 0 8px rgba(255, 158, 0, 0.2) !important;
+  box-shadow: 0 4px 15px rgba(255, 158, 0, 0.35), inset 0 0 8px rgba(255, 158, 0, 0.2);
   backdrop-filter: blur(8px) !important;
   -webkit-backdrop-filter: blur(8px) !important;
-  animation: pulseAlert 2.5s infinite ease-in-out !important;
+  animation: pulseAlert 2.5s infinite ease-in-out;
 }
 
 @keyframes pulseAlert {
@@ -1310,6 +1233,55 @@ body, .body, .main-wrapper {
 .afterparty_alert_badge .afterparty_fire {
   font-size: 0.75rem !important;
   line-height: 1 !important;
+}
+
+/* =========================================================================
+   PACHA ICONS MINIMALIST EVENT CARD ELEMENTS
+   ========================================================================= */
+.event_card_date {
+  font-family: 'Montserrat', sans-serif !important;
+  font-size: 0.76rem !important;
+  font-weight: 700 !important;
+  color: #9e9e9e !important;
+  letter-spacing: 0.05em !important;
+  text-transform: uppercase !important;
+  margin: 0.25rem 0 0.15rem 0 !important;
+  line-height: 1.2 !important;
+}
+
+.location_tag {
+  display: flex !important;
+  align-items: center !important;
+  padding: 0.5rem 0.25rem 0.45rem 0.25rem !important;
+  margin-top: 0.55rem !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04) !important;
+  width: 100% !important;
+}
+
+.location_tag_link {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  font-family: 'Montserrat', sans-serif !important;
+  font-size: 0.72rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.06em !important;
+  text-transform: uppercase !important;
+  color: #d1d5db !important;
+  text-decoration: none !important;
+  transition: all 0.2s ease !important;
+  width: 100% !important;
+}
+
+.location_tag_link:hover {
+  color: #ff3b5c !important;
+}
+
+.location_tag_link span {
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
 }
 
 /* Action Buttons: Adjusted, Proportional & Controlled Gap Above */
@@ -1346,7 +1318,7 @@ body, .body, .main-wrapper {
   line-height: 1 !important;
   transition: all 0.25s ease !important;
   box-sizing: border-box !important;
-  cursor: pointer !important;
+  cursor: pointer;
 }
 
 .general:hover {
@@ -1355,14 +1327,16 @@ body, .body, .main-wrapper {
   transform: translateY(-1px) !important;
 }
 
-/* Book VIP Zone Pill Button (Adjusted Height & Margins identical to Tickets) */
-.button_flex {
-  width: 100% !important;
-  text-decoration: none !important;
-  display: block !important;
+/* Square icon-only variant (share). `.general` forces width:100% !important,
+   so the modifier needs the same weight to keep it at 44px. */
+.general.general_icon {
+  width: 44px !important;
+  min-width: 44px !important;
+  flex: 0 0 44px !important;
   padding: 0 !important;
-  margin: 0 !important;
 }
+
+/* Book VIP Zone Pill Button (Adjusted Height & Margins identical to Tickets) */
 
 .red_button {
   width: 100% !important;
@@ -1382,11 +1356,10 @@ body, .body, .main-wrapper {
   text-decoration: none !important;
   transition: all 0.25s ease !important;
   box-sizing: border-box !important;
-  cursor: pointer !important;
+  cursor: pointer;
 }
 
-.red_button:hover,
-.button_flex:hover .red_button {
+.red_button:hover {
   transform: translateY(-1px) !important;
   background: #d60035 !important;
   box-shadow: 0 4px 16px rgba(193, 2, 48, 0.45) !important;
@@ -1413,7 +1386,7 @@ body, .body, .main-wrapper {
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
-  filter: drop-shadow(0 0 4px rgba(255, 215, 0, 0.25)) !important;
+  filter: drop-shadow(0 0 4px rgba(255, 215, 0, 0.25));
 }
 
 .red_button .para_12px {
@@ -1457,7 +1430,7 @@ body, .body, .main-wrapper {
   position: fixed !important;
   top: 1.5rem !important;
   right: 2rem !important;
-  z-index: 100005 !important;
+  z-index: 100005;
   background: rgba(255, 255, 255, 0.08) !important;
   border: 1px solid rgba(255, 255, 255, 0.18) !important;
   border-radius: 50% !important;
@@ -1467,7 +1440,7 @@ body, .body, .main-wrapper {
   align-items: center !important;
   justify-content: center !important;
   color: #ffffff !important;
-  cursor: pointer !important;
+  cursor: pointer;
   transition: all 0.2s ease !important;
 }
 
@@ -1484,7 +1457,7 @@ body, .body, .main-wrapper {
   justify-content: center !important;
   align-items: center !important;
   padding: 3rem 1.25rem 2.5rem 1.25rem !important;
-  box-sizing: border-box !important;
+  box-sizing: border-box;
 }
 
 .nav_left.centered_menu_left {
@@ -1495,7 +1468,7 @@ body, .body, .main-wrapper {
   flex-direction: column !important;
   align-items: center !important;
   text-align: center !important;
-  box-sizing: border-box !important;
+  box-sizing: border-box;
   margin: auto !important;
 }
 
@@ -1519,7 +1492,7 @@ body, .body, .main-wrapper {
 
 .menu_centered_nav_links {
   display: flex !important;
-  flex-direction: column !important;
+  flex-direction: column;
   align-items: center !important;
   justify-content: center !important;
   gap: 0.95rem !important;
@@ -1528,7 +1501,7 @@ body, .body, .main-wrapper {
 
 .menu_item_row {
   display: flex !important;
-  flex-direction: column !important;
+  flex-direction: column;
   align-items: center !important;
   justify-content: center !important;
   width: 100% !important;
@@ -1553,7 +1526,7 @@ body, .body, .main-wrapper {
 }
 
 .menu_main_link::after {
-  content: "" !important;
+  content: "";
   position: absolute !important;
   bottom: -3px !important;
   left: 50% !important;
@@ -1577,14 +1550,6 @@ body, .body, .main-wrapper {
   width: 42px !important;
 }
 
-.menu_main_link.vip_highlight {
-  color: #ff3b5c !important;
-}
-
-.menu_main_link.vip_highlight:hover {
-  color: #ffffff !important;
-}
-
 .menu_sublink_desc {
   font-size: 0.72rem !important;
   color: rgba(255, 255, 255, 0.42) !important;
@@ -1595,42 +1560,6 @@ body, .body, .main-wrapper {
 }
 
 /* Centered Venue Pills in Menu */
-.menu_venue_chips_row {
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  flex-wrap: wrap !important;
-  gap: 7px !important;
-  margin-top: 7px !important;
-  width: 100% !important;
-  max-width: 480px !important;
-}
-
-.menu_venue_pill {
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  white-space: nowrap !important;
-  background: rgba(255, 255, 255, 0.05) !important;
-  border: 1px solid rgba(255, 255, 255, 0.12) !important;
-  border-radius: 999px !important;
-  color: #d8d8d8 !important;
-  font-size: 0.66rem !important;
-  font-weight: 700 !important;
-  letter-spacing: 0.05em !important;
-  padding: 4px 12px !important;
-  cursor: pointer !important;
-  transition: all 0.2s ease !important;
-  text-transform: uppercase !important;
-}
-
-.menu_venue_pill:hover {
-  background: #c10230 !important;
-  border-color: #c10230 !important;
-  color: #ffffff !important;
-  transform: translateY(-1px) !important;
-  box-shadow: 0 4px 12px rgba(193, 2, 48, 0.4) !important;
-}
 
 .menu_vip_gold_bubble {
   background: linear-gradient(135deg, rgba(255, 215, 0, 0.12) 0%, rgba(184, 134, 11, 0.18) 100%) !important;
@@ -1686,30 +1615,30 @@ body, .body, .main-wrapper {
   margin: 1.35rem auto 0.85rem auto !important;
   border: 1px solid rgba(255, 255, 255, 0.12) !important;
   background-color: #111113 !important;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5) !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
   display: flex !important;
   align-items: center !important;
-  flex-shrink: 0 !important;
+  flex-shrink: 0;
 }
 
 .menu_nightlife_card_img {
   position: absolute !important;
-  inset: 0 !important;
+  inset: 0;
   width: 100% !important;
   height: 100% !important;
-  object-fit: cover !important;
+  object-fit: cover;
   opacity: 0.35 !important;
 }
 
 .menu_nightlife_card_overlay {
   position: relative !important;
-  z-index: 2 !important;
+  z-index: 2;
   padding: 0.85rem 1.25rem !important;
   text-align: center !important;
   width: 100% !important;
   background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.45) 100%) !important;
   display: flex !important;
-  flex-direction: column !important;
+  flex-direction: column;
   align-items: center !important;
   justify-content: center !important;
 }
@@ -1745,15 +1674,15 @@ body, .body, .main-wrapper {
   width: 100% !important;
   margin-top: 0.85rem !important;
   padding-top: 0.85rem !important;
-  border-top: 1px solid rgba(255, 255, 255, 0.06) !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
   max-width: 440px !important;
 }
 
 .menu_admin_trigger {
   background: none !important;
-  border: none !important;
+  border: none;
   color: rgba(255, 255, 255, 0.3) !important;
-  cursor: pointer !important;
+  cursor: pointer;
   display: inline-flex !important;
   align-items: center !important;
   padding: 4px !important;
@@ -1767,82 +1696,6 @@ body, .body, .main-wrapper {
 /* =========================================================================
    FOOTER SECTION
    ========================================================================= */
-.section_footer {
-  border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
-  padding-top: 5rem !important;
-  padding-bottom: 4rem !important;
-  background: linear-gradient(180deg, rgba(8,8,8,0) 0%, rgba(14,14,14,0.8) 100%) !important;
-}
-
-.footer_grid {
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: center !important;
-  gap: 3.5rem !important;
-  width: 100% !important;
-}
-
-.div-block {
-  display: flex !important;
-  justify-content: space-between !important;
-  align-items: flex-start !important;
-  width: 100% !important;
-  flex-wrap: wrap !important;
-  gap: 2.5rem !important;
-}
-
-.flex_vertical {
-  display: flex !important;
-  flex-direction: column !important;
-  gap: 1.5rem !important;
-}
-
-.flex_vertical .h2 {
-  font-size: clamp(1.8rem, 2.5vw, 2.5rem) !important;
-  font-weight: 900 !important;
-  text-transform: uppercase !important;
-  line-height: 1.15 !important;
-  margin: 0 !important;
-  letter-spacing: 0.02em !important;
-}
-
-.footer_links {
-  display: flex !important;
-  gap: 2.5rem !important;
-  align-items: center !important;
-  flex-wrap: wrap !important;
-}
-
-._5_grid {
-  display: flex !important;
-  flex-direction: row !important;
-  justify-content: center !important;
-  align-items: center !important;
-  gap: 3rem !important;
-  flex-wrap: wrap !important;
-  width: 100% !important;
-  margin: 1.5rem 0 !important;
-}
-
-.footer_logo img {
-  height: 26px !important;
-  width: auto !important;
-  opacity: 0.65 !important;
-  transition: opacity 0.25s ease, transform 0.25s ease !important;
-}
-
-.footer_logo:hover img {
-  opacity: 1 !important;
-  transform: scale(1.1) !important;
-}
-
-.social_media {
-  display: flex !important;
-  justify-content: center !important;
-  gap: 1.5rem !important;
-  width: 100% !important;
-  margin-top: 1rem !important;
-}
 
 .social img {
   width: 26px !important;
@@ -1854,35 +1707,6 @@ body, .body, .main-wrapper {
 .social:hover img {
   opacity: 1 !important;
   transform: scale(1.15) !important;
-}
-
-.footer_bottom_links {
-  width: 100% !important;
-  border-top: 1px solid rgba(255, 255, 255, 0.06) !important;
-  padding-top: 2rem !important;
-  display: flex !important;
-  justify-content: space-between !important;
-  align-items: center !important;
-  flex-wrap: wrap !important;
-  gap: 1rem !important;
-}
-
-.footer_bottom_links .flex_apart {
-  display: flex !important;
-  gap: 1.5rem !important;
-  flex-wrap: wrap !important;
-}
-
-.footer_bottom_links .nav_links.small {
-  font-size: 0.75rem !important;
-  color: #777 !important;
-  font-weight: 500 !important;
-  letter-spacing: 0.02em !important;
-  text-transform: none !important;
-}
-
-.footer_bottom_links .nav_links.small:hover {
-  color: #fff !important;
 }
 
 /* =========================================================================
@@ -1949,8 +1773,8 @@ body, .body, .main-wrapper {
   position: relative !important;
   border-radius: 8px !important;
   overflow: hidden !important;
-  aspect-ratio: 4 / 3 !important;
-  cursor: pointer !important;
+  aspect-ratio: 4 / 3;
+  cursor: pointer;
   background: #111 !important;
   border: 1px solid rgba(255, 255, 255, 0.1) !important;
   transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease !important;
@@ -1965,7 +1789,7 @@ body, .body, .main-wrapper {
 .venue_gallery_thumb {
   width: 100% !important;
   height: 100% !important;
-  object-fit: cover !important;
+  object-fit: cover;
   display: block !important;
   transition: transform 0.45s ease !important;
 }
@@ -2000,7 +1824,7 @@ body, .body, .main-wrapper {
   text-transform: uppercase !important;
   padding: 2px 6px !important;
   border-radius: 4px !important;
-  backdrop-filter: blur(4px) !important;
+  backdrop-filter: blur(4px);
 }
 
 .venue_gallery_item_title {
@@ -2019,13 +1843,13 @@ body, .body, .main-wrapper {
   position: fixed !important;
   inset: 0 !important;
   background: rgba(0, 0, 0, 0.95) !important;
-  backdrop-filter: blur(25px) !important;
+  backdrop-filter: blur(25px);
   z-index: 10000000 !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
   padding: 1.5rem !important;
-  animation: fadeIn 0.2s ease !important;
+  animation: fadeIn 0.2s ease;
 }
 
 .lightbox_modal {
@@ -2141,131 +1965,6 @@ body, .body, .main-wrapper {
 /* =========================================================================
    OFFICIAL ACCESS & TICKETS AREA (MiEventos & VIP Concierge)
    ========================================================================= */
-.event_actions_container {
-  display: grid !important;
-  grid-template-columns: 1fr 1fr !important;
-  gap: 1rem !important;
-  margin-top: 1.5rem !important;
-  padding-top: 1.35rem !important;
-  border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
-}
-
-@media (max-width: 640px) {
-  .event_actions_container {
-    grid-template-columns: 1fr !important;
-  }
-}
-
-.action_card {
-  background: rgba(255, 255, 255, 0.03) !important;
-  border: 1px solid rgba(255, 255, 255, 0.1) !important;
-  border-radius: 10px !important;
-  padding: 1.15rem !important;
-  display: flex !important;
-  flex-direction: column !important;
-  justify-content: space-between !important;
-  gap: 0.75rem !important;
-  transition: border-color 0.25s ease, box-shadow 0.25s ease !important;
-}
-
-.action_card.mieventos:hover {
-  border-color: rgba(255, 59, 92, 0.5) !important;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5), 0 0 15px rgba(255, 59, 92, 0.15) !important;
-}
-
-.action_card.vip:hover {
-  border-color: rgba(193, 2, 48, 0.6) !important;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5), 0 0 15px rgba(193, 2, 48, 0.2) !important;
-}
-
-.action_card_header {
-  display: flex !important;
-  align-items: center !important;
-  gap: 0.75rem !important;
-}
-
-.action_icon_wrapper {
-  width: 38px !important;
-  height: 38px !important;
-  border-radius: 8px !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  flex-shrink: 0 !important;
-}
-
-.action_icon_wrapper.mieventos {
-  background: linear-gradient(135deg, #c10230 0%, #80001a 100%) !important;
-}
-
-.action_icon_wrapper.vip {
-  background: linear-gradient(135deg, #18181b 0%, #27272a 100%) !important;
-  border: 1px solid rgba(255, 255, 255, 0.2) !important;
-}
-
-.action_badge {
-  font-size: 0.58rem !important;
-  font-weight: 800 !important;
-  letter-spacing: 0.08em !important;
-  text-transform: uppercase !important;
-  padding: 2px 6px !important;
-  border-radius: 4px !important;
-  display: inline-block !important;
-  margin-bottom: 2px !important;
-}
-
-.action_badge.mieventos {
-  background: rgba(255, 59, 92, 0.2) !important;
-  color: #ff3b5c !important;
-  border: 1px solid rgba(255, 59, 92, 0.4) !important;
-}
-
-.action_badge.vip {
-  background: rgba(255, 255, 255, 0.1) !important;
-  color: #ffffff !important;
-  border: 1px solid rgba(255, 255, 255, 0.2) !important;
-}
-
-.action_card_title {
-  font-size: 0.88rem !important;
-  font-weight: 800 !important;
-  color: #ffffff !important;
-  margin: 0 !important;
-  letter-spacing: 0.02em !important;
-}
-
-.action_card_desc {
-  font-size: 0.74rem !important;
-  color: #9e9e9e !important;
-  line-height: 1.45 !important;
-  margin: 0 !important;
-}
-
-.btn_action_mieventos {
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  gap: 8px !important;
-  padding: 0.8rem 1rem !important;
-  background: #c10230 !important;
-  color: #ffffff !important;
-  border: none !important;
-  border-radius: 8px !important;
-  font-size: 0.74rem !important;
-  font-weight: 800 !important;
-  letter-spacing: 0.04em !important;
-  text-transform: uppercase !important;
-  text-decoration: none !important;
-  transition: all 0.2s ease !important;
-  box-shadow: 0 4px 15px rgba(193, 2, 48, 0.4) !important;
-}
-
-.btn_action_mieventos:hover {
-  background: #e11d48 !important;
-  transform: translateY(-2px) !important;
-  box-shadow: 0 6px 20px rgba(225, 29, 72, 0.5) !important;
-  color: #ffffff !important;
-}
 
 .btn_action_vip {
   display: inline-flex !important;
@@ -2311,7 +2010,7 @@ body, .body, .main-wrapper {
 /* Top Venue Switcher Pills */
 .venues_top_selector {
   background: #080808 !important;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   padding: 0.85rem 3.8rem 0.85rem 1.25rem !important;
   position: relative !important;
 }
@@ -2321,7 +2020,7 @@ body, .body, .main-wrapper {
   align-items: center !important;
   gap: 0.6rem !important;
   overflow-x: auto !important;
-  scrollbar-width: none !important;
+  scrollbar-width: none;
   -ms-overflow-style: none !important;
   padding-bottom: 2px !important;
 }
@@ -2344,15 +2043,7 @@ body, .body, .main-wrapper {
   letter-spacing: 0.06em !important;
   text-transform: uppercase !important;
   cursor: pointer !important;
-  white-space: nowrap !important;
-  transition: all 0.22s ease !important;
-}
-
-.venue_tab_indicator {
-  width: 6px !important;
-  height: 6px !important;
-  border-radius: 50% !important;
-  background: #555555 !important;
+  white-space: nowrap;
   transition: all 0.22s ease !important;
 }
 
@@ -2367,11 +2058,6 @@ body, .body, .main-wrapper {
   color: #ffffff !important;
   border-color: #c10230 !important;
   box-shadow: 0 4px 16px rgba(193, 2, 48, 0.45) !important;
-}
-
-.venue_tab_btn.active .venue_tab_indicator {
-  background: #ffffff !important;
-  box-shadow: 0 0 8px #ffffff !important;
 }
 
 /* Venue Hero Banner */
@@ -2391,8 +2077,8 @@ body, .body, .main-wrapper {
 .venue_hero_image {
   width: 100% !important;
   height: 100% !important;
-  object-fit: cover !important;
-  filter: brightness(0.72) !important;
+  object-fit: cover;
+  filter: brightness(0.72);
   transition: transform 0.8s ease !important;
 }
 
@@ -2402,7 +2088,7 @@ body, .body, .main-wrapper {
 
 .venue_hero_gradient {
   position: absolute !important;
-  inset: 0 !important;
+  inset: 0;
   background: linear-gradient(180deg, rgba(13, 13, 14, 0.15) 0%, rgba(13, 13, 14, 0.75) 60%, #0d0d0e 100%) !important;
 }
 
@@ -2411,7 +2097,7 @@ body, .body, .main-wrapper {
   bottom: 1.25rem !important;
   left: 1.5rem !important;
   right: 1.5rem !important;
-  z-index: 2 !important;
+  z-index: 2;
 }
 
 @media (max-width: 768px) {
@@ -2660,12 +2346,12 @@ body, .body, .main-wrapper {
   backdrop-filter: blur(14px) !important;
   -webkit-backdrop-filter: blur(14px) !important;
   padding: 0.5rem 1.5rem !important;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   overflow-x: auto !important;
-  scrollbar-width: none !important;
+  scrollbar-width: none;
   position: sticky !important;
-  top: 0 !important;
-  z-index: 20 !important;
+  top: 0;
+  z-index: 20;
 }
 
 .venue_nav_tabs_bar::-webkit-scrollbar {
@@ -2797,7 +2483,7 @@ body, .body, .main-wrapper {
   letter-spacing: 0.06em !important;
   text-transform: uppercase !important;
   color: #8e8e93 !important;
-  white-space: nowrap !important;
+  white-space: nowrap;
 }
 
 .venue_stat_value {
@@ -2806,13 +2492,9 @@ body, .body, .main-wrapper {
   color: #ffffff !important;
   line-height: 1.25 !important;
   white-space: normal !important;
-  word-break: normal !important;
+  word-break: normal;
   overflow: visible !important;
   text-overflow: clip !important;
-}
-
-.venue_stat_divider {
-  display: none !important;
 }
 
 @media (max-width: 680px) {
@@ -3089,7 +2771,7 @@ body, .body, .main-wrapper {
   justify-content: space-between !important;
   padding: 0.7rem 1rem !important;
   background: rgba(0, 0, 0, 0.5) !important;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .venue_google_map_title {
@@ -3134,9 +2816,9 @@ body, .body, .main-wrapper {
 .venue_google_map_iframe {
   width: 100% !important;
   height: 100% !important;
-  border: 0 !important;
+  border: 0;
   display: block !important;
-  filter: contrast(1.05) saturate(1.1) !important;
+  filter: contrast(1.05) saturate(1.1);
 }
 
 .venue_google_map_action_btn {
@@ -3147,7 +2829,7 @@ body, .body, .main-wrapper {
   width: 100% !important;
   padding: 0.75rem 1rem !important;
   background: linear-gradient(135deg, rgba(193, 2, 48, 0.18) 0%, rgba(255, 59, 92, 0.22) 100%) !important;
-  border-top: 1px solid rgba(255, 255, 255, 0.06) !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
   color: #ffffff !important;
   font-size: 0.74rem !important;
   font-weight: 800 !important;
@@ -3162,46 +2844,6 @@ body, .body, .main-wrapper {
 }
 
 /* Fallback / Legacy Preview */
-.venue_map_preview_link {
-  display: block !important;
-  position: relative !important;
-  border-radius: 12px !important;
-  overflow: hidden !important;
-  margin-bottom: 1rem !important;
-  text-decoration: none !important;
-  border: 1px solid rgba(255, 255, 255, 0.08) !important;
-}
-
-.venue_map_preview_img {
-  width: 100% !important;
-  height: 140px !important;
-  object-fit: cover !important;
-  display: block !important;
-  filter: brightness(0.85) !important;
-  transition: all 0.3s ease !important;
-}
-
-.venue_map_preview_link:hover .venue_map_preview_img {
-  filter: brightness(1) !important;
-  transform: scale(1.02) !important;
-}
-
-.venue_map_overlay {
-  position: absolute !important;
-  bottom: 0 !important;
-  left: 0 !important;
-  right: 0 !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  gap: 6px !important;
-  padding: 0.5rem !important;
-  background: linear-gradient(transparent, rgba(0, 0, 0, 0.7)) !important;
-  color: #ffffff !important;
-  font-size: 0.72rem !important;
-  font-weight: 700 !important;
-  letter-spacing: 0.03em !important;
-}
 
 /* Sidebar Info Card */
 .venue_sidebar_card {
@@ -3219,7 +2861,7 @@ body, .body, .main-wrapper {
   text-transform: uppercase !important;
   margin: 0 0 1rem 0 !important;
   padding-bottom: 0.6rem !important;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .venue_contact_row {
@@ -3250,7 +2892,7 @@ body, .body, .main-wrapper {
   color: #c10230 !important;
   text-decoration: none !important;
   font-weight: 700 !important;
-  word-break: break-all !important;
+  word-break: break-all;
 }
 
 .venue_contact_link:hover {
@@ -3266,7 +2908,7 @@ body, .body, .main-wrapper {
   gap: 8px !important;
   padding: 0.75rem !important;
   width: 100% !important;
-  box-sizing: border-box !important;
+  box-sizing: border-box;
   background: rgba(255, 255, 255, 0.05) !important;
   color: #ffffff !important;
   border: 1px solid rgba(255, 255, 255, 0.15) !important;
@@ -3456,7 +3098,7 @@ body, .body, .main-wrapper {
 .venue_full_gallery_card:hover {
   transform: translateY(-3px) scale(1.02) !important;
   border-color: rgba(193, 2, 48, 0.6) !important;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.8), 0 0 15px rgba(193, 2, 48, 0.3) !important;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.8), 0 0 15px rgba(193, 2, 48, 0.3);
 }
 
 .venue_full_gallery_thumb {
@@ -3621,7 +3263,7 @@ body, .body, .main-wrapper {
   margin-bottom: 1rem !important;
   background: rgba(255, 255, 255, 0.03) !important;
   padding: 0.5rem 0.65rem !important;
-  border-radius: 6px !important;
+  border-radius: 6px;
 }
 
 .venue_event_time_item {
@@ -3677,20 +3319,6 @@ body, .body, .main-wrapper {
 }
 
 /* Age bubble next to event date in modal */
-.modal_age_bubble {
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  padding: 1px 7px !important;
-  background: rgba(193, 2, 48, 0.18) !important;
-  border: 1px solid rgba(193, 2, 48, 0.5) !important;
-  color: #ff3b5c !important;
-  font-size: 0.65rem !important;
-  font-weight: 800 !important;
-  border-radius: 999px !important;
-  letter-spacing: 0.04em !important;
-  line-height: 1.2 !important;
-}
 
 /* ── DJS & INVITADOS PROFILES SECTION ── */
 .event_djs_section {
@@ -3753,7 +3381,7 @@ body, .body, .main-wrapper {
   width: 58px !important;
   height: 58px !important;
   border-radius: 12px !important;
-  object-fit: cover !important;
+  object-fit: cover;
   border: 1.5px solid rgba(255, 255, 255, 0.18) !important;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5) !important;
   transition: transform 0.25s ease !important;
@@ -3932,7 +3560,7 @@ body, .body, .main-wrapper {
 .concierge_restaurant_img {
   width: 100% !important;
   height: 100% !important;
-  object-fit: cover !important;
+  object-fit: cover;
   transition: transform 0.3s ease !important;
 }
 
@@ -3945,7 +3573,7 @@ body, .body, .main-wrapper {
   top: 6px !important;
   left: 6px !important;
   background: rgba(0, 0, 0, 0.78) !important;
-  backdrop-filter: blur(8px) !important;
+  backdrop-filter: blur(8px);
   border: 1px solid rgba(255, 255, 255, 0.15) !important;
   color: #e0e0e0 !important;
   font-size: 0.58rem !important;
@@ -3969,7 +3597,7 @@ body, .body, .main-wrapper {
   display: inline-flex !important;
   align-items: center !important;
   gap: 3px !important;
-  box-shadow: 0 2px 10px rgba(193, 2, 48, 0.5) !important;
+  box-shadow: 0 2px 10px rgba(193, 2, 48, 0.5);
 }
 
 .concierge_restaurant_info {
@@ -3997,7 +3625,7 @@ body, .body, .main-wrapper {
   line-height: 1.35 !important;
   display: -webkit-box !important;
   -webkit-line-clamp: 2 !important;
-  -webkit-box-orient: vertical !important;
+  -webkit-box-orient: vertical;
   overflow: hidden !important;
 }
 
@@ -4044,36 +3672,6 @@ body, .body, .main-wrapper {
    ========================================================================= */
 
 /* ── Shared: Breadcrumbs ── */
-.venue_page_breadcrumbs {
-  display: flex !important;
-  align-items: center !important;
-  gap: 0.4rem !important;
-  padding: 0.5rem 2rem 0.85rem !important;
-  font-size: 0.75rem !important;
-  font-weight: 600 !important;
-  position: relative !important;
-  z-index: 10 !important;
-}
-
-.venue_breadcrumb_link {
-  color: #8e8e93 !important;
-  text-decoration: none !important;
-  transition: color 0.2s ease !important;
-}
-
-.venue_breadcrumb_link:hover {
-  color: #ff3b5c !important;
-}
-
-.venue_breadcrumb_sep {
-  color: #555 !important;
-  flex-shrink: 0 !important;
-}
-
-.venue_breadcrumb_current {
-  color: #e5e5ea !important;
-  font-weight: 700 !important;
-}
 
 /* ── Shared Page Wrappers (Venues, Venue Detail, Concierge) ── */
 .venue_page_wrapper {
@@ -4103,12 +3701,6 @@ body, .body, .main-wrapper {
 }
 
 /* ── VenuePage: Selector Strip ── */
-.venue_page_selector {
-  padding: 0 2rem !important;
-  margin-bottom: 1.25rem !important;
-  position: relative !important;
-  z-index: 10 !important;
-}
 
 /* ── VenuePage: Hero ── */
 .venue_page_hero {
@@ -4122,13 +3714,13 @@ body, .body, .main-wrapper {
 .venue_page_hero_img {
   width: 100% !important;
   height: 100% !important;
-  object-fit: cover !important;
+  object-fit: cover;
   display: block !important;
 }
 
 .venue_page_hero_gradient {
   position: absolute !important;
-  inset: 0 !important;
+  inset: 0;
   background: linear-gradient(180deg, rgba(8,8,8,0.2) 0%, rgba(8,8,8,0.65) 60%, rgba(8,8,8,0.95) 100%) !important;
 }
 
@@ -4138,7 +3730,7 @@ body, .body, .main-wrapper {
   left: 0 !important;
   right: 0 !important;
   padding: 2rem !important;
-  z-index: 2 !important;
+  z-index: 2;
 }
 
 .venue_page_h1 {
@@ -4166,13 +3758,6 @@ body, .body, .main-wrapper {
   }
   .venue_page_hero_content {
     padding: 1.25rem !important;
-  }
-  .venue_page_breadcrumbs {
-    padding: 0.5rem 1.25rem 0.75rem !important;
-  }
-  .venue_page_selector {
-    padding: 0 1.25rem !important;
-    margin-bottom: 1rem !important;
   }
 }
 
@@ -4220,51 +3805,6 @@ body, .body, .main-wrapper {
   /* Inherits shared wrapper properties */
 }
 
-.venues_list_hero {
-  padding: 0 2rem 2rem !important;
-}
-
-.venues_list_hero_content {
-  max-width: 700px !important;
-}
-
-.venues_list_eyebrow {
-  display: inline-flex !important;
-  align-items: center !important;
-  gap: 6px !important;
-  font-size: 0.72rem !important;
-  font-weight: 800 !important;
-  letter-spacing: 0.12em !important;
-  color: #ff3b5c !important;
-  text-transform: uppercase !important;
-  margin-bottom: 0.75rem !important;
-}
-
-.venues_list_h1 {
-  font-size: 2rem !important;
-  font-weight: 900 !important;
-  color: #ffffff !important;
-  letter-spacing: -0.02em !important;
-  margin: 0 0 0.75rem 0 !important;
-  line-height: 1.15 !important;
-}
-
-.venues_list_subtitle {
-  font-size: 0.92rem !important;
-  color: #9c9c9e !important;
-  line-height: 1.6 !important;
-  margin: 0 !important;
-}
-
-@media (max-width: 768px) {
-  .venues_list_hero {
-    padding: 0 1.25rem 1.5rem !important;
-  }
-  .venues_list_h1 {
-    font-size: 1.5rem !important;
-  }
-}
-
 /* ── Venues List Grid ── */
 .venues_list_grid_section {
   padding: 0 2rem 3rem !important;
@@ -4289,8 +3829,8 @@ body, .body, .main-wrapper {
 
 .venues_list_card {
   display: flex !important;
-  flex-direction: column !important;
-  justify-content: space-between !important;
+  flex-direction: column;
+  justify-content: space-between;
   text-decoration: none !important;
   background: rgba(18, 18, 18, 0.8) !important;
   -webkit-backdrop-filter: blur(20px) !important;
@@ -4308,20 +3848,20 @@ body, .body, .main-wrapper {
 .venues_list_card:hover {
   transform: translateY(-5px) !important;
   border-color: rgba(193, 2, 48, 0.45) !important;
-  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.6), 0 0 25px rgba(193, 2, 48, 0.22) !important;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.6), 0 0 25px rgba(193, 2, 48, 0.22);
 }
 
 .venues_list_card_img_wrap {
   position: relative !important;
   height: 200px !important;
-  border-radius: 0.85rem !important;
+  border-radius: 0.85rem;
   overflow: hidden !important;
 }
 
 .venues_list_card_img {
   width: 100% !important;
   height: 100% !important;
-  object-fit: cover !important;
+  object-fit: cover;
   transition: transform 0.4s ease !important;
 }
 
@@ -4334,7 +3874,7 @@ body, .body, .main-wrapper {
   top: 0.75rem !important;
   left: 0.75rem !important;
   display: flex !important;
-  align-items: center !important;
+  align-items: center;
   gap: 0.5rem !important;
 }
 
@@ -4344,10 +3884,10 @@ body, .body, .main-wrapper {
 
 .venues_list_card_category {
   background: rgba(0, 0, 0, 0.6) !important;
-  backdrop-filter: blur(8px) !important;
+  backdrop-filter: blur(8px);
   color: #ffffff !important;
   padding: 3px 8px !important;
-  border-radius: 6px !important;
+  border-radius: 6px;
   font-size: 0.68rem !important;
   font-weight: 700 !important;
   letter-spacing: 0.03em !important;
@@ -4358,7 +3898,7 @@ body, .body, .main-wrapper {
   display: flex !important;
   flex-direction: column !important;
   flex: 1 !important;
-  justify-content: space-between !important;
+  justify-content: space-between;
 }
 
 .venues_list_card_name {
@@ -4375,20 +3915,20 @@ body, .body, .main-wrapper {
   margin: 0 0 0.85rem 0 !important;
   display: -webkit-box !important;
   -webkit-line-clamp: 2 !important;
-  -webkit-box-orient: vertical !important;
+  -webkit-box-orient: vertical;
   overflow: hidden !important;
 }
 
 .venues_list_card_meta {
   display: flex !important;
-  flex-wrap: wrap !important;
+  flex-wrap: wrap;
   gap: 0.6rem !important;
   margin-bottom: 0.85rem !important;
 }
 
 .venues_list_card_meta_item {
   display: inline-flex !important;
-  align-items: center !important;
+  align-items: center;
   gap: 4px !important;
   font-size: 0.7rem !important;
   font-weight: 600 !important;
@@ -4397,7 +3937,7 @@ body, .body, .main-wrapper {
 
 .venues_list_card_cta {
   display: flex !important;
-  align-items: center !important;
+  align-items: center;
   gap: 4px !important;
   font-size: 0.75rem !important;
   font-weight: 800 !important;
@@ -4412,52 +3952,6 @@ body, .body, .main-wrapper {
 
 .concierge_page {
   /* Inherits shared wrapper properties */
-}
-
-.concierge_hero {
-  padding: 0 2rem 2rem !important;
-}
-
-.concierge_hero_content {
-  max-width: 700px !important;
-}
-
-.concierge_eyebrow {
-  display: inline-flex !important;
-  align-items: center !important;
-  gap: 6px !important;
-  font-size: 0.72rem !important;
-  font-weight: 800 !important;
-  letter-spacing: 0.12em !important;
-  color: #ff3b5c !important;
-  text-transform: uppercase !important;
-  margin-bottom: 0.75rem !important;
-}
-
-.concierge_h1 {
-  font-size: 2rem !important;
-  font-weight: 900 !important;
-  color: #ffffff !important;
-  letter-spacing: -0.02em !important;
-  margin: 0 0 0.75rem 0 !important;
-  line-height: 1.15 !important;
-  text-transform: uppercase !important;
-}
-
-.concierge_subtitle {
-  font-size: 0.92rem !important;
-  color: #9c9c9e !important;
-  line-height: 1.6 !important;
-  margin: 0 !important;
-}
-
-@media (max-width: 768px) {
-  .concierge_hero {
-    padding: 0 1.25rem 1.5rem !important;
-  }
-  .concierge_h1 {
-    font-size: 1.45rem !important;
-  }
 }
 
 .concierge_page_body {
@@ -4491,7 +3985,7 @@ body, .body, .main-wrapper {
   backdrop-filter: blur(20px) !important;
   border: 1px solid rgba(255, 255, 255, 0.08) !important;
   text-align: left !important;
-  cursor: pointer !important;
+  cursor: pointer;
   transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), 
               box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
               border-color 0.35s ease !important;
@@ -4535,7 +4029,6 @@ body, .body, .main-wrapper {
   margin-bottom: 2.75rem !important;
 }
 
-.concierge_detail_card,
 .concierge_detail_content {
   background: transparent !important;
   -webkit-backdrop-filter: none !important;
@@ -4543,7 +4036,7 @@ body, .body, .main-wrapper {
   border: none !important;
   border-radius: 0 !important;
   padding: 0 !important;
-  box-shadow: none !important;
+  box-shadow: none;
 }
 
 .concierge_detail_header {
@@ -4551,10 +4044,10 @@ body, .body, .main-wrapper {
   align-items: center !important;
   justify-content: space-between !important;
   margin-bottom: 0.75rem !important;
-  flex-wrap: wrap !important;
+  flex-wrap: wrap;
   gap: 0.75rem !important;
   padding-bottom: 0.65rem !important;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .concierge_detail_title {
@@ -4596,7 +4089,7 @@ body, .body, .main-wrapper {
 
 .concierge_service_features_row {
   display: flex !important;
-  flex-wrap: wrap !important;
+  flex-wrap: wrap;
   gap: 0.65rem !important;
   margin-top: 1.25rem !important;
 }
@@ -4626,7 +4119,7 @@ body, .body, .main-wrapper {
   border: 1px solid rgba(255, 255, 255, 0.08) !important;
   border-radius: 1.25rem !important;
   padding: 1.5rem !important;
-  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4) !important;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
 }
 
 .concierge_form_title {
@@ -4661,7 +4154,7 @@ body, .body, .main-wrapper {
 .concierge_form_actions {
   display: flex !important;
   gap: 1rem !important;
-  flex-wrap: wrap !important;
+  flex-wrap: wrap;
 }
 
 .concierge_submit_btn {
@@ -4707,7 +4200,7 @@ body, .body, .main-wrapper {
   text-align: center !important;
   max-width: 520px !important;
   margin: 0 auto !important;
-  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5) !important;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5);
 }
 
 .concierge_success_icon {
@@ -4721,7 +4214,7 @@ body, .body, .main-wrapper {
   justify-content: center !important;
   margin: 0 auto 1.5rem !important;
   color: #ff3b5c !important;
-  box-shadow: 0 0 20px rgba(193, 2, 48, 0.35) !important;
+  box-shadow: 0 0 20px rgba(193, 2, 48, 0.35);
 }
 
 .concierge_success_title {
@@ -4741,7 +4234,7 @@ body, .body, .main-wrapper {
 
 .concierge_success_actions {
   display: flex !important;
-  flex-direction: column !important;
+  flex-direction: column;
   gap: 0.75rem !important;
   max-width: 320px !important;
   margin: 0 auto !important;
@@ -5008,12 +4501,6 @@ body, .body, .main-wrapper {
   display: block !important;
 }
 
-.venue_stat_divider {
-  width: 1px !important;
-  height: 28px !important;
-  background: rgba(255, 255, 255, 0.06) !important;
-}
-
 @media (max-width: 768px) {
   .venue_stats_strip {
     display: grid !important;
@@ -5055,9 +4542,6 @@ body, .body, .main-wrapper {
     overflow: hidden !important;
     text-overflow: ellipsis !important;
     max-width: 100% !important;
-  }
-  .venue_stat_divider {
-    display: none !important;
   }
 }
 
@@ -5307,40 +4791,6 @@ body, .body, .main-wrapper {
   display: flex !important;
   flex-direction: column !important;
   gap: 1rem !important;
-}
-
-.venue_map_preview_link {
-  display: block !important;
-  position: relative !important;
-  border-radius: 12px !important;
-  overflow: hidden !important;
-  border: 1px solid rgba(255, 255, 255, 0.06) !important;
-}
-
-.venue_map_preview_img {
-  width: 100% !important;
-  height: 180px !important;
-  object-fit: cover !important;
-  display: block !important;
-}
-
-.venue_map_overlay {
-  position: absolute !important;
-  inset: 0 !important;
-  background: rgba(0, 0, 0, 0.5) !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  gap: 6px !important;
-  color: #ffffff !important;
-  font-size: 0.82rem !important;
-  font-weight: 700 !important;
-  opacity: 0 !important;
-  transition: opacity 0.3s ease !important;
-}
-
-.venue_map_preview_link:hover .venue_map_overlay {
-  opacity: 1 !important;
 }
 
 .venue_sidebar_card {
@@ -5691,7 +5141,7 @@ body, .body, .main-wrapper {
   background: rgba(255, 59, 92, 0.8) !important;
   color: #ffffff !important;
   padding: 2px 8px !important;
-  border-radius: 5px !important;
+  border-radius: 5px;
   font-size: 0.6rem !important;
   font-weight: 800 !important;
   text-transform: uppercase !important;
@@ -5804,7 +5254,7 @@ body, .body, .main-wrapper {
   top: 0.6rem !important;
   left: 0.6rem !important;
   background: rgba(0, 0, 0, 0.7) !important;
-  backdrop-filter: blur(6px) !important;
+  backdrop-filter: blur(6px);
   color: #ffffff !important;
   padding: 4px 10px !important;
   border-radius: 6px !important;
@@ -6008,7 +5458,7 @@ body, .body, .main-wrapper {
 
 .faq_eyebrow {
   display: inline-flex !important;
-  align-items: center !important;
+  align-items: center;
   gap: 6px !important;
   font-size: 0.72rem !important;
   font-weight: 800 !important;
@@ -6038,7 +5488,7 @@ body, .body, .main-wrapper {
 
 .faq_accordion {
   display: flex !important;
-  flex-direction: column !important;
+  flex-direction: column;
   gap: 0.85rem !important;
 }
 
@@ -6069,13 +5519,13 @@ body, .body, .main-wrapper {
   gap: 1rem !important;
   padding: 1.25rem 1.5rem !important;
   background: transparent !important;
-  border: none !important;
+  border: none;
   color: #ffffff !important;
   font-family: 'Montserrat', sans-serif !important;
   font-size: clamp(0.88rem, 1.05vw, 1rem) !important;
   font-weight: 700 !important;
   text-align: left !important;
-  cursor: pointer !important;
+  cursor: pointer;
   transition: color 0.2s ease !important;
 }
 
@@ -6084,7 +5534,7 @@ body, .body, .main-wrapper {
 }
 
 .faq_chevron {
-  flex-shrink: 0 !important;
+  flex-shrink: 0;
   color: #ff3b5c !important;
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
@@ -6142,19 +5592,19 @@ body, .body, .main-wrapper {
   display: flex !important;
   align-items: center !important;
   justify-content: space-between !important;
-  flex-wrap: wrap !important;
+  flex-wrap: wrap;
   gap: 1rem !important;
   margin-bottom: 2.5rem !important;
   padding-bottom: 1.5rem !important;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .blog_categories_scroll {
   display: flex !important;
-  align-items: center !important;
+  align-items: center;
   gap: 0.5rem !important;
   overflow-x: auto !important;
-  scrollbar-width: none !important;
+  scrollbar-width: none;
 }
 
 .blog_categories_scroll::-webkit-scrollbar {
@@ -6171,8 +5621,8 @@ body, .body, .main-wrapper {
   color: #a0a0a2 !important;
   background: rgba(255, 255, 255, 0.04) !important;
   border: 1px solid rgba(255, 255, 255, 0.08) !important;
-  cursor: pointer !important;
-  white-space: nowrap !important;
+  cursor: pointer;
+  white-space: nowrap;
   transition: all 0.2s ease !important;
 }
 
@@ -6190,7 +5640,7 @@ body, .body, .main-wrapper {
 
 .blog_search_wrapper {
   display: flex !important;
-  align-items: center !important;
+  align-items: center;
   gap: 0.5rem !important;
   background: rgba(255, 255, 255, 0.04) !important;
   border: 1px solid rgba(255, 255, 255, 0.08) !important;
@@ -6201,8 +5651,8 @@ body, .body, .main-wrapper {
 
 .blog_search_input {
   background: transparent !important;
-  border: none !important;
-  outline: none !important;
+  border: none;
+  outline: none;
   color: #ffffff !important;
   font-size: 0.82rem !important;
   font-family: 'Montserrat', sans-serif !important;
@@ -6228,12 +5678,12 @@ body, .body, .main-wrapper {
 .blog_card:hover {
   transform: translateY(-5px) !important;
   border-color: rgba(193, 2, 48, 0.45) !important;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), 0 0 25px rgba(193, 2, 48, 0.2) !important;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), 0 0 25px rgba(193, 2, 48, 0.2);
 }
 
 .blog_card_link {
   display: flex !important;
-  flex-direction: column !important;
+  flex-direction: column;
   height: 100% !important;
   text-decoration: none !important;
   color: inherit !important;
@@ -6249,7 +5699,7 @@ body, .body, .main-wrapper {
 .blog_card_img {
   width: 100% !important;
   height: 100% !important;
-  object-fit: cover !important;
+  object-fit: cover;
   transition: transform 0.4s ease !important;
 }
 
@@ -6262,7 +5712,7 @@ body, .body, .main-wrapper {
   top: 1rem !important;
   left: 1rem !important;
   background: rgba(10, 10, 10, 0.75) !important;
-  backdrop-filter: blur(10px) !important;
+  backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.15) !important;
   border-radius: 6px !important;
   padding: 3px 9px !important;
@@ -6282,7 +5732,7 @@ body, .body, .main-wrapper {
 
 .blog_card_meta {
   display: flex !important;
-  align-items: center !important;
+  align-items: center;
   gap: 8px !important;
   font-size: 0.74rem !important;
   color: #888888 !important;
@@ -6298,7 +5748,7 @@ body, .body, .main-wrapper {
   margin: 0 0 0.65rem 0 !important;
   display: -webkit-box !important;
   -webkit-line-clamp: 2 !important;
-  -webkit-box-orient: vertical !important;
+  -webkit-box-orient: vertical;
   overflow: hidden !important;
 }
 
@@ -6309,9 +5759,9 @@ body, .body, .main-wrapper {
   margin: 0 0 1.25rem 0 !important;
   display: -webkit-box !important;
   -webkit-line-clamp: 3 !important;
-  -webkit-box-orient: vertical !important;
+  -webkit-box-orient: vertical;
   overflow: hidden !important;
-  flex: 1 !important;
+  flex: 1;
 }
 
 .blog_card_footer {
@@ -6319,12 +5769,12 @@ body, .body, .main-wrapper {
   align-items: center !important;
   justify-content: space-between !important;
   padding-top: 1rem !important;
-  border-top: 1px solid rgba(255, 255, 255, 0.06) !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .blog_card_author {
   display: flex !important;
-  align-items: center !important;
+  align-items: center;
   gap: 8px !important;
   font-size: 0.76rem !important;
   color: #aaaaaa !important;
@@ -6333,14 +5783,14 @@ body, .body, .main-wrapper {
 .blog_author_avatar {
   width: 22px !important;
   height: 22px !important;
-  border-radius: 50% !important;
-  object-fit: contain !important;
+  border-radius: 50%;
+  object-fit: contain;
   background: rgba(255, 255, 255, 0.08) !important;
 }
 
 .blog_card_read_more {
   display: flex !important;
-  align-items: center !important;
+  align-items: center;
   gap: 4px !important;
   font-size: 0.76rem !important;
   font-weight: 700 !important;
@@ -6357,7 +5807,7 @@ body, .body, .main-wrapper {
 
 .blog_breadcrumbs {
   display: flex !important;
-  align-items: center !important;
+  align-items: center;
   gap: 8px !important;
   font-size: 0.75rem !important;
   color: #888888 !important;
@@ -6404,15 +5854,15 @@ body, .body, .main-wrapper {
   display: flex !important;
   align-items: center !important;
   justify-content: space-between !important;
-  flex-wrap: wrap !important;
+  flex-wrap: wrap;
   gap: 1.25rem !important;
   padding: 1rem 0 !important;
-  border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .blog_post_author_info {
   display: flex !important;
-  align-items: center !important;
+  align-items: center;
   gap: 10px !important;
 }
 
@@ -6429,7 +5879,7 @@ body, .body, .main-wrapper {
 
 .blog_post_details {
   display: flex !important;
-  align-items: center !important;
+  align-items: center;
   gap: 8px !important;
   font-size: 0.78rem !important;
   color: #888888 !important;
@@ -6437,7 +5887,7 @@ body, .body, .main-wrapper {
 
 .blog_share_btn {
   display: inline-flex !important;
-  align-items: center !important;
+  align-items: center;
   gap: 6px !important;
   padding: 0.45rem 0.95rem !important;
   border-radius: 999px !important;
@@ -6446,7 +5896,7 @@ body, .body, .main-wrapper {
   color: #ffffff !important;
   font-size: 0.75rem !important;
   font-weight: 700 !important;
-  cursor: pointer !important;
+  cursor: pointer;
   transition: all 0.2s ease !important;
 }
 
@@ -6464,7 +5914,7 @@ body, .body, .main-wrapper {
 .blog_post_cover_img {
   width: 100% !important;
   max-height: 480px !important;
-  object-fit: cover !important;
+  object-fit: cover;
   border-radius: 1.5rem !important;
   border: 1px solid rgba(255, 255, 255, 0.08) !important;
 }
@@ -6482,7 +5932,7 @@ body, .body, .main-wrapper {
   font-weight: 500 !important;
   margin-bottom: 2rem !important;
   padding-bottom: 1.5rem !important;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .blog_content_h2 {
@@ -6508,12 +5958,12 @@ body, .body, .main-wrapper {
   border: 1px solid rgba(193, 2, 48, 0.4) !important;
   border-radius: 1.5rem !important;
   overflow: hidden !important;
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5), 0 0 30px rgba(193, 2, 48, 0.18) !important;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5), 0 0 30px rgba(193, 2, 48, 0.18);
 }
 
 .blog_cta_badge {
   display: inline-flex !important;
-  align-items: center !important;
+  align-items: center;
   gap: 6px !important;
   font-size: 0.72rem !important;
   font-weight: 800 !important;
@@ -6540,15 +5990,15 @@ body, .body, .main-wrapper {
 
 .blog_cta_actions {
   display: flex !important;
-  align-items: center !important;
-  flex-wrap: wrap !important;
+  align-items: center;
+  flex-wrap: wrap;
   gap: 0.75rem !important;
 }
 
 .blog_related_section {
   margin-top: 3.5rem !important;
   padding-top: 2rem !important;
-  border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .blog_related_title {
@@ -6569,7 +6019,7 @@ body, .body, .main-wrapper {
 .blog_related_card {
   display: flex !important;
   gap: 1rem !important;
-  align-items: center !important;
+  align-items: center;
   padding: 0.85rem !important;
   background: rgba(255, 255, 255, 0.03) !important;
   border: 1px solid rgba(255, 255, 255, 0.08) !important;
@@ -6586,8 +6036,8 @@ body, .body, .main-wrapper {
 .blog_related_img {
   width: 75px !important;
   height: 65px !important;
-  border-radius: 0.6rem !important;
-  object-fit: cover !important;
+  border-radius: 0.6rem;
+  object-fit: cover;
 }
 
 .blog_related_cat {
@@ -6607,7 +6057,7 @@ body, .body, .main-wrapper {
   margin: 0 !important;
   display: -webkit-box !important;
   -webkit-line-clamp: 2 !important;
-  -webkit-box-orient: vertical !important;
+  -webkit-box-orient: vertical;
   overflow: hidden !important;
 }
 
@@ -6624,7 +6074,7 @@ body, .body, .main-wrapper {
     radial-gradient(ellipse 75% 65% at 5% 45%, rgba(18, 56, 38, 0.42) 0%, transparent 62%),
     radial-gradient(ellipse 65% 60% at 52% 40%, rgba(68, 22, 44, 0.35) 0%, transparent 65%),
     radial-gradient(ellipse 50% 50% at 95% 65%, rgba(20, 22, 35, 0.45) 0%, transparent 60%) !important;
-  border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
   margin-top: 0 !important;
   overflow: hidden !important;
   color: #ffffff !important;
@@ -6636,8 +6086,8 @@ body, .body, .main-wrapper {
   margin: 0 auto !important;
   padding: 3rem 2rem 2rem 2rem !important;
   position: relative !important;
-  z-index: 2 !important;
-  box-sizing: border-box !important;
+  z-index: 2;
+  box-sizing: border-box;
 }
 
 @media (max-width: 768px) {
@@ -6667,19 +6117,19 @@ body, .body, .main-wrapper {
   max-width: 820px !important;
   display: flex !important;
   flex-direction: column !important;
-  align-items: flex-start !important;
+  align-items: flex-start;
 }
 
 .arrive_footer_brand_lockup {
   display: flex !important;
-  align-items: center !important;
+  align-items: center;
   gap: 12px !important;
   margin-bottom: 1.25rem !important;
 }
 
 .arrive_footer_logo_link {
   display: inline-flex !important;
-  align-items: center !important;
+  align-items: center;
   gap: 6px !important;
   text-decoration: none !important;
 }
@@ -6694,8 +6144,8 @@ body, .body, .main-wrapper {
   width: 7px !important;
   height: 7px !important;
   background-color: #c10230 !important;
-  border-radius: 50% !important;
-  box-shadow: 0 0 10px #c10230 !important;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #c10230;
   display: inline-block !important;
 }
 
@@ -6706,7 +6156,7 @@ body, .body, .main-wrapper {
   color: #727276 !important;
   text-transform: uppercase !important;
   padding-left: 10px !important;
-  border-left: 1px solid rgba(255, 255, 255, 0.15) !important;
+  border-left: 1px solid rgba(255, 255, 255, 0.15);
   line-height: 1 !important;
 }
 
@@ -6727,13 +6177,13 @@ body, .body, .main-wrapper {
 
 .arrive_footer_pill_btn {
   display: inline-flex !important;
-  align-items: center !important;
+  align-items: center;
   gap: 8px !important;
   padding: 0.72rem 1.65rem !important;
   border-radius: 999px !important;
   background: rgba(255, 255, 255, 0.1) !important;
   border: 1px solid rgba(255, 255, 255, 0.18) !important;
-  backdrop-filter: blur(8px) !important;
+  backdrop-filter: blur(8px);
   color: #ffffff !important;
   font-size: 0.74rem !important;
   font-weight: 800 !important;
@@ -6746,7 +6196,7 @@ body, .body, .main-wrapper {
 .arrive_footer_pill_btn:hover {
   background: #c10230 !important;
   border-color: #c10230 !important;
-  box-shadow: 0 0 20px rgba(193, 2, 48, 0.4) !important;
+  box-shadow: 0 0 20px rgba(193, 2, 48, 0.4);
   transform: translateY(-2px) !important;
 }
 
@@ -6766,11 +6216,11 @@ body, .body, .main-wrapper {
 
 .arrive_footer_partner_strip {
   display: flex !important;
-  align-items: baseline !important;
-  flex-wrap: nowrap !important;
+  align-items: baseline;
+  flex-wrap: nowrap;
   gap: 2.2rem !important;
   overflow-x: auto !important;
-  scrollbar-width: none !important;
+  scrollbar-width: none;
   -ms-overflow-style: none !important;
   padding-bottom: 4px !important;
 }
@@ -6784,7 +6234,7 @@ body, .body, .main-wrapper {
   flex-direction: column !important;
   text-decoration: none !important;
   opacity: 0.72 !important;
-  white-space: nowrap !important;
+  white-space: nowrap;
   flex-shrink: 0 !important;
   transition: opacity 0.2s ease, transform 0.2s ease !important;
 }
@@ -6826,7 +6276,7 @@ body, .body, .main-wrapper {
 
 .arrive_footer_primary_nav {
   display: flex !important;
-  flex-direction: column !important;
+  flex-direction: column;
   align-items: flex-end !important;
   gap: 1.25rem !important;
   margin-bottom: 2.8rem !important;
@@ -6869,7 +6319,7 @@ body, .body, .main-wrapper {
   background: #c10230 !important;
   color: #ffffff !important;
   padding: 2px 6px !important;
-  border-radius: 4px !important;
+  border-radius: 4px;
   letter-spacing: 0.06em !important;
 }
 
@@ -6888,7 +6338,7 @@ body, .body, .main-wrapper {
 /* ── Social Media Icons Row: Aligned under Nav ── */
 .arrive_footer_socials {
   display: flex !important;
-  align-items: center !important;
+  align-items: center;
   gap: 1.15rem !important;
 }
 
@@ -6916,14 +6366,14 @@ body, .body, .main-wrapper {
   flex-wrap: wrap !important;
   gap: 1.5rem !important;
   padding-top: 2rem !important;
-  border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
   font-size: 0.72rem !important;
 }
 
 .arrive_footer_legal_links {
   display: flex !important;
-  align-items: center !important;
-  flex-wrap: wrap !important;
+  align-items: center;
+  flex-wrap: wrap;
   gap: 1.4rem !important;
 }
 
@@ -6963,13 +6413,19 @@ body, .body, .main-wrapper {
     padding: 3.5rem 2rem 2rem 2rem !important;
   }
   .arrive_footer_hero_row {
-    flex-direction: column !important;
+    flex-direction: column;
     gap: 3rem !important;
   }
   .arrive_footer_right_col {
     align-items: flex-start !important;
     width: 100% !important;
     text-align: left !important;
+  }
+  /* Column layout + align-items:flex-start sized this to its content (718px on a
+     375px phone) and body overflow-x:hidden silently clipped it. */
+  .arrive_footer_left_col {
+    width: 100% !important;
+    min-width: 0 !important;
   }
   .arrive_footer_primary_nav {
     align-items: flex-start !important;
@@ -6985,6 +6441,12 @@ body, .body, .main-wrapper {
   }
   .arrive_footer_partner_strip {
     gap: 1.5rem !important;
+    flex-wrap: wrap;
+    row-gap: 1rem !important;
+  }
+  .arrive_footer_brand_lockup {
+    flex-wrap: wrap;
+    row-gap: 6px !important;
   }
   .arrive_footer_bottom_bar {
     flex-direction: column !important;
@@ -7011,7 +6473,7 @@ body, .body, .main-wrapper {
   color: #ffb800 !important;
   font-size: 0.72rem !important;
   font-weight: 800 !important;
-  backdrop-filter: blur(10px) !important;
+  backdrop-filter: blur(10px);
 }
 
 .venue_badge_rating small {
@@ -7031,7 +6493,7 @@ body, .body, .main-wrapper {
   background: rgba(255, 255, 255, 0.12) !important;
   border-color: rgba(66, 133, 244, 0.5) !important;
   transform: translateY(-1px) !important;
-  box-shadow: 0 4px 12px rgba(66, 133, 244, 0.25) !important;
+  box-shadow: 0 4px 12px rgba(66, 133, 244, 0.25);
 }
 
 .venue_badge_rating .google_review_text {
@@ -7039,20 +6501,6 @@ body, .body, .main-wrapper {
   font-size: 0.68rem !important;
   font-weight: 600 !important;
   margin-left: 2px !important;
-}
-
-.venue_badge_verified {
-  display: inline-flex !important;
-  align-items: center !important;
-  gap: 3px !important;
-  padding: 0.3rem 0.65rem !important;
-  background: rgba(34, 197, 94, 0.12) !important;
-  border: 1px solid rgba(34, 197, 94, 0.35) !important;
-  border-radius: 999px !important;
-  color: #22c55e !important;
-  font-size: 0.7rem !important;
-  font-weight: 700 !important;
-  backdrop-filter: blur(10px) !important;
 }
 
 .venue_hero_next_event_callout {
@@ -7065,7 +6513,7 @@ body, .body, .main-wrapper {
   border: 1px solid rgba(255, 59, 92, 0.4) !important;
   border-radius: 12px !important;
   cursor: pointer !important;
-  backdrop-filter: blur(12px) !important;
+  backdrop-filter: blur(12px);
   transition: all 0.25s ease !important;
   max-width: 100% !important;
 }
@@ -7073,17 +6521,17 @@ body, .body, .main-wrapper {
 .venue_hero_next_event_callout:hover {
   border-color: #ff3b5c !important;
   transform: translateY(-1px) !important;
-  box-shadow: 0 6px 20px rgba(255, 59, 92, 0.35) !important;
+  box-shadow: 0 6px 20px rgba(255, 59, 92, 0.35);
 }
 
 .venue_next_event_pulse {
   width: 8px !important;
   height: 8px !important;
-  border-radius: 50% !important;
+  border-radius: 50%;
   background: #ff3b5c !important;
-  box-shadow: 0 0 10px #ff3b5c !important;
+  box-shadow: 0 0 10px #ff3b5c;
   flex-shrink: 0 !important;
-  animation: pulseDot 2s infinite !important;
+  animation: pulseDot 2s infinite;
 }
 
 @keyframes pulseDot {
@@ -7122,9 +6570,9 @@ body, .body, .main-wrapper {
   font-size: 0.74rem !important;
   font-weight: 800 !important;
   padding: 3px 9px !important;
-  border-radius: 6px !important;
+  border-radius: 6px;
   background: rgba(255, 255, 255, 0.12) !important;
-  white-space: nowrap !important;
+  white-space: nowrap;
   margin-left: auto !important;
 }
 
@@ -7147,28 +6595,6 @@ body, .body, .main-wrapper {
   margin-top: 0.5rem !important;
 }
 
-.btn_venue_whatsapp_vip {
-  display: inline-flex !important;
-  align-items: center !important;
-  gap: 8px !important;
-  padding: 0.75rem 1.25rem !important;
-  background: rgba(37, 211, 102, 0.12) !important;
-  border: 1px solid rgba(37, 211, 102, 0.4) !important;
-  color: #25D366 !important;
-  border-radius: 10px !important;
-  font-size: 0.74rem !important;
-  font-weight: 800 !important;
-  letter-spacing: 0.06em !important;
-  text-decoration: none !important;
-  transition: all 0.25s ease !important;
-}
-
-.btn_venue_whatsapp_vip:hover {
-  background: #25D366 !important;
-  color: #000000 !important;
-  box-shadow: 0 4px 16px rgba(37, 211, 102, 0.4) !important;
-}
-
 .venue_stat_icon.parking {
   background: rgba(59, 130, 246, 0.15) !important;
   color: #3b82f6 !important;
@@ -7185,7 +6611,7 @@ body, .body, .main-wrapper {
   bottom: 0 !important;
   left: 0 !important;
   right: 0 !important;
-  z-index: 990 !important;
+  z-index: 990;
   display: flex !important;
   align-items: center !important;
   justify-content: space-around !important;
@@ -7194,8 +6620,8 @@ body, .body, .main-wrapper {
   background: rgba(10, 10, 10, 0.94) !important;
   backdrop-filter: blur(16px) !important;
   -webkit-backdrop-filter: blur(16px) !important;
-  border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
-  box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.6) !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.6);
 }
 
 @media (min-width: 769px) {
@@ -7284,9 +6710,6 @@ body, .body, .main-wrapper {
   }
 
   /* Adjust Venue page mobile sticky bar offset if bottom nav is active */
-  .venue_mobile_sticky_bar {
-    bottom: calc(65px + env(safe-area-inset-bottom, 0px)) !important;
-  }
 }
 
 

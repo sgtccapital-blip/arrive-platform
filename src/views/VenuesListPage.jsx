@@ -28,7 +28,7 @@ export const VenuesListPage = ({ locale = 'es' }) => {
               <div className="hero_title_row">
                 <img 
                   loading="eager" 
-                  fetchPriority="high"
+                  fetchpriority="high"
                   src="/images/gifs/Discoball.gif" 
                   alt="Disco Ball Arrive Izquierda" 
                   className="heart_title_flame left hero_gif_discoball" 
@@ -40,7 +40,7 @@ export const VenuesListPage = ({ locale = 'es' }) => {
                 </h1>
                 <img 
                   loading="eager" 
-                  fetchPriority="high"
+                  fetchpriority="high"
                   src="/images/gifs/Discoball.gif" 
                   alt="Disco Ball Arrive Derecha" 
                   className="heart_title_flame right hero_gif_discoball" 

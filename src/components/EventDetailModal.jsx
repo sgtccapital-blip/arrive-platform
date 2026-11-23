@@ -58,12 +58,41 @@ export const EventDetailModal = () => {
 
   const isEs = (locale || 'es') === 'es';
   const [activeLightboxIndex, setActiveLightboxIndex] = useState(null);
+  const [touchStartY, setTouchStartY] = useState(null);
+  const [dragOffset, setDragOffset] = useState(0);
 
   if (!selectedEvent) return null;
 
   const handleClose = () => {
     setSelectedEvent(null);
     setActiveLightboxIndex(null);
+    setDragOffset(0);
+    setTouchStartY(null);
+  };
+
+  const handleTouchStart = (e) => {
+    const modalBody = e.currentTarget.querySelector('.modal-body');
+    if (!modalBody || modalBody.scrollTop <= 5) {
+      setTouchStartY(e.touches[0].clientY);
+    }
+  };
+
+  const handleTouchMove = (e) => {
+    if (touchStartY === null) return;
+    const currentY = e.touches[0].clientY;
+    const diff = currentY - touchStartY;
+    if (diff > 0) {
+      setDragOffset(diff);
+    }
+  };
+
+  const handleTouchEnd = () => {
+    if (dragOffset > 110) {
+      handleClose();
+    } else {
+      setDragOffset(0);
+    }
+    setTouchStartY(null);
   };
 
   const handleOpenVipModal = () => {
@@ -163,7 +192,20 @@ export const EventDetailModal = () => {
 
   return (
     <div className="modal-overlay modal-overlay-event" onClick={handleClose}>
-      <div className="modal-container modal-event-fullscreen" onClick={(e) => e.stopPropagation()}>
+      <div 
+        className="modal-container modal-event-fullscreen" 
+        onClick={(e) => e.stopPropagation()}
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
+        style={{
+          transform: dragOffset > 0 ? `translateY(${dragOffset}px)` : 'none',
+          transition: dragOffset === 0 ? 'transform 0.25s cubic-bezier(0.16, 1, 0.3, 1)' : 'none'
+        }}
+      >
+        {/* Swipe Handle Indicator for Mobile */}
+        <div className="modal-sheet-handle" style={{ display: 'block', margin: '8px auto', opacity: 0.6 }} />
+
         {/* Mobile Go Back Button */}
         <button 
           type="button"
@@ -182,7 +224,7 @@ export const EventDetailModal = () => {
 
         {/* Hero Image */}
         <div style={{ position: 'relative', height: '240px', overflow: 'hidden' }}>
-          <img 
+          <img loading="lazy" decoding="async" 
             src={selectedEvent.image} 
             alt={selectedEvent.title} 
             className="modal-hero-image"
@@ -365,7 +407,7 @@ export const EventDetailModal = () => {
                   <div key={idx} className="dj_profile_card">
                     <div className="dj_profile_top">
                       <div className="dj_avatar_container">
-                        <img 
+                        <img loading="lazy" decoding="async" 
                           src={artist.avatar} 
                           alt={artist.name} 
                           className="dj_avatar_img"
@@ -606,7 +648,7 @@ export const EventDetailModal = () => {
               </button>
 
               <div className="lightbox_image_wrapper">
-                <img 
+                <img loading="lazy" decoding="async" 
                   src={gallery[activeLightboxIndex].url} 
                   alt={gallery[activeLightboxIndex].title} 
                   className="lightbox_img"

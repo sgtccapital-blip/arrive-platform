@@ -199,7 +199,7 @@ export const MyPassesModal = () => {
                               target="_blank"
                               rel="noopener noreferrer"
                               style={{ 
-                                color: 'var(--accent-lime)', 
+                                color: 'var(--accent-red)', 
                                 fontSize: '0.78rem', 
                                 display: 'inline-flex', 
                                 alignItems: 'center', 

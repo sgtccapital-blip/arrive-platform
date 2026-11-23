@@ -75,7 +75,7 @@ export const ConciergePage = ({ locale = 'es' }) => {
               <div className="hero_title_row">
                 <img 
                   loading="eager" 
-                  fetchPriority="high"
+                  fetchpriority="high"
                   src="/images/heart.gif" 
                   alt="Corazón Arrive Concierge Izquierda" 
                   className="heart_title_flame left" 
@@ -87,7 +87,7 @@ export const ConciergePage = ({ locale = 'es' }) => {
                 </h1>
                 <img 
                   loading="eager" 
-                  fetchPriority="high"
+                  fetchpriority="high"
                   src="/images/heart.gif" 
                   alt="Corazón Arrive Concierge Derecha" 
                   className="heart_title_flame right" 
@@ -173,7 +173,7 @@ export const ConciergePage = ({ locale = 'es' }) => {
                             }}
                           >
                             <div className="concierge_restaurant_img_wrap">
-                              <img src={venue.coverImage} alt={venue.name} className="concierge_restaurant_img"
+                              <img loading="lazy" decoding="async" src={venue.coverImage} alt={venue.name} className="concierge_restaurant_img"
                                 onError={(e) => { e.target.src = '/images/venues/furia/cover.jpg'; }}
                               />
                               <span className="concierge_venue_city_badge">{venue.area}</span>

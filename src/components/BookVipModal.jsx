@@ -165,7 +165,7 @@ export const BookVipModal = () => {
                   borderRadius: 'var(--radius-md)',
                   marginBottom: '1.75rem'
                 }}>
-                  <img
+                  <img loading="lazy" decoding="async"
                     src={currentEvent.image}
                     alt={currentEvent.title}
                     style={{ width: '60px', height: '60px', borderRadius: 'var(--radius-sm)', objectFit: 'cover' }}
@@ -411,9 +411,9 @@ export const BookVipModal = () => {
               </h3>
               <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', maxWidth: '440px', margin: '0 auto 1.75rem', lineHeight: '1.6' }}>
                 {isEs ? (
-                  <>Referencia: <strong style={{ color: 'var(--accent-lime)' }}>{reservationRef}</strong>. Nuestro concierge de <strong>Arrive Model Management</strong> se comunicará contigo de inmediato para confirmar tu mesa.</>
+                  <>Referencia: <strong style={{ color: 'var(--accent-red)' }}>{reservationRef}</strong>. Nuestro concierge de <strong>Arrive Model Management</strong> se comunicará contigo de inmediato para confirmar tu mesa.</>
                 ) : (
-                  <>Reference: <strong style={{ color: 'var(--accent-lime)' }}>{reservationRef}</strong>. Our <strong>Arrive Model Management</strong> concierge will contact you immediately to confirm your table.</>
+                  <>Reference: <strong style={{ color: 'var(--accent-red)' }}>{reservationRef}</strong>. Our <strong>Arrive Model Management</strong> concierge will contact you immediately to confirm your table.</>
                 )}
               </p>
 

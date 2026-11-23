@@ -2,6 +2,20 @@ import React, { useEffect } from 'react';
 import { useApp } from '../context/AppContext';
 import { X, Settings, MessageCircle, Crown, Camera } from 'lucide-react';
 
+// Admin entry is hidden from the public menu. Visit any page with ?admin=1 once
+// to enable it on this browser (?admin=0 disables). Not real auth: the admin
+// panel only edits this browser's local copy of the data.
+const isAdminEnabled = () => {
+  try {
+    const flag = new URLSearchParams(window.location.search).get('admin');
+    if (flag === '1') localStorage.setItem('arrive_admin', '1');
+    if (flag === '0') localStorage.removeItem('arrive_admin');
+    return import.meta.env.DEV || localStorage.getItem('arrive_admin') === '1';
+  } catch {
+    return import.meta.env.DEV;
+  }
+};
+
 export const MenuDrawer = ({ isOpen, onClose, route }) => {
   const { 
     isBookVipModalOpen,
@@ -54,7 +68,7 @@ export const MenuDrawer = ({ isOpen, onClose, route }) => {
           <div className="menu_top_header">
             <span>{isEs ? 'CIUDAD DE PANAMÁ' : 'PANAMA CITY'}</span>
             <span className="menu_dot_separator">•</span>
-            <img 
+            <img loading="lazy" decoding="async" 
               src="/images/arrive-logo-white.png" 
               alt="ARRIVE NIGHTLIFE" 
               style={{ height: '22px', width: 'auto', display: 'inline-block', verticalAlign: 'middle' }}
@@ -211,7 +225,7 @@ export const MenuDrawer = ({ isOpen, onClose, route }) => {
           {/* Bottom Footer */}
           <div className="menu_bottom_footer">
             <p className="para_14px">ARRIVE MODEL MANAGEMENT © 2026</p>
-            <button
+            {isAdminEnabled() && (<button
               type="button"
               className="menu_admin_trigger"
               onClick={() => {
@@ -221,7 +235,7 @@ export const MenuDrawer = ({ isOpen, onClose, route }) => {
               title="Panel Admin"
             >
               <Settings size={14} />
-            </button>
+            </button>)}
           </div>
         </div>
       </div>

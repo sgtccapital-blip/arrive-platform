@@ -248,7 +248,7 @@ export const VenuesModal = () => {
 
         {/* ── VENUE HERO COVER ── */}
         <div className="venue_hero_banner">
-          <img 
+          <img loading="lazy" decoding="async" 
             src={selectedVenue.coverImage} 
             alt={selectedVenue.name} 
             className="venue_hero_image"
@@ -820,7 +820,7 @@ export const VenuesModal = () => {
                   {venueEvents.map((evt) => (
                     <div key={evt.id} className="venue_event_card">
                       <div className="venue_event_thumb_wrap">
-                        <img src={evt.image} alt={evt.title} className="venue_event_thumb" />
+                        <img loading="lazy" decoding="async" src={evt.image} alt={evt.title} className="venue_event_thumb" />
                         <span className="venue_event_date_badge">{evt.dateFormatted}</span>
                       </div>
                       <div className="venue_event_content">
@@ -893,7 +893,7 @@ export const VenuesModal = () => {
                 title="Clic para ver la siguiente imagen"
                 style={{ cursor: 'pointer' }}
               >
-                <img 
+                <img loading="lazy" decoding="async" 
                   src={selectedVenue.gallery[activeLightboxIndex].url} 
                   alt={selectedVenue.gallery[activeLightboxIndex].title} 
                   className="lightbox_img"

@@ -40,28 +40,25 @@ export const FilterBar = () => {
   const getSelectedDayLabel = () => {
     switch (selectedDay) {
       case 'Miercoles':
-        return isEs ? 'HOY MIÉRCOLES 16 SEP' : 'TODAY WEDNESDAY SEP 16';
+        return isEs ? 'HOY MIÉRCOLES 18 NOV' : 'TODAY WEDNESDAY NOV 18';
       case 'Jueves':
-        return isEs ? 'JUEVES 17 SEP' : 'THURSDAY SEP 17';
+        return isEs ? 'JUEVES 19 NOV' : 'THURSDAY NOV 19';
       case 'Viernes':
-        return isEs ? 'VIERNES 18 SEP' : 'FRIDAY SEP 18';
+        return isEs ? 'VIERNES 20 NOV' : 'FRIDAY NOV 20';
       case 'Sabado':
-        return isEs ? 'SÁBADO 19 SEP' : 'SATURDAY SEP 19';
-      case 'Domingo':
-        return isEs ? 'DOMINGO 20 SEP' : 'SUNDAY SEP 20';
+        return isEs ? 'SÁBADO 21 NOV' : 'SATURDAY NOV 21';
       case 'all':
       default:
-        return isEs ? 'TODOS LOS DÍAS (16 - 20 SEP)' : 'ALL DAYS (SEP 16 - 20)';
+        return isEs ? 'TODOS LOS DÍAS (18 - 21 NOV)' : 'ALL DAYS (NOV 18 - 21)';
     }
   };
 
   const dayOptions = [
-    { id: 'all', label: isEs ? 'TODOS LOS DÍAS' : 'ALL DAYS', dateText: isEs ? 'Semana 16 - 20 Sep' : 'Week of Sep 16 - 20', note: isEs ? 'Cartelera completa' : 'All events' },
-    { id: 'Miercoles', label: isEs ? 'MIÉRCOLES 16 SEP' : 'WEDNESDAY SEP 16', dateText: '10:00 PM - 03:00 AM', note: 'Furia: Boiler Style 360°' },
-    { id: 'Jueves', label: isEs ? 'JUEVES 17 SEP' : 'THURSDAY SEP 17', dateText: '10:00 PM - 04:00 AM', note: 'Furia • Terraplén • Piano Bar' },
-    { id: 'Viernes', label: isEs ? 'VIERNES 18 SEP' : 'FRIDAY SEP 18', dateText: '10:00 PM - 05:00 AM', note: 'Furia • Terraplén • La Rosalía • Piano Bar' },
-    { id: 'Sabado', label: isEs ? 'SÁBADO 19 SEP' : 'SATURDAY SEP 19', dateText: '10:00 PM - 05:00 AM', note: 'Mansión Reggaetón • Red Room • La Connect' },
-    { id: 'Domingo', label: isEs ? 'DOMINGO 20 SEP' : 'SUNDAY SEP 20', dateText: '04:00 PM - 01:00 AM', note: 'Terraplén: Tardeo Sunset Party' }
+    { id: 'all', label: isEs ? 'TODOS LOS DÍAS' : 'ALL DAYS', dateText: isEs ? 'Semana 18 - 21 Nov' : 'Week of Nov 18 - 21', note: isEs ? 'Cartelera completa' : 'All events' },
+    { id: 'Miercoles', label: isEs ? 'MIÉRCOLES 18 NOV' : 'WEDNESDAY NOV 18', dateText: '9:00 PM - 04:00 AM', note: 'Furia • Terraplén • Piano Bar' },
+    { id: 'Jueves', label: isEs ? 'JUEVES 19 NOV' : 'THURSDAY NOV 19', dateText: '7:00 PM - 04:00 AM', note: 'Furia • Terraplén Rooftop & 002 • Piano Bar' },
+    { id: 'Viernes', label: isEs ? 'VIERNES 20 NOV' : 'FRIDAY NOV 20', dateText: '9:00 PM - 04:00 AM', note: 'Furia • Terraplén • La Rosalía • Piano Bar' },
+    { id: 'Sabado', label: isEs ? 'SÁBADO 21 NOV' : 'SATURDAY NOV 21', dateText: '9:00 PM - 07:00 AM', note: 'Furia Mansión • Terraplén • La Rosalía • Piano Bar' }
   ];
 
   return (
