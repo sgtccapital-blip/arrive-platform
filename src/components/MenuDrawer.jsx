@@ -69,9 +69,9 @@ export const MenuDrawer = ({ isOpen, onClose, route }) => {
             <span>{isEs ? 'CIUDAD DE PANAMÁ' : 'PANAMA CITY'}</span>
             <span className="menu_dot_separator">•</span>
             <img loading="lazy" decoding="async" 
-              src="/images/arrive-logo-white.png" 
-              alt="ARRIVE NIGHTLIFE" 
-              style={{ height: '22px', width: 'auto', display: 'inline-block', verticalAlign: 'middle' }}
+              src="/images/hangout-logo-sm.png" 
+              alt="HANGOUT NIGHTLIFE" 
+              style={{ height: '46px', width: 'auto', display: 'inline-block', verticalAlign: 'middle' }}
             />
           </div>
 
@@ -135,13 +135,27 @@ export const MenuDrawer = ({ isOpen, onClose, route }) => {
                 }}
               >
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                  <Camera size={19} color="#ff3b5c" />
+                  <Camera size={19} color="#FF2A2A" />
                   <span>{isEs ? 'DESCARGAR FOTOS' : 'DOWNLOAD PHOTOS'}</span>
                   <span className="nav_gallery_badge" style={{ fontSize: '0.62rem', padding: '2px 6px' }}>4K VIP</span>
                 </div>
               </a>
               <span className="menu_sublink_desc">
-                {isEs ? 'Galería oficial de fiestas para chicas & modelos Arrive' : 'Official party photo hub for Arrive models & guests'}
+                {isEs ? 'Galería oficial de fiestas para chicas & modelos Hangout' : 'Official party photo hub for Hangout models & guests'}
+              </span>
+            </div>
+
+            {/* 3.1 Editorial guides (Spanish) */}
+            <div className="menu_item_row">
+              <a 
+                href="/es/guias/" 
+                className="menu_main_link"
+                onClick={() => onClose()}
+              >
+                {isEs ? 'GUÍAS DE PANAMÁ' : 'PANAMA GUIDES (ES)'}
+              </a>
+              <span className="menu_sublink_desc">
+                {isEs ? 'Qué hacer, nightlife, islas y aventura' : 'Things to do, nightlife, islands and adventure'}
               </span>
             </div>
 
@@ -195,7 +209,7 @@ export const MenuDrawer = ({ isOpen, onClose, route }) => {
             {/* 5. WhatsApp VIP 24/7 */}
             <div className="menu_item_row">
               <a 
-                href="https://wa.me/50760000000?text=Hola%20Arrive%20Concierge,%20deseo%20asistencia%20VIP" 
+                href="https://wa.me/50760000000?text=Hola%20Hangout%20Concierge,%20deseo%20asistencia%20VIP" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="menu_main_link whatsapp_link"
@@ -206,27 +220,27 @@ export const MenuDrawer = ({ isOpen, onClose, route }) => {
             </div>
           </div>
 
-          {/* Arrive Nightlife Brand Card */}
+          {/* Hangout Nightlife Brand Card */}
           <div className="menu_nightlife_card">
             <img 
               src="/images/right-nav.avif" 
               loading="lazy" 
-              alt="Arrive Nightlife" 
+              alt="Hangout Nightlife" 
               className="menu_nightlife_card_img" 
             />
             <div className="menu_nightlife_card_overlay">
-              <h4 className="menu_nightlife_card_title">Arrive Nightlife</h4>
+              <h4 className="menu_nightlife_card_title">Hangout Nightlife</h4>
               <p className="menu_nightlife_card_text">
                 {isEs 
-                  ? 'Acceso libre, Open Bar y beneficios exclusivos para la comunidad de Arrive Model Management cada semana en los mejores clubs de Panamá.'
-                  : 'Free entry, complimentary open bar, and exclusive perks for the Arrive Model Management community every week at premier Panama venues.'}
+                  ? 'Acceso libre, Open Bar y beneficios exclusivos para la comunidad de Hangout Panamá cada semana en los mejores clubs de Panamá.'
+                  : 'Free entry, complimentary open bar, and exclusive perks for the Hangout Panamá community every week at premier Panama venues.'}
               </p>
             </div>
           </div>
 
           {/* Bottom Footer */}
           <div className="menu_bottom_footer">
-            <p className="para_14px">ARRIVE MODEL MANAGEMENT © 2026</p>
+            <p className="para_14px">Hangout Panamá © 2026</p>
             {isAdminEnabled() && (<button
               type="button"
               className="menu_admin_trigger"

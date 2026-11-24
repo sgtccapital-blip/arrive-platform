@@ -1,10 +1,11 @@
 // =========================================================================
-// ARRIVE PLATFORM — ROUTE DEFINITIONS & CANONICAL REGISTRY
+// HANGOUT PLATFORM — ROUTE DEFINITIONS & CANONICAL REGISTRY
 // Centralized mapping of all semantic URLs in the platform
 // =========================================================================
 
 import { SEO_CATEGORY_HUBS, toSlug } from '../data/seoModels.js';
 import { BLOG_POSTS } from '../data/blogData.js';
+import { getGuidesPage, getAllGuidePaths, BLOG_TO_GUIDE_REDIRECTS } from '../seo/guides.js';
 
 /**
  * Parses a raw URL pathname into structured route parameters
@@ -90,8 +91,19 @@ export const parseRoute = (pathname = '/') => {
     };
   }
 
+  // 5.9 Editorial guides (Spanish only): /es/guias/, /es/guias/:category/, /es/guias/:slug/
+  if (cleanSegments[0] === 'guias') {
+    const guidePage = locale === 'es' && cleanSegments.length <= 2 ? getGuidesPage(path) : null;
+    if (!guidePage) return notFound;
+    return { type: 'guides', locale, path, canonicalPath: guidePage.path, params: { guideKind: guidePage.kind, guideSlug: cleanSegments[1] || null } };
+  }
+
   // 6. Blog & Nightlife Guide: /blog/ or /blog/:slug/
   if (cleanSegments[0] === 'blog') {
+    if (cleanSegments[1] && locale === 'es' && BLOG_TO_GUIDE_REDIRECTS[cleanSegments[1]]) {
+      const to = `/es/guias/${BLOG_TO_GUIDE_REDIRECTS[cleanSegments[1]]}/`;
+      return { type: 'redirect', locale, path, canonicalPath: to, params: { to } };
+    }
     if (cleanSegments[1]) {
       return {
         type: 'blog_post',
@@ -280,7 +292,8 @@ export const getAllCanonicalRoutes = (events = [], venues = []) => {
 
     // 6. Blog & Guides
     routes.push({ path: `/${loc}/blog/`, priority: 0.85, changefreq: 'weekly' });
-    BLOG_POSTS.forEach(post => routes.push({path: `/${loc}/blog/${post.slug}/`, priority: 0.8, changefreq: 'monthly'}));
+    BLOG_POSTS.filter(post => !(loc === 'es' && BLOG_TO_GUIDE_REDIRECTS[post.slug])).forEach(post => routes.push({path: `/${loc}/blog/${post.slug}/`, priority: 0.8, changefreq: 'monthly'}));
+    if (loc === 'es') getAllGuidePaths().forEach(p => routes.push({ path: p, priority: p === '/es/guias/' ? 0.9 : 0.8, changefreq: 'weekly' }));
 
     // 6.1 Gallery & Girls High-Res Photos
     routes.push({ path: `/${loc}/galeria/`, priority: 0.85, changefreq: 'weekly' });

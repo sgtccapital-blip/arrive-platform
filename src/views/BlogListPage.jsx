@@ -1,4 +1,5 @@
 import { editorialCopy } from '../seo/editorial';
+import { blogHref } from '../seo/guides';
 import React, { useState } from 'react';
 import { BLOG_POSTS } from '../data/blogData';
 import { BookOpen, Clock, Calendar, ArrowRight, Sparkles, Search } from 'lucide-react';
@@ -38,8 +39,8 @@ export const BlogListPage = ({ locale = 'es' }) => {
                 <img 
                   loading="eager" 
                   fetchPriority="high"
-                  src="/images/heart.gif" 
-                  alt="Corazón Arrive Izquierda" 
+                  src="/images/hangout-star.svg" 
+                  alt="Estrella Hangout Izquierda" 
                   className="heart_title_flame left" 
                   width="60"
                   height="60"
@@ -50,8 +51,8 @@ export const BlogListPage = ({ locale = 'es' }) => {
                 <img 
                   loading="eager" 
                   fetchPriority="high"
-                  src="/images/heart.gif" 
-                  alt="Corazón Arrive Derecha" 
+                  src="/images/hangout-star.svg" 
+                  alt="Estrella Hangout Derecha" 
                   className="heart_title_flame right" 
                   width="60"
                   height="60"
@@ -112,7 +113,7 @@ export const BlogListPage = ({ locale = 'es' }) => {
             const postData = post[locale] || post.es;
             return (
               <article key={post.id} className="blog_card">
-                <a href={`/${locale}/blog/${post.slug}/`} className="blog_card_link">
+                <a href={blogHref(locale, post.slug)} className="blog_card_link">
                   <div className="blog_card_img_wrap">
                     <img 
                       src={post.coverImage} 

@@ -29,8 +29,8 @@ events_data = [
     "ticketUrl": "https://www.mieventos.com/event-detail/furia-midweek-party-host-jorkan-miercoles-24-de-noviembre",
     "image": "/images/events-nov/flyer-event-1.jpg",
     "imageAlt": "Flyer oficial FURIA MIDWEEK PARTY HOST JORKAN en Furia Club",
-    "seoTitle": "FURIA MIDWEEK PARTY • Host Jorkan • Furia Club | ARRIVE Panamá",
-    "seoDescription": "FURIA MIDWEEK PARTY HOST JORKAN en Furia Club. Open Ron, Gin y Vodka de 10:00 PM a 12:00 MN para ellas y ellos. Entrada oficial con Pase Digital Arrive.",
+    "seoTitle": "FURIA MIDWEEK PARTY • Host Jorkan • Furia Club | HANGOUT Panamá",
+    "seoDescription": "FURIA MIDWEEK PARTY HOST JORKAN en Furia Club. Open Ron, Gin y Vodka de 10:00 PM a 12:00 MN para ellas y ellos. Entrada oficial con Pase Digital Hangout.",
     "artists": [
       {
         "name": "Jorkan",
@@ -57,7 +57,7 @@ events_data = [
     "perkHeadline": "OPEN BAR HASTA 12MN (ELLAS & ELLOS)",
     "perkDetails": "Open Ron, Gin y Vodka para ellas y ellos de 10:00 PM a 12:00 MN.",
     "perkEndTime": "12:00 AM",
-    "perkCode": "ARRIVE-MIE-25",
+    "perkCode": "HANGOUT-MIE-25",
     "instagramUrl": "https://www.instagram.com/furiaclubpanama/",
     "instagramHandle": "@furiaclubpanama",
     "mapPreview": "/images/furia_map_preview.jpg",
@@ -95,7 +95,7 @@ events_data = [
     "ticketUrl": "https://www.mieventos.com/event-detail/furia-friendsgiving-jueves-26-de-noviembre",
     "image": "/images/events-nov/flyer-event-2.jpg",
     "imageAlt": "Flyer oficial FURIA FRIENDSGIVING en Furia Club",
-    "seoTitle": "FURIA FRIENDSGIVING • Furia Club | ARRIVE Panamá",
+    "seoTitle": "FURIA FRIENDSGIVING • Furia Club | HANGOUT Panamá",
     "seoDescription": "FURIA FRIENDSGIVING en Furia Club, Ciudad de Panamá. Tickets Free para mujeres y hombres válidos hasta las 12:00 AM.",
     "artists": [
       {
@@ -112,9 +112,9 @@ events_data = [
     "ageLimit": "18+",
     "description": "Edición especial Friendsgiving en Furia Club. TICKETS FREE HOMBRES y MUJERES válidos hasta las 12:00 AM. Entrada General disponible.",
     "perkHeadline": "ENTRADAS GRATIS HASTA LAS 12:00 MN",
-    "perkDetails": "Acceso gratuito con pase Arrive válido hasta las 12:00 AM.",
+    "perkDetails": "Acceso gratuito con pase Hangout válido hasta las 12:00 AM.",
     "perkEndTime": "12:00 AM",
-    "perkCode": "ARRIVE-JUE-26",
+    "perkCode": "HANGOUT-JUE-26",
     "instagramUrl": "https://www.instagram.com/furiaclubpanama/",
     "instagramHandle": "@furiaclubpanama",
     "mapPreview": "/images/furia_map_preview.jpg",
@@ -152,7 +152,7 @@ events_data = [
     "ticketUrl": "https://www.mieventos.com/event-detail/furia-circus-reggaeton-viernes-27-de-noviembre",
     "image": "/images/events-nov/flyer-event-3.jpg",
     "imageAlt": "Flyer oficial FURIA CIRCUS REGGAETON en Furia Club",
-    "seoTitle": "FURIA CIRCUS REGGAETON • Furia Club | ARRIVE Panamá",
+    "seoTitle": "FURIA CIRCUS REGGAETON • Furia Club | HANGOUT Panamá",
     "seoDescription": "FURIA CIRCUS REGGAETON en Furia Club. Open Gin y Sangría para ellas de 10:00 PM a 12:00 MN. Tickets Free válidos hasta las 12:00 AM.",
     "artists": [
       {
@@ -171,7 +171,7 @@ events_data = [
     "perkHeadline": "OPEN GIN & SANGRÍA PARA ELLAS",
     "perkDetails": "Open Gin y Sangría de cortesía para chicas de 10:00 PM a 12:00 MN.",
     "perkEndTime": "12:00 AM",
-    "perkCode": "ARRIVE-VIE-27",
+    "perkCode": "HANGOUT-VIE-27",
     "instagramUrl": "https://www.instagram.com/furiaclubpanama/",
     "instagramHandle": "@furiaclubpanama",
     "mapPreview": "/images/furia_map_preview.jpg",
@@ -209,7 +209,7 @@ events_data = [
     "ticketUrl": "https://www.mieventos.com/event-detail/furia-mansin-reggaeton-reggaeton-y-plena-sbado-28-de-noviembre",
     "image": "/images/events-nov/flyer-event-4.jpg",
     "imageAlt": "Flyer oficial FURIA MANSIÓN REGGAETON en Furia Club",
-    "seoTitle": "FURIA MANSIÓN REGGAETON • Furia Club | ARRIVE Panamá",
+    "seoTitle": "FURIA MANSIÓN REGGAETON • Furia Club | HANGOUT Panamá",
     "seoDescription": "FURIA MANSIÓN REGGAETON en Furia Club. Reggaeton y plena con Open Bar de 11:00 PM a 12:00 MN para ellas y ellos.",
     "artists": [
       {
@@ -228,7 +228,7 @@ events_data = [
     "perkHeadline": "OPEN BAR HASTA 12MN (ELLAS & ELLOS)",
     "perkDetails": "Open bar para chicas y chicos de 11:00 PM a 12:00 MN.",
     "perkEndTime": "12:00 AM",
-    "perkCode": "ARRIVE-SAB-28",
+    "perkCode": "HANGOUT-SAB-28",
     "instagramUrl": "https://www.instagram.com/furiaclubpanama/",
     "instagramHandle": "@furiaclubpanama",
     "mapPreview": "/images/furia_map_preview.jpg",
@@ -266,7 +266,7 @@ events_data = [
     "ticketUrl": "https://www.mieventos.com/event-detail/miercoles-25-de-noviembre-terrapln-rooftop-ladies-first-dj-joseph",
     "image": "/images/events-nov/flyer-event-5.jpg",
     "imageAlt": "Flyer oficial LADIES FIRST en Terraplén Rooftop",
-    "seoTitle": "LADIES FIRST • Terraplén Rooftop | ARRIVE Panamá",
+    "seoTitle": "LADIES FIRST • Terraplén Rooftop | HANGOUT Panamá",
     "seoDescription": "LADIES FIRST en Terraplén Rooftop, Casco Antiguo. Ellas Open Gin y Sangría de 5:00 PM a 12:00 MN. Ellos entran gratis hasta las 12:00 MN.",
     "artists": [
       {
@@ -285,7 +285,7 @@ events_data = [
     "perkHeadline": "OPEN GIN & SANGRÍA DE 5PM A 12MN",
     "perkDetails": "Open Gin y Sangría para chicas desde el atardecer (5:00 PM a 12:00 MN).",
     "perkEndTime": "12:00 AM",
-    "perkCode": "ARRIVE-TER-MIE-25",
+    "perkCode": "HANGOUT-TER-MIE-25",
     "instagramUrl": "https://www.instagram.com/terraplenpanama/",
     "instagramHandle": "@terraplenpanama",
     "mapPreview": "/images/terraplen_map_preview.jpg",
@@ -322,7 +322,7 @@ events_data = [
     "ticketUrl": "https://www.mieventos.com/event-detail/jueves-26-de-noviembre-terrapln-rooftop-thanksgiving-party",
     "image": "/images/events-nov/flyer-event-6.jpg",
     "imageAlt": "Flyer oficial THANKSGIVING PARTY en Terraplén Rooftop",
-    "seoTitle": "THANKSGIVING PARTY • Terraplén Rooftop | ARRIVE Panamá",
+    "seoTitle": "THANKSGIVING PARTY • Terraplén Rooftop | HANGOUT Panamá",
     "seoDescription": "Thanksgiving Party en Terraplén Rooftop. Ellas Open Gin y Sangría de 10:00 PM a 12:00 MN. Ellos gratis hasta las 12:00 MN.",
     "artists": [
       {
@@ -341,7 +341,7 @@ events_data = [
     "perkHeadline": "OPEN GIN & SANGRÍA PARA ELLAS",
     "perkDetails": "Open Gin y Sangría de 10:00 PM a 12:00 MN para chicas.",
     "perkEndTime": "12:00 AM",
-    "perkCode": "ARRIVE-TER-JUE-26",
+    "perkCode": "HANGOUT-TER-JUE-26",
     "instagramUrl": "https://www.instagram.com/terraplenpanama/",
     "instagramHandle": "@terraplenpanama",
     "mapPreview": "/images/terraplen_map_preview.jpg",
@@ -379,7 +379,7 @@ events_data = [
     "ticketUrl": "https://www.mieventos.com/event-detail/viernes-27-de-noviembre-terrapln-rooftop-",
     "image": "/images/events-nov/flyer-event-7.jpg",
     "imageAlt": "Flyer oficial R&B Y REGGAETON VIEJITO en Terraplén Rooftop",
-    "seoTitle": "R&B & REGGAETON VIEJITO • Terraplén Rooftop | ARRIVE Panamá",
+    "seoTitle": "R&B & REGGAETON VIEJITO • Terraplén Rooftop | HANGOUT Panamá",
     "seoDescription": "R&B y Reggaeton Viejito en Terraplén Rooftop con DJ Joshua y DJ Rock. Ellas Open Gin y Sangría de 10:00 PM a 12:00 MN.",
     "artists": [
       {
@@ -407,7 +407,7 @@ events_data = [
     "perkHeadline": "OPEN GIN & SANGRÍA PARA ELLAS",
     "perkDetails": "Open Gin y Sangría para chicas de 10:00 PM a 12:00 MN.",
     "perkEndTime": "12:00 AM",
-    "perkCode": "ARRIVE-TER-VIE-27",
+    "perkCode": "HANGOUT-TER-VIE-27",
     "instagramUrl": "https://www.instagram.com/terraplenpanama/",
     "instagramHandle": "@terraplenpanama",
     "mapPreview": "/images/terraplen_map_preview.jpg",
@@ -445,7 +445,7 @@ events_data = [
     "ticketUrl": "https://www.mieventos.com/event-detail/viernes-27-de-noviembre-terrapln-piso-002-red-room-versus-party-dj-irviing-dj-jospeh",
     "image": "/images/events-nov/flyer-event-8.jpg",
     "imageAlt": "Flyer oficial RED ROOM VERSUS PARTY en Terraplén Piso 002",
-    "seoTitle": "RED ROOM VERSUS • Terraplén Piso 002 | ARRIVE Panamá",
+    "seoTitle": "RED ROOM VERSUS • Terraplén Piso 002 | HANGOUT Panamá",
     "seoDescription": "RED ROOM VERSUS PARTY en Terraplén Piso 002. DJ Irviing vs DJ Joseph. Ellas Open Gin y Sangría de 10:00 PM a 12:00 MN.",
     "artists": [
       {
@@ -473,7 +473,7 @@ events_data = [
     "perkHeadline": "OPEN GIN & SANGRÍA PARA ELLAS",
     "perkDetails": "Open Gin y Sangría de 10:00 PM a 12:00 MN en Piso 002.",
     "perkEndTime": "12:00 AM",
-    "perkCode": "ARRIVE-002-VIE-27",
+    "perkCode": "HANGOUT-002-VIE-27",
     "instagramUrl": "https://www.instagram.com/terraplenpanama/",
     "instagramHandle": "@terraplenpanama",
     "mapPreview": "/images/terraplen_map_preview.jpg",
@@ -511,7 +511,7 @@ events_data = [
     "ticketUrl": "https://www.mieventos.com/event-detail/sabado-28-de-noviembre-terrapln-piso-002-los-2000s-reggaeton-glam-edition-vol2-baila-reggaeton",
     "image": "/images/events-nov/flyer-event-9.jpg",
     "imageAlt": "Flyer oficial LOS 2000'S REGGAETON GLAM en Terraplén Piso 002",
-    "seoTitle": "LOS 2000'S GLAM • Terraplén Piso 002 | ARRIVE Panamá",
+    "seoTitle": "LOS 2000'S GLAM • Terraplén Piso 002 | HANGOUT Panamá",
     "seoDescription": "Los 2000's Reggaeton Glam Edition Vol. 2 en Terraplén Piso 002. Ellas Open Gin y Sangría de 10:00 PM a 12:00 MN.",
     "artists": [
       {
@@ -530,7 +530,7 @@ events_data = [
     "perkHeadline": "OPEN GIN & SANGRÍA PARA ELLAS",
     "perkDetails": "Open Gin y Sangría para chicas de 10:00 PM a 12:00 MN.",
     "perkEndTime": "12:00 AM",
-    "perkCode": "ARRIVE-002-SAB-28",
+    "perkCode": "HANGOUT-002-SAB-28",
     "instagramUrl": "https://www.instagram.com/terraplenpanama/",
     "instagramHandle": "@terraplenpanama",
     "mapPreview": "/images/terraplen_map_preview.jpg",
@@ -568,7 +568,7 @@ events_data = [
     "ticketUrl": "https://www.mieventos.com/event-detail/domingo-29-de-noviembre-terrapln-rooftop-casco-peatonal-",
     "image": "/images/events-nov/flyer-event-10.jpg",
     "imageAlt": "Flyer oficial CASCO PEATONAL en Terraplén Rooftop",
-    "seoTitle": "CASCO PEATONAL • Terraplén Rooftop | ARRIVE Panamá",
+    "seoTitle": "CASCO PEATONAL • Terraplén Rooftop | HANGOUT Panamá",
     "seoDescription": "Casco Peatonal Sunset Session en Terraplén Rooftop. DJ Tom, Monsi, Leo Perez, Joel y Koby. Ellas Open Gin y Sangría de 3:00 PM a 8:00 PM.",
     "artists": [
       {
@@ -614,7 +614,7 @@ events_data = [
     "perkHeadline": "OPEN GIN & SANGRÍA DE 3PM A 8PM",
     "perkDetails": "Open Gin y Sangría para chicas durante el sunset (3:00 PM a 8:00 PM).",
     "perkEndTime": "8:00 PM",
-    "perkCode": "ARRIVE-TER-DOM-29",
+    "perkCode": "HANGOUT-TER-DOM-29",
     "instagramUrl": "https://www.instagram.com/terraplenpanama/",
     "instagramHandle": "@terraplenpanama",
     "mapPreview": "/images/terraplen_map_preview.jpg",
@@ -652,7 +652,7 @@ events_data = [
     "ticketUrl": "https://www.mieventos.com/event-detail/mircoles-25-re-set-en-piano-bar",
     "image": "/images/events-nov/flyer-event-12.jpg",
     "imageAlt": "Flyer oficial RE-SET en Piano Bar",
-    "seoTitle": "RE-SET • Piano Bar | ARRIVE Panamá",
+    "seoTitle": "RE-SET • Piano Bar | HANGOUT Panamá",
     "seoDescription": "RE-SET en Piano Bar Panamá. Vinoss, Dustin Kline, Lenier Mendoza, Picazzo y Koby. Open Gin y Sangría para ellas de 9:00 PM a 12:00 MN.",
     "artists": [
       {
@@ -707,7 +707,7 @@ events_data = [
     "perkHeadline": "OPEN GIN & SANGRÍA PARA ELLAS",
     "perkDetails": "Open Gin y Sangría para chicas de 9:00 PM a 12:00 MN.",
     "perkEndTime": "12:00 AM",
-    "perkCode": "ARRIVE-PB-MIE-25",
+    "perkCode": "HANGOUT-PB-MIE-25",
     "instagramUrl": "https://www.instagram.com/pianobarpanama/",
     "instagramHandle": "@pianobarpanama",
     "mapPreview": "/images/pianobar_map_preview.jpg",
@@ -744,7 +744,7 @@ events_data = [
     "ticketUrl": "https://www.mieventos.com/event-detail/jueves-26-de-noviembre-desahogo-night-friendsgiving-edition-en-piano-bar",
     "image": "/images/events-nov/flyer-event-13.jpg",
     "imageAlt": "Flyer oficial DESAHOGO NIGHT en Piano Bar",
-    "seoTitle": "DESAHOGO NIGHT • Piano Bar | ARRIVE Panamá",
+    "seoTitle": "DESAHOGO NIGHT • Piano Bar | HANGOUT Panamá",
     "seoDescription": "Desahogo Night Friendsgiving Edition en Piano Bar. Ellas Open Gin y Sangría de 8:00 PM a 12:00 MN. Ellos entran free.",
     "artists": [
       {
@@ -763,7 +763,7 @@ events_data = [
     "perkHeadline": "OPEN GIN & SANGRÍA DE 8PM A 12MN",
     "perkDetails": "Open Gin y Sangría para chicas de 8:00 PM a 12:00 MN.",
     "perkEndTime": "12:00 AM",
-    "perkCode": "ARRIVE-PB-JUE-26",
+    "perkCode": "HANGOUT-PB-JUE-26",
     "instagramUrl": "https://www.instagram.com/pianobarpanama/",
     "instagramHandle": "@pianobarpanama",
     "mapPreview": "/images/pianobar_map_preview.jpg",
@@ -800,7 +800,7 @@ events_data = [
     "ticketUrl": "https://www.mieventos.com/event-detail/viernes-27-de-noviembre-reggaeton-viejito-party-en-piano-bar",
     "image": "/images/events-nov/flyer-event-11.jpg",
     "imageAlt": "Flyer oficial REGGAETON VIEJITO PARTY en Piano Bar",
-    "seoTitle": "REGGAETON VIEJITO • Piano Bar | ARRIVE Panamá",
+    "seoTitle": "REGGAETON VIEJITO • Piano Bar | HANGOUT Panamá",
     "seoDescription": "Reggaeton Viejito Party en Piano Bar Panamá. Ellas Open Gin y Sangría de 9:00 PM a 12:00 MN. Ellos entrada free.",
     "artists": [
       {
@@ -819,7 +819,7 @@ events_data = [
     "perkHeadline": "OPEN GIN & SANGRÍA PARA ELLAS",
     "perkDetails": "Open Gin y Sangría para chicas de 9:00 PM a 12:00 MN.",
     "perkEndTime": "12:00 AM",
-    "perkCode": "ARRIVE-PB-VIE-27",
+    "perkCode": "HANGOUT-PB-VIE-27",
     "instagramUrl": "https://www.instagram.com/pianobarpanama/",
     "instagramHandle": "@pianobarpanama",
     "mapPreview": "/images/pianobar_map_preview.jpg",
@@ -855,7 +855,7 @@ tail_constants_updated = re.sub(
 )
 
 new_content = "// =========================================================================\\n"
-new_content += "// ARRIVE PLATFORM — CARTELERA OFICIAL 25–29 NOVIEMBRE 2026 (MIEVENTOS.COM)\\n"
+new_content += "// HANGOUT PLATFORM — CARTELERA OFICIAL 25–29 NOVIEMBRE 2026 (MIEVENTOS.COM)\\n"
 new_content += "// Comprehensive event catalog with VIP perks and direct digital passes\\n"
 new_content += "// =========================================================================\\n\\n"
 new_content += "export const INITIAL_EVENTS = " + json.dumps(events_data, indent=2, ensure_ascii=False) + ";\\n\\n"

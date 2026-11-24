@@ -46,7 +46,7 @@ export const InfoPage = ({ pageSlug = 'cookies', locale = 'es' }) => {
             </a>
           </li>
           <li><ChevronRight size={13} /></li>
-          <li style={{ color: '#ff3b5c', fontWeight: 600 }}>
+          <li style={{ color: '#FF2A2A', fontWeight: 600 }}>
             {content.title}
           </li>
         </ol>
@@ -68,11 +68,11 @@ export const InfoPage = ({ pageSlug = 'cookies', locale = 'es' }) => {
           right: '-40px',
           width: '200px',
           height: '200px',
-          background: 'radial-gradient(circle, rgba(193,2,48,0.18) 0%, transparent 70%)',
+          background: 'radial-gradient(circle, rgba(255, 0, 0,0.18) 0%, transparent 70%)',
           pointerEvents: 'none'
         }} />
 
-        <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'rgba(193,2,48,0.15)', border: '1px solid rgba(193,2,48,0.3)', padding: '5px 12px', borderRadius: '20px', color: '#ff4d6d', fontSize: '0.75rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '1rem' }}>
+        <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'rgba(255, 0, 0,0.15)', border: '1px solid rgba(255, 0, 0,0.3)', padding: '5px 12px', borderRadius: '20px', color: '#ff4d6d', fontSize: '0.75rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '1rem' }}>
           <IconComponent size={14} />
           <span>{content.badge}</span>
         </div>
@@ -134,8 +134,8 @@ export const InfoPage = ({ pageSlug = 'cookies', locale = 'es' }) => {
 
       {/* Interactive Action Box per page type */}
       <aside style={{
-        background: 'linear-gradient(135deg, rgba(193,2,48,0.12) 0%, rgba(20,20,20,0.85) 100%)',
-        border: '1px solid rgba(193,2,48,0.25)',
+        background: 'linear-gradient(135deg, rgba(255, 0, 0,0.12) 0%, rgba(20,20,20,0.85) 100%)',
+        border: '1px solid rgba(255, 0, 0,0.25)',
         borderRadius: '14px',
         padding: '2rem',
         display: 'flex',
@@ -149,7 +149,7 @@ export const InfoPage = ({ pageSlug = 'cookies', locale = 'es' }) => {
             {pageSlug === 'work-with-us' ? (isEs ? '¿Quieres formar parte del equipo?' : 'Interested in joining our team?') :
              pageSlug === 'whistleblowing' ? (isEs ? 'Canal de Denuncias Directo y Seguro' : 'Direct & Secure Ethics Channel') :
              pageSlug === 'press' ? (isEs ? 'Descarga el Press Kit Oficial' : 'Download Official Media Kit') :
-             pageSlug === 'contact-us' ? (isEs ? 'Atención Inmediata con Arrive Concierge' : 'Instant VIP Concierge Assistance') :
+             pageSlug === 'contact-us' ? (isEs ? 'Atención Inmediata con Hangout Concierge' : 'Instant VIP Concierge Assistance') :
              (isEs ? '¿Tienes alguna pregunta sobre nuestros términos?' : 'Have any questions regarding our policies?')}
           </h3>
           <p style={{ fontSize: '0.88rem', color: '#bbbbbb', margin: 0 }}>
@@ -164,20 +164,20 @@ export const InfoPage = ({ pageSlug = 'cookies', locale = 'es' }) => {
         <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
           {pageSlug === 'whistleblowing' ? (
             <a
-              href="mailto:etica@arrivepanama.com?subject=Canal%20Etico%20Arrive"
+              href="mailto:etica@hangoutpanama.com?subject=Canal%20Etico%20Hangout"
               className="arrive_cta_button primary"
               style={{
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: '8px',
-                background: '#c10230',
+                background: '#FF0000',
                 color: '#ffffff',
                 padding: '11px 20px',
                 borderRadius: '24px',
                 fontWeight: 700,
                 fontSize: '0.85rem',
                 textDecoration: 'none',
-                boxShadow: '0 4px 15px rgba(193,2,48,0.4)'
+                boxShadow: '0 4px 15px rgba(255, 0, 0,0.4)'
               }}
             >
               <Mail size={16} />
@@ -185,20 +185,20 @@ export const InfoPage = ({ pageSlug = 'cookies', locale = 'es' }) => {
             </a>
           ) : pageSlug === 'press' ? (
             <a
-              href="mailto:press@arrivepanama.com?subject=Solicitud%20Press%20Kit%20Arrive"
+              href="mailto:press@hangoutpanama.com?subject=Solicitud%20Press%20Kit%20Hangout"
               className="arrive_cta_button primary"
               style={{
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: '8px',
-                background: '#c10230',
+                background: '#FF0000',
                 color: '#ffffff',
                 padding: '11px 20px',
                 borderRadius: '24px',
                 fontWeight: 700,
                 fontSize: '0.85rem',
                 textDecoration: 'none',
-                boxShadow: '0 4px 15px rgba(193,2,48,0.4)'
+                boxShadow: '0 4px 15px rgba(255, 0, 0,0.4)'
               }}
             >
               <Download size={16} />
@@ -206,20 +206,20 @@ export const InfoPage = ({ pageSlug = 'cookies', locale = 'es' }) => {
             </a>
           ) : pageSlug === 'work-with-us' ? (
             <a
-              href="mailto:careers@arrivepanama.com?subject=Candidatura%20Arrive%202026"
+              href="mailto:careers@hangoutpanama.com?subject=Candidatura%20Hangout%202026"
               className="arrive_cta_button primary"
               style={{
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: '8px',
-                background: '#c10230',
+                background: '#FF0000',
                 color: '#ffffff',
                 padding: '11px 20px',
                 borderRadius: '24px',
                 fontWeight: 700,
                 fontSize: '0.85rem',
                 textDecoration: 'none',
-                boxShadow: '0 4px 15px rgba(193,2,48,0.4)'
+                boxShadow: '0 4px 15px rgba(255, 0, 0,0.4)'
               }}
             >
               <Briefcase size={16} />
@@ -227,7 +227,7 @@ export const InfoPage = ({ pageSlug = 'cookies', locale = 'es' }) => {
             </a>
           ) : (
             <a
-              href="https://wa.me/50760000000?text=Hola%20Arrive,%20tengo%20una%20consulta%20general"
+              href="https://wa.me/50760000000?text=Hola%20Hangout,%20tengo%20una%20consulta%20general"
               target="_blank"
               rel="noopener noreferrer"
               className="arrive_cta_button primary"
@@ -235,14 +235,14 @@ export const InfoPage = ({ pageSlug = 'cookies', locale = 'es' }) => {
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: '8px',
-                background: '#c10230',
+                background: '#FF0000',
                 color: '#ffffff',
                 padding: '11px 20px',
                 borderRadius: '24px',
                 fontWeight: 700,
                 fontSize: '0.85rem',
                 textDecoration: 'none',
-                boxShadow: '0 4px 15px rgba(193,2,48,0.4)'
+                boxShadow: '0 4px 15px rgba(255, 0, 0,0.4)'
               }}
             >
               <MessageCircle size={16} />

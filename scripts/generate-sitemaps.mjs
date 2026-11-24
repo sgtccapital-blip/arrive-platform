@@ -4,10 +4,10 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { BLOG_POSTS } from '../src/data/blogData.js';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const base='https://arrivepanama.com';
+const base='https://hangoutpanama.com';
 const escape=s=>s.replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;');
 export const generateAllSitemaps=()=>{
- const groups={pages:[],events:[],venues:[],restaurants:[],blog:[]};
+ const groups={pages:[],events:[],venues:[],restaurants:[],blog:[],guias:[]};
  const inventory=[];
  const scan=dir=>{for(const entry of fs.readdirSync(dir,{withFileTypes:true})){
    const file=path.join(dir,entry.name);
@@ -19,11 +19,17 @@ export const generateAllSitemaps=()=>{
     const indexable=canonical===base+route && /^\/(es|en)\//.test(route) && !robots.includes('noindex');
     inventory.push({route,canonical,indexable,title:html.match(/<title>(.*?)<\/title>/)?.[1]});
     if(!indexable)continue;
-    const group=Object.keys(groups).find(k=>k!=='pages'&&route.includes('/'+k+'/'))||'pages';
+    const group=route.startsWith('/es/guias/')?'guias':Object.keys(groups).find(k=>k!=='pages'&&route.includes('/'+k+'/'))||'pages';
     const post=BLOG_POSTS.find(p=>route.endsWith(`/blog/${p.slug}/`));
     const sibling=route.replace(/^\/(es|en)\//,route.startsWith('/es/')?'/en/':'/es/');
-    if(!fs.existsSync(path.join(root,'dist',sibling,'index.html')))throw Error(`Missing language equivalent: ${sibling}`);
-    groups[group].push(`  <url><loc>${escape(base+route)}</loc>${post?`<lastmod>${post.dateModified}</lastmod>`:''}${['es','en','x-default'].map(lang=>`<xhtml:link rel="alternate" hreflang="${lang}" href="${base+route.replace(/^\/(es|en)\//,`/${lang==='x-default'?'es':lang}/`)}"/>`).join('')}</url>`);
+    // Only advertise hreflang alternates the page itself declares (guides are Spanish-only).
+    const declared=[...html.matchAll(/<link rel="alternate" hreflang="([^"]+)" href="([^"]+)"/g)].map(m=>({lang:m[1],href:m[2]}));
+    for(const alt of declared.filter(a=>a.lang!=='x-default')){
+      const altRoute=alt.href.replace(base,'');
+      if(!fs.existsSync(path.join(root,'dist',altRoute,'index.html')))throw Error(`Missing language equivalent: ${altRoute} (declared by ${route})`);
+    }
+    const lastmod=post?.dateModified||html.match(/"dateModified":\s*"([^"]+)"/)?.[1];
+    groups[group].push(`  <url><loc>${escape(base+route)}</loc>${lastmod?`<lastmod>${lastmod}</lastmod>`:''}${declared.map(a=>`<xhtml:link rel="alternate" hreflang="${a.lang}" href="${a.href}"/>`).join('')}</url>`);
    }
  }};
  scan(path.join(root,'dist'));

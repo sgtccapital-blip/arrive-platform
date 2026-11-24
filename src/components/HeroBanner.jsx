@@ -41,7 +41,7 @@ export const HeroBanner = ({ hubInfo, locale = 'es' }) => {
                     </a>
                   </li>
                   <li>/</li>
-                  <li style={{ color: '#ff3b5c', fontWeight: 600 }}>
+                  <li style={{ color: '#FF2A2A', fontWeight: 600 }}>
                     {localizedHub.h1}
                   </li>
                 </ol>
@@ -53,8 +53,8 @@ export const HeroBanner = ({ hubInfo, locale = 'es' }) => {
               <img 
                 loading="eager" 
                 fetchpriority="high"
-                src="/images/heart.gif" 
-                alt="Corazón Arrive Izquierda" 
+                src="/images/hangout-star.svg" 
+                alt="Estrella Hangout Izquierda" 
                 className="heart_title_flame left" 
                 width="60"
                 height="60"
@@ -85,8 +85,8 @@ export const HeroBanner = ({ hubInfo, locale = 'es' }) => {
               <img 
                 loading="eager" 
                 fetchpriority="high"
-                src="/images/heart.gif" 
-                alt="Corazón Arrive Derecha" 
+                src="/images/hangout-star.svg" 
+                alt="Estrella Hangout Derecha" 
                 className="heart_title_flame right" 
                 width="60"
                 height="60"
@@ -95,7 +95,7 @@ export const HeroBanner = ({ hubInfo, locale = 'es' }) => {
 
             {/* Subtitle / Location */}
             <div className="is-small-text" style={{ marginTop: '0.4rem' }}>
-              <MapPin size={13} color="#c10230" style={{ flexShrink: 0 }} />
+              <MapPin size={13} color="#FF0000" style={{ flexShrink: 0 }} />
               <span>{locale === 'es' ? 'CIUDAD DE PANAMÁ, PANAMÁ' : 'PANAMA CITY, PANAMA'}</span>
             </div>
 

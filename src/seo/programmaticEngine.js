@@ -1,5 +1,5 @@
 // =========================================================================
-// ARRIVE PLATFORM — PROGRAMMATIC SEO & ANTI-THIN CONTENT ENGINE
+// HANGOUT PLATFORM — PROGRAMMATIC SEO & ANTI-THIN CONTENT ENGINE
 // Evaluates real inventory thresholds, temporal groupings and editorial intros
 // =========================================================================
 

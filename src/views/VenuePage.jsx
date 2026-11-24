@@ -355,7 +355,7 @@ export const VenuePage = ({ venueSlug, locale = 'es' }) => {
       {/* ── SCHEDULE STRIP ── */}
       <div className="venue_schedule_strip">
         <div className="schedule_item dinner">
-          <div className="schedule_icon_box"><Utensils size={14} color="#ff3b5c" /></div>
+          <div className="schedule_icon_box"><Utensils size={14} color="#FF2A2A" /></div>
           <div>
             <span className="schedule_label">DINNER TIME</span>
             <strong className="schedule_time">{selectedVenue.dinnerTime}</strong>
@@ -503,8 +503,8 @@ export const VenuePage = ({ venueSlug, locale = 'es' }) => {
                     <h4>{locale === 'es' ? 'Mesa VIP & Bottle Service' : 'VIP Table & Bottle Service'}</h4>
                     <p>
                       {locale === 'es'
-                        ? `Reserva con Arrive Concierge en ${selectedVenue.shortName}. 100% de tu pago consumible en botellas y menú premium.`
-                        : `Book with Arrive Concierge at ${selectedVenue.shortName}. 100% of your payment redeemable towards bottles & premium menu.`}
+                        ? `Reserva con Hangout Concierge en ${selectedVenue.shortName}. 100% de tu pago consumible en botellas y menú premium.`
+                        : `Book with Hangout Concierge at ${selectedVenue.shortName}. 100% of your payment redeemable towards bottles & premium menu.`}
                     </p>
                     <div className="venue_vip_perks">
                       <span className="venue_vip_perk"><Users size={12} /> {locale === 'es' ? '10 entradas incluidas' : '10 guest passes included'}</span>
@@ -527,7 +527,7 @@ export const VenuePage = ({ venueSlug, locale = 'es' }) => {
               <div className="venue_google_map_card">
                 <div className="venue_google_map_header">
                   <div className="venue_google_map_title">
-                    <MapPin size={15} color="#ff3b5c" />
+                    <MapPin size={15} color="#FF2A2A" />
                     <span>Google Maps</span>
                   </div>
                   {selectedVenue.googleMapsUrl && (
@@ -570,7 +570,7 @@ export const VenuePage = ({ venueSlug, locale = 'es' }) => {
               <div className="venue_sidebar_card">
                 <h4 className="venue_sidebar_title">{locale === 'es' ? 'Ubicación & Contacto' : 'Location & Contact'}</h4>
                 <div className="venue_contact_row">
-                  <MapPin size={16} color="#c10230" />
+                  <MapPin size={16} color="#FF0000" />
                   <div>
                     <span className="venue_contact_label">{locale === 'es' ? 'Dirección' : 'Address'}</span>
                     <p className="venue_contact_value" itemProp="address">{selectedVenue.address}</p>
@@ -601,7 +601,7 @@ export const VenuePage = ({ venueSlug, locale = 'es' }) => {
                 )}
                 {selectedVenue.parking && (
                   <div className="venue_contact_row">
-                    <Car size={16} color="#c10230" />
+                    <Car size={16} color="#FF0000" />
                     <div>
                       <span className="venue_contact_label">{locale === 'es' ? 'Estacionamiento' : 'Parking'}</span>
                       <p className="venue_contact_value">{selectedVenue.parking}</p>
@@ -610,7 +610,7 @@ export const VenuePage = ({ venueSlug, locale = 'es' }) => {
                 )}
                 {selectedVenue.ageLimit && (
                   <div className="venue_contact_row">
-                    <ShieldCheck size={16} color="#c10230" />
+                    <ShieldCheck size={16} color="#FF0000" />
                     <div>
                       <span className="venue_contact_label">{locale === 'es' ? 'Admisión & Edad' : 'Admission & Age'}</span>
                       <p className="venue_contact_value">{selectedVenue.ageLimit}</p>
@@ -619,7 +619,7 @@ export const VenuePage = ({ venueSlug, locale = 'es' }) => {
                 )}
                 {selectedVenue.websiteUrl && (
                   <div className="venue_contact_row">
-                    <Globe size={16} color="#c10230" />
+                    <Globe size={16} color="#FF0000" />
                     <div>
                       <span className="venue_contact_label">{locale === 'es' ? 'Sitio Web' : 'Website'}</span>
                       <a href={selectedVenue.websiteUrl} target="_blank" rel="noopener noreferrer" className="venue_contact_link" itemProp="url">
@@ -631,7 +631,7 @@ export const VenuePage = ({ venueSlug, locale = 'es' }) => {
                 )}
                 {selectedVenue.instagramUrl && (
                   <div className="venue_contact_row">
-                    <InstagramIcon size={16} color="#ff3b5c" />
+                    <InstagramIcon size={16} color="#FF2A2A" />
                     <div>
                       <span className="venue_contact_label">Instagram</span>
                       <a href={selectedVenue.instagramUrl} target="_blank" rel="noopener noreferrer" className="venue_contact_link">
@@ -720,7 +720,7 @@ export const VenuePage = ({ venueSlug, locale = 'es' }) => {
 
             <div className="venue_menu_footer_note">
               <Sparkles size={14} color="#ffd700" />
-              <span>{locale === 'es' ? 'Precios en USD sujetos al 7% de ITBMS y propina sugerida. Carta gastronómica y mixología oficial actualizada para ARRIVE Platform.' : 'Prices in USD subject to 7% ITBMS and suggested gratuity. Official dining and mixology menu updated for ARRIVE Platform.'}</span>
+              <span>{locale === 'es' ? 'Precios en USD sujetos al 7% de ITBMS y propina sugerida. Carta gastronómica y mixología oficial actualizada para HANGOUT Platform.' : 'Prices in USD subject to 7% ITBMS and suggested gratuity. Official dining and mixology menu updated for HANGOUT Platform.'}</span>
             </div>
           </div>
         )}

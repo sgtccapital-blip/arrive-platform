@@ -20,6 +20,8 @@ import { VenuesListPage } from './views/VenuesListPage';
 import { ConciergePage } from './views/ConciergePage';
 import { BlogListPage } from './views/BlogListPage';
 import { BlogPostPage } from './views/BlogPostPage';
+import { GuidesPage } from './views/GuidesPage';
+import { getGuidesPage } from './seo/guides';
 import { DirectoryPage } from './views/DirectoryPage';
 import { InfoPage } from './views/InfoPage';
 import { GalleryPage } from './views/GalleryPage';
@@ -81,7 +83,13 @@ export const App = () => {
   const isDirectoryPage = route.type === 'directory';
   const isInfoPage = route.type === 'info_page';
   const isGalleryPage = route.type === 'gallery';
-  const isHomePage = route.type !== 'not_found' && !isVenuePage && !isVenuesListPage && !isConciergePage && !isBlogListPage && !isBlogPostPage && !isDirectoryPage && !isInfoPage && !isGalleryPage;
+  const isGuidesPage = route.type === 'guides';
+
+  // Superseded Spanish blog posts → their guide (301 on the server, replace in the SPA)
+  useEffect(() => {
+    if (route.type === 'redirect' && route.params?.to) navigate(route.params.to, { replace: true });
+  }, [route.type, route.params?.to, navigate]);
+  const isHomePage = route.type !== 'not_found' && !isVenuePage && !isVenuesListPage && !isConciergePage && !isBlogListPage && !isBlogPostPage && !isDirectoryPage && !isInfoPage && !isGalleryPage && !isGuidesPage && route.type !== 'redirect';
 
   // Synchronize route state with head metadata
   useEffect(() => {
@@ -168,8 +176,8 @@ export const App = () => {
     } else if (isVenuesListPage) {
       updateHeadMetadata({
         title: isEs
-          ? 'Clubs, Rooftops y Restaurantes en Panamá | ARRIVE'
-          : 'Clubs, Rooftops and Restaurants in Panama | ARRIVE',
+          ? 'Clubs, Rooftops y Restaurantes en Panamá | HANGOUT'
+          : 'Clubs, Rooftops and Restaurants in Panama | HANGOUT',
         description: isEs
           ? 'Explora clubs, rooftops y restaurantes de Ciudad de Panamá. Fotos, eventos, menús, ubicación y opciones para reservar mesas VIP.'
           : 'Explore clubs, rooftops, and restaurants in Panama City. Photos, events, menus, addresses, and VIP table booking options.',
@@ -204,8 +212,8 @@ export const App = () => {
     } else if (isBlogListPage) {
       updateHeadMetadata({
         title: isEs
-          ? 'Blog & Guía VIP de Nightlife en Panamá — ARRIVE'
-          : 'Panama VIP Nightlife Blog & Clubbing Guide — ARRIVE',
+          ? 'Blog & Guía VIP de Nightlife en Panamá — HANGOUT'
+          : 'Panama VIP Nightlife Blog & Clubbing Guide — HANGOUT',
         description: isEs
           ? 'Artículos editoriales, guías de discotecas en Casco Antiguo, cómo reservar mesa VIP, dress code y tendencias nocturnas en Ciudad de Panamá.'
           : 'Nightlife editorial articles, Casco Viejo club guides, VIP bottle service tips, dress code rules and party trends in Panama City.',
@@ -243,15 +251,15 @@ export const App = () => {
             dateModified: post.dateModified,
             author: {
               '@type': 'Organization',
-              name: 'Arrive Model Management',
+              name: 'Hangout Panamá',
               url: BASE_CANONICAL_URL
             },
             publisher: {
               '@type': 'Organization',
-              name: 'Arrive Model Management',
+              name: 'Hangout Panamá',
               logo: {
                 '@type': 'ImageObject',
-                url: `${BASE_CANONICAL_URL}/images/arrive-logo-white.png`
+                url: `${BASE_CANONICAL_URL}/images/hangout-logo.png`
               }
             },
             mainEntityOfPage: {
@@ -263,10 +271,10 @@ export const App = () => {
       }
     } else if (isDirectoryPage) {
       updateHeadMetadata({
-        title: isEs ? 'Directorio de Nightlife & Todas las Páginas | ARRIVE Panamá' : 'Panama Nightlife Directory & Complete Site Index | ARRIVE',
+        title: isEs ? 'Directorio de Nightlife & Todas las Páginas | HANGOUT Panamá' : 'Panama Nightlife Directory & Complete Site Index | HANGOUT',
         description: isEs 
-          ? 'Explora todas las guías de discotecas, rooftops en Casco Antiguo, eventos por día, venues asociados y recursos de ARRIVE.' 
-          : 'Explore all nightlife guides, Casco Viejo rooftops, events by day, partner venues and corporate resources on ARRIVE.',
+          ? 'Explora todas las guías de discotecas, rooftops en Casco Antiguo, eventos por día, venues asociados y recursos de HANGOUT.' 
+          : 'Explore all nightlife guides, Casco Viejo rooftops, events by day, partner venues and corporate resources on HANGOUT.',
         canonicalUrl: `${BASE_CANONICAL_URL}/${locale}/explore/`,
         pathname: `/${locale}/explore/`,
         locale,
@@ -281,7 +289,7 @@ export const App = () => {
       const pageInfo = INFO_PAGES[pageSlug] || INFO_PAGES['privacy'];
       const pageData = pageInfo[locale] || pageInfo.es;
       updateHeadMetadata({
-        title: `${pageData.title} | ARRIVE Panamá`,
+        title: `${pageData.title} | HANGOUT Panamá`,
         description: pageData.subtitle,
         canonicalUrl: `${BASE_CANONICAL_URL}/${locale}/${pageSlug}/`,
         pathname: `/${locale}/${pageSlug}/`,
@@ -295,11 +303,11 @@ export const App = () => {
     } else if (isGalleryPage) {
       updateHeadMetadata({
         title: isEs
-          ? 'Galería de Fotos Exclusiva • Arrive Girls & Nightlife | ARRIVE Panamá'
-          : 'Girls & Nightlife Photo Gallery • High-Res Downloads | ARRIVE Panama',
+          ? 'Galería de Fotos Exclusiva • Hangout Girls & Nightlife | HANGOUT Panamá'
+          : 'Girls & Nightlife Photo Gallery • High-Res Downloads | HANGOUT Panama',
         description: isEs
-          ? 'Descarga fotos oficiales en alta resolución 4K de fiestas y eventos en Furia, Piano Bar, Terraplén y Casco Viejo. Galería exclusiva para modelos y chicas Arrive.'
-          : 'Download uncompressed 4K official photos from parties at Furia, Piano Bar, Terraplén and Casco Viejo. Exclusive gallery for Arrive models and guests.',
+          ? 'Descarga fotos oficiales en alta resolución 4K de fiestas y eventos en Furia, Piano Bar, Terraplén y Casco Viejo. Galería exclusiva para modelos y chicas Hangout.'
+          : 'Download uncompressed 4K official photos from parties at Furia, Piano Bar, Terraplén and Casco Viejo. Exclusive gallery for Hangout models and guests.',
         canonicalUrl: `${BASE_CANONICAL_URL}/${locale}/galeria/`,
         pathname: `/${locale}/galeria/`,
         locale,
@@ -338,8 +346,8 @@ export const App = () => {
       // Default Homepage Metadata
       updateHeadMetadata({
         title: isEs 
-          ? 'ARRIVE Panamá | Nightlife, Eventos & Experiencias VIP'
-          : 'ARRIVE Panama | Nightlife, Events & VIP Experiences',
+          ? 'HANGOUT Panamá | Nightlife, Eventos & Experiencias VIP'
+          : 'HANGOUT Panama | Nightlife, Events & VIP Experiences',
         description: isEs
           ? 'Descubre el mejor nightlife de Ciudad de Panamá: eventos exclusivos, beneficios para ellas, rooftops, clubs, restaurantes y mesas VIP.'
           : 'Discover the best nightlife in Panama City: exclusive events, ladies perks, rooftops, clubs, restaurants and VIP tables.',
@@ -354,7 +362,22 @@ export const App = () => {
     }
     const editorial = getEditorialPage(currentPath);
     if (editorial) updateHeadMetadata(editorial);
-    if (route.type === 'not_found' || (isBlogPostPage && !getBlogPostBySlug(route.params.postSlug))) updateHeadMetadata({title: locale === 'es' ? 'Página no encontrada | ARRIVE' : 'Page not found | ARRIVE', description: locale === 'es' ? 'Consulta las guías de Panamá disponibles.' : 'Browse available Panama guides.', pathname: currentPath, locale, robots: 'noindex, follow'});
+    if (isGuidesPage) {
+      const guidePage = getGuidesPage(route.canonicalPath);
+      if (guidePage) updateHeadMetadata({
+        title: guidePage.title,
+        description: guidePage.description,
+        canonicalUrl: guidePage.canonicalUrl,
+        pathname: guidePage.path,
+        locale: 'es',
+        ogType: guidePage.ogType,
+        ogImage: guidePage.image?.src,
+        breadcrumbs: guidePage.breadcrumbs,
+        alternateLocales: ['es'],
+        schemaNodes: guidePage.schema
+      });
+    }
+    if (route.type === 'not_found' || (isBlogPostPage && !getBlogPostBySlug(route.params.postSlug))) updateHeadMetadata({title: locale === 'es' ? 'Página no encontrada | HANGOUT' : 'Page not found | HANGOUT', description: locale === 'es' ? 'Consulta las guías de Panamá disponibles.' : 'Browse available Panama guides.', pathname: currentPath, locale, robots: 'noindex, follow'});
   }, [currentPath, route.type, route.params?.eventSlug, route.params?.venueSlug, route.hubKey, locale, events, venues]);
 
   // Ensure scroll is cleanly reset to top on every route/page change
@@ -412,6 +435,10 @@ export const App = () => {
 
       {isInfoPage && (
         <InfoPage pageSlug={route.infoSlug || route.params?.infoSlug} locale={locale} />
+      )}
+
+      {isGuidesPage && (
+        <GuidesPage pathname={route.canonicalPath} />
       )}
 
       {isGalleryPage && (
@@ -485,13 +512,13 @@ export const App = () => {
               <div style={{ display: 'flex', flexDirection: 'column', gap: '0.85rem', fontSize: '0.92rem', lineHeight: '1.75', color: '#aaaaaa' }}>
                 <p style={{ margin: 0 }}>
                   {locale === 'es'
-                    ? 'Descubre una nueva forma de vivir Ciudad de Panamá con ARRIVE. Encuentra las mejores fiestas, clubs, rooftops, restaurantes y experiencias exclusivas de la ciudad, con acceso a eventos semanales, beneficios especiales, listas de invitados y reservas de mesas VIP.'
-                    : 'Discover a new way to experience Panama City with ARRIVE. Find the city’s best parties, clubs, rooftops, restaurants, and exclusive experiences, with weekly event access, special perks, guest lists, and VIP table bookings.'}
+                    ? 'Descubre una nueva forma de vivir Ciudad de Panamá con HANGOUT. Encuentra las mejores fiestas, clubs, rooftops, restaurantes y experiencias exclusivas de la ciudad, con acceso a eventos semanales, beneficios especiales, listas de invitados y reservas de mesas VIP.'
+                    : 'Discover a new way to experience Panama City with HANGOUT. Find the city’s best parties, clubs, rooftops, restaurants, and exclusive experiences, with weekly event access, special perks, guest lists, and VIP table bookings.'}
                 </p>
                 <p style={{ margin: 0, color: '#888888', fontSize: '0.88rem' }}>
                   {locale === 'es'
-                    ? 'Desde Casco Viejo hasta los hotspots más exclusivos de Ciudad de Panamá, ARRIVE conecta nightlife, gastronomía y experiencias premium en un solo lugar.'
-                    : 'From Casco Viejo to the most exclusive hotspots in Panama City, ARRIVE connects nightlife, gastronomy, and premium experiences in one place.'}
+                    ? 'Desde Casco Viejo hasta los hotspots más exclusivos de Ciudad de Panamá, HANGOUT conecta nightlife, gastronomía y experiencias premium en un solo lugar.'
+                    : 'From Casco Viejo to the most exclusive hotspots in Panama City, HANGOUT connects nightlife, gastronomy, and premium experiences in one place.'}
                 </p>
               </div>
             </div>
@@ -527,7 +554,7 @@ export const App = () => {
       {notification && (
         <div className={`toast-notification ${notification.type}`}>
           {notification.type === 'success' ? (
-            <CheckCircle size={18} color="#ff3b5c" />
+            <CheckCircle size={18} color="#FF2A2A" />
           ) : (
             <Info size={18} color="#ffffff" />
           )}

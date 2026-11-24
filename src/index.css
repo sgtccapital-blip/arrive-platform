@@ -1,5 +1,5 @@
 /* ==========================================================================
-   ARRIVE MODEL MANAGEMENT — PANAMÁ
+   Hangout Panamá — PANAMÁ
    Benefits-First Design System: Black & White + Neon Lime Green
    ========================================================================== */
 
@@ -11,12 +11,12 @@
   --bg-glass: rgba(255, 255, 255, 0.05);
   --bg-glass-hover: rgba(255, 255, 255, 0.1);
 
-  /* Color Palette: Black, White & Signature Arrive Red Accent */
-  --accent-red: #c10230;
-  --accent-red-hover: #e11d48;
-  --accent-red-dark: #9f0024;
-  --accent-red-glow: rgba(193, 2, 48, 0.4);
-  --accent-red-subtle: rgba(193, 2, 48, 0.15);
+  /* Color Palette: Black, White & Signature Hangout Red Accent */
+  --accent-red: #FF0000;
+  --accent-red-hover: #FF2A2A;
+  --accent-red-dark: #B30000;
+  --accent-red-glow: rgba(255, 0, 0, 0.4);
+  --accent-red-subtle: rgba(255, 0, 0, 0.15);
 
   --accent-white: #ffffff;
   --accent-black: #000000;
@@ -29,7 +29,7 @@
 
   --border-subtle: rgba(255, 255, 255, 0.12);
   --border-medium: rgba(255, 255, 255, 0.25);
-  --border-red: rgba(193, 2, 48, 0.5);
+  --border-red: rgba(255, 0, 0, 0.5);
   --border-bright: rgba(255, 255, 255, 0.85);
 
   --font-heading: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -973,7 +973,7 @@ button {
 }
 
 .event_spec_value.highlight_red {
-  color: #ff3b5c;
+  color: #FF2A2A;
   font-weight: 800;
 }
 
@@ -987,7 +987,7 @@ button {
   display: inline-flex;
   align-items: center;
   gap: 4px;
-  color: #ff3b5c;
+  color: #FF2A2A;
   font-size: 0.7rem;
   font-weight: 700;
   text-decoration: none;
@@ -1291,7 +1291,7 @@ button {
 }
 
 /* ====================================================================
-   ARRIVE MOBILE-FIRST ARCHITECTURE & OPTIMIZATIONS
+   HANGOUT MOBILE-FIRST ARCHITECTURE & OPTIMIZATIONS
    Native app feel, ergonomics, bottom bar & bottom-sheet modals
    ==================================================================== */
 
@@ -1337,7 +1337,7 @@ html, body {
 
 .nav_passes_quick_btn:hover {
   background: rgba(255, 59, 92, 0.22);
-  border-color: #ff3b5c;
+  border-color: #FF2A2A;
   transform: translateY(-1px);
 }
 
@@ -1346,7 +1346,7 @@ html, body {
 }
 
 .nav_passes_badge {
-  background: #c10230;
+  background: #FF0000;
   color: #ffffff;
   font-size: 0.62rem;
   font-weight: 900;
@@ -1412,7 +1412,7 @@ html, body {
   }
 
   .mobile_nav_item.active {
-    color: #ff3b5c;
+    color: #FF2A2A;
   }
 
   .mobile_nav_icon_wrap {
@@ -1429,7 +1429,7 @@ html, body {
 
   .mobile_nav_item.active .mobile_nav_icon {
     transform: translateY(-1px);
-    color: #ff3b5c;
+    color: #FF2A2A;
   }
 
   .mobile_nav_dot {
@@ -1438,8 +1438,8 @@ html, body {
     width: 4px;
     height: 4px;
     border-radius: 50%;
-    background: #ff3b5c;
-    box-shadow: 0 0 6px #ff3b5c;
+    background: #FF2A2A;
+    box-shadow: 0 0 6px #FF2A2A;
   }
 
   .mobile_nav_label {
@@ -1485,8 +1485,8 @@ html, body {
   }
 
   .mobile_nav_vip_fab.active .mobile_nav_vip_fab_inner {
-    background: linear-gradient(135deg, #ff3b5c 0%, #c10230 100%);
-    box-shadow: 0 4px 18px rgba(255, 59, 92, 0.5), 0 0 24px rgba(193, 2, 48, 0.4);
+    background: linear-gradient(135deg, #FF2A2A 0%, #FF0000 100%);
+    box-shadow: 0 4px 18px rgba(255, 59, 92, 0.5), 0 0 24px rgba(255, 0, 0, 0.4);
     border-color: rgba(255, 255, 255, 0.4);
     color: #ffffff;
   }
@@ -1604,7 +1604,7 @@ html, body {
     z-index: 9999 !important;
     border-radius: 18px !important;
     border: 1px solid rgba(255, 255, 255, 0.15) !important;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.95), 0 0 25px rgba(193, 2, 48, 0.25) !important;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.95), 0 0 25px rgba(255, 0, 0, 0.25) !important;
     animation: slideUpSheet 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
   }
 }
@@ -1742,8 +1742,8 @@ html, body {
 
   .modal_mobile_back_btn:active {
     transform: scale(0.94) !important;
-    background: rgba(193, 2, 48, 0.95) !important;
-    border-color: #ff3b5c !important;
+    background: rgba(255, 0, 0, 0.95) !important;
+    border-color: #FF2A2A !important;
   }
 
   .modal-container.modal-event-fullscreen .modal-close-btn {
@@ -1860,7 +1860,7 @@ html, body {
   background: #000000;
   border-radius: 24px;
   overflow: hidden;
-  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.95), 0 0 45px rgba(193, 2, 48, 0.35);
+  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.95), 0 0 45px rgba(255, 0, 0, 0.35);
   border: 1px solid rgba(255, 255, 255, 0.15);
   display: flex;
   flex-direction: column;
@@ -1896,7 +1896,7 @@ html, body {
 
 .venue_flash_progress_bar {
   height: 100%;
-  background: linear-gradient(90deg, #ff3b5c, #ffd700);
+  background: linear-gradient(90deg, #FF2A2A, #ffd700);
   box-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
   border-radius: 3px;
   transition: width 0.08s linear;
@@ -1934,7 +1934,7 @@ html, body {
 }
 
 .venue_flash_tag {
-  background: rgba(193, 2, 48, 0.85);
+  background: rgba(255, 0, 0, 0.85);
   color: #ffffff;
   font-size: 0.58rem;
   font-weight: 900;
@@ -2017,7 +2017,7 @@ html, body {
   font-family: 'Montserrat', sans-serif;
   font-size: 0.65rem;
   font-weight: 800;
-  color: #ff3b5c;
+  color: #FF2A2A;
   letter-spacing: 0.12em;
   margin-bottom: 4px;
 }
@@ -2055,3 +2055,28 @@ html, body {
 }
 
 
+
+/* ── Hangout brand: Bungee for main titles (Montserrat stays for body/support) ── */
+:root { --font-display: 'Bungee', 'Montserrat', sans-serif; }
+
+html body h1,
+html body .heading_flex h1,
+html body .hero_title_text,
+html body .evd_title,
+html body .evd_h2,
+html body .venue_page_h1,
+html body .venue_hero_title {
+  font-family: var(--font-display) !important;
+  font-weight: 400 !important;
+  letter-spacing: 0.01em !important;
+}
+
+/* Titles wrap instead of being cut with "…" (Bungee is wider than Montserrat) */
+html body .evd_title,
+html body .hero_title_text {
+  white-space: normal !important;
+  overflow: visible !important;
+  text-overflow: clip !important;
+  overflow-wrap: break-word !important;
+  text-wrap: balance;
+}

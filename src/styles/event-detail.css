@@ -7,8 +7,8 @@
    ========================================================================= */
 
 .evd_overlay {
-  --evd-red: #c10230;
-  --evd-red-bright: #ff3b5c;
+  --evd-red: #FF0000;
+  --evd-red-bright: #FF2A2A;
   --evd-line: rgba(255, 255, 255, 0.1);
   --evd-muted: #a1a1aa;
   --evd-max: 1180px;
@@ -28,9 +28,10 @@
   color: #ffffff;
   font-family: 'Montserrat', sans-serif;
   background:
-    radial-gradient(ellipse 80% 45% at 15% 0%, rgba(193, 2, 48, 0.22), transparent 70%),
-    radial-gradient(ellipse 70% 40% at 90% 10%, rgba(91, 33, 182, 0.18), transparent 70%),
-    #050505;
+    radial-gradient(ellipse 90% 50% at 20% 0%, rgba(255, 0, 0, 0.34), transparent 70%),
+    radial-gradient(ellipse 70% 45% at 95% 15%, rgba(255, 0, 0, 0.2), transparent 70%),
+    radial-gradient(ellipse 80% 50% at 50% 100%, rgba(255, 0, 0, 0.12), transparent 70%),
+    #0a0000;
   animation: evdIn 0.22s ease-out;
 }
 
@@ -110,7 +111,7 @@
   overflow: hidden;
   background: #111;
   border: 1px solid var(--evd-line);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6), 0 0 40px rgba(193, 2, 48, 0.18);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6), 0 0 40px rgba(255, 0, 0, 0.18);
 }
 
 .evd_flyer { aspect-ratio: 1 / 1; }
@@ -199,7 +200,7 @@
   text-transform: uppercase;
 }
 
-.evd_badge_red { background: rgba(193, 2, 48, 0.9); color: #ffffff; }
+.evd_badge_red { background: rgba(255, 0, 0, 0.9); color: #ffffff; }
 .evd_badge_amber { background: rgba(255, 158, 0, 0.95); color: #000000; box-shadow: 0 0 15px rgba(255, 158, 0, 0.45); }
 
 .evd_description {
@@ -260,11 +261,11 @@
   gap: 3px;
   background: var(--evd-red);
   border: 1px solid var(--evd-red);
-  box-shadow: 0 8px 28px rgba(193, 2, 48, 0.35);
+  box-shadow: 0 8px 28px rgba(255, 0, 0, 0.35);
   white-space: nowrap !important;
   overflow: hidden !important;
 }
-.evd_cta_red:hover { background: #d6063a; box-shadow: 0 10px 34px rgba(193, 2, 48, 0.5); }
+.evd_cta_red:hover { background: #d6063a; box-shadow: 0 10px 34px rgba(255, 0, 0, 0.5); }
 
 .evd_cta_main {
   display: inline-flex;
@@ -359,8 +360,8 @@
 
 .evd_perks li.is_highlight {
   border-color: var(--evd-red-bright);
-  background: rgba(193, 2, 48, 0.14);
-  box-shadow: 0 0 0 1px rgba(255, 59, 92, 0.25), 0 8px 30px rgba(193, 2, 48, 0.2);
+  background: rgba(255, 0, 0, 0.14);
+  box-shadow: 0 0 0 1px rgba(255, 59, 92, 0.25), 0 8px 30px rgba(255, 0, 0, 0.2);
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.02em;
@@ -697,7 +698,7 @@
   transition: border-color 0.2s, background 0.2s;
 }
 
-.evd_related_card:hover { border-color: rgba(255, 59, 92, 0.6); background: rgba(193, 2, 48, 0.08); }
+.evd_related_card:hover { border-color: rgba(255, 59, 92, 0.6); background: rgba(255, 0, 0, 0.08); }
 
 .evd_related_card img {
   width: 72px;

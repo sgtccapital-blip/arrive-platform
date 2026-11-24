@@ -1,5 +1,5 @@
 // =========================================================================
-// ARRIVE PLATFORM — AUTOMATED SEO AUDIT & QA SUITE
+// HANGOUT PLATFORM — AUTOMATED SEO AUDIT & QA SUITE
 // Validates titles, descriptions, canonicals, H1s, schemas & sitemaps
 // =========================================================================
 
@@ -30,7 +30,7 @@ const assert = (condition, message) => {
 
 export const runSeoAudit = () => {
   console.log('\n🔍 =======================================================');
-  console.log('   ARRIVE PLATFORM — AUTOMATED SEO AUDIT');
+  console.log('   HANGOUT PLATFORM — AUTOMATED SEO AUDIT');
   console.log('=======================================================\n');
 
   // 1. Robots.txt
@@ -39,7 +39,7 @@ export const runSeoAudit = () => {
   assert(fs.existsSync(robotsPath), 'robots.txt existe en public/');
   if (fs.existsSync(robotsPath)) {
     const robotsTxt = fs.readFileSync(robotsPath, 'utf-8');
-    assert(robotsTxt.includes('Sitemap: https://arrivepanama.com/sitemap.xml'), 'robots.txt referencia sitemap.xml');
+    assert(robotsTxt.includes('Sitemap: https://hangoutpanama.com/sitemap.xml'), 'robots.txt referencia sitemap.xml');
     assert(robotsTxt.includes('Allow: /'), 'robots.txt permite indexación pública');
   }
 
@@ -60,7 +60,7 @@ export const runSeoAudit = () => {
     if (fs.existsSync(smPath)) {
       const content = fs.readFileSync(smPath, 'utf-8');
       assert(content.includes('<?xml version="1.0"'), `${sm} tiene cabecera XML válida`);
-      assert(content.includes('https://arrivepanama.com/'), `${sm} contiene URLs canónicas de ARRIVE`);
+      assert(content.includes('https://hangoutpanama.com/'), `${sm} contiene URLs canónicas de HANGOUT`);
     }
   });
 
@@ -88,7 +88,9 @@ export const runSeoAudit = () => {
       ...INITIAL_EVENTS.filter(e => e.indexable !== false && e.slug).slice(0, 2).map(e => `es/events/${e.slug}/index.html`),
       'es/restaurants/furia-club/index.html',
       'es/blog/index.html',
-      'es/blog/guia-nightlife-casco-antiguo-panama/index.html',
+      'es/blog/dress-code-discotecas-clubs-panama/index.html',
+      'es/guias/index.html',
+      'es/guias/vida-nocturna-casco-antiguo/index.html',
       'es/directorio/index.html',
       'es/cookies/index.html'
     ];
@@ -108,14 +110,14 @@ export const runSeoAudit = () => {
         assert(descMatch && descMatch[1].trim().length >= 40, `${relPath} tiene <meta description> substantiva`);
 
         // Check canonical
-        assert(html.includes('<link rel="canonical" href="https://arrivepanama.com/'), `${relPath} tiene <link rel="canonical"> absoluto`);
+        assert(html.includes('<link rel="canonical" href="https://hangoutpanama.com/'), `${relPath} tiene <link rel="canonical"> absoluto`);
 
         // Check H1 tag
         const h1Matches = html.match(/<h1.*?>.*?<\/h1>/gi);
         assert(h1Matches && h1Matches.length === 1, `${relPath} tiene exactamente UN solo <h1>`);
 
         // Check hreflang
-        assert(html.includes('hreflang="es"') && html.includes('hreflang="en"'), `${relPath} contiene etiquetas hreflang cruzadas`);
+        assert(html.includes('hreflang="es"') && (html.includes('hreflang="en"') || relPath.startsWith('es/guias/')), `${relPath} contiene etiquetas hreflang cruzadas (las guías son solo en español)`);
       }
     });
   }

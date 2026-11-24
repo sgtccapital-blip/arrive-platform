@@ -1,5 +1,5 @@
 // =========================================================================
-// ARRIVE PLATFORM — CANONICAL VENUES DATABASE
+// HANGOUT PLATFORM — CANONICAL VENUES DATABASE
 // Official profiles for Panama's top nightlife & dining destinations
 // =========================================================================
 
@@ -17,7 +17,7 @@ export const VIP_TABLE_PRICING = [
     consumableText: '100% consumibles en botellas y menú',
     entriesIncluded: 10,
     entriesText: 'Incluye 10 entradas de acceso preferencial',
-    description: 'Ubicación VIP de primer nivel con atención personalizada de anfitrión Arrive, servicio de botellas preferencial y la mejor vista del local.'
+    description: 'Ubicación VIP de primer nivel con atención personalizada de anfitrión Hangout, servicio de botellas preferencial y la mejor vista del local.'
   },
   {
     id: 'main-room',
@@ -70,7 +70,7 @@ export const INITIAL_VENUES = [
     seoTitle: 'Furia Panamá | Restaurante, Club & Menú Completo',
     seoDescription: 'Menú completo, fotos y reservas en Furia Panamá: alta cocina nikkei, sushi rolls, robata, coctelería de autor, parades y mesas VIP en Bella Vista.',
     keywords: 'Furia Panamá · Furia Club Panamá · menu Furia Panama · restaurante Calle 50 · club Bella Vista · restaurante nikkei Panamá · sushi Panama · mesas VIP Furia · Furia on ice',
-    description: 'Furia es el restaurante, cocktail bar y discoteca de vanguardia en Bella Vista, Ciudad de Panamá. Inspirado en la naturaleza con una escultura central en forma de árbol y un diseño minimalista de lujo, Furia ofrece una experiencia sensorial única donde la alta cocina japonesa-internacional evoluciona orgánicamente hacia la mejor fiesta de la ciudad.\n\nLa noche comienza con una cuidada propuesta de Raw Bar, ceviches nikkei, tiraditos, wagyu al robata y signature sushi rolls, maridados con coctelería de autor premium. Conforme avanza la medianoche, las luces bajan, la música toma el protagonismo con ritmos afro, deep house étnico, reggaetón y open format en una cabina de DJ central de 360°, dando paso a un ambiente electrizante con servicio de botellas VIP y los icónicos Furia Parades.\n\nConsulta en ARRIVE el menú oficial completo de Furia con precios detallados, próximos eventos semanales, beneficios exclusivos en lista de cortesía y reserva tu mesa VIP con atención Concierge dedicada.',
+    description: 'Furia es el restaurante, cocktail bar y discoteca de vanguardia en Bella Vista, Ciudad de Panamá. Inspirado en la naturaleza con una escultura central en forma de árbol y un diseño minimalista de lujo, Furia ofrece una experiencia sensorial única donde la alta cocina japonesa-internacional evoluciona orgánicamente hacia la mejor fiesta de la ciudad.\n\nLa noche comienza con una cuidada propuesta de Raw Bar, ceviches nikkei, tiraditos, wagyu al robata y signature sushi rolls, maridados con coctelería de autor premium. Conforme avanza la medianoche, las luces bajan, la música toma el protagonismo con ritmos afro, deep house étnico, reggaetón y open format en una cabina de DJ central de 360°, dando paso a un ambiente electrizante con servicio de botellas VIP y los icónicos Furia Parades.\n\nConsulta en HANGOUT el menú oficial completo de Furia con precios detallados, próximos eventos semanales, beneficios exclusivos en lista de cortesía y reserva tu mesa VIP con atención Concierge dedicada.',
     pdfMenuRestaurant: 'https://grupofuriapanama.com/FURIA_Menu_Restaurante.pdf',
     pdfMenuCocktails: 'https://grupofuriapanama.com/FURIA_Menu_Cocteles.pdf',
     pdfMenuLiquor: 'https://grupofuriapanama.com/MENU_LICOR_IMPRESION_FINAL.pdf',
@@ -293,7 +293,7 @@ export const INITIAL_VENUES = [
     seoTitle: 'Piano Bar Panamá | Menú, Música en Vivo & Reservas',
     seoDescription: 'Menú oficial completo de Piano Bar Panamá: tapas para compartir, montaditos, pizzas al horno, paellas, cócteles de autor, paquetes open bar y música en vivo.',
     keywords: 'Piano Bar Panama · menu Piano Bar · live music Panama · tapas Bella Vista · cocktail bar Panama · speakeasy Panama · reservas Piano Bar',
-    description: 'Piano Bar es el speakeasy de música en vivo y alta coctelería más icónico de Bella Vista, Ciudad de Panamá. Con un elegante piano de cola como protagonista, cantantes en directo y una iluminación cálida y seductora, Piano Bar reúne gastronomía de inspiración mediterránea y española con una atmósfera íntima y cosmopolita.\n\nSu carta culinaria ofrece una amplia variedad de tapas para compartir (tartares, croquetas, pulpo rostizado, huevos rotos), montaditos artesanales, tablas de ibéricos y quesos curados europeos, pizzas gourmet al horno de piedra, cortes Prime (Ribeye, Entraña, Solomillo), arroces concolón y paellas valencianas para 2 personas. La experiencia de bar destaca por cócteles de autor, martinis clásicos, sangrías de tardeo, carta de vinos de bodegas prestigiosas y paquetes exclusivos de Open Bar para celebraciones y grupos.\n\nConsulta en ARRIVE el menú oficial verificado de Piano Bar con precios actualizados, eventos de música en vivo y opciones de reserva prioritaria.',
+    description: 'Piano Bar es el speakeasy de música en vivo y alta coctelería más icónico de Bella Vista, Ciudad de Panamá. Con un elegante piano de cola como protagonista, cantantes en directo y una iluminación cálida y seductora, Piano Bar reúne gastronomía de inspiración mediterránea y española con una atmósfera íntima y cosmopolita.\n\nSu carta culinaria ofrece una amplia variedad de tapas para compartir (tartares, croquetas, pulpo rostizado, huevos rotos), montaditos artesanales, tablas de ibéricos y quesos curados europeos, pizzas gourmet al horno de piedra, cortes Prime (Ribeye, Entraña, Solomillo), arroces concolón y paellas valencianas para 2 personas. La experiencia de bar destaca por cócteles de autor, martinis clásicos, sangrías de tardeo, carta de vinos de bodegas prestigiosas y paquetes exclusivos de Open Bar para celebraciones y grupos.\n\nConsulta en HANGOUT el menú oficial verificado de Piano Bar con precios actualizados, eventos de música en vivo y opciones de reserva prioritaria.',
     pdfMenuRestaurant: 'https://pianobarpanama.com/wp-content/uploads/2025/05/PIANO-BAR-Menu-Restaurante.pdf',
     pdfMenuCocktails: 'https://pianobarpanama.com/wp-content/uploads/2025/05/PIANO-BAR-menu-licores-1.pdf',
     pdfMenuLiquor: 'https://pianobarpanama.com/wp-content/uploads/2025/05/PIANO-BAR-Open-Bar.pdf',
@@ -318,7 +318,7 @@ export const INITIAL_VENUES = [
         },
         {
           question: '¿Ofrecen paquetes de Open Bar o paquetes para celebraciones?',
-          answer: 'Sí, cuentan con opciones de Open Bar por horas para cumpleaños, despedidas y eventos corporativos que pueden coordinarse a través de la plataforma ARRIVE.'
+          answer: 'Sí, cuentan con opciones de Open Bar por horas para cumpleaños, despedidas y eventos corporativos que pueden coordinarse a través de la plataforma HANGOUT.'
         }
       ],
       en: [
@@ -340,7 +340,7 @@ export const INITIAL_VENUES = [
         },
         {
           question: 'Are open bar packages available for groups?',
-          answer: 'Yes, hourly open bar packages with classic cocktails and tapas are available for birthdays, private gatherings, and corporate events booked via ARRIVE.'
+          answer: 'Yes, hourly open bar packages with classic cocktails and tapas are available for birthdays, private gatherings, and corporate events booked via HANGOUT.'
         }
       ]
     },
@@ -503,7 +503,7 @@ export const INITIAL_VENUES = [
     seoTitle: 'Terraplén Panamá | Rooftop al Aire Libre & Piso 002 Discoteca Cerrada',
     seoDescription: 'Terraplén cuenta con 2 conceptos únicos en Casco Viejo: Rooftop con sunsets frente al mar y Piso 002, restaurante y discoteca cerrado de alta fidelidad.',
     keywords: 'Terraplén Panamá · Terraplén Rooftop · Terraplén Piso 002 · rooftop Casco Viejo · discoteca Casco Antiguo · nightlife Panamá',
-    description: 'Terraplén es un concepto dual exclusivo en el corazón de Casco Viejo con 2 espacios bien diferenciados:\n\n1. **Terraplén Rooftop:** Terraza al aire libre con vista panorámica de 360° al océano y skyline moderno, ideal para atardeceres, cócteles frescos y fiesta bajo las estrellas.\n2. **Piso 002:** Restaurante y discoteca cerrado con aire acondicionado y acústica de club nocturno subterráneo, sede de eventos de música urbana, reggaetón y sets electrónicos.\n\nConsulta los eventos de ambos espacios, horarios y reservas de mesa con ARRIVE.',
+    description: 'Terraplén es un concepto dual exclusivo en el corazón de Casco Viejo con 2 espacios bien diferenciados:\n\n1. **Terraplén Rooftop:** Terraza al aire libre con vista panorámica de 360° al océano y skyline moderno, ideal para atardeceres, cócteles frescos y fiesta bajo las estrellas.\n2. **Piso 002:** Restaurante y discoteca cerrado con aire acondicionado y acústica de club nocturno subterráneo, sede de eventos de música urbana, reggaetón y sets electrónicos.\n\nConsulta los eventos de ambos espacios, horarios y reservas de mesa con HANGOUT.',
     spaces: [
       {
         name: 'Terraplén Rooftop',
@@ -647,7 +647,7 @@ export const INITIAL_VENUES = [
     coverImage: '/images/venues/primavera/sunset.jpg',
     seoTitle: 'Primavera Panamá | Rooftop & Restaurante en Costa del Este',
     seoDescription: 'Descubre Primavera Panamá en Costa del Este: cocina fusión contemporánea, cocktails, cenas, eventos y reservas.',
-    description: 'Primavera es una propuesta gastronómica en Costa del Este enfocada en cocina fusión contemporánea, cocktails y experiencias sociales.\n\nSu ambiente lo convierte en una opción para comenzar el día, disfrutar una cena o formar parte de experiencias especiales organizadas durante la semana.\n\nConsulta en ARRIVE los eventos, horarios y opciones de reserva disponibles en Primavera Panamá.',
+    description: 'Primavera es una propuesta gastronómica en Costa del Este enfocada en cocina fusión contemporánea, cocktails y experiencias sociales.\n\nSu ambiente lo convierte en una opción para comenzar el día, disfrutar una cena o formar parte de experiencias especiales organizadas durante la semana.\n\nConsulta en HANGOUT los eventos, horarios y opciones de reserva disponibles en Primavera Panamá.',
     vipPricing: VIP_TABLE_PRICING,
     faqs: {
       es: [
@@ -1147,7 +1147,7 @@ export const INITIAL_VENUES = [
     coverImage: '/images/venues/cielo/cover.jpg',
     seoTitle: 'Cielo Rooftop Panamá | Vistas Skyline, Drinks & Nightlife Ave. Balboa',
     seoDescription: 'Descubre Cielo Rooftop en PH The Sands, Ave. Balboa: las mejores vistas al skyline y la bahía de Panamá, cócteles de autor, sunsets, cenas y reservas de mesas VIP.',
-    description: 'Cielo Rooftop se eleva en el piso RT del icónico PH The Sands sobre la Avenida Balboa, ofreciendo la panorámica más imponente del skyline moderno y la Bahía de Panamá.\n\nEs el punto de encuentro predilecto para sunsets con cócteles de autor, gastronomía internacional y noches vibrantes que evolucionan hacia la mejor fiesta de la ciudad.\n\nConsulta en ARRIVE los próximos eventos, beneficios exclusivos y opciones de reserva de mesas VIP en Cielo Rooftop.',
+    description: 'Cielo Rooftop se eleva en el piso RT del icónico PH The Sands sobre la Avenida Balboa, ofreciendo la panorámica más imponente del skyline moderno y la Bahía de Panamá.\n\nEs el punto de encuentro predilecto para sunsets con cócteles de autor, gastronomía internacional y noches vibrantes que evolucionan hacia la mejor fiesta de la ciudad.\n\nConsulta en HANGOUT los próximos eventos, beneficios exclusivos y opciones de reserva de mesas VIP en Cielo Rooftop.',
     vipPricing: VIP_TABLE_PRICING,
     faqs: {
       es: [
@@ -1566,7 +1566,7 @@ export const INITIAL_VENUES = [
       'Self Parking amplio y cómodo en Calzada de Amador',
       'Sistema de sonido envolvente y visuales de música urbana',
       'Mesas VIP y servicio preferencial de anfitriones',
-      'Acceso oficial y reservas con ARRIVE'
+      'Acceso oficial y reservas con HANGOUT'
     ],
     gallery: [
       {

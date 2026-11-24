@@ -50,13 +50,13 @@ export const MyPassesModal = () => {
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.5rem' }}>
             <Ticket size={26} color="#ffffff" />
             <h2 style={{ fontSize: '1.6rem', fontWeight: '900', color: '#fff' }}>
-              {isEs ? 'Billetera Digital Arrive' : 'Arrive Digital Wallet'}
+              {isEs ? 'Billetera Digital Hangout' : 'Hangout Digital Wallet'}
             </h2>
           </div>
           <p style={{ color: 'var(--text-secondary)', fontSize: '0.85rem', marginBottom: '1.5rem' }}>
             {isEs 
-              ? <>Pases de acceso digital oficiales de <strong>Arrive Model Management</strong> y promociones activas en Panamá.</>
-              : <>Official digital passes from <strong>Arrive Model Management</strong> and active nightlife perks in Panama.</>}
+              ? <>Pases de acceso digital oficiales de <strong>Hangout Panamá</strong> y promociones activas en Panamá.</>
+              : <>Official digital passes from <strong>Hangout Panamá</strong> and active nightlife perks in Panama.</>}
           </p>
 
           {/* Wallet Subtabs */}
@@ -133,7 +133,7 @@ export const MyPassesModal = () => {
                       <div className="ticket-header">
                         <div>
                           <span style={{ fontSize: '0.65rem', color: '#ffffff', fontWeight: '800', textTransform: 'uppercase', letterSpacing: '0.12em' }}>
-                            ARRIVE MODEL MANAGEMENT • {isEs ? 'PASE OFICIAL' : 'OFFICIAL PASS'}
+                            Hangout Panamá • {isEs ? 'PASE OFICIAL' : 'OFFICIAL PASS'}
                           </span>
                           <h3 style={{ fontSize: '1.2rem', fontWeight: '800', color: '#fff', marginTop: '2px' }}>
                             {pass.eventTitle}
@@ -204,8 +204,8 @@ export const MyPassesModal = () => {
                                 display: 'inline-flex', 
                                 alignItems: 'center', 
                                 gap: '0.3rem', 
-                                background: 'rgba(193, 2, 48, 0.12)',
-                                border: '1px solid rgba(193, 2, 48, 0.3)',
+                                background: 'rgba(255, 0, 0, 0.12)',
+                                border: '1px solid rgba(255, 0, 0, 0.3)',
                                 padding: '5px 10px', 
                                 borderRadius: 'var(--radius-sm)',
                                 textDecoration: 'none'

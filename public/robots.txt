@@ -5,4 +5,4 @@ Disallow: /admin/
 Disallow: /api/
 Disallow: /auth/
 Disallow: /checkout/
-Sitemap: https://arrivepanama.com/sitemap.xml
+Sitemap: https://hangoutpanama.com/sitemap.xml

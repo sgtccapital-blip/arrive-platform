@@ -1,5 +1,5 @@
 // =========================================================================
-// ARRIVE PLATFORM — INTERNATIONALIZATION (i18n) ENGINE
+// HANGOUT PLATFORM — INTERNATIONALIZATION (i18n) ENGINE
 // Multi-lingual support (ES / EN) for local residents and international tourists
 // =========================================================================
 
@@ -16,13 +16,13 @@ export const TRANSLATIONS = {
       venues: 'LOCALES',
       bookVip: 'RESERVA VIP',
       services: 'SERVICIOS & CONCIERGE',
-      vipSquad: 'ARRIVE VIP SQUAD',
+      vipSquad: 'HANGOUT VIP SQUAD',
       switchLang: 'EN',
       searchPlaceholder: 'Buscar evento, club o artista...'
     },
     hero: {
       tagline: 'CIUDAD DE PANAMÁ',
-      title: 'ARRIVE NIGHTLIFE',
+      title: 'HANGOUT NIGHTLIFE',
       subtitle: 'Acceso exclusivo, pases de cortesía y mesas VIP en los mejores clubes y rooftops de Panamá.'
     },
     filter: {
@@ -61,7 +61,7 @@ export const TRANSLATIONS = {
       cuisine: 'Cocina de Autor'
     },
     concierge: {
-      title: 'ARRIVE CONCIERGE & VIP SERVICES',
+      title: 'HANGOUT CONCIERGE & VIP SERVICES',
       subtitle: 'Reservas prioritarias en restaurantes, transporte privado y yates en Panamá.',
       requestService: 'ENVIAR SOLICITUD A CONCIERGE',
       chatWhatsapp: 'Chat WhatsApp'
@@ -73,13 +73,13 @@ export const TRANSLATIONS = {
       venues: 'VENUES',
       bookVip: 'VIP RESERVATION',
       services: 'SERVICES & CONCIERGE',
-      vipSquad: 'ARRIVE VIP SQUAD',
+      vipSquad: 'HANGOUT VIP SQUAD',
       switchLang: 'ES',
       searchPlaceholder: 'Search event, club or DJ...'
     },
     hero: {
       tagline: 'PANAMA CITY',
-      title: 'ARRIVE NIGHTLIFE',
+      title: 'HANGOUT NIGHTLIFE',
       subtitle: 'Exclusive guest lists, complimentary passes and VIP tables at top clubs and rooftops in Panama.'
     },
     filter: {
@@ -118,7 +118,7 @@ export const TRANSLATIONS = {
       cuisine: 'Signature Cuisine'
     },
     concierge: {
-      title: 'ARRIVE CONCIERGE & VIP HOSPITALITY',
+      title: 'HANGOUT CONCIERGE & VIP HOSPITALITY',
       subtitle: 'Priority restaurant reservations, private chauffeur and yacht charters in Panama.',
       requestService: 'SUBMIT CONCIERGE REQUEST',
       chatWhatsapp: 'WhatsApp Chat'

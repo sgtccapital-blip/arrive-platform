@@ -68,23 +68,15 @@ export const Navbar = ({
       <a 
         href={`/${locale}/`} 
         className={`nav_logo w-inline-block ${isTicketsActive ? 'w--current' : ''}`}
-        title="ARRIVE • The Exclusive Nightlife Experience"
+        title="HANGOUT • The Exclusive Nightlife Experience"
         onClick={handleLogoClick}
       >
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
           <img 
-            src="/images/arrive-logo-white.png" 
-            alt="ARRIVE" 
+            src="/images/hangout-logo-sm.png" 
+            alt="Hangout Panamá" 
             className="nav_logo_image"
           />
-          <span style={{
-            width: '7px',
-            height: '7px',
-            borderRadius: '50%',
-            backgroundColor: '#c10230',
-            boxShadow: '0 0 10px #c10230',
-            display: 'inline-block'
-          }}></span>
         </div>
       </a>
 
@@ -103,6 +95,13 @@ export const Navbar = ({
           className={`nav_links underline-trail w-inline-block ${isVenuesActive ? 'w--current active' : ''}`}
         >
           <p>{locale === 'es' ? 'LOCALES' : 'VENUES'}</p>
+        </a>
+
+        <a 
+          href="/es/guias/"
+          className={`nav_links underline-trail w-inline-block ${route?.type === 'guides' ? 'w--current active' : ''}`}
+        >
+          <p>{locale === 'es' ? 'GUÍAS' : 'GUIDES'}</p>
         </a>
 
         <a 
@@ -128,7 +127,7 @@ export const Navbar = ({
           title={locale === 'es' ? 'Descargar Fotos Chicas & Modelos en 4K' : 'Download Girls & Models 4K Photos'}
         >
           <div style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
-            <Camera size={13} color={isGalleryActive ? '#ff3b5c' : 'currentColor'} />
+            <Camera size={13} color={isGalleryActive ? '#FF2A2A' : 'currentColor'} />
             <p>{locale === 'es' ? 'FOTOS CHICAS' : 'GIRLS PHOTOS'}</p>
             <span className="nav_gallery_badge">HD</span>
           </div>
@@ -159,7 +158,7 @@ export const Navbar = ({
           title={locale === 'es' ? 'Mis Pases y Códigos QR' : 'My Passes & QR Codes'}
           aria-label={locale === 'es' ? 'Mis Pases' : 'My Passes'}
         >
-          <Ticket size={14} color="#ff3b5c" />
+          <Ticket size={14} color="#FF2A2A" />
           <span className="nav_passes_quick_text">{locale === 'es' ? 'PASES' : 'PASSES'}</span>
           {myPasses.length > 0 && (
             <span className="nav_passes_badge">{myPasses.length}</span>
@@ -192,7 +191,7 @@ export const Navbar = ({
               }
             }}
             style={{ 
-              color: locale === 'es' ? '#ff3b5c' : '#888888',
+              color: locale === 'es' ? '#FF2A2A' : '#888888',
               textDecoration: 'none',
               padding: '2px 6px',
               borderRadius: '10px',
@@ -213,7 +212,7 @@ export const Navbar = ({
               }
             }}
             style={{ 
-              color: locale === 'en' ? '#ff3b5c' : '#888888',
+              color: locale === 'en' ? '#FF2A2A' : '#888888',
               textDecoration: 'none',
               padding: '2px 6px',
               borderRadius: '10px',

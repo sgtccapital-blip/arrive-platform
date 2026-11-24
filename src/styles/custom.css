@@ -21,11 +21,16 @@
 }
 
 body, .body, .main-wrapper {
-  background-color: #080808 !important;
-  background-image: url('/images/icon-bg.avif') !important;
-  background-position: 50% 0 !important;
+  background-color: #0a0000 !important;
+  /* Hangout red light over the original background image */
+  background-image:
+    radial-gradient(ellipse 100% 65% at 50% 0%, rgba(255, 0, 0, 0.55) 0%, rgba(255, 0, 0, 0.16) 45%, transparent 78%),
+    radial-gradient(ellipse 60% 50% at 0% 55%, rgba(255, 0, 0, 0.26) 0%, transparent 70%),
+    radial-gradient(ellipse 60% 50% at 100% 80%, rgba(255, 0, 0, 0.22) 0%, transparent 70%),
+    url('/images/icon-bg.avif') !important;
+  background-position: 50% 0, 0 0, 0 0, 50% 0 !important;
   background-repeat: no-repeat !important;
-  background-size: cover !important;
+  background-size: 100% 1400px, 100% 100%, 100% 100%, cover !important;
   background-attachment: scroll !important;
   color: var(--text-primary);
   font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -67,9 +72,9 @@ body, .body, .main-wrapper {
 }
 
 .nav_logo_image {
-  height: 33px !important;
+  height: 58px !important;
   width: auto !important;
-  max-width: 170px !important;
+  max-width: 180px !important;
   aspect-ratio: auto !important;
   object-fit: contain;
   display: block !important;
@@ -85,8 +90,8 @@ body, .body, .main-wrapper {
     padding: 0 1rem !important;
   }
   .nav_logo_image {
-    height: 23px !important;
-    max-width: 115px !important;
+    height: 46px !important;
+    max-width: 140px !important;
   }
 }
 
@@ -133,8 +138,8 @@ body, .body, .main-wrapper {
   bottom: -3px;
   width: 100%;
   height: 2px;
-  background-color: #c10230 !important;
-  box-shadow: 0 0 10px rgba(193, 2, 48, 0.5) !important;
+  background-color: #FF0000 !important;
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.5) !important;
   transform-origin: 100% 50%;
   transform: scale3d(0, 1, 1);
   transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
@@ -327,8 +332,8 @@ body, .body, .main-wrapper {
 }
 
 .heart_title_flame {
-  width: clamp(40px, 4.5vw, 62px) !important;
-  height: clamp(40px, 4.5vw, 62px) !important;
+  width: clamp(22px, 2.6vw, 36px) !important;
+  height: clamp(22px, 2.6vw, 36px) !important;
   min-width: unset !important;
   max-width: unset !important;
   min-height: unset !important;
@@ -340,7 +345,7 @@ body, .body, .main-wrapper {
   border: none !important;
   outline: none !important;
   box-shadow: none !important;
-  filter: drop-shadow(0 0 14px rgba(193, 2, 48, 0.55)) !important;
+  filter: drop-shadow(0 0 14px rgba(255, 0, 0, 0.55)) !important;
   transition: transform 0.3s ease !important;
 }
 
@@ -396,7 +401,7 @@ body, .body, .main-wrapper {
 }
 
 .hero_sub_dot {
-  color: #c10230 !important;
+  color: #FF0000 !important;
   font-size: 0.75rem !important;
   display: inline-block !important;
   margin: 0 2px !important;
@@ -414,7 +419,7 @@ body, .body, .main-wrapper {
 }
 
 .hero_gif_discoball {
-  filter: drop-shadow(0 0 16px rgba(255, 255, 255, 0.4)) drop-shadow(0 0 20px rgba(193, 2, 48, 0.35)) !important;
+  filter: drop-shadow(0 0 16px rgba(255, 255, 255, 0.4)) drop-shadow(0 0 20px rgba(255, 0, 0, 0.35)) !important;
 }
 
 .venues_page_hero_section,
@@ -487,7 +492,7 @@ body, .body, .main-wrapper {
 
 .btn_venue.active,
 .btn_venue.w--current {
-  background-color: #c10230 !important;
+  background-color: #FF0000 !important;
   color: #ffffff !important;
 }
 
@@ -524,8 +529,8 @@ body, .body, .main-wrapper {
 }
 
 .day_dropdown_trigger.is_active {
-  background-color: rgba(193, 2, 48, 0.22) !important;
-  border-color: #c10230 !important;
+  background-color: rgba(255, 0, 0, 0.22) !important;
+  border-color: #FF0000 !important;
 }
 
 .day_dropdown_menu {
@@ -539,7 +544,7 @@ body, .body, .main-wrapper {
   border-radius: 10px !important;
   padding: 6px !important;
   z-index: 1000 !important;
-  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.85), 0 0 20px rgba(193, 2, 48, 0.15) !important;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.85), 0 0 20px rgba(255, 0, 0, 0.15) !important;
   display: flex !important;
   flex-direction: column !important;
   gap: 2px !important;
@@ -586,7 +591,7 @@ body, .body, .main-wrapper {
 }
 
 .day_dropdown_item.selected {
-  background-color: #c10230 !important;
+  background-color: #FF0000 !important;
 }
 
 @media (max-width: 600px) {
@@ -652,8 +657,8 @@ body, .body, .main-wrapper {
 
 .event_item:hover {
   transform: translateY(-5px) !important;
-  border-color: rgba(193, 2, 48, 0.45) !important;
-  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.6), 0 0 25px rgba(193, 2, 48, 0.22) !important;
+  border-color: rgba(255, 0, 0, 0.45) !important;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.6), 0 0 25px rgba(255, 0, 0, 0.22) !important;
 }
 
 .event_item .event {
@@ -777,7 +782,7 @@ body, .body, .main-wrapper {
   position: absolute !important;
   top: 0.6rem !important;
   left: 0.6rem !important;
-  background: #c10230 !important;
+  background: #FF0000 !important;
   color: #ffffff !important;
   border-radius: 4px !important;
   padding: 0.25rem 0.55rem !important;
@@ -854,8 +859,8 @@ body, .body, .main-wrapper {
 }
 
 .venue_inline_link:hover .venue_inline_text {
-  color: #ff3b5c !important;
-  text-decoration-color: #ff3b5c !important;
+  color: #FF2A2A !important;
+  text-decoration-color: #FF2A2A !important;
   text-shadow: 0 0 10px rgba(255, 59, 92, 0.6) !important;
 }
 
@@ -902,7 +907,7 @@ body, .body, .main-wrapper {
   margin: 0.35rem 0 0.45rem 0 !important;
   padding: 0.4rem 0.65rem !important;
   background: rgba(255, 255, 255, 0.035) !important;
-  border-left: 2.5px solid #c10230 !important;
+  border-left: 2.5px solid #FF0000 !important;
   border-radius: 0 6px 6px 0 !important;
   min-height: 2.8rem !important;
   justify-content: center !important;
@@ -926,7 +931,7 @@ body, .body, .main-wrapper {
 }
 
 .schedule_label.party {
-  color: #ff3b5c !important;
+  color: #FF2A2A !important;
 }
 
 .schedule_time {
@@ -978,11 +983,11 @@ body, .body, .main-wrapper {
   width: 320px !important;
   max-width: calc(100vw - 32px) !important;
   background: #111114 !important;
-  border: 1px solid rgba(193, 2, 48, 0.45) !important;
+  border: 1px solid rgba(255, 0, 0, 0.45) !important;
   border-radius: 14px !important;
   overflow: hidden !important;
   z-index: 150 !important;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.95), 0 0 25px rgba(193, 2, 48, 0.22);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.95), 0 0 25px rgba(255, 0, 0, 0.22);
   animation: expressPopIn 0.22s cubic-bezier(0.16, 1, 0.3, 1);
   text-align: left !important;
   pointer-events: auto;
@@ -1013,9 +1018,9 @@ body, .body, .main-wrapper {
 }
 
 .venue_express_cat_badge {
-  background: rgba(193, 2, 48, 0.2) !important;
-  border: 1px solid rgba(193, 2, 48, 0.4) !important;
-  color: #ff3b5c !important;
+  background: rgba(255, 0, 0, 0.2) !important;
+  border: 1px solid rgba(255, 0, 0, 0.4) !important;
+  color: #FF2A2A !important;
   font-size: 0.60rem !important;
   font-weight: 800 !important;
   letter-spacing: 0.06em !important;
@@ -1085,8 +1090,8 @@ body, .body, .main-wrapper {
 }
 
 .venue_express_maps_app_badge:hover {
-  background: #c10230 !important;
-  border-color: #c10230 !important;
+  background: #FF0000 !important;
+  border-color: #FF0000 !important;
   color: #ffffff !important;
 }
 
@@ -1108,7 +1113,7 @@ body, .body, .main-wrapper {
 }
 
 .venue_express_gallery_count {
-  color: #ff3b5c !important;
+  color: #FF2A2A !important;
 }
 
 .venue_express_thumbs_grid {
@@ -1166,7 +1171,7 @@ body, .body, .main-wrapper {
 }
 
 .venue_express_action_footer {
-  background: linear-gradient(135deg, #c10230 0%, #8e0223 100%) !important;
+  background: linear-gradient(135deg, #FF0000 0%, #8e0223 100%) !important;
   color: #ffffff !important;
   padding: 7px 10px !important;
   display: flex !important;
@@ -1189,8 +1194,8 @@ body, .body, .main-wrapper {
   display: flex !important;
   align-items: center !important;
   gap: 6px !important;
-  background: linear-gradient(135deg, rgba(193, 2, 48, 0.22) 0%, rgba(193, 2, 48, 0.08) 100%) !important;
-  border: 1px solid rgba(193, 2, 48, 0.45) !important;
+  background: linear-gradient(135deg, rgba(255, 0, 0, 0.22) 0%, rgba(255, 0, 0, 0.08) 100%) !important;
+  border: 1px solid rgba(255, 0, 0, 0.45) !important;
   color: #ffffff !important;
   font-size: clamp(0.56rem, 2vw, 0.64rem) !important;
   font-weight: 700 !important;
@@ -1204,7 +1209,7 @@ body, .body, .main-wrapper {
   height: 26px !important;
   min-height: 26px !important;
   box-sizing: border-box !important;
-  box-shadow: 0 0 10px rgba(193, 2, 48, 0.15) !important;
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.15) !important;
   transition: all 0.2s ease !important;
   white-space: nowrap !important;
   overflow: hidden !important;
@@ -1230,9 +1235,9 @@ body, .body, .main-wrapper {
 }
 
 .perk_badge_red:hover {
-  background: rgba(193, 2, 48, 0.32) !important;
-  border-color: #ff3b5c !important;
-  box-shadow: 0 0 16px rgba(193, 2, 48, 0.35) !important;
+  background: rgba(255, 0, 0, 0.32) !important;
+  border-color: #FF2A2A !important;
+  box-shadow: 0 0 16px rgba(255, 0, 0, 0.35) !important;
 }
 
 /* After Party Alert Badge (High-Impact Gold/Orange Glow) */
@@ -1310,7 +1315,7 @@ body, .body, .main-wrapper {
 }
 
 .location_tag_link:hover {
-  color: #ff3b5c !important;
+  color: #FF2A2A !important;
 }
 
 .location_tag_link span {
@@ -1388,7 +1393,7 @@ body, .body, .main-wrapper {
   max-height: 42px !important;
   padding: 0.35rem 0.75rem !important;
   margin: 0 !important;
-  background: #c10230 !important;
+  background: #FF0000 !important;
   color: #ffffff !important;
   border: 1px solid rgba(255, 255, 255, 0.15) !important;
   border-radius: 999px !important;
@@ -1409,7 +1414,7 @@ body, .body, .main-wrapper {
 .red_button:hover {
   transform: translateY(-1px) !important;
   background: #d60035 !important;
-  box-shadow: 0 4px 16px rgba(193, 2, 48, 0.45) !important;
+  box-shadow: 0 4px 16px rgba(255, 0, 0, 0.45) !important;
   border-color: rgba(255, 255, 255, 0.35) !important;
 }
 
@@ -1505,8 +1510,8 @@ body, .body, .main-wrapper {
 }
 
 .menu_drawer_close_btn:hover {
-  background: #c10230 !important;
-  border-color: #c10230 !important;
+  background: #FF0000 !important;
+  border-color: #FF0000 !important;
   transform: scale(1.08) !important;
 }
 
@@ -1546,7 +1551,7 @@ body, .body, .main-wrapper {
 }
 
 .menu_dot_separator {
-  color: #c10230 !important;
+  color: #FF0000 !important;
   font-size: 0.85rem !important;
 }
 
@@ -1592,8 +1597,8 @@ body, .body, .main-wrapper {
   left: 50% !important;
   width: 0 !important;
   height: 2px !important;
-  background-color: #c10230 !important;
-  box-shadow: 0 0 10px rgba(193, 2, 48, 0.7) !important;
+  background-color: #FF0000 !important;
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.7) !important;
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
   transform: translateX(-50%) !important;
   border-radius: 2px !important;
@@ -1664,7 +1669,7 @@ body, .body, .main-wrapper {
   display: none !important;
 }
 
-/* Integrated Arrive Nightlife Brand Card */
+/* Integrated Hangout Nightlife Brand Card */
 .menu_nightlife_card {
   position: relative !important;
   width: 100% !important;
@@ -1793,7 +1798,7 @@ body, .body, .main-wrapper {
   margin: auto !important;
   max-height: 90vh !important;
   overflow-y: auto !important;
-  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.95), 0 0 45px rgba(193, 2, 48, 0.28) !important;
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.95), 0 0 45px rgba(255, 0, 0, 0.28) !important;
 }
 
 /* =========================================================================
@@ -1842,8 +1847,8 @@ body, .body, .main-wrapper {
 
 .venue_gallery_card:hover {
   transform: translateY(-3px) scale(1.02) !important;
-  border-color: rgba(193, 2, 48, 0.6) !important;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7), 0 0 15px rgba(193, 2, 48, 0.25) !important;
+  border-color: rgba(255, 0, 0, 0.6) !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7), 0 0 15px rgba(255, 0, 0, 0.25) !important;
 }
 
 .venue_gallery_thumb {
@@ -1876,7 +1881,7 @@ body, .body, .main-wrapper {
 
 .venue_gallery_pill {
   align-self: flex-start !important;
-  background: rgba(193, 2, 48, 0.88) !important;
+  background: rgba(255, 0, 0, 0.88) !important;
   color: #fff !important;
   font-size: 0.55rem !important;
   font-weight: 800 !important;
@@ -1917,10 +1922,10 @@ body, .body, .main-wrapper {
   max-width: 860px !important;
   width: 100% !important;
   background: #111113 !important;
-  border: 1px solid rgba(193, 2, 48, 0.5) !important;
+  border: 1px solid rgba(255, 0, 0, 0.5) !important;
   border-radius: 12px !important;
   overflow: hidden !important;
-  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.95), 0 0 35px rgba(193, 2, 48, 0.3) !important;
+  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.95), 0 0 35px rgba(255, 0, 0, 0.3) !important;
 }
 
 .lightbox_close_btn {
@@ -1942,8 +1947,8 @@ body, .body, .main-wrapper {
 }
 
 .lightbox_close_btn:hover {
-  background: #c10230 !important;
-  border-color: #c10230 !important;
+  background: #FF0000 !important;
+  border-color: #FF0000 !important;
 }
 
 .lightbox_image_wrapper {
@@ -1979,7 +1984,7 @@ body, .body, .main-wrapper {
   font-weight: 800 !important;
   text-transform: uppercase !important;
   letter-spacing: 0.08em !important;
-  color: #ff3b5c !important;
+  color: #FF2A2A !important;
   display: block !important;
   margin-bottom: 2px !important;
 }
@@ -2012,8 +2017,8 @@ body, .body, .main-wrapper {
 }
 
 .lightbox_nav_btn:hover {
-  background: #c10230 !important;
-  border-color: #c10230 !important;
+  background: #FF0000 !important;
+  border-color: #FF0000 !important;
 }
 
 .lightbox_counter {
@@ -2046,10 +2051,10 @@ body, .body, .main-wrapper {
 
 .btn_action_vip:hover {
   background: rgba(255, 255, 255, 0.1) !important;
-  border-color: #c10230 !important;
+  border-color: #FF0000 !important;
   color: #ffffff !important;
   transform: translateY(-2px) !important;
-  box-shadow: 0 0 15px rgba(193, 2, 48, 0.3) !important;
+  box-shadow: 0 0 15px rgba(255, 0, 0, 0.3) !important;
 }
 
 /* =========================================================================
@@ -2114,10 +2119,10 @@ body, .body, .main-wrapper {
 }
 
 .venue_tab_btn.active {
-  background: #c10230 !important;
+  background: #FF0000 !important;
   color: #ffffff !important;
-  border-color: #c10230 !important;
-  box-shadow: 0 4px 16px rgba(193, 2, 48, 0.45) !important;
+  border-color: #FF0000 !important;
+  box-shadow: 0 4px 16px rgba(255, 0, 0, 0.45) !important;
 }
 
 /* Venue Hero Banner */
@@ -2177,7 +2182,7 @@ body, .body, .main-wrapper {
 }
 
 .venue_badge_category {
-  background: #c10230 !important;
+  background: #FF0000 !important;
   color: #ffffff !important;
   font-size: 0.65rem !important;
   font-weight: 800 !important;
@@ -2277,14 +2282,14 @@ body, .body, .main-wrapper {
 }
 
 .venue_action_chip.vip {
-  background: linear-gradient(135deg, #c10230 0%, #80001a 100%) !important;
+  background: linear-gradient(135deg, #FF0000 0%, #80001a 100%) !important;
   color: #ffffff !important;
   border: 1px solid rgba(255, 255, 255, 0.25) !important;
-  box-shadow: 0 4px 12px rgba(193, 2, 48, 0.35) !important;
+  box-shadow: 0 4px 12px rgba(255, 0, 0, 0.35) !important;
 }
 
 .venue_action_chip.vip:hover {
-  background: #e11d48 !important;
+  background: #FF2A2A !important;
   transform: translateY(-1px) !important;
 }
 
@@ -2442,8 +2447,8 @@ body, .body, .main-wrapper {
 
 .venue_subtab_btn.active {
   color: #ffffff !important;
-  background: rgba(193, 2, 48, 0.18) !important;
-  border-bottom: 2px solid #c10230 !important;
+  background: rgba(255, 0, 0, 0.18) !important;
+  border-bottom: 2px solid #FF0000 !important;
 }
 
 /* Modal Body */
@@ -2507,8 +2512,8 @@ body, .body, .main-wrapper {
   width: 34px !important;
   height: 34px !important;
   border-radius: 8px !important;
-  background: rgba(193, 2, 48, 0.15) !important;
-  color: #ff3b5c !important;
+  background: rgba(255, 0, 0, 0.15) !important;
+  color: #FF2A2A !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
@@ -2580,7 +2585,7 @@ body, .body, .main-wrapper {
 .venue_heading_accent {
   width: 3px !important;
   height: 16px !important;
-  background: #c10230 !important;
+  background: #FF0000 !important;
   border-radius: 2px !important;
   flex-shrink: 0 !important;
 }
@@ -2634,7 +2639,7 @@ body, .body, .main-wrapper {
 }
 
 .venue_hour_card.dinner .venue_hour_icon {
-  color: #ff3b5c !important;
+  color: #FF2A2A !important;
 }
 
 .venue_hour_card.party .venue_hour_icon {
@@ -2699,7 +2704,7 @@ body, .body, .main-wrapper {
   width: 20px !important;
   height: 20px !important;
   border-radius: 50% !important;
-  background: #c10230 !important;
+  background: #FF0000 !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
@@ -2716,8 +2721,8 @@ body, .body, .main-wrapper {
 /* ── VIP Callout — Redesigned ── */
 .venue_vip_callout {
   margin-top: 1.5rem !important;
-  background: linear-gradient(135deg, rgba(193, 2, 48, 0.1) 0%, rgba(255, 215, 0, 0.03) 50%, rgba(20, 20, 22, 0.95) 100%) !important;
-  border: 1px solid rgba(193, 2, 48, 0.3) !important;
+  background: linear-gradient(135deg, rgba(255, 0, 0, 0.1) 0%, rgba(255, 215, 0, 0.03) 50%, rgba(20, 20, 22, 0.95) 100%) !important;
+  border: 1px solid rgba(255, 0, 0, 0.3) !important;
   border-radius: 14px !important;
   padding: 1.25rem !important;
   display: flex !important;
@@ -2789,7 +2794,7 @@ body, .body, .main-wrapper {
   align-items: center !important;
   gap: 6px !important;
   padding: 0.8rem 1.5rem !important;
-  background: #c10230 !important;
+  background: #FF0000 !important;
   color: #ffffff !important;
   border: none !important;
   border-radius: 10px !important;
@@ -2799,14 +2804,14 @@ body, .body, .main-wrapper {
   text-transform: uppercase !important;
   cursor: pointer !important;
   transition: all 0.25s ease !important;
-  box-shadow: 0 4px 20px rgba(193, 2, 48, 0.4) !important;
+  box-shadow: 0 4px 20px rgba(255, 0, 0, 0.4) !important;
   white-space: nowrap !important;
 }
 
 .btn_venue_reserve_vip:hover {
-  background: #e11d48 !important;
+  background: #FF2A2A !important;
   transform: translateY(-2px) !important;
-  box-shadow: 0 6px 25px rgba(193, 2, 48, 0.5) !important;
+  box-shadow: 0 6px 25px rgba(255, 0, 0, 0.5) !important;
 }
 
 /* ── Interactive Google Maps Card (Venue Profile & Modal) ── */
@@ -2851,7 +2856,7 @@ body, .body, .main-wrapper {
   gap: 5px !important;
   background: rgba(255, 59, 92, 0.12) !important;
   border: 1px solid rgba(255, 59, 92, 0.3) !important;
-  color: #ff3b5c !important;
+  color: #FF2A2A !important;
   padding: 3px 9px !important;
   border-radius: 6px !important;
   font-size: 0.68rem !important;
@@ -2861,7 +2866,7 @@ body, .body, .main-wrapper {
 }
 
 .venue_google_map_badge_link:hover {
-  background: #ff3b5c !important;
+  background: #FF2A2A !important;
   color: #ffffff !important;
 }
 
@@ -2888,7 +2893,7 @@ body, .body, .main-wrapper {
   gap: 8px !important;
   width: 100% !important;
   padding: 0.75rem 1rem !important;
-  background: linear-gradient(135deg, rgba(193, 2, 48, 0.18) 0%, rgba(255, 59, 92, 0.22) 100%) !important;
+  background: linear-gradient(135deg, rgba(255, 0, 0, 0.18) 0%, rgba(255, 59, 92, 0.22) 100%) !important;
   border-top: 1px solid rgba(255, 255, 255, 0.06);
   color: #ffffff !important;
   font-size: 0.74rem !important;
@@ -2899,7 +2904,7 @@ body, .body, .main-wrapper {
 }
 
 .venue_google_map_action_btn:hover {
-  background: linear-gradient(135deg, #c10230 0%, #ff3b5c 100%) !important;
+  background: linear-gradient(135deg, #FF0000 0%, #FF2A2A 100%) !important;
   color: #ffffff !important;
 }
 
@@ -2949,14 +2954,14 @@ body, .body, .main-wrapper {
 
 .venue_contact_link {
   font-size: 0.8rem !important;
-  color: #c10230 !important;
+  color: #FF0000 !important;
   text-decoration: none !important;
   font-weight: 700 !important;
   word-break: break-all;
 }
 
 .venue_contact_link:hover {
-  color: #ff3b5c !important;
+  color: #FF2A2A !important;
   text-decoration: underline !important;
 }
 
@@ -3020,10 +3025,10 @@ body, .body, .main-wrapper {
 }
 
 .venue_menu_cat_pill.active {
-  background: #c10230 !important;
+  background: #FF0000 !important;
   color: #ffffff !important;
-  border-color: #c10230 !important;
-  box-shadow: 0 4px 12px rgba(193, 2, 48, 0.35) !important;
+  border-color: #FF0000 !important;
+  box-shadow: 0 4px 12px rgba(255, 0, 0, 0.35) !important;
 }
 
 .cat_count_badge {
@@ -3076,7 +3081,7 @@ body, .body, .main-wrapper {
 }
 
 .venue_menu_item_card:hover {
-  border-color: rgba(193, 2, 48, 0.4) !important;
+  border-color: rgba(255, 0, 0, 0.4) !important;
   transform: translateY(-2px) !important;
 }
 
@@ -3099,7 +3104,7 @@ body, .body, .main-wrapper {
 .venue_menu_item_price {
   font-size: 0.95rem !important;
   font-weight: 900 !important;
-  color: #c10230 !important;
+  color: #FF0000 !important;
   letter-spacing: -0.02em !important;
   white-space: nowrap !important;
 }
@@ -3157,8 +3162,8 @@ body, .body, .main-wrapper {
 
 .venue_full_gallery_card:hover {
   transform: translateY(-3px) scale(1.02) !important;
-  border-color: rgba(193, 2, 48, 0.6) !important;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.8), 0 0 15px rgba(193, 2, 48, 0.3);
+  border-color: rgba(255, 0, 0, 0.6) !important;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.8), 0 0 15px rgba(255, 0, 0, 0.3);
 }
 
 .venue_full_gallery_thumb {
@@ -3188,7 +3193,7 @@ body, .body, .main-wrapper {
 .venue_gallery_category_pill {
   font-size: 0.58rem !important;
   font-weight: 800 !important;
-  color: #ff3b5c !important;
+  color: #FF2A2A !important;
   text-transform: uppercase !important;
   letter-spacing: 0.08em !important;
   margin-bottom: 2px !important;
@@ -3278,7 +3283,7 @@ body, .body, .main-wrapper {
   position: absolute !important;
   top: 0.6rem !important;
   left: 0.6rem !important;
-  background: #c10230 !important;
+  background: #FF0000 !important;
   color: #ffffff !important;
   font-size: 0.62rem !important;
   font-weight: 800 !important;
@@ -3296,7 +3301,7 @@ body, .body, .main-wrapper {
 .venue_event_venue_name {
   font-size: 0.62rem !important;
   font-weight: 800 !important;
-  color: #c10230 !important;
+  color: #FF0000 !important;
   letter-spacing: 0.08em !important;
   text-transform: uppercase !important;
   margin-bottom: 2px !important;
@@ -3359,7 +3364,7 @@ body, .body, .main-wrapper {
 .btn_venue_evt_tickets {
   flex: 1.2 !important;
   padding: 0.65rem !important;
-  background: #c10230 !important;
+  background: #FF0000 !important;
   color: #ffffff !important;
   border: none !important;
   border-radius: 6px !important;
@@ -3375,7 +3380,7 @@ body, .body, .main-wrapper {
 }
 
 .btn_venue_evt_tickets:hover {
-  background: #e11d48 !important;
+  background: #FF2A2A !important;
 }
 
 /* Age bubble next to event date in modal */
@@ -3449,7 +3454,7 @@ body, .body, .main-wrapper {
 
 .dj_profile_card:hover .dj_avatar_img {
   transform: scale(1.04) !important;
-  border-color: #ff3b5c !important;
+  border-color: #FF2A2A !important;
 }
 
 .dj_badge_pill {
@@ -3467,7 +3472,7 @@ body, .body, .main-wrapper {
 }
 
 .dj_badge_pill.headliner {
-  background: #c10230 !important;
+  background: #FF0000 !important;
   color: #ffffff !important;
   border: 1px solid rgba(255, 255, 255, 0.3) !important;
 }
@@ -3506,7 +3511,7 @@ body, .body, .main-wrapper {
 .dj_role_text {
   margin: 3px 0 0 0 !important;
   font-size: 0.72rem !important;
-  color: #ff3b5c !important;
+  color: #FF2A2A !important;
   font-weight: 600 !important;
   line-height: 1.3 !important;
 }
@@ -3599,15 +3604,15 @@ body, .body, .main-wrapper {
 }
 
 .concierge_restaurant_card:hover {
-  border-color: rgba(193, 2, 48, 0.45) !important;
+  border-color: rgba(255, 0, 0, 0.45) !important;
   transform: translateY(-5px) !important;
-  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.6), 0 0 25px rgba(193, 2, 48, 0.22) !important;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.6), 0 0 25px rgba(255, 0, 0, 0.22) !important;
 }
 
 .concierge_restaurant_card.active {
-  border-color: #c10230 !important;
-  background: rgba(193, 2, 48, 0.16) !important;
-  box-shadow: 0 0 24px rgba(193, 2, 48, 0.4) !important;
+  border-color: #FF0000 !important;
+  background: rgba(255, 0, 0, 0.16) !important;
+  box-shadow: 0 0 24px rgba(255, 0, 0, 0.4) !important;
 }
 
 .concierge_restaurant_img_wrap {
@@ -3647,7 +3652,7 @@ body, .body, .main-wrapper {
   position: absolute !important;
   top: 6px !important;
   right: 6px !important;
-  background: #c10230 !important;
+  background: #FF0000 !important;
   color: #ffffff !important;
   font-size: 0.55rem !important;
   font-weight: 900 !important;
@@ -3657,7 +3662,7 @@ body, .body, .main-wrapper {
   display: inline-flex !important;
   align-items: center !important;
   gap: 3px !important;
-  box-shadow: 0 2px 10px rgba(193, 2, 48, 0.5);
+  box-shadow: 0 2px 10px rgba(255, 0, 0, 0.5);
 }
 
 .concierge_restaurant_info {
@@ -3703,7 +3708,7 @@ body, .body, .main-wrapper {
   align-items: center !important;
   gap: 3px !important;
   font-size: 0.64rem !important;
-  color: #ff3b5c !important;
+  color: #FF2A2A !important;
   font-weight: 700 !important;
 }
 
@@ -3722,7 +3727,7 @@ body, .body, .main-wrapper {
 
 .concierge_view_menu_btn:hover {
   opacity: 1 !important;
-  color: #ff3b5c !important;
+  color: #FF2A2A !important;
 }
 
 
@@ -3907,8 +3912,8 @@ body, .body, .main-wrapper {
 
 .venues_list_card:hover {
   transform: translateY(-5px) !important;
-  border-color: rgba(193, 2, 48, 0.45) !important;
-  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.6), 0 0 25px rgba(193, 2, 48, 0.22);
+  border-color: rgba(255, 0, 0, 0.45) !important;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.6), 0 0 25px rgba(255, 0, 0, 0.22);
 }
 
 .venues_list_card_img_wrap {
@@ -4001,7 +4006,7 @@ body, .body, .main-wrapper {
   gap: 4px !important;
   font-size: 0.75rem !important;
   font-weight: 800 !important;
-  color: #ff3b5c !important;
+  color: #FF2A2A !important;
   text-transform: uppercase !important;
   letter-spacing: 0.04em !important;
 }
@@ -4053,14 +4058,14 @@ body, .body, .main-wrapper {
 
 .concierge_category_card:hover {
   transform: translateY(-4px) !important;
-  border-color: rgba(193, 2, 48, 0.45) !important;
-  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.6), 0 0 25px rgba(193, 2, 48, 0.22) !important;
+  border-color: rgba(255, 0, 0, 0.45) !important;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.6), 0 0 25px rgba(255, 0, 0, 0.22) !important;
 }
 
 .concierge_category_card.active {
-  background: rgba(193, 2, 48, 0.16) !important;
-  border-color: #c10230 !important;
-  box-shadow: 0 0 20px rgba(193, 2, 48, 0.35) !important;
+  background: rgba(255, 0, 0, 0.16) !important;
+  border-color: #FF0000 !important;
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.35) !important;
 }
 
 .concierge_cat_icon {
@@ -4069,7 +4074,7 @@ body, .body, .main-wrapper {
 }
 
 .concierge_category_card.active .concierge_cat_icon {
-  color: #ff3b5c !important;
+  color: #FF2A2A !important;
 }
 
 .concierge_cat_name {
@@ -4120,12 +4125,12 @@ body, .body, .main-wrapper {
 
 .concierge_venue_count_badge {
   font-size: 0.72rem !important;
-  color: #ff3b5c !important;
+  color: #FF2A2A !important;
   font-weight: 800 !important;
   padding: 3px 10px !important;
   border-radius: 6px !important;
-  background: rgba(193, 2, 48, 0.12) !important;
-  border: 1px solid rgba(193, 2, 48, 0.3) !important;
+  background: rgba(255, 0, 0, 0.12) !important;
+  border: 1px solid rgba(255, 0, 0, 0.3) !important;
 }
 
 .concierge_detail_desc {
@@ -4241,8 +4246,8 @@ body, .body, .main-wrapper {
 }
 
 .concierge_form .form-input:focus {
-  border-color: #c10230 !important;
-  box-shadow: 0 0 15px rgba(193, 2, 48, 0.3) !important;
+  border-color: #FF0000 !important;
+  box-shadow: 0 0 15px rgba(255, 0, 0, 0.3) !important;
 }
 
 /* ── Concierge Success ── */
@@ -4267,14 +4272,14 @@ body, .body, .main-wrapper {
   width: 65px !important;
   height: 65px !important;
   border-radius: 50% !important;
-  background: rgba(193, 2, 48, 0.12) !important;
-  border: 2px solid #c10230 !important;
+  background: rgba(255, 0, 0, 0.12) !important;
+  border: 2px solid #FF0000 !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
   margin: 0 auto 1.5rem !important;
-  color: #ff3b5c !important;
-  box-shadow: 0 0 20px rgba(193, 2, 48, 0.35);
+  color: #FF2A2A !important;
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.35);
 }
 
 .concierge_success_title {
@@ -4313,7 +4318,7 @@ body, .body, .main-wrapper {
 }
 
 .venue_badge_category {
-  background: rgba(193, 2, 48, 0.8) !important;
+  background: rgba(255, 0, 0, 0.8) !important;
   color: #ffffff !important;
   padding: 3px 10px !important;
   border-radius: 6px !important;
@@ -4370,13 +4375,13 @@ body, .body, .main-wrapper {
 }
 
 .venue_action_chip.vip {
-  background: rgba(193, 2, 48, 0.2) !important;
-  border-color: rgba(193, 2, 48, 0.5) !important;
-  color: #ff3b5c !important;
+  background: rgba(255, 0, 0, 0.2) !important;
+  border-color: rgba(255, 0, 0, 0.5) !important;
+  color: #FF2A2A !important;
 }
 
 .venue_action_chip.vip:hover {
-  background: rgba(193, 2, 48, 0.35) !important;
+  background: rgba(255, 0, 0, 0.35) !important;
 }
 
 /* =========================================================================
@@ -4527,11 +4532,11 @@ body, .body, .main-wrapper {
   width: 32px !important;
   height: 32px !important;
   border-radius: 8px !important;
-  background: rgba(193, 2, 48, 0.15) !important;
+  background: rgba(255, 0, 0, 0.15) !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
-  color: #ff3b5c !important;
+  color: #FF2A2A !important;
   flex-shrink: 0 !important;
 }
 
@@ -4621,7 +4626,7 @@ body, .body, .main-wrapper {
 .venue_heading_accent {
   width: 4px !important;
   height: 20px !important;
-  background: #c10230 !important;
+  background: #FF0000 !important;
   border-radius: 3px !important;
   flex-shrink: 0 !important;
 }
@@ -4659,7 +4664,7 @@ body, .body, .main-wrapper {
 }
 
 .venue_hour_card.dinner {
-  background: linear-gradient(135deg, rgba(193, 2, 48, 0.08), rgba(193, 2, 48, 0.02)) !important;
+  background: linear-gradient(135deg, rgba(255, 0, 0, 0.08), rgba(255, 0, 0, 0.02)) !important;
 }
 
 .venue_hour_card.party {
@@ -4668,7 +4673,7 @@ body, .body, .main-wrapper {
 
 .venue_hour_icon {
   flex-shrink: 0 !important;
-  color: #ff3b5c !important;
+  color: #FF2A2A !important;
 }
 
 .venue_hour_card.party .venue_hour_icon {
@@ -4726,8 +4731,8 @@ body, .body, .main-wrapper {
   width: 20px !important;
   height: 20px !important;
   border-radius: 5px !important;
-  background: rgba(193, 2, 48, 0.2) !important;
-  color: #ff3b5c !important;
+  background: rgba(255, 0, 0, 0.2) !important;
+  color: #FF2A2A !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
@@ -4753,7 +4758,7 @@ body, .body, .main-wrapper {
   justify-content: space-between !important;
   gap: 1rem !important;
   padding: 1.25rem !important;
-  background: linear-gradient(135deg, rgba(255, 215, 0, 0.06), rgba(193, 2, 48, 0.06)) !important;
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.06), rgba(255, 0, 0, 0.06)) !important;
   border: 1px solid rgba(255, 215, 0, 0.15) !important;
   border-radius: 12px !important;
   margin-top: 0.5rem !important;
@@ -4812,7 +4817,7 @@ body, .body, .main-wrapper {
   display: inline-flex !important;
   align-items: center !important;
   gap: 6px !important;
-  background: linear-gradient(135deg, #c10230, #a00128) !important;
+  background: linear-gradient(135deg, #FF0000, #a00128) !important;
   color: #ffffff !important;
   border: none !important;
   padding: 0.75rem 1.5rem !important;
@@ -4829,7 +4834,7 @@ body, .body, .main-wrapper {
 
 .btn_venue_reserve_vip:hover {
   transform: translateY(-2px) !important;
-  box-shadow: 0 6px 20px rgba(193, 2, 48, 0.4) !important;
+  box-shadow: 0 6px 20px rgba(255, 0, 0, 0.4) !important;
 }
 
 @media (max-width: 768px) {
@@ -4895,7 +4900,7 @@ body, .body, .main-wrapper {
 
 .venue_contact_link {
   font-size: 0.8rem !important;
-  color: #ff3b5c !important;
+  color: #FF2A2A !important;
   text-decoration: none !important;
   display: block !important;
 }
@@ -4967,8 +4972,8 @@ body, .body, .main-wrapper {
 }
 
 .venue_menu_cat_pill.active {
-  background: rgba(193, 2, 48, 0.12) !important;
-  border-color: #c10230 !important;
+  background: rgba(255, 0, 0, 0.12) !important;
+  border-color: #FF0000 !important;
   color: #ffffff !important;
 }
 
@@ -4980,8 +4985,8 @@ body, .body, .main-wrapper {
 }
 
 .venue_menu_cat_pill.active .cat_count_badge {
-  background: rgba(193, 2, 48, 0.3) !important;
-  color: #ff3b5c !important;
+  background: rgba(255, 0, 0, 0.3) !important;
+  color: #FF2A2A !important;
 }
 
 .venue_menu_items_grid {
@@ -5026,7 +5031,7 @@ body, .body, .main-wrapper {
 .venue_menu_item_price {
   font-size: 0.85rem !important;
   font-weight: 800 !important;
-  color: #ff3b5c !important;
+  color: #FF2A2A !important;
   white-space: nowrap !important;
 }
 
@@ -5104,8 +5109,8 @@ body, .body, .main-wrapper {
   flex-direction: column !important;
   gap: 0.6rem !important;
   padding: 0.85rem 1rem !important;
-  background: rgba(193, 2, 48, 0.06) !important;
-  border: 1px solid rgba(193, 2, 48, 0.2) !important;
+  background: rgba(255, 0, 0, 0.06) !important;
+  border: 1px solid rgba(255, 0, 0, 0.2) !important;
   border-radius: 10px !important;
   margin-bottom: 1.25rem !important;
 }
@@ -5115,7 +5120,7 @@ body, .body, .main-wrapper {
   font-weight: 800 !important;
   text-transform: uppercase !important;
   letter-spacing: 0.06em !important;
-  color: #ff3b5c !important;
+  color: #FF2A2A !important;
 }
 
 .venue_pdf_links {
@@ -5140,8 +5145,8 @@ body, .body, .main-wrapper {
 }
 
 .venue_pdf_btn:hover {
-  background: #c10230 !important;
-  border-color: #c10230 !important;
+  background: #FF0000 !important;
+  border-color: #FF0000 !important;
   color: #ffffff !important;
   transform: translateY(-1px) !important;
 }
@@ -5262,7 +5267,7 @@ body, .body, .main-wrapper {
   display: inline-flex !important;
   align-items: center !important;
   gap: 6px !important;
-  background: linear-gradient(135deg, #c10230, #a00128) !important;
+  background: linear-gradient(135deg, #FF0000, #a00128) !important;
   color: #ffffff !important;
   border: none !important;
   padding: 0.75rem 1.5rem !important;
@@ -5276,7 +5281,7 @@ body, .body, .main-wrapper {
 
 .btn_action_vip:hover {
   transform: translateY(-2px) !important;
-  box-shadow: 0 6px 20px rgba(193, 2, 48, 0.4) !important;
+  box-shadow: 0 6px 20px rgba(255, 0, 0, 0.4) !important;
 }
 
 .venue_events_grid {
@@ -5294,7 +5299,7 @@ body, .body, .main-wrapper {
 }
 
 .venue_event_card:hover {
-  border-color: rgba(193, 2, 48, 0.3) !important;
+  border-color: rgba(255, 0, 0, 0.3) !important;
   transform: translateY(-3px) !important;
 }
 
@@ -5329,7 +5334,7 @@ body, .body, .main-wrapper {
 .venue_event_venue_name {
   font-size: 0.62rem !important;
   font-weight: 800 !important;
-  color: #ff3b5c !important;
+  color: #FF2A2A !important;
   text-transform: uppercase !important;
   letter-spacing: 0.08em !important;
   margin-bottom: 0.2rem !important;
@@ -5376,9 +5381,9 @@ body, .body, .main-wrapper {
   gap: 4px !important;
   padding: 0.45rem 1rem !important;
   border-radius: 7px !important;
-  background: rgba(193, 2, 48, 0.15) !important;
-  border: 1px solid rgba(193, 2, 48, 0.3) !important;
-  color: #ff3b5c !important;
+  background: rgba(255, 0, 0, 0.15) !important;
+  border: 1px solid rgba(255, 0, 0, 0.3) !important;
+  color: #FF2A2A !important;
   font-size: 0.72rem !important;
   font-weight: 700 !important;
   text-decoration: none !important;
@@ -5386,7 +5391,7 @@ body, .body, .main-wrapper {
 }
 
 .btn_venue_evt_tickets:hover {
-  background: rgba(193, 2, 48, 0.25) !important;
+  background: rgba(255, 0, 0, 0.25) !important;
 }
 
 /* =========================================================================
@@ -5452,7 +5457,7 @@ body, .body, .main-wrapper {
 
 .lightbox_tag {
   font-size: 0.65rem !important;
-  color: #ff3b5c !important;
+  color: #FF2A2A !important;
   font-weight: 700 !important;
   text-transform: uppercase !important;
   letter-spacing: 0.06em !important;
@@ -5523,7 +5528,7 @@ body, .body, .main-wrapper {
   font-size: 0.72rem !important;
   font-weight: 800 !important;
   letter-spacing: 0.12em !important;
-  color: #ff3b5c !important;
+  color: #FF2A2A !important;
   text-transform: uppercase !important;
   margin-bottom: 0.5rem !important;
 }
@@ -5563,12 +5568,12 @@ body, .body, .main-wrapper {
 }
 
 .faq_item:hover {
-  border-color: rgba(193, 2, 48, 0.4) !important;
+  border-color: rgba(255, 0, 0, 0.4) !important;
 }
 
 .faq_item.active {
-  border-color: rgba(193, 2, 48, 0.55) !important;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4), 0 0 20px rgba(193, 2, 48, 0.15) !important;
+  border-color: rgba(255, 0, 0, 0.55) !important;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4), 0 0 20px rgba(255, 0, 0, 0.15) !important;
 }
 
 .faq_question_btn {
@@ -5595,7 +5600,7 @@ body, .body, .main-wrapper {
 
 .faq_chevron {
   flex-shrink: 0;
-  color: #ff3b5c !important;
+  color: #FF2A2A !important;
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
@@ -5688,14 +5693,14 @@ body, .body, .main-wrapper {
 
 .blog_category_pill:hover {
   color: #ffffff !important;
-  border-color: rgba(193, 2, 48, 0.4) !important;
+  border-color: rgba(255, 0, 0, 0.4) !important;
 }
 
 .blog_category_pill.active {
   color: #ffffff !important;
-  background: #c10230 !important;
-  border-color: #c10230 !important;
-  box-shadow: 0 0 16px rgba(193, 2, 48, 0.4) !important;
+  background: #FF0000 !important;
+  border-color: #FF0000 !important;
+  box-shadow: 0 0 16px rgba(255, 0, 0, 0.4) !important;
 }
 
 .blog_search_wrapper {
@@ -5737,8 +5742,8 @@ body, .body, .main-wrapper {
 
 .blog_card:hover {
   transform: translateY(-5px) !important;
-  border-color: rgba(193, 2, 48, 0.45) !important;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), 0 0 25px rgba(193, 2, 48, 0.2);
+  border-color: rgba(255, 0, 0, 0.45) !important;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), 0 0 25px rgba(255, 0, 0, 0.2);
 }
 
 .blog_card_link {
@@ -5779,7 +5784,7 @@ body, .body, .main-wrapper {
   font-size: 0.68rem !important;
   font-weight: 800 !important;
   letter-spacing: 0.08em !important;
-  color: #ff3b5c !important;
+  color: #FF2A2A !important;
   text-transform: uppercase !important;
 }
 
@@ -5854,7 +5859,7 @@ body, .body, .main-wrapper {
   gap: 4px !important;
   font-size: 0.76rem !important;
   font-weight: 700 !important;
-  color: #c10230 !important;
+  color: #FF0000 !important;
   text-transform: uppercase !important;
 }
 
@@ -5882,15 +5887,15 @@ body, .body, .main-wrapper {
 }
 
 .blog_breadcrumbs .current {
-  color: #ff3b5c !important;
+  color: #FF2A2A !important;
   font-weight: 600 !important;
 }
 
 .blog_post_badge {
   display: inline-block !important;
-  background: rgba(193, 2, 48, 0.15) !important;
-  color: #ff3b5c !important;
-  border: 1px solid rgba(193, 2, 48, 0.35) !important;
+  background: rgba(255, 0, 0, 0.15) !important;
+  color: #FF2A2A !important;
+  border: 1px solid rgba(255, 0, 0, 0.35) !important;
   border-radius: 999px !important;
   padding: 4px 12px !important;
   font-size: 0.72rem !important;
@@ -5961,8 +5966,8 @@ body, .body, .main-wrapper {
 }
 
 .blog_share_btn:hover {
-  background: rgba(193, 2, 48, 0.2) !important;
-  border-color: #c10230 !important;
+  background: rgba(255, 0, 0, 0.2) !important;
+  border-color: #FF0000 !important;
 }
 
 .blog_post_cover_wrapper {
@@ -6015,10 +6020,10 @@ body, .body, .main-wrapper {
   margin: 3rem 0 !important;
   padding: 2.25rem !important;
   background: rgba(18, 18, 18, 0.9) !important;
-  border: 1px solid rgba(193, 2, 48, 0.4) !important;
+  border: 1px solid rgba(255, 0, 0, 0.4) !important;
   border-radius: 1.5rem !important;
   overflow: hidden !important;
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5), 0 0 30px rgba(193, 2, 48, 0.18);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5), 0 0 30px rgba(255, 0, 0, 0.18);
 }
 
 .blog_cta_badge {
@@ -6027,7 +6032,7 @@ body, .body, .main-wrapper {
   gap: 6px !important;
   font-size: 0.72rem !important;
   font-weight: 800 !important;
-  color: #ff3b5c !important;
+  color: #FF2A2A !important;
   letter-spacing: 0.1em !important;
   text-transform: uppercase !important;
   margin-bottom: 0.5rem !important;
@@ -6090,7 +6095,7 @@ body, .body, .main-wrapper {
 
 .blog_related_card:hover {
   background: rgba(255, 255, 255, 0.06) !important;
-  border-color: rgba(193, 2, 48, 0.35) !important;
+  border-color: rgba(255, 0, 0, 0.35) !important;
 }
 
 .blog_related_img {
@@ -6103,7 +6108,7 @@ body, .body, .main-wrapper {
 .blog_related_cat {
   font-size: 0.66rem !important;
   font-weight: 800 !important;
-  color: #ff3b5c !important;
+  color: #FF2A2A !important;
   text-transform: uppercase !important;
   display: block !important;
   margin-bottom: 2px !important;
@@ -6122,18 +6127,18 @@ body, .body, .main-wrapper {
 }
 
 /* =========================================================================
-   ARRIVE HYBRID LUXURY FOOTER (Inspired by Pacha Icons + SEO Engine)
+   HANGOUT HYBRID LUXURY FOOTER (Inspired by Pacha Icons + SEO Engine)
    ========================================================================= */
 /* =========================================================================
-   ARRIVE HYBRID FOOTER — PACHA ICONS ULTRA LUXURY STYLING
+   HANGOUT HYBRID FOOTER — PACHA ICONS ULTRA LUXURY STYLING
    ========================================================================= */
 .arrive_hybrid_footer {
   position: relative !important;
-  background-color: #060608 !important;
+  background-color: #070000 !important;
   background-image: 
-    radial-gradient(ellipse 75% 65% at 5% 45%, rgba(18, 56, 38, 0.42) 0%, transparent 62%),
-    radial-gradient(ellipse 65% 60% at 52% 40%, rgba(68, 22, 44, 0.35) 0%, transparent 65%),
-    radial-gradient(ellipse 50% 50% at 95% 65%, rgba(20, 22, 35, 0.45) 0%, transparent 60%) !important;
+    radial-gradient(ellipse 75% 65% at 5% 45%, rgba(255, 0, 0, 0.22) 0%, transparent 62%),
+    radial-gradient(ellipse 65% 60% at 52% 100%, rgba(255, 0, 0, 0.18) 0%, transparent 65%),
+    radial-gradient(ellipse 50% 50% at 95% 30%, rgba(255, 0, 0, 0.14) 0%, transparent 60%) !important;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
   margin-top: 0 !important;
   overflow: hidden !important;
@@ -6195,7 +6200,7 @@ body, .body, .main-wrapper {
 }
 
 .arrive_footer_logo_img {
-  height: 34px !important;
+  height: 96px !important;
   width: auto !important;
   display: block !important;
 }
@@ -6203,9 +6208,9 @@ body, .body, .main-wrapper {
 .arrive_footer_red_dot {
   width: 7px !important;
   height: 7px !important;
-  background-color: #c10230 !important;
+  background-color: #FF0000 !important;
   border-radius: 50%;
-  box-shadow: 0 0 10px #c10230;
+  box-shadow: 0 0 10px #FF0000;
   display: inline-block !important;
 }
 
@@ -6254,9 +6259,9 @@ body, .body, .main-wrapper {
 }
 
 .arrive_footer_pill_btn:hover {
-  background: #c10230 !important;
-  border-color: #c10230 !important;
-  box-shadow: 0 0 20px rgba(193, 2, 48, 0.4);
+  background: #FF0000 !important;
+  border-color: #FF0000 !important;
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.4);
   transform: translateY(-2px) !important;
 }
 
@@ -6357,7 +6362,7 @@ body, .body, .main-wrapper {
 }
 
 .arrive_footer_nav_link:hover {
-  color: #ff3b5c !important;
+  color: #FF2A2A !important;
   transform: translateX(-4px) !important;
 }
 
@@ -6366,7 +6371,7 @@ body, .body, .main-wrapper {
 }
 
 .arrive_footer_vip_link:hover {
-  color: #ff3b5c !important;
+  color: #FF2A2A !important;
 }
 
 .arrive_footer_blog_link {
@@ -6376,7 +6381,7 @@ body, .body, .main-wrapper {
 .arrive_footer_new_badge {
   font-size: 0.56rem !important;
   font-weight: 900 !important;
-  background: #c10230 !important;
+  background: #FF0000 !important;
   color: #ffffff !important;
   padding: 2px 6px !important;
   border-radius: 4px;
@@ -6390,7 +6395,7 @@ body, .body, .main-wrapper {
 }
 
 .arrive_footer_dir_dot {
-  color: #ff3b5c !important;
+  color: #FF2A2A !important;
   font-size: 1.1rem !important;
   line-height: 0 !important;
 }
@@ -6414,7 +6419,7 @@ body, .body, .main-wrapper {
 
 .arrive_social_icon_btn:hover {
   opacity: 1 !important;
-  color: #ff3b5c !important;
+  color: #FF2A2A !important;
   transform: scale(1.15) !important;
 }
 
@@ -6463,7 +6468,7 @@ body, .body, .main-wrapper {
 /* ── Directory Page Hover & Enhancements ── */
 .directory_link_row:hover {
   background: rgba(255, 255, 255, 0.06) !important;
-  border-color: rgba(193, 2, 48, 0.4) !important;
+  border-color: rgba(255, 0, 0, 0.4) !important;
   transform: translateX(4px) !important;
 }
 
@@ -6569,7 +6574,7 @@ body, .body, .main-wrapper {
   gap: 12px !important;
   margin: 0.75rem 0 1.25rem 0 !important;
   padding: 0.5rem 1rem !important;
-  background: linear-gradient(135deg, rgba(193, 2, 48, 0.28) 0%, rgba(15, 15, 15, 0.9) 100%) !important;
+  background: linear-gradient(135deg, rgba(255, 0, 0, 0.28) 0%, rgba(15, 15, 15, 0.9) 100%) !important;
   border: 1px solid rgba(255, 59, 92, 0.4) !important;
   border-radius: 12px !important;
   cursor: pointer !important;
@@ -6579,7 +6584,7 @@ body, .body, .main-wrapper {
 }
 
 .venue_hero_next_event_callout:hover {
-  border-color: #ff3b5c !important;
+  border-color: #FF2A2A !important;
   transform: translateY(-1px) !important;
   box-shadow: 0 6px 20px rgba(255, 59, 92, 0.35);
 }
@@ -6588,8 +6593,8 @@ body, .body, .main-wrapper {
   width: 8px !important;
   height: 8px !important;
   border-radius: 50%;
-  background: #ff3b5c !important;
-  box-shadow: 0 0 10px #ff3b5c;
+  background: #FF2A2A !important;
+  box-shadow: 0 0 10px #FF2A2A;
   flex-shrink: 0 !important;
   animation: pulseDot 2s infinite;
 }
@@ -6609,7 +6614,7 @@ body, .body, .main-wrapper {
 }
 
 .venue_next_event_tag {
-  color: #ff3b5c !important;
+  color: #FF2A2A !important;
   font-weight: 800 !important;
   letter-spacing: 0.08em !important;
   font-size: 0.68rem !important;
@@ -6710,10 +6715,10 @@ body, .body, .main-wrapper {
 }
 
 .venue_mobile_bar_btn.vip {
-  background: linear-gradient(135deg, #c10230 0%, #ff3b5c 100%) !important;
+  background: linear-gradient(135deg, #FF0000 0%, #FF2A2A 100%) !important;
   color: #ffffff !important;
   font-weight: 800 !important;
-  box-shadow: 0 2px 10px rgba(193, 2, 48, 0.4) !important;
+  box-shadow: 0 2px 10px rgba(255, 0, 0, 0.4) !important;
 }
 
 .venue_mobile_bar_btn.menu {

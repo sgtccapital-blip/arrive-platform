@@ -50,7 +50,7 @@ export const ServicesModal = () => {
       confetti({
         particleCount: 80,
         spread: 60,
-        colors: ['#c10230', '#ffffff', '#ff3b5c', '#000000']
+        colors: ['#FF0000', '#ffffff', '#FF2A2A', '#000000']
       });
     } catch (err) {
       console.error(err);
@@ -62,14 +62,14 @@ export const ServicesModal = () => {
 
   const openWhatsAppConcierge = (msg) => {
     const selectedVenue = (venues || []).find(v => v.id === selectedRestaurantId) || (venues && venues[0]);
-    const venueName = selectedVenue ? selectedVenue.name : 'Restaurante Oficial Arrive';
+    const venueName = selectedVenue ? selectedVenue.name : 'Restaurante Oficial Hangout';
     const venueArea = selectedVenue ? ` (${selectedVenue.area})` : '';
 
     let defaultMsg = '';
     if (selectedCategory === 'restaurants') {
-      defaultMsg = `Hola Arrive Concierge! Deseo reservar mesa para cena en *${venueName}*${venueArea} para el día ${formData.date || 'próximo fin de semana'} a las ${formData.time || '8:00 PM'} para ${formData.people} a nombre de ${formData.name || 'Cliente VIP'}.${formData.specialRequests ? ` Solicitud especial: ${formData.specialRequests}` : ''}`;
+      defaultMsg = `Hola Hangout Concierge! Deseo reservar mesa para cena en *${venueName}*${venueArea} para el día ${formData.date || 'próximo fin de semana'} a las ${formData.time || '8:00 PM'} para ${formData.people} a nombre de ${formData.name || 'Cliente VIP'}.${formData.specialRequests ? ` Solicitud especial: ${formData.specialRequests}` : ''}`;
     } else {
-      defaultMsg = msg || `Hola Arrive Concierge! Me interesa solicitar el servicio de: ${formData.serviceType} a nombre de ${formData.name || 'Cliente VIP'}.${formData.specialRequests ? ` Detalles: ${formData.specialRequests}` : ''}`;
+      defaultMsg = msg || `Hola Hangout Concierge! Me interesa solicitar el servicio de: ${formData.serviceType} a nombre de ${formData.name || 'Cliente VIP'}.${formData.specialRequests ? ` Detalles: ${formData.specialRequests}` : ''}`;
     }
     window.open(`https://wa.me/50760000000?text=${encodeURIComponent(defaultMsg)}`, '_blank');
   };
@@ -88,7 +88,7 @@ export const ServicesModal = () => {
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.5rem' }}>
                 <Sparkles size={24} color="var(--accent-red)" />
                 <h2 style={{ fontSize: '1.65rem', fontWeight: '900', color: '#fff', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
-                  ARRIVE CONCIERGE & VIP SERVICES
+                  HANGOUT CONCIERGE & VIP SERVICES
                 </h2>
               </div>
               <p style={{ color: 'var(--text-secondary)', fontSize: '0.88rem', marginBottom: '1.75rem', lineHeight: '1.5' }}>
@@ -222,7 +222,7 @@ export const ServicesModal = () => {
                       </span>
                     </div>
                     <p style={{ fontSize: '0.78rem', color: 'var(--text-secondary)', lineHeight: '1.5', margin: '0 0 0.85rem 0' }}>
-                      Manejo directo de mesa preferencial y atención de cortesía para la cena en los restaurantes oficiales de la plataforma Arrive en Ciudad de Panamá y Casco Antiguo:
+                      Manejo directo de mesa preferencial y atención de cortesía para la cena en los restaurantes oficiales de la plataforma Hangout en Ciudad de Panamá y Casco Antiguo:
                     </p>
 
                     {/* Interactive Grid of Platform Restaurant Venues */}
@@ -490,7 +490,7 @@ export const ServicesModal = () => {
                 ¡Solicitud de Concierge Recibida!
               </h3>
               <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', maxWidth: '440px', margin: '0 auto 1.75rem', lineHeight: '1.6' }}>
-                Tu solicitud de <strong>{formData.serviceType}</strong> ha sido enviada al equipo VIP de <strong>Arrive Model Management</strong>. Te escribiremos de inmediato vía WhatsApp para coordinar los detalles.
+                Tu solicitud de <strong>{formData.serviceType}</strong> ha sido enviada al equipo VIP de <strong>Hangout Panamá</strong>. Te escribiremos de inmediato vía WhatsApp para coordinar los detalles.
               </p>
 
               <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', maxWidth: '320px', margin: '0 auto' }}>

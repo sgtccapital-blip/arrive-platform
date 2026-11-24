@@ -349,7 +349,7 @@ export const VenuesModal = () => {
         <div className="venue_schedule_strip">
           <div className="schedule_item dinner">
             <div className="schedule_icon_box">
-              <Utensils size={14} color="#ff3b5c" />
+              <Utensils size={14} color="#FF2A2A" />
             </div>
             <div>
               <span className="schedule_label">DINNER TIME</span>
@@ -532,7 +532,7 @@ export const VenuesModal = () => {
                     <div className="venue_vip_callout_content">
                       <h4>Mesa VIP & Bottle Service</h4>
                       <p>
-                        Reserva con Arrive Concierge en {selectedVenue.shortName}. 
+                        Reserva con Hangout Concierge en {selectedVenue.shortName}. 
                         100% de tu pago consumible en botellas y menú premium.
                       </p>
                       <div className="venue_vip_perks">
@@ -558,7 +558,7 @@ export const VenuesModal = () => {
                 <div className="venue_google_map_card">
                   <div className="venue_google_map_header">
                     <div className="venue_google_map_title">
-                      <MapPin size={15} color="#ff3b5c" />
+                      <MapPin size={15} color="#FF2A2A" />
                       <span>Google Maps</span>
                     </div>
                     {selectedVenue.googleMapsUrl && (
@@ -603,7 +603,7 @@ export const VenuesModal = () => {
                   <h4 className="venue_sidebar_title">Ubicación & Contacto</h4>
                   
                   <div className="venue_contact_row">
-                    <MapPin size={16} color="#c10230" className="flex-shrink-0" />
+                    <MapPin size={16} color="#FF0000" className="flex-shrink-0" />
                     <div>
                       <span className="venue_contact_label">Dirección</span>
                       <p className="venue_contact_value" itemProp="address">{selectedVenue.address}</p>
@@ -612,7 +612,7 @@ export const VenuesModal = () => {
 
                   {selectedVenue.parking && (
                     <div className="venue_contact_row">
-                      <Car size={16} color="#c10230" className="flex-shrink-0" />
+                      <Car size={16} color="#FF0000" className="flex-shrink-0" />
                       <div>
                         <span className="venue_contact_label">Estacionamiento</span>
                         <p className="venue_contact_value">{selectedVenue.parking}</p>
@@ -622,7 +622,7 @@ export const VenuesModal = () => {
 
                   {selectedVenue.ageLimit && (
                     <div className="venue_contact_row">
-                      <ShieldCheck size={16} color="#c10230" className="flex-shrink-0" />
+                      <ShieldCheck size={16} color="#FF0000" className="flex-shrink-0" />
                       <div>
                         <span className="venue_contact_label">Admisión & Edad</span>
                         <p className="venue_contact_value">{selectedVenue.ageLimit}</p>
@@ -632,7 +632,7 @@ export const VenuesModal = () => {
 
                   {selectedVenue.websiteUrl && (
                     <div className="venue_contact_row">
-                      <Globe size={16} color="#c10230" className="flex-shrink-0" />
+                      <Globe size={16} color="#FF0000" className="flex-shrink-0" />
                       <div>
                         <span className="venue_contact_label">Sitio Web</span>
                         <a 
@@ -651,7 +651,7 @@ export const VenuesModal = () => {
 
                   {selectedVenue.instagramUrl && (
                     <div className="venue_contact_row">
-                      <InstagramIcon size={16} color="#ff3b5c" className="flex-shrink-0" />
+                      <InstagramIcon size={16} color="#FF2A2A" className="flex-shrink-0" />
                       <div>
                         <span className="venue_contact_label">Instagram Oficial</span>
                         <a 

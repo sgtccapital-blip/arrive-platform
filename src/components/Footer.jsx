@@ -57,7 +57,7 @@ export const Footer = ({ locale = 'es', navigate }) => {
   ];
 
   return (
-    <footer className="arrive_hybrid_footer" role="contentinfo" aria-label="Pie de página ARRIVE">
+    <footer className="arrive_hybrid_footer" role="contentinfo" aria-label="Pie de página HANGOUT">
       <div className="arrive_footer_inner">
         {/* =========================================================================
             TOP SECTION: PACHA ICONS INSPIRED LUXURY HERO ROW
@@ -71,18 +71,17 @@ export const Footer = ({ locale = 'es', navigate }) => {
               <a 
                 href={`/${locale}/`} 
                 className="arrive_footer_logo_link" 
-                title="ARRIVE Home"
+                title="HANGOUT Home"
                 onClick={(e) => handleLinkClick(e, `/${locale}/`)}
               >
                 <img loading="lazy" decoding="async" 
-                  src="/images/arrive-logo-white.png" 
-                  alt="ARRIVE" 
+                  src="/images/hangout-logo.png" 
+                  alt="Hangout Panamá" 
                   className="arrive_footer_logo_img"
                 />
-                <span className="arrive_footer_red_dot"></span>
               </a>
               <span className="arrive_footer_brand_sub">
-                MODEL MANAGEMENT • PANAMA
+                EVENTOS • EXPERIENCIAS • NIGHTLIFE
               </span>
             </div>
 
@@ -95,15 +94,15 @@ export const Footer = ({ locale = 'es', navigate }) => {
               )}
             </h2>
 
-            {/* Pill Button (Matches Reference: PACHA GROUP WEBSITE -> ARRIVE MODEL MANAGEMENT) */}
+            {/* Pill Button (Matches Reference: PACHA GROUP WEBSITE -> Hangout Panamá) */}
             <div className="arrive_footer_pill_wrapper">
               <a 
                 href={`/${locale}/work-with-us/`} 
                 className="arrive_footer_pill_btn"
-                title="Arrive Model Management"
+                title="Hangout Panamá"
                 onClick={(e) => handleLinkClick(e, `/${locale}/work-with-us/`)}
               >
-                <span>ARRIVE MODEL MANAGEMENT</span>
+                <span>Hangout Panamá</span>
                 <ArrowUpRight size={14} className="arrive_pill_arrow" />
               </a>
             </div>
@@ -162,6 +161,14 @@ export const Footer = ({ locale = 'es', navigate }) => {
                 {isEs ? 'SERVICIOS & CONCIERGE' : 'SERVICES & CONCIERGE'}
               </a>
               <a 
+                href="/es/guias/" 
+                className="arrive_footer_nav_link"
+                onClick={(e) => handleLinkClick(e, '/es/guias/')}
+              >
+                <span>{isEs ? 'GUÍAS DE PANAMÁ' : 'PANAMA GUIDES (ES)'}</span>
+                <span className="arrive_footer_new_badge">NEW</span>
+              </a>
+              <a 
                 href={`/${locale}/blog/`} 
                 className="arrive_footer_nav_link arrive_footer_blog_link"
                 onClick={(e) => handleLinkClick(e, `/${locale}/blog/`)}
@@ -175,7 +182,7 @@ export const Footer = ({ locale = 'es', navigate }) => {
                 onClick={(e) => handleLinkClick(e, `/${locale}/galeria/`)}
               >
                 <span>{isEs ? 'FOTOS CHICAS' : 'GIRLS PHOTOS'}</span>
-                <span className="arrive_footer_new_badge" style={{ background: '#ff3b5c' }}>HD</span>
+                <span className="arrive_footer_new_badge" style={{ background: '#FF2A2A' }}>HD</span>
               </a>
               <a 
                 href={`/${locale}/explore/`} 
@@ -259,7 +266,7 @@ export const Footer = ({ locale = 'es', navigate }) => {
           </div>
 
           <div className="arrive_footer_copyright">
-            © 2026 Arrive Model Management • {isEs ? 'Todos los derechos reservados' : 'All rights reserved'}
+            © 2026 Hangout Panamá • {isEs ? 'Todos los derechos reservados' : 'All rights reserved'}
           </div>
         </div>
       </div>

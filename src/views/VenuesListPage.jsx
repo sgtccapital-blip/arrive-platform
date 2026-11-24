@@ -30,7 +30,7 @@ export const VenuesListPage = ({ locale = 'es' }) => {
                   loading="eager" 
                   fetchpriority="high"
                   src="/images/gifs/Discoball.gif" 
-                  alt="Disco Ball Arrive Izquierda" 
+                  alt="Disco Ball Hangout Izquierda" 
                   className="heart_title_flame left hero_gif_discoball" 
                   width="60"
                   height="60"
@@ -42,7 +42,7 @@ export const VenuesListPage = ({ locale = 'es' }) => {
                   loading="eager" 
                   fetchpriority="high"
                   src="/images/gifs/Discoball.gif" 
-                  alt="Disco Ball Arrive Derecha" 
+                  alt="Disco Ball Hangout Derecha" 
                   className="heart_title_flame right hero_gif_discoball" 
                   width="60"
                   height="60"
@@ -51,11 +51,11 @@ export const VenuesListPage = ({ locale = 'es' }) => {
 
               {/* Subtitle with clean SVG Lucide icons - no missing emoji squares */}
               <div className="hero_subtitle_emojis">
-                <span className="hero_sub_badge"><Wine size={14} color="#ff3b5c" /> {locale === 'es' ? 'CLUBS & DISCOTECAS' : 'CLUBS & NIGHTCLUBS'}</span>
+                <span className="hero_sub_badge"><Wine size={14} color="#FF2A2A" /> {locale === 'es' ? 'CLUBS & DISCOTECAS' : 'CLUBS & NIGHTCLUBS'}</span>
                 <span className="hero_sub_dot">•</span>
-                <span className="hero_sub_badge"><Building size={14} color="#ff3b5c" /> {locale === 'es' ? 'ROOFTOPS EN CASCO VIEJO' : 'CASCO VIEJO ROOFTOPS'}</span>
+                <span className="hero_sub_badge"><Building size={14} color="#FF2A2A" /> {locale === 'es' ? 'ROOFTOPS EN CASCO VIEJO' : 'CASCO VIEJO ROOFTOPS'}</span>
                 <span className="hero_sub_dot">•</span>
-                <span className="hero_sub_badge"><Utensils size={14} color="#ff3b5c" /> {locale === 'es' ? 'RESTAURANTES & MESAS VIP' : 'RESTAURANTS & VIP TABLES'}</span>
+                <span className="hero_sub_badge"><Utensils size={14} color="#FF2A2A" /> {locale === 'es' ? 'RESTAURANTES & MESAS VIP' : 'RESTAURANTS & VIP TABLES'}</span>
               </div>
 
               {/* Centered description text — concise, refined & expansive */}

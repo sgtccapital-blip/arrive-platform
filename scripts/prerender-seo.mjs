@@ -1,5 +1,5 @@
 // =========================================================================
-// ARRIVE PLATFORM — BUILD-TIME STATIC PRERENDERER (SSG)
+// HANGOUT PLATFORM — BUILD-TIME STATIC PRERENDERER (SSG)
 // Generates 100% crawlable HTML pages for Googlebot and instant TTFB
 // =========================================================================
 
@@ -9,11 +9,12 @@ import { getEditorialPage, editorialHtml, escapeHtml } from '../src/seo/editoria
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { INITIAL_EVENTS } from '../src/data/initialData.js';
+import { getGuidesPage, guidesHtml, getAllGuidePaths, BLOG_TO_GUIDE_REDIRECTS } from '../src/seo/guides.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT_DIR = path.resolve(__dirname, '..');
 const DIST_DIR = path.join(ROOT_DIR, 'dist');
-const BASE_URL = 'https://arrivepanama.com';
+const BASE_URL = 'https://hangoutpanama.com';
 
 // Canonical Data definitions
 const VENUES = [
@@ -204,7 +205,7 @@ const VENUES = [
       es: [
         { question: '¿Dónde está ubicado La Rosalía?', answer: 'Se encuentra en Downtown Amador, sobre la Calzada de Amador (Causeway), a minutos del centro de Ciudad de Panamá.' },
         { question: '¿Cuál es el código de vestimenta en La Rosalía?', answer: 'El dress code es Urban Chic / Nightlife Glam. Se permite estilo urbano elegante y calzado moderno.' },
-        { question: '¿Cómo funciona la entrada con Pase ARRIVE?', answer: 'Tu Pase ARRIVE incluye acceso preferencial por lista digital y beneficios como open bar hasta las 12:00 AM.' }
+        { question: '¿Cómo funciona la entrada con Pase HANGOUT?', answer: 'Tu Pase HANGOUT incluye acceso preferencial por lista digital y beneficios como open bar hasta las 12:00 AM.' }
       ],
       en: [
         { question: 'Where is La Rosalía located?', answer: 'Located in Downtown Amador on the Amador Causeway, minutes away from downtown Panama City.' },
@@ -229,7 +230,7 @@ const EVENTS = INITIAL_EVENTS
 // English meta description for events (event copy in the data is Spanish-only).
 const englishEventDescription = (e) => {
   const when = e.eventDate ? new Date(`${e.eventDate}-05:00`).toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', timeZone: 'America/Panama' }) : e.date;
-  const free = e.price === 0 ? ' Free digital pass available on ARRIVE.' : '';
+  const free = e.price === 0 ? ' Free digital pass available on HANGOUT.' : '';
   const genres = (e.musicGenres || []).slice(0, 3).join(', ');
   return `${e.title} at ${e.venueName}, Panama City — ${when}${e.time ? `, ${e.time}` : ''}.${genres ? ` Music: ${genres}.` : ''}${free} Perks, guest list and VIP tables.`;
 };
@@ -249,8 +250,8 @@ const PAST_EVENTS = archive.filter(a => !currentSlugs.has(a.slug) && /^[a-z0-9]+
 const VENUES_FAQS = {
   es: [
     {
-      question: '¿Cómo funciona el pase digital de cortesía en los clubes de Panamá con ARRIVE?',
-      answer: 'Los pases digitales de ARRIVE son 100% gratuitos y oficiales. Se descargan directamente en tu teléfono con un código QR individual que presentas en la puerta del venue para ingresar en lista preferencial y disfrutar de beneficios como Open Gin & Sangría de cortesía para ellas hasta medianoche.'
+      question: '¿Cómo funciona el pase digital de cortesía en los clubes de Panamá con HANGOUT?',
+      answer: 'Los pases digitales de HANGOUT son 100% gratuitos y oficiales. Se descargan directamente en tu teléfono con un código QR individual que presentas en la puerta del venue para ingresar en lista preferencial y disfrutar de beneficios como Open Gin & Sangría de cortesía para ellas hasta medianoche.'
     },
     {
       question: '¿Cuál es el código de vestimenta (dress code) en las discotecas y rooftops de Panamá?',
@@ -258,7 +259,7 @@ const VENUES_FAQS = {
     },
     {
       question: '¿Cómo reservar una mesa VIP o servicio de botellas (Bottle Service) en Casco Antiguo y Bella Vista?',
-      answer: 'Las reservas de mesa VIP se gestionan directamente a través de ARRIVE. Al confirmar tu mesa se te asigna un host personal, confirmación oficial instantánea, ubicación preferencial junto a la pista o en terraza panorámica, y carta completa de licores y botellas premium.'
+      answer: 'Las reservas de mesa VIP se gestionan directamente a través de HANGOUT. Al confirmar tu mesa se te asigna un host personal, confirmación oficial instantánea, ubicación preferencial junto a la pista o en terraza panorámica, y carta completa de licores y botellas premium.'
     },
     {
       question: '¿Cuáles son los horarios de los rooftops y discotecas en Ciudad de Panamá?',
@@ -271,8 +272,8 @@ const VENUES_FAQS = {
   ],
   en: [
     {
-      question: 'How do ARRIVE complimentary digital guest list passes work in Panama City?',
-      answer: 'ARRIVE digital passes are 100% free and official. You download an individual QR pass to your phone, present it at the club entrance for priority guest list admission, and access exclusive perks such as complimentary Open Gin & Sangria for ladies until midnight.'
+      question: 'How do HANGOUT complimentary digital guest list passes work in Panama City?',
+      answer: 'HANGOUT digital passes are 100% free and official. You download an individual QR pass to your phone, present it at the club entrance for priority guest list admission, and access exclusive perks such as complimentary Open Gin & Sangria for ladies until midnight.'
     },
     {
       question: 'What is the dress code for nightclubs and rooftop bars in Panama City?',
@@ -280,7 +281,7 @@ const VENUES_FAQS = {
     },
     {
       question: 'How can I book a VIP table or bottle service in Casco Viejo and Bella Vista?',
-      answer: 'VIP table bookings are managed directly through ARRIVE with instant confirmation, personal host assignment, prime table placement (dance floor booths or skyline terrace), and full access to premium bottle service menus.'
+      answer: 'VIP table bookings are managed directly through HANGOUT with instant confirmation, personal host assignment, prime table placement (dance floor booths or skyline terrace), and full access to premium bottle service menus.'
     },
     {
       question: 'What are the operating hours for Panama City nightclubs and rooftops?',
@@ -296,12 +297,12 @@ const VENUES_FAQS = {
 const CONCIERGE_FAQS = {
   es: [
     {
-      question: '¿Qué servicios VIP gestiona ARRIVE Concierge en Ciudad de Panamá?',
-      answer: 'ARRIVE Concierge coordina reservas prioritarias en restaurantes de alta gastronomía, transporte privado ejecutivo con chofer en SUVs de lujo (Cadillac Escalade, Chevrolet Suburban), alquiler privado de yates hacia Isla Taboga y el Archipiélago de Las Perlas, y hospedaje en penthouses exclusivos.'
+      question: '¿Qué servicios VIP gestiona HANGOUT Concierge en Ciudad de Panamá?',
+      answer: 'HANGOUT Concierge coordina reservas prioritarias en restaurantes de alta gastronomía, transporte privado ejecutivo con chofer en SUVs de lujo (Cadillac Escalade, Chevrolet Suburban), alquiler privado de yates hacia Isla Taboga y el Archipiélago de Las Perlas, y hospedaje en penthouses exclusivos.'
     },
     {
       question: '¿Cómo funciona la reserva preferencial para cenas en restaurantes oficiales?',
-      answer: 'Coordinamos tu mesa en restaurantes asociados oficiales de ARRIVE en Casco Antiguo y Bella Vista con atención VIP de cortesía, mesa reservada en horario pico y confirmación directa por WhatsApp con tu Concierge dedicado.'
+      answer: 'Coordinamos tu mesa en restaurantes asociados oficiales de HANGOUT en Casco Antiguo y Bella Vista con atención VIP de cortesía, mesa reservada en horario pico y confirmación directa por WhatsApp con tu Concierge dedicado.'
     },
     {
       question: '¿Qué incluye el servicio de alquiler de yates en Panamá?',
@@ -314,15 +315,15 @@ const CONCIERGE_FAQS = {
   ],
   en: [
     {
-      question: 'What VIP services does ARRIVE Concierge coordinate in Panama City?',
-      answer: 'ARRIVE Concierge handles priority dinner reservations at top gourmet restaurants, private executive chauffeur transport in luxury SUVs (Escalade, Suburban), private yacht charters to Taboga Island and Pearl Islands, and exclusive Casco Viejo penthouses.'
+      question: 'What VIP services does HANGOUT Concierge coordinate in Panama City?',
+      answer: 'HANGOUT Concierge handles priority dinner reservations at top gourmet restaurants, private executive chauffeur transport in luxury SUVs (Escalade, Suburban), private yacht charters to Taboga Island and Pearl Islands, and exclusive Casco Viejo penthouses.'
     },
     {
-      question: 'How does preferential dinner booking work at ARRIVE partner restaurants?',
-      answer: 'We secure your table at official ARRIVE partner restaurants in Casco Viejo and Bella Vista with priority seating during peak dinner hours and direct WhatsApp confirmation with your dedicated Concierge.'
+      question: 'How does preferential dinner booking work at HANGOUT partner restaurants?',
+      answer: 'We secure your table at official HANGOUT partner restaurants in Casco Viejo and Bella Vista with priority seating during peak dinner hours and direct WhatsApp confirmation with your dedicated Concierge.'
     },
     {
-      question: 'What is included in private yacht charters in Panama with ARRIVE?',
+      question: 'What is included in private yacht charters in Panama with HANGOUT?',
       answer: 'Private yacht charters include certified captain and crew, fuel, ice, coolers, premium sound systems, and stops at prime swimming spots in Taboga Island or Pearl Islands for private day trips or sunset cruises.'
     },
     {
@@ -365,9 +366,9 @@ export const prerenderAllPages = async () => {
   // 0. Root Home (defaults to canonical ES with hreflang alternate links)
   pagesToPrerender.push({
     relPath: '',
-    title: 'ARRIVE | The Exclusive Nightlife Experience • Panamá',
+    title: 'HANGOUT | The Exclusive Nightlife Experience • Panamá',
     description: 'Descubre los eventos y beneficios más exclusivos de Panamá en Furia Club, Terraplén Rooftop y Casco Antiguo. Pases digitales con Open Gin de cortesía y mesas VIP.',
-    h1: 'ARRIVE — Nightlife, Eventos & Rooftops en Panamá',
+    h1: 'HANGOUT — Nightlife, Eventos & Rooftops en Panamá',
     intro: 'Plataforma oficial de eventos exclusivos, listas de cortesía y reservas VIP en los clubes y terrazas más cotizados de Ciudad de Panamá.',
     breadcrumbs: [{ name: 'Inicio', url: '/es/' }],
     items: EVENTS.map(e => ({ title: e.title, url: `/es/events/${e.slug}/`, sub: `${e.date} • ${e.venueName}` }))
@@ -380,14 +381,14 @@ export const prerenderAllPages = async () => {
     // 1. Home
     pagesToPrerender.push({
       relPath: `${loc}/`,
-      title: isEs ? 'ARRIVE Panamá | Nightlife, Eventos & Experiencias VIP' : 'ARRIVE Panama | Nightlife, Events & VIP Experiences',
+      title: isEs ? 'HANGOUT Panamá | Nightlife, Eventos & Experiencias VIP' : 'HANGOUT Panama | Nightlife, Events & VIP Experiences',
       description: isEs 
         ? 'Descubre el mejor nightlife de Ciudad de Panamá: eventos exclusivos, beneficios para ellas, rooftops, clubs, restaurantes y mesas VIP.'
         : 'Discover Panama City top nightlife: exclusive events, ladies perks, rooftops, clubs, restaurants and VIP tables.',
       h1: isEs ? 'Nightlife, Eventos & Experiencias VIP en Panamá' : 'Nightlife, Events & VIP Experiences in Panama',
       intro: isEs 
-        ? 'Descubre una nueva forma de vivir Ciudad de Panamá con ARRIVE. Encuentra las mejores fiestas, clubs, rooftops, restaurantes y experiencias exclusivas de la ciudad, con acceso a eventos semanales, beneficios especiales, listas de invitados y reservas de mesas VIP.\n\nDesde Casco Viejo hasta los hotspots más exclusivos de Ciudad de Panamá, ARRIVE conecta nightlife, gastronomía y experiencias premium en un solo lugar.'
-        : 'Discover a new way to experience Panama City with ARRIVE. Find the city’s best parties, clubs, rooftops, restaurants, and exclusive experiences, with weekly event access, special perks, guest lists, and VIP table bookings.',
+        ? 'Descubre una nueva forma de vivir Ciudad de Panamá con HANGOUT. Encuentra las mejores fiestas, clubs, rooftops, restaurantes y experiencias exclusivas de la ciudad, con acceso a eventos semanales, beneficios especiales, listas de invitados y reservas de mesas VIP.\n\nDesde Casco Viejo hasta los hotspots más exclusivos de Ciudad de Panamá, HANGOUT conecta nightlife, gastronomía y experiencias premium en un solo lugar.'
+        : 'Discover a new way to experience Panama City with HANGOUT. Find the city’s best parties, clubs, rooftops, restaurants, and exclusive experiences, with weekly event access, special perks, guest lists, and VIP table bookings.',
       breadcrumbs: [{ name: isEs ? 'Inicio' : 'Home', url: `/${loc}/` }],
       items: EVENTS.map(e => ({ title: e.title, url: `/${loc}/events/${e.slug}/`, sub: `${e.date} • ${e.venueName}` }))
     });
@@ -395,10 +396,10 @@ export const prerenderAllPages = async () => {
     // 2. Hubs
     pagesToPrerender.push({
       relPath: `${loc}/panama/nightlife/`,
-      title: isEs ? 'Nightlife en Panamá | Clubs, Rooftops y Fiestas | ARRIVE' : 'Panama City Nightlife | Clubs, Rooftops and Parties | ARRIVE',
+      title: isEs ? 'Nightlife en Panamá | Clubs, Rooftops y Fiestas | HANGOUT' : 'Panama City Nightlife | Clubs, Rooftops and Parties | HANGOUT',
       description: isEs ? 'Descubre el nightlife de Ciudad de Panamá: discotecas, rooftops, fiestas, eventos exclusivos, listas de invitados y experiencias VIP.' : 'Discover Panama City nightlife: clubs, rooftops, parties, exclusive events, guest lists and VIP experiences.',
       h1: isEs ? 'Nightlife en Panamá' : 'Nightlife in Panama City',
-      intro: isEs ? 'Ciudad de Panamá tiene una de las escenas nocturnas más dinámicas de Latinoamérica. Desde rooftops en Casco Viejo y cenas que se convierten en fiesta hasta clubs de reggaetón, electrónica, afro y música urbana, cada noche ofrece un plan diferente.\n\nARRIVE reúne los eventos, venues y experiencias que vale la pena conocer, con información actualizada sobre fiestas, horarios, beneficios, guest lists, entradas y reservas VIP.' : 'Panama City has one of the most dynamic nightlife scenes in Latin America.',
+      intro: isEs ? 'Ciudad de Panamá tiene una de las escenas nocturnas más dinámicas de Latinoamérica. Desde rooftops en Casco Viejo y cenas que se convierten en fiesta hasta clubs de reggaetón, electrónica, afro y música urbana, cada noche ofrece un plan diferente.\n\nHANGOUT reúne los eventos, venues y experiencias que vale la pena conocer, con información actualizada sobre fiestas, horarios, beneficios, guest lists, entradas y reservas VIP.' : 'Panama City has one of the most dynamic nightlife scenes in Latin America.',
       breadcrumbs: [{ name: isEs ? 'Inicio' : 'Home', url: `/${loc}/` }, { name: 'Nightlife', url: `/${loc}/panama/nightlife/` }],
       items: EVENTS.map(e => ({ title: e.title, url: `/${loc}/events/${e.slug}/`, sub: e.venueName }))
     });
@@ -426,7 +427,7 @@ export const prerenderAllPages = async () => {
     pagesToPrerender.push({
       relPath: `${loc}/panama/casco-antiguo/`,
       title: isEs ? 'Casco Viejo Panamá | Rooftops, Bares y Discotecas' : 'Casco Viejo Panama | Rooftops, Bars and Clubs',
-      description: isEs ? 'Descubre qué hacer de noche en Casco Viejo, Panamá: rooftops, bares, restaurantes, discotecas, música y fiestas seleccionadas por ARRIVE.' : 'Discover what to do at night in Casco Viejo, Panama: rooftops, cocktail bars, restaurants, clubs, and parties curated by ARRIVE.',
+      description: isEs ? 'Descubre qué hacer de noche en Casco Viejo, Panamá: rooftops, bares, restaurantes, discotecas, música y fiestas seleccionadas por HANGOUT.' : 'Discover what to do at night in Casco Viejo, Panama: rooftops, cocktail bars, restaurants, clubs, and parties curated by HANGOUT.',
       h1: isEs ? 'Nightlife en Casco Viejo, Panamá' : 'Nightlife in Casco Viejo, Panama',
       intro: isEs ? 'Casco Viejo es uno de los principales destinos de nightlife en Ciudad de Panamá. Sus calles históricas concentran rooftops con vistas a la bahía, restaurantes de autor, cocktail bars, lounges y clubs a pocos minutos unos de otros.' : 'Casco Viejo is one of the premier nightlife destinations in Panama City.',
       breadcrumbs: [{ name: isEs ? 'Inicio' : 'Home', url: `/${loc}/` }, { name: 'Casco Antiguo', url: `/${loc}/panama/casco-antiguo/` }],
@@ -435,7 +436,7 @@ export const prerenderAllPages = async () => {
 
     pagesToPrerender.push({
       relPath: `${loc}/panama/events/today/`,
-      title: isEs ? 'Fiestas Hoy en Panamá | Eventos y Nightlife Esta Noche' : 'Parties & Events Tonight in Panama City | ARRIVE',
+      title: isEs ? 'Fiestas Hoy en Panamá | Eventos y Nightlife Esta Noche' : 'Parties & Events Tonight in Panama City | HANGOUT',
       description: isEs ? 'Descubre qué hacer hoy en Ciudad de Panamá. Fiestas, clubs, rooftops, eventos, listas de invitados y beneficios disponibles esta noche.' : 'Discover things to do tonight in Panama City. Clubs, rooftops, dinner parties, guest lists and VIP perks available tonight.',
       h1: isEs ? 'Fiestas y Eventos Hoy en Panamá' : 'Parties and Events Tonight in Panama City',
       intro: isEs ? '¿Buscas qué hacer hoy en Panamá? Aquí encontrarás las fiestas, cenas, rooftops y eventos activos esta noche en Ciudad de Panamá.' : 'Looking for what to do tonight in Panama City?',
@@ -457,7 +458,7 @@ export const prerenderAllPages = async () => {
     ['panama/venues/', 'venues/'].forEach(venuesPath => {
       pagesToPrerender.push({
         relPath: `${loc}/${venuesPath}`,
-        title: isEs ? 'Clubs, Rooftops y Restaurantes en Panamá | ARRIVE' : 'Clubs, Rooftops and Restaurants in Panama | ARRIVE',
+        title: isEs ? 'Clubs, Rooftops y Restaurantes en Panamá | HANGOUT' : 'Clubs, Rooftops and Restaurants in Panama | HANGOUT',
         description: isEs ? 'Explora clubs, rooftops y restaurantes de Ciudad de Panamá. Fotos, eventos, menús, ubicación y opciones para reservar mesas VIP.' : 'Explore clubs, rooftops, and restaurants in Panama City. Photos, events, menus, addresses, and VIP table booking options.',
         h1: isEs ? 'Clubs, Rooftops & Restaurantes en Panamá' : 'Top Clubs, Rooftops & Restaurants in Panama',
         intro: isEs ? 'Descubre los venues más destacados de Ciudad de Panamá y Casco Viejo. Explora clubs, rooftops, restaurantes y espacios de nightlife antes de visitarlos.' : 'Discover the most prominent venues in Panama City and Casco Viejo.',
@@ -474,7 +475,7 @@ export const prerenderAllPages = async () => {
         title: isEs ? 'Concierge VIP Panamá | Yates, Chauffeur & Reservas' : 'Panama VIP Concierge | Yacht Charters, Chauffeurs & Bookings',
         description: isEs ? 'Concierge en Ciudad de Panamá para reservas de restaurantes, transporte privado, alquiler de yates, nightlife y estadías premium.' : 'Panama City concierge for restaurant reservations, private chauffeur transport, yacht charters, nightlife and luxury accommodations.',
         h1: isEs ? 'Concierge & VIP Services en Panamá' : 'Concierge & VIP Services in Panama City',
-        intro: isEs ? 'Vive Ciudad de Panamá con un servicio de concierge diseñado para organizar experiencias de principio a fin. ARRIVE conecta restaurantes, nightlife, transporte privado, charters de yates y estadías premium para viajeros, grupos y clientes que buscan comodidad, acceso y atención personalizada.' : 'Experience Panama City with bespoke concierge services designed to organize your itinerary from start to finish.',
+        intro: isEs ? 'Vive Ciudad de Panamá con un servicio de concierge diseñado para organizar experiencias de principio a fin. HANGOUT conecta restaurantes, nightlife, transporte privado, charters de yates y estadías premium para viajeros, grupos y clientes que buscan comodidad, acceso y atención personalizada.' : 'Experience Panama City with bespoke concierge services designed to organize your itinerary from start to finish.',
         breadcrumbs: [{ name: isEs ? 'Inicio' : 'Home', url: `/${loc}/` }, { name: 'Concierge & Services', url: `/${loc}/panama/concierge/` }],
         items: [
           { title: isEs ? 'Restaurant Reservations' : 'Restaurant Reservations', url: `/${loc}/panama/concierge/`, sub: 'Acceso y reservas en restaurantes seleccionados de Ciudad de Panamá y Casco Viejo.' },
@@ -513,7 +514,7 @@ export const prerenderAllPages = async () => {
       const eventLink = o => ({ title: o.title, url: `/${loc}/events/${o.slug}/`, sub: `${o.date} • ${o.venueName}` });
       pagesToPrerender.push({
         relPath: `${loc}/events/${e.slug}/`,
-        title: isEs ? `${e.title} • ${e.venueName} | ARRIVE Panamá` : `${e.title} • ${e.venueName} | ARRIVE Panama`,
+        title: isEs ? `${e.title} • ${e.venueName} | HANGOUT Panamá` : `${e.title} • ${e.venueName} | HANGOUT Panama`,
         description: isEs ? `${e.description} ${e.perkHeadline}`.trim() : englishEventDescription(e),
         h1: e.title,
         intro: `${e.date} • ${e.location} • Lineup: ${e.artists}`,
@@ -533,8 +534,8 @@ export const prerenderAllPages = async () => {
     PAST_EVENTS.forEach(e => {
       pagesToPrerender.push({
         relPath: `${loc}/events/${e.slug}/`,
-        title: isEs ? `${e.title} (finalizado) • ${e.venueName} | ARRIVE Panamá` : `${e.title} (ended) • ${e.venueName} | ARRIVE Panama`,
-        description: isEs ? `Este evento en ${e.venueName} ya finalizó. Mira los próximos eventos y beneficios en ARRIVE.` : `This event at ${e.venueName} has ended. See upcoming events and perks on ARRIVE.`,
+        title: isEs ? `${e.title} (finalizado) • ${e.venueName} | HANGOUT Panamá` : `${e.title} (ended) • ${e.venueName} | HANGOUT Panama`,
+        description: isEs ? `Este evento en ${e.venueName} ya finalizó. Mira los próximos eventos y beneficios en HANGOUT.` : `This event at ${e.venueName} has ended. See upcoming events and perks on HANGOUT.`,
         h1: e.title,
         intro: isEs ? `Este evento ya finalizó (${e.date}). Te esperamos en los próximos.` : `This event has ended (${e.date}). See what's next.`,
         breadcrumbs: [{ name: isEs ? 'Inicio' : 'Home', url: `/${loc}/` }, { name: isEs ? 'Eventos' : 'Events', url: `/${loc}/panama/events/` }, { name: e.title, url: `/${loc}/events/${e.slug}/` }],
@@ -551,7 +552,7 @@ export const prerenderAllPages = async () => {
     VENUES.forEach(v => {
       pagesToPrerender.push({
         relPath: `${loc}/restaurants/${v.slug}/`,
-        title: isEs ? `Restaurante ${v.name} — Cena Gourmet & Coctelería en ${v.area} | ARRIVE` : `${v.name} Restaurant — Gourmet Dinner in ${v.area} | ARRIVE`,
+        title: isEs ? `Restaurante ${v.name} — Cena Gourmet & Coctelería en ${v.area} | HANGOUT` : `${v.name} Restaurant — Gourmet Dinner in ${v.area} | HANGOUT`,
         description: isEs ? `Reserva mesa en ${v.name} en ${v.area}. Servicio de cena: ${v.dinnerTime}. ${v.cuisine}.` : `Book dinner table at ${v.name} in ${v.area}, Panama. Dinner service ${v.dinnerTime}.`,
         h1: `Restaurante ${v.name} (${v.area})`,
         intro: `Gastronomía de autor: ${v.cuisine}. Horario de cena: ${v.dinnerTime}.`,
@@ -563,7 +564,7 @@ export const prerenderAllPages = async () => {
     // 6. Blog Index Landing
     pagesToPrerender.push({
       relPath: `${loc}/blog/`,
-      title: isEs ? 'Blog & Guía VIP de Nightlife en Panamá — ARRIVE' : 'Panama City Nightlife Blog & VIP Guide — ARRIVE',
+      title: isEs ? 'Blog & Guía VIP de Nightlife en Panamá — HANGOUT' : 'Panama City Nightlife Blog & VIP Guide — HANGOUT',
       description: isEs 
         ? 'Artículos, guías y consejos exclusivos sobre el nightlife, discotecas, rooftops y reservas VIP en Ciudad de Panamá y Casco Antiguo.' 
         : 'Exclusive articles, guides and insider tips on Panama City nightlife, nightclubs, ocean-view rooftops and VIP table reservations.',
@@ -581,8 +582,11 @@ export const prerenderAllPages = async () => {
 
     // 7. Individual Blog Posts
     BLOG_POSTS.forEach(p => {
+      // Spanish versions superseded by a guide are served as 301 redirects (vercel.json).
+      if (isEs && BLOG_TO_GUIDE_REDIRECTS[p.slug]) return;
       const pLang = isEs ? p.es : p.en;
       pagesToPrerender.push({
+        alternates: !isEs && BLOG_TO_GUIDE_REDIRECTS[p.slug] ? ['en'] : undefined,
         relPath: `${loc}/blog/${p.slug}/`,
         title: pLang.seoTitle,
         description: pLang.seoDescription,
@@ -594,7 +598,7 @@ export const prerenderAllPages = async () => {
           { name: pLang.title, url: `/${loc}/blog/${p.slug}/` }
         ],
         items: [
-          { title: isEs ? 'Reservar Mesa VIP & Bottle Service' : 'Book VIP Table & Bottle Service', url: `/${loc}/#book-vip`, sub: 'Atención personalizada vía Arrive Concierge' },
+          { title: isEs ? 'Reservar Mesa VIP & Bottle Service' : 'Book VIP Table & Bottle Service', url: `/${loc}/#book-vip`, sub: 'Atención personalizada vía Hangout Concierge' },
           { title: isEs ? 'Ver Todos los Eventos Activos' : 'Browse All Active Events', url: `/${loc}/`, sub: 'Pases digitales de cortesía' },
           { title: isEs ? 'Explorar Venues Oficiales' : 'Explore Official Venues', url: `/${loc}/venues/`, sub: 'Furia, Terraplén, Primavera, Piano Bar, Cielo' }
         ]
@@ -605,19 +609,19 @@ export const prerenderAllPages = async () => {
     pagesToPrerender.push({
       relPath: `${loc}/galeria/`,
       title: isEs 
-        ? 'Galería de Fotos Exclusiva • Arrive Girls & Nightlife | ARRIVE Panamá' 
-        : 'Girls & Nightlife Photo Gallery • High-Res Downloads | ARRIVE Panama',
+        ? 'Galería de Fotos Exclusiva • Hangout Girls & Nightlife | HANGOUT Panamá' 
+        : 'Girls & Nightlife Photo Gallery • High-Res Downloads | HANGOUT Panama',
       description: isEs 
-        ? 'Descarga fotos oficiales en alta resolución 4K de fiestas y eventos en Furia, Piano Bar, Terraplén y Casco Viejo. Galería exclusiva para modelos y chicas Arrive.' 
-        : 'Download uncompressed 4K official photos from parties at Furia, Piano Bar, Terraplén and Casco Viejo. Exclusive gallery for Arrive models and guests.',
-      h1: isEs ? 'Galería de Fotos • Arrive Girls' : 'Girls & Nightlife Photo Hub',
+        ? 'Descarga fotos oficiales en alta resolución 4K de fiestas y eventos en Furia, Piano Bar, Terraplén y Casco Viejo. Galería exclusiva para modelos y chicas Hangout.' 
+        : 'Download uncompressed 4K official photos from parties at Furia, Piano Bar, Terraplén and Casco Viejo. Exclusive gallery for Hangout models and guests.',
+      h1: isEs ? 'Galería de Fotos • Hangout Girls' : 'Girls & Nightlife Photo Hub',
       intro: isEs 
         ? 'Encuentra y descarga todas las fotos de tus noches en Furia, Piano Bar, Terraplén y Cielo en máxima resolución. Sin marcas invasivas, 100% libre de compresión y listas para tus historias y posts de Instagram.' 
         : 'Browse and download all photos from your nights at Furia, Piano Bar, Terraplén, and Cielo in ultra-high resolution. Free of heavy watermarks, uncompressed, and ready for your Instagram stories and feed.',
       breadcrumbs: [{ name: isEs ? 'Inicio' : 'Home', url: `/${loc}/` }, { name: isEs ? 'Galería de Fotos' : 'Photo Gallery', url: `/${loc}/galeria/` }],
       items: [
         { title: isEs ? 'Furia Club • VIP Lounge & Arcángel Weekend' : 'Furia Club • VIP Lounge & Arcángel Weekend', url: `/${loc}/galeria/`, sub: '6 Fotos 4K' },
-        { title: isEs ? 'Red Carpet Photocall • Arrive Models' : 'Red Carpet Photocall • Arrive Models', url: `/${loc}/galeria/`, sub: '4 Fotos 4K' },
+        { title: isEs ? 'Red Carpet Photocall • Hangout Models' : 'Red Carpet Photocall • Hangout Models', url: `/${loc}/galeria/`, sub: '4 Fotos 4K' },
         { title: isEs ? 'Terraplén • Rooftop Sunset & Boiler Sessions' : 'Terraplén • Rooftop Sunset & Boiler Sessions', url: `/${loc}/galeria/`, sub: '5 Fotos 4K' },
         { title: isEs ? 'Piano Bar • Ladies Night & Reggaetón Society' : 'Piano Bar • Ladies Night & Reggaetón Society', url: `/${loc}/galeria/`, sub: '5 Fotos 4K' }
       ]
@@ -626,14 +630,14 @@ export const prerenderAllPages = async () => {
     // 8. Directory / Site Index
     pagesToPrerender.push({
       relPath: `${loc}/directorio/`,
-      title: isEs ? 'Directorio de Nightlife & Todas las Páginas | ARRIVE Panamá' : 'Panama Nightlife Directory & Complete Site Index | ARRIVE',
+      title: isEs ? 'Directorio de Nightlife & Todas las Páginas | HANGOUT Panamá' : 'Panama Nightlife Directory & Complete Site Index | HANGOUT',
       description: isEs 
-        ? 'Explora todas las guías de discotecas, rooftops en Casco Antiguo, eventos por día, venues asociados y recursos de ARRIVE.' 
-        : 'Explore all nightlife guides, Casco Viejo rooftops, events by day, partner venues and corporate resources on ARRIVE.',
-      h1: isEs ? 'Directorio Oficial ARRIVE Panamá' : 'Official ARRIVE Panama Directory',
+        ? 'Explora todas las guías de discotecas, rooftops en Casco Antiguo, eventos por día, venues asociados y recursos de HANGOUT.' 
+        : 'Explore all nightlife guides, Casco Viejo rooftops, events by day, partner venues and corporate resources on HANGOUT.',
+      h1: isEs ? 'Directorio Oficial HANGOUT Panamá' : 'Official HANGOUT Panama Directory',
       intro: isEs 
         ? 'Explora todas las páginas, hubs temáticos de Casco Antiguo y Bella Vista, eventos por fecha, perfiles de venues y recursos corporativos de la plataforma.' 
-        : 'Explore every hub, Casco Viejo nightlife category, party by day, venue profiles, editorial articles, and corporate resources on ARRIVE.',
+        : 'Explore every hub, Casco Viejo nightlife category, party by day, venue profiles, editorial articles, and corporate resources on HANGOUT.',
       breadcrumbs: [{ name: isEs ? 'Inicio' : 'Home', url: `/${loc}/` }, { name: isEs ? 'Directorio' : 'Directory', url: `/${loc}/directorio/` }],
       items: [
         { title: isEs ? 'Nightlife Panamá' : 'Panama Nightlife', url: `/${loc}/panama/nightlife/`, sub: 'Discotecas, fiestas y rooftops' },
@@ -648,49 +652,49 @@ export const prerenderAllPages = async () => {
     const legalPages = [
       {
         slug: 'cookies',
-        title: isEs ? 'Política de Cookies | ARRIVE Panamá' : 'Cookie Policy | ARRIVE Panama',
-        desc: isEs ? 'Información sobre cookies, preferencias y analítica en ARRIVE Platform.' : 'Information on cookies, preferences, and analytics on ARRIVE Platform.',
+        title: isEs ? 'Política de Cookies | HANGOUT Panamá' : 'Cookie Policy | HANGOUT Panama',
+        desc: isEs ? 'Información sobre cookies, preferencias y analítica en HANGOUT Platform.' : 'Information on cookies, preferences, and analytics on HANGOUT Platform.',
         h1: isEs ? 'Política de Cookies' : 'Cookie Policy',
-        intro: isEs ? 'Información clara sobre el uso de cookies y preferencias de navegación.' : 'Clear information on how cookies are used on ARRIVE Platform.'
+        intro: isEs ? 'Información clara sobre el uso de cookies y preferencias de navegación.' : 'Clear information on how cookies are used on HANGOUT Platform.'
       },
       {
         slug: 'privacy',
-        title: isEs ? 'Política de Privacidad | ARRIVE Panamá' : 'Privacy Policy | ARRIVE Panama',
+        title: isEs ? 'Política de Privacidad | HANGOUT Panamá' : 'Privacy Policy | HANGOUT Panama',
         desc: isEs ? 'Compromiso de protección de datos personales conforme a la Ley 81 de Panamá.' : 'Data protection and confidentiality policy under Panama Law 81.',
         h1: isEs ? 'Política de Privacidad' : 'Privacy Policy',
         intro: isEs ? 'Protección de datos personales y confidencialidad en Ciudad de Panamá.' : 'Commitment to data security and privacy under Panama laws.'
       },
       {
         slug: 'terms-and-conditions',
-        title: isEs ? 'Términos & Condiciones | ARRIVE Panamá' : 'Terms & Conditions | ARRIVE Panama',
-        desc: isEs ? 'Condiciones de uso de la plataforma ARRIVE, pases digitales y normativas de admisión.' : 'Platform usage rules, digital pass terms and admission policies.',
+        title: isEs ? 'Términos & Condiciones | HANGOUT Panamá' : 'Terms & Conditions | HANGOUT Panama',
+        desc: isEs ? 'Condiciones de uso de la plataforma HANGOUT, pases digitales y normativas de admisión.' : 'Platform usage rules, digital pass terms and admission policies.',
         h1: isEs ? 'Términos & Condiciones' : 'Terms & Conditions',
         intro: isEs ? 'Condiciones de uso de pases digitales de cortesía y reservas VIP.' : 'Terms of use for complimentary passes and VIP table service.'
       },
       {
         slug: 'work-with-us',
-        title: isEs ? 'Trabaja con Nosotros | ARRIVE Model Management' : 'Work With Us | ARRIVE Model Management',
+        title: isEs ? 'Trabaja con Nosotros | Hangout Panamá' : 'Work With Us | Hangout Panamá',
         desc: isEs ? 'Únete al equipo líder en hospitalidad de lujo, modelaje y producción de eventos en Panamá.' : 'Join the premier team in nightlife, modeling, and VIP events in Panama City.',
         h1: isEs ? 'Trabaja con Nosotros' : 'Work With Us',
         intro: isEs ? 'Oportunidades de carrera en modelaje, VIP hosts y producción de eventos.' : 'Career opportunities in modeling, VIP hosts, and nightlife event production.'
       },
       {
         slug: 'whistleblowing',
-        title: isEs ? 'Canal Ético & Denuncias | ARRIVE Platform' : 'Whistleblowing Channel | ARRIVE Platform',
-        desc: isEs ? 'Canal confidencial para comunicar irregularidades o conductas contrarias a las políticas de ARRIVE.' : 'Confidential and secure ethics reporting channel for ARRIVE Platform.',
+        title: isEs ? 'Canal Ético & Denuncias | HANGOUT Platform' : 'Whistleblowing Channel | HANGOUT Platform',
+        desc: isEs ? 'Canal confidencial para comunicar irregularidades o conductas contrarias a las políticas de HANGOUT.' : 'Confidential and secure ethics reporting channel for HANGOUT Platform.',
         h1: isEs ? 'Canal Ético & Denuncias (Whistleblowing)' : 'Whistleblowing Channel',
         intro: isEs ? 'Garantía de confidencialidad absoluta y política de tolerancia cero.' : 'Confidential and secure reporting channel with zero tolerance policy.'
       },
       {
         slug: 'contact-us',
-        title: isEs ? 'Ubicaciones & Contacto | ARRIVE Panamá' : 'Locations & Contact Us | ARRIVE Panama',
+        title: isEs ? 'Ubicaciones & Contacto | HANGOUT Panamá' : 'Locations & Contact Us | HANGOUT Panama',
         desc: isEs ? 'Oficinas corporativas, red de venues y atención Concierge 24/7 en Ciudad de Panamá.' : 'Corporate offices, venue network and 24/7 VIP Concierge support in Panama City.',
         h1: isEs ? 'Ubicaciones & Contacto' : 'Locations & Contact Us',
-        intro: isEs ? 'Atención administrativa, patrocinios y soporte Arrive Concierge VIP 24/7.' : 'Offices, brand partnerships, and 24/7 VIP Concierge assistance.'
+        intro: isEs ? 'Atención administrativa, patrocinios y soporte Hangout Concierge VIP 24/7.' : 'Offices, brand partnerships, and 24/7 VIP Concierge assistance.'
       },
       {
         slug: 'press',
-        title: isEs ? 'Prensa & Kit de Medios | ARRIVE Platform' : 'Press & Media Kit | ARRIVE Platform',
+        title: isEs ? 'Prensa & Kit de Medios | HANGOUT Platform' : 'Press & Media Kit | HANGOUT Platform',
         desc: isEs ? 'Kit de prensa oficial, recursos de marca, fotos en alta definición y comunicados.' : 'Official brand assets, high-definition imagery, and press releases.',
         h1: isEs ? 'Prensa & Comunicados' : 'Press & Media Kit',
         intro: isEs ? 'Recursos visuales, notas de prensa y acreditaciones de medios.' : 'Visual assets, press statements, and media accreditations.'
@@ -707,7 +711,7 @@ export const prerenderAllPages = async () => {
         breadcrumbs: [{ name: isEs ? 'Inicio' : 'Home', url: `/${loc}/` }, { name: lp.h1, url: `/${loc}/${lp.slug}/` }],
         items: [
           { title: isEs ? 'Directorio de Páginas' : 'Site Directory', url: `/${loc}/directorio/`, sub: 'Índice general' },
-          { title: isEs ? 'Inicio ARRIVE' : 'ARRIVE Home', url: `/${loc}/`, sub: 'Eventos y pases' },
+          { title: isEs ? 'Inicio HANGOUT' : 'HANGOUT Home', url: `/${loc}/`, sub: 'Eventos y pases' },
           { title: isEs ? 'Contacto Concierge VIP' : 'Contact VIP Concierge', url: `/${loc}/contact-us/`, sub: 'Atención 24/7' }
         ]
       });
@@ -723,16 +727,22 @@ export const prerenderAllPages = async () => {
     }
     pagesToPrerender.push({relPath:`${loc}/explore/`});
   }
+  // Editorial guides (Spanish only): hub, categories and articles.
+  for (const guidePath of getAllGuidePaths()) {
+    pagesToPrerender.push({ relPath: guidePath.slice(1), guidePage: getGuidesPage(guidePath), alternates: ['es'] });
+  }
   // Generate each file
   let generatedCount = 0;
   pagesToPrerender.forEach(page => {
-    const editorial = getEditorialPage('/' + page.relPath);
+    const gp = page.guidePage;
+    if (gp) Object.assign(page, { title: gp.title, description: gp.description, h1: gp.h1, intro: '', image: gp.image?.src });
+    const editorial = gp ? null : getEditorialPage('/' + page.relPath);
     if (editorial) Object.assign(page, {title:editorial.title,description:editorial.description,h1:editorial.h1,intro:editorial.post ? editorial.data.excerpt : editorial.description,breadcrumbs:editorial.breadcrumbs.map(b=>({...b,url:b.path})),items:[]});
     const targetDir = path.join(DIST_DIR, page.relPath);
     fs.mkdirSync(targetDir, { recursive: true });
 
     const canonicalPath = ('/'+page.relPath).replace(/^\/(es|en)\/venues\/$/, '/$1/panama/venues/').replace(/^\/(es|en)\/concierge\/$/, '/$1/panama/concierge/').replace('/panama/events/this-weekend/', '/panama/events/weekend/');
-    const canonicalUrl = editorial?.canonicalUrl || BASE_URL + (canonicalPath === '/' ? '/es/' : canonicalPath);
+    const canonicalUrl = gp?.canonicalUrl || editorial?.canonicalUrl || BASE_URL + (canonicalPath === '/' ? '/es/' : canonicalPath);
     const altEs = canonicalUrl.replace(/\/(es|en)\//, '/es/');
     const altEn = canonicalUrl.replace(/\/(es|en)\//, '/en/');
 
@@ -758,7 +768,7 @@ export const prerenderAllPages = async () => {
           <p style="font-size: 0.95rem; color: #cccccc; line-height: 1.6; margin: 0;">${page.intro}</p>
         </header>
         <section style="margin-bottom: 2rem;">
-          <h2 style="font-size: 1.15rem; font-weight: 800; text-transform: uppercase; color: #ff3b5c; margin-bottom: 1rem;">Explorar en ARRIVE</h2>
+          <h2 style="font-size: 1.15rem; font-weight: 800; text-transform: uppercase; color: #ff3b5c; margin-bottom: 1rem;">Explorar en HANGOUT</h2>
           <div>${itemsHtml}</div>
         </section>
         ${(page.faqs && page.faqs.length > 0) ? `
@@ -775,7 +785,7 @@ export const prerenderAllPages = async () => {
         </section>
         ` : ''}
         <footer style="margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.75rem; color: #666666;">
-          <p>ARRIVE Model Management © 2026 • Ciudad de Panamá & Casco Antiguo</p>
+          <p>Hangout Panamá © 2026 • Ciudad de Panamá & Casco Antiguo</p>
           <div style="display: flex; gap: 12px; margin-top: 6px;">
             <a href="/es/panama/nightlife/" style="color: #888;">Nightlife Panamá</a>
             <a href="/es/panama/rooftops/" style="color: #888;">Rooftops Panamá</a>
@@ -786,15 +796,16 @@ export const prerenderAllPages = async () => {
       </div>
     `;
 
-    if (editorial) semanticContent = `<main class="arrive_prerender_container" style="max-width:900px;margin:0 auto;padding:3rem 1.25rem;color:white;line-height:1.7"><nav><a href="/${editorial.locale}/">ARRIVE</a> / <a href="/${editorial.locale}/explore/">${editorial.copy.exploreTitle}</a></nav><h1>${escapeHtml(editorial.h1)}</h1><p>${escapeHtml(page.intro)}</p>${editorialHtml(editorial)}</main>`;
+    if (gp) semanticContent = guidesHtml(gp, EVENTS);
+    if (editorial) semanticContent = `<main class="arrive_prerender_container" style="max-width:900px;margin:0 auto;padding:3rem 1.25rem;color:white;line-height:1.7"><nav><a href="/${editorial.locale}/">HANGOUT</a> / <a href="/${editorial.locale}/explore/">${editorial.copy.exploreTitle}</a></nav><h1>${escapeHtml(editorial.h1)}</h1><p>${escapeHtml(page.intro)}</p>${editorialHtml(editorial)}</main>`;
     // Build Page Schema.org JSON-LD graph
     const schemaGraph = [
       {
         '@type': 'Organization',
         '@id': `${BASE_URL}/#organization`,
-        name: 'Arrive Model Management',
+        name: 'Hangout Panamá',
         url: BASE_URL,
-        logo: `${BASE_URL}/images/arrive-logo-white.png`,
+        logo: `${BASE_URL}/images/hangout-logo.png`,
         address: {
           '@type': 'PostalAddress',
           addressLocality: 'Ciudad de Panamá',
@@ -805,7 +816,7 @@ export const prerenderAllPages = async () => {
         '@type': 'WebSite',
         '@id': `${BASE_URL}/${page.relPath.slice(0, 2) || 'es'}/#website`,
         url: `${BASE_URL}/${page.relPath.slice(0, 2) || 'es'}/`,
-        name: 'ARRIVE Platform',
+        name: 'HANGOUT Platform',
         inLanguage: page.relPath.startsWith('en') ? 'en-US' : 'es-PA'
       },
       {
@@ -857,7 +868,7 @@ export const prerenderAllPages = async () => {
             addressCountry: 'PA'
           }
         },
-        organizer: { '@type': 'Organization', name: 'ARRIVE Panamá', url: BASE_URL },
+        organizer: { '@type': 'Organization', name: 'HANGOUT Panamá', url: BASE_URL },
         ...(e.ticketUrl && e.price != null ? { offers: { '@type': 'Offer', url: e.ticketUrl, price: e.price ?? 0, priceCurrency: 'USD', availability: 'https://schema.org/InStock' } } : {}),
         ...(e.artists && e.artists !== 'Por anunciar' ? { performer: e.artists.split(', ').map(name => ({ '@type': 'Person', name })) } : {})
       });
@@ -889,6 +900,7 @@ export const prerenderAllPages = async () => {
     }
 
     if (editorial) schemaGraph.push(editorial.mainEntity);
+    if (gp) schemaGraph.splice(0, schemaGraph.length, ...gp.schema);
     const jsonLdTag = `
     <script type="application/ld+json" id="arrive-ssg-jsonld">
     ${JSON.stringify({ '@context': 'https://schema.org', '@graph': schemaGraph }, null, 2)}
@@ -905,24 +917,25 @@ export const prerenderAllPages = async () => {
       .replace(/<div id="root"><\/div>/i, `<div id="root">${semanticContent}</div>`);
 
     // Add hreflang links and JSON-LD before </head>
-    const hreflangTags = `
-    <link rel="alternate" hreflang="es" href="${altEs}" />
-    <link rel="alternate" hreflang="en" href="${altEn}" />
-    <link rel="alternate" hreflang="x-default" href="${altEs}" />
-    `;
+    const langs = page.alternates || ['es', 'en'];
+    const hreflangTags = [
+      langs.includes('es') ? `<link rel="alternate" hreflang="es" href="${altEs}" />` : '',
+      langs.includes('en') ? `<link rel="alternate" hreflang="en" href="${altEn}" />` : '',
+      `<link rel="alternate" hreflang="x-default" href="${langs.includes('es') ? altEs : altEn}" />`
+    ].filter(Boolean).join('\n    ');
     // All social metadata must agree with the canonical document, before JavaScript.
     const rawImage = page.image || page.venueData?.coverImage || (editorial?.post ? editorial.data?.coverImage : null);
-    const ogImage = rawImage && !/\.svg$/i.test(rawImage) ? (rawImage.startsWith('http') ? rawImage : BASE_URL + rawImage) : `${BASE_URL}/images/arrive-logo-white.png`;
+    const ogImage = rawImage && !/\.svg$/i.test(rawImage) ? (rawImage.startsWith('http') ? rawImage : BASE_URL + rawImage) : `${BASE_URL}/images/hangout-logo.png`;
     const noindex = page.noindex || /\/panama\/(?:nightlife|clubs|rooftops|casco-antiguo|casco-viejo|parties|restaurants|events)/.test('/'+page.relPath);
     customizedHtml = customizedHtml.replace(/<meta\s+(?:name|property)="(?:title|keywords|description|robots|og:[^"]+|twitter:[^"]+)"[^>]*>/gi, '');
-    customizedHtml = customizedHtml.replace('</head>', `<meta name="description" content="${escapeHtml(page.description)}"/><meta name="robots" content="${noindex ? 'noindex, follow' : 'index, follow, max-image-preview:large'}"/><meta property="og:title" content="${escapeHtml(page.title)}"/><meta property="og:description" content="${escapeHtml(page.description)}"/><meta property="og:url" content="${canonicalUrl}"/><meta property="og:type" content="${editorial?.post ? 'article':'website'}"/><meta property="og:image" content="${ogImage}"/><meta property="og:locale" content="${pageLocale==='es'?'es_PA':'en_US'}"/><meta name="twitter:card" content="${ogImage.endsWith('arrive-logo-white.png') ? 'summary' : 'summary_large_image'}"/><meta name="twitter:image" content="${ogImage}"/><meta name="twitter:title" content="${escapeHtml(page.title)}"/><meta name="twitter:description" content="${escapeHtml(page.description)}"/>\n</head>`);
+    customizedHtml = customizedHtml.replace('</head>', `<meta name="description" content="${escapeHtml(page.description)}"/><meta name="robots" content="${noindex ? 'noindex, follow' : 'index, follow, max-image-preview:large'}"/><meta property="og:title" content="${escapeHtml(page.title)}"/><meta property="og:description" content="${escapeHtml(page.description)}"/><meta property="og:url" content="${canonicalUrl}"/><meta property="og:type" content="${editorial?.post || gp?.kind === 'article' ? 'article':'website'}"/><meta property="og:image" content="${ogImage}"/><meta property="og:locale" content="${pageLocale==='es'?'es_PA':'en_US'}"/><meta name="twitter:card" content="${ogImage.endsWith('hangout-logo.png') ? 'summary' : 'summary_large_image'}"/><meta name="twitter:image" content="${ogImage}"/><meta name="twitter:title" content="${escapeHtml(page.title)}"/><meta name="twitter:description" content="${escapeHtml(page.description)}"/>\n</head>`);
     customizedHtml = customizedHtml.replace('</head>',  `${hreflangTags}\n${jsonLdTag}\n</head>`);
 
     fs.writeFileSync(path.join(targetDir, 'index.html'), customizedHtml, 'utf-8');
     generatedCount++;
   });
 
-  fs.writeFileSync(path.join(DIST_DIR, '404.html'), '<!doctype html><html lang="es"><head><meta charset="UTF-8"><meta name="robots" content="noindex, follow"><title>Página no encontrada | ARRIVE</title></head><body><h1>Página no encontrada / Page not found</h1><a href="/es/explore/">Explorar Panamá</a> · <a href="/en/explore/">Explore Panama</a></body></html>');
+  fs.writeFileSync(path.join(DIST_DIR, '404.html'), '<!doctype html><html lang="es"><head><meta charset="UTF-8"><meta name="robots" content="noindex, follow"><title>Página no encontrada | HANGOUT</title></head><body><h1>Página no encontrada / Page not found</h1><a href="/es/explore/">Explorar Panamá</a> · <a href="/en/explore/">Explore Panama</a></body></html>');
   fs.writeFileSync(ARCHIVE_PATH, JSON.stringify(archive, null, 2) + '\n', 'utf-8');
   console.log(`✅ ${generatedCount} páginas pre-renderizadas con éxito en dist/`);
 };

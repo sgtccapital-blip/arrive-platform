@@ -1,6 +1,6 @@
 // =========================================================================
-// ARRIVE PLATFORM — GIRLS & NIGHTLIFE PHOTO GALLERY DATA
-// High-resolution photography hub for Arrive models and party guests
+// HANGOUT PLATFORM — GIRLS & NIGHTLIFE PHOTO GALLERY DATA
+// High-resolution photography hub for Hangout models and party guests
 // =========================================================================
 
 export const GALLERY_ALBUMS = [
@@ -29,10 +29,10 @@ export const GALLERY_ALBUMS = [
   {
     id: 'photocall-redcarpet',
     name: {
-      es: 'Red Carpet Photocall • Arrive Models',
-      en: 'Red Carpet Photocall • Arrive Models'
+      es: 'Red Carpet Photocall • Hangout Models',
+      en: 'Red Carpet Photocall • Hangout Models'
     },
-    venue: 'Arrive Nightlife',
+    venue: 'Hangout Nightlife',
     venueSlug: 'furia-club',
     date: 'Octubre 2026',
     count: 4,
@@ -96,8 +96,8 @@ export const GALLERY_PHOTOS = [
     category: 'models',
     tags: ['Chicas', 'VIP', 'Furia', 'Moët & Chandon'],
     title: {
-      es: 'Brindis VIP Arrive Models en Furia Club',
-      en: 'Arrive Models VIP Toast at Furia Club'
+      es: 'Brindis VIP Hangout Models en Furia Club',
+      en: 'Hangout Models VIP Toast at Furia Club'
     },
     subtitle: {
       es: 'Mesa Presidencial VIP • Noche Arcángel Weekend',
@@ -107,37 +107,37 @@ export const GALLERY_PHOTOS = [
     venueSlug: 'furia-club',
     date: '04 Oct 2026',
     image: '/images/gallery/arrive-models-furia-vip.jpg',
-    filename: 'ARRIVE-GIRLS-Furia-VIP-01.jpg',
+    filename: 'HANGOUT-GIRLS-Furia-VIP-01.jpg',
     resolution: '4K Ultra HD',
     aspect: 'portrait',
     featured: true,
     likes: 184,
-    photographer: 'ARRIVE Visual Team',
+    photographer: 'HANGOUT Visual Team',
     instagramTag: '@arrivemodels @furiapanama'
   },
   {
     id: 'photo-02',
     albumId: 'photocall-redcarpet',
     category: 'photocall',
-    tags: ['Photocall', 'Red Carpet', 'Modelos', 'Arrive VIP'],
+    tags: ['Photocall', 'Red Carpet', 'Modelos', 'Hangout VIP'],
     title: {
-      es: 'Arrive Models Red Carpet & Official Photocall',
-      en: 'Arrive Models Red Carpet & Official Photocall'
+      es: 'Hangout Models Red Carpet & Official Photocall',
+      en: 'Hangout Models Red Carpet & Official Photocall'
     },
     subtitle: {
       es: 'Entrada Exclusiva Nightclub Panama',
       en: 'Nightclub Exclusive VIP Entrance'
     },
-    venue: 'Arrive Nightlife',
+    venue: 'Hangout Nightlife',
     venueSlug: 'furia-club',
     date: '04 Oct 2026',
     image: '/images/gallery/arrive-models-redcarpet-photocall.jpg',
-    filename: 'ARRIVE-GIRLS-Photocall-RedCarpet-02.jpg',
+    filename: 'HANGOUT-GIRLS-Photocall-RedCarpet-02.jpg',
     resolution: '4K Ultra HD',
     aspect: 'portrait',
     featured: true,
     likes: 215,
-    photographer: 'ARRIVE Visual Team',
+    photographer: 'HANGOUT Visual Team',
     instagramTag: '@arrivemodels'
   },
   {
@@ -157,12 +157,12 @@ export const GALLERY_PHOTOS = [
     venueSlug: 'terraplen-rooftop',
     date: '03 Oct 2026',
     image: '/images/gallery/arrive-models-rooftop-casco.jpg',
-    filename: 'ARRIVE-GIRLS-Terraplen-Sunset-03.jpg',
+    filename: 'HANGOUT-GIRLS-Terraplen-Sunset-03.jpg',
     resolution: '4K Ultra HD',
     aspect: 'portrait',
     featured: true,
     likes: 198,
-    photographer: 'ARRIVE Visual Team',
+    photographer: 'HANGOUT Visual Team',
     instagramTag: '@arrivemodels @terraplenpanama'
   },
   {
@@ -182,7 +182,7 @@ export const GALLERY_PHOTOS = [
     venueSlug: 'furia-club',
     date: '04 Oct 2026',
     image: '/images/gallery/vip-bottle-parade.jpg',
-    filename: 'ARRIVE-VIP-Bottle-Parade-04.jpg',
+    filename: 'HANGOUT-VIP-Bottle-Parade-04.jpg',
     resolution: 'Full HD 1080p',
     aspect: 'landscape',
     featured: false,
@@ -200,14 +200,14 @@ export const GALLERY_PHOTOS = [
       en: 'Ladies Night Cheers at Piano Bar Bella Vista'
     },
     subtitle: {
-      es: 'Open Bar para Chicas Arrive & Coctelería de autor',
-      en: 'Open Bar for Arrive Girls & signature mixology'
+      es: 'Open Bar para Chicas Hangout & Coctelería de autor',
+      en: 'Open Bar for Hangout Girls & signature mixology'
     },
     venue: 'Piano Bar',
     venueSlug: 'piano-bar',
     date: '02 Oct 2026',
     image: '/images/gallery/girls-cheers-cocktails.jpg',
-    filename: 'ARRIVE-GIRLS-PianoBar-LadiesCheers-05.jpg',
+    filename: 'HANGOUT-GIRLS-PianoBar-LadiesCheers-05.jpg',
     resolution: 'Full HD 1080p',
     aspect: 'landscape',
     featured: true,
@@ -232,12 +232,12 @@ export const GALLERY_PHOTOS = [
     venueSlug: 'terraplen-rooftop',
     date: '03 Oct 2026',
     image: '/images/gallery/casco-party-confetti.jpg',
-    filename: 'ARRIVE-Party-Terraplen-Confetti-06.jpg',
+    filename: 'HANGOUT-Party-Terraplen-Confetti-06.jpg',
     resolution: 'Full HD 1080p',
     aspect: 'landscape',
     featured: false,
     likes: 143,
-    photographer: 'ARRIVE Visual Team',
+    photographer: 'HANGOUT Visual Team',
     instagramTag: '@terraplenpanama'
   },
   {
@@ -251,13 +251,13 @@ export const GALLERY_PHOTOS = [
     },
     subtitle: {
       es: 'Copas de Moët & Chandon Rosé para el grupo de modelos',
-      en: 'Moët & Chandon Rosé toast for Arrive models group'
+      en: 'Moët & Chandon Rosé toast for Hangout models group'
     },
     venue: 'Piano Bar',
     venueSlug: 'piano-bar',
     date: '02 Oct 2026',
     image: '/images/gallery/champagne-vip-toast.jpg',
-    filename: 'ARRIVE-VIP-Champagne-Toast-07.jpg',
+    filename: 'HANGOUT-VIP-Champagne-Toast-07.jpg',
     resolution: 'Full HD 1080p',
     aspect: 'landscape',
     featured: false,
@@ -282,12 +282,12 @@ export const GALLERY_PHOTOS = [
     venueSlug: 'furia-club',
     date: '04 Oct 2026',
     image: '/images/gallery/models-fashion-party.jpg',
-    filename: 'ARRIVE-GIRLS-Fashion-Glam-08.jpg',
+    filename: 'HANGOUT-GIRLS-Fashion-Glam-08.jpg',
     resolution: 'Full HD 1080p',
     aspect: 'portrait',
     featured: true,
     likes: 189,
-    photographer: 'ARRIVE Visual Team',
+    photographer: 'HANGOUT Visual Team',
     instagramTag: '@arrivemodels'
   },
   {
@@ -307,7 +307,7 @@ export const GALLERY_PHOTOS = [
     venueSlug: 'cielo-rooftop',
     date: '28 Sep 2026',
     image: '/images/gallery/rooftop-cocktail-night.jpg',
-    filename: 'ARRIVE-Cielo-Skyline-Night-09.jpg',
+    filename: 'HANGOUT-Cielo-Skyline-Night-09.jpg',
     resolution: 'Full HD 1080p',
     aspect: 'landscape',
     featured: false,
@@ -332,7 +332,7 @@ export const GALLERY_PHOTOS = [
     venueSlug: 'furia-club',
     date: '04 Oct 2026',
     image: '/images/venues/furia/club_lights.jpg',
-    filename: 'ARRIVE-Furia-ClubLights-10.jpg',
+    filename: 'HANGOUT-Furia-ClubLights-10.jpg',
     resolution: 'Full HD 1080p',
     aspect: 'landscape',
     featured: false,
@@ -353,16 +353,16 @@ export const GALLERY_PHOTOS = [
       es: 'Retratos editoriales con iluminación de pasarela',
       en: 'Editorial portraits with runway lighting'
     },
-    venue: 'Arrive Nightlife',
+    venue: 'Hangout Nightlife',
     venueSlug: 'furia-club',
     date: '04 Oct 2026',
     image: '/images/gallery/models-club-lights.jpg',
-    filename: 'ARRIVE-GIRLS-Neon-Portrait-11.jpg',
+    filename: 'HANGOUT-GIRLS-Neon-Portrait-11.jpg',
     resolution: 'Full HD 1080p',
     aspect: 'landscape',
     featured: false,
     likes: 172,
-    photographer: 'ARRIVE Visual Team',
+    photographer: 'HANGOUT Visual Team',
     instagramTag: '@arrivemodels'
   },
   {
@@ -382,7 +382,7 @@ export const GALLERY_PHOTOS = [
     venueSlug: 'terraplen-rooftop',
     date: '03 Oct 2026',
     image: '/images/gallery/casco-golden-hour.jpg',
-    filename: 'ARRIVE-Terraplen-GoldenHour-12.jpg',
+    filename: 'HANGOUT-Terraplen-GoldenHour-12.jpg',
     resolution: 'Full HD 1080p',
     aspect: 'landscape',
     featured: false,
@@ -407,12 +407,12 @@ export const GALLERY_PHOTOS = [
     venueSlug: 'furia-club',
     date: '04 Oct 2026',
     image: '/images/gallery/nightlife-dj-energy.jpg',
-    filename: 'ARRIVE-DJ-Booth-Energy-13.jpg',
+    filename: 'HANGOUT-DJ-Booth-Energy-13.jpg',
     resolution: 'Full HD 1080p',
     aspect: 'landscape',
     featured: false,
     likes: 129,
-    photographer: 'ARRIVE Visual Team',
+    photographer: 'HANGOUT Visual Team',
     instagramTag: '@arrivemodels @furiapanama'
   },
   {
@@ -432,7 +432,7 @@ export const GALLERY_PHOTOS = [
     venueSlug: 'cielo-rooftop',
     date: '28 Sep 2026',
     image: '/images/venues/cielo/party.jpg',
-    filename: 'ARRIVE-Cielo-Party-14.jpg',
+    filename: 'HANGOUT-Cielo-Party-14.jpg',
     resolution: 'Full HD 1080p',
     aspect: 'landscape',
     featured: false,
@@ -457,7 +457,7 @@ export const GALLERY_PHOTOS = [
     venueSlug: 'piano-bar',
     date: '02 Oct 2026',
     image: '/images/venues/pianobar/ambiance.jpg',
-    filename: 'ARRIVE-PianoBar-Ambiance-15.jpg',
+    filename: 'HANGOUT-PianoBar-Ambiance-15.jpg',
     resolution: 'Full HD 1080p',
     aspect: 'landscape',
     featured: false,
@@ -482,7 +482,7 @@ export const GALLERY_PHOTOS = [
     venueSlug: 'furia-club',
     date: '04 Oct 2026',
     image: '/images/gallery/vip-dancefloor-sparklers.jpg',
-    filename: 'ARRIVE-VIP-Sparklers-16.jpg',
+    filename: 'HANGOUT-VIP-Sparklers-16.jpg',
     resolution: 'Full HD 1080p',
     aspect: 'landscape',
     featured: false,
@@ -507,7 +507,7 @@ export const GALLERY_PHOTOS = [
     venueSlug: 'terraplen-rooftop',
     date: '03 Oct 2026',
     image: '/images/venues/terraplen/ambiance.jpg',
-    filename: 'ARRIVE-Terraplen-Ambiance-17.jpg',
+    filename: 'HANGOUT-Terraplen-Ambiance-17.jpg',
     resolution: 'Full HD 1080p',
     aspect: 'landscape',
     featured: false,
@@ -528,16 +528,16 @@ export const GALLERY_PHOTOS = [
       es: 'Efectos visuales sincronizados a medianoche',
       en: 'Synchronized visual lighting at midnight'
     },
-    venue: 'Arrive Nightlife',
+    venue: 'Hangout Nightlife',
     venueSlug: 'furia-club',
     date: '04 Oct 2026',
     image: '/images/gallery/laser-lights-party.jpg',
-    filename: 'ARRIVE-Laser-Show-18.jpg',
+    filename: 'HANGOUT-Laser-Show-18.jpg',
     resolution: 'Full HD 1080p',
     aspect: 'landscape',
     featured: false,
     likes: 119,
-    photographer: 'ARRIVE Visual Team',
+    photographer: 'HANGOUT Visual Team',
     instagramTag: '@arrivemodels'
   }
 ];
@@ -552,7 +552,7 @@ export const downloadPhotoFile = async (url, filename) => {
     const blobUrl = window.URL.createObjectURL(blob);
     const link = document.createElement('a');
     link.href = blobUrl;
-    link.download = filename || 'ARRIVE-Photo-HD.jpg';
+    link.download = filename || 'HANGOUT-Photo-HD.jpg';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -562,7 +562,7 @@ export const downloadPhotoFile = async (url, filename) => {
     console.error('Download error, falling back to direct anchor:', err);
     const link = document.createElement('a');
     link.href = url;
-    link.download = filename || 'ARRIVE-Photo-HD.jpg';
+    link.download = filename || 'HANGOUT-Photo-HD.jpg';
     link.target = '_blank';
     document.body.appendChild(link);
     link.click();

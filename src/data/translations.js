@@ -1,5 +1,5 @@
 // =========================================================================
-// ARRIVE PLATFORM — CENTRALIZED BILINGUAL TRANSLATION DICTIONARY
+// HANGOUT PLATFORM — CENTRALIZED BILINGUAL TRANSLATION DICTIONARY
 // Official translations for UI components, navigation, modals & widgets
 // =========================================================================
 
@@ -11,7 +11,7 @@ export const TRANSLATIONS = {
     concierge: { es: 'SERVICIOS & CONCIERGE', en: 'SERVICES & CONCIERGE' },
     bookVip: { es: 'RESERVA VIP', en: 'VIP RESERVATION' },
     menuAria: { es: 'Abrir menú principal', en: 'Open main navigation menu' },
-    homeAria: { es: 'Ir al inicio de ARRIVE Panamá', en: 'Go to ARRIVE Panama homepage' }
+    homeAria: { es: 'Ir al inicio de HANGOUT Panamá', en: 'Go to HANGOUT Panama homepage' }
   },
 
   // ── Footer ──
@@ -28,7 +28,7 @@ export const TRANSLATIONS = {
     explore: { es: 'EXPLORAR PANAMÁ', en: 'EXPLORE PANAMA' },
     partnerVenuesTitle: { es: 'NUESTROS LOCALES ASOCIADOS', en: 'OUR PARTNER VENUES' },
     conciergeBadge: { es: 'CONCIERGE VIP OFICIAL PANAMÁ', en: 'OFFICIAL PANAMA VIP CONCIERGE' },
-    rightsReserved: { es: 'ARRIVE MODEL MANAGEMENT © 2026 • TODOS LOS DERECHOS RESERVADOS', en: 'ARRIVE MODEL MANAGEMENT © 2026 • ALL RIGHTS RESERVED' },
+    rightsReserved: { es: 'Hangout Panamá © 2026 • TODOS LOS DERECHOS RESERVADOS', en: 'Hangout Panamá © 2026 • ALL RIGHTS RESERVED' },
     legal: {
       cookies: { es: 'Cookies', en: 'Cookies' },
       privacy: { es: 'Privacidad', en: 'Privacy Policy' },
@@ -125,8 +125,8 @@ export const TRANSLATIONS = {
     successTitle: { es: '¡Solicitud VIP Recibida!', en: 'VIP Request Received!' },
     successDesc: { es: 'Tu código de reserva es:', en: 'Your reservation code is:' },
     successNotice: {
-      es: 'Un concierge VIP de Arrive se comunicará contigo vía WhatsApp para confirmar los detalles y selección de botellas.',
-      en: 'An Arrive VIP Concierge will contact you via WhatsApp to confirm details and bottle preferences.'
+      es: 'Un concierge VIP de Hangout se comunicará contigo vía WhatsApp para confirmar los detalles y selección de botellas.',
+      en: 'An Hangout VIP Concierge will contact you via WhatsApp to confirm details and bottle preferences.'
     },
     closeBtn: { es: 'Cerrar', en: 'Close' }
   },
@@ -160,10 +160,10 @@ export const TRANSLATIONS = {
 
   // ── Digital Wallet / My Passes ──
   wallet: {
-    title: { es: 'Billetera Digital Arrive', en: 'Arrive Digital Wallet' },
+    title: { es: 'Billetera Digital Hangout', en: 'Hangout Digital Wallet' },
     desc: {
-      es: 'Pases de acceso digital oficiales de Arrive Model Management y promociones activas en Panamá.',
-      en: 'Official digital access passes from Arrive Model Management and active promotions in Panama.'
+      es: 'Pases de acceso digital oficiales de Hangout Panamá y promociones activas en Panamá.',
+      en: 'Official digital access passes from Hangout Panamá and active promotions in Panama.'
     },
     ticketsTab: { es: 'Entradas y Pases', en: 'Tickets & Passes' },
     benefitsTab: { es: 'Beneficios y Cupones', en: 'Perks & Coupons' },

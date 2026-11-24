@@ -71,7 +71,7 @@ export const BookVipModal = () => {
       confetti({
         particleCount: 100,
         spread: 70,
-        colors: ['#c10230', '#ffffff', '#ff3b5c', '#000000']
+        colors: ['#FF0000', '#ffffff', '#FF2A2A', '#000000']
       });
     } catch (err) {
       console.error(err);
@@ -89,8 +89,8 @@ export const BookVipModal = () => {
       : (isEs ? 'ÁREA MAIN ROOM ($350 consumibles + 7% ITBMS = $374.50 total — Incluye 10 entradas)' : 'MAIN ROOM AREA ($350 minimum spend + 7% ITBMS = $374.50 total — Includes 10 passes)');
     const text = encodeURIComponent(
       isEs
-        ? `Hola Arrive Concierge! Deseo confirmar la reserva de Mesa VIP (${reservationRef || 'VIP'}) en ${zoneName} para el evento "${currentEvent?.title}" el ${currentEvent?.date} a nombre de ${formData.name}.`
-        : `Hello Arrive Concierge! I want to confirm the VIP Table reservation (${reservationRef || 'VIP'}) in ${zoneName} for "${currentEvent?.title}" on ${currentEvent?.date} under the name of ${formData.name}.`
+        ? `Hola Hangout Concierge! Deseo confirmar la reserva de Mesa VIP (${reservationRef || 'VIP'}) en ${zoneName} para el evento "${currentEvent?.title}" el ${currentEvent?.date} a nombre de ${formData.name}.`
+        : `Hello Hangout Concierge! I want to confirm the VIP Table reservation (${reservationRef || 'VIP'}) in ${zoneName} for "${currentEvent?.title}" on ${currentEvent?.date} under the name of ${formData.name}.`
     );
     window.open(`https://wa.me/50760000000?text=${text}`, '_blank');
   };
@@ -110,15 +110,15 @@ export const BookVipModal = () => {
             <>
               {/* Header */}
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.5rem' }}>
-                <Crown size={26} color="#c10230" />
+                <Crown size={26} color="#FF0000" />
                 <h2 style={{ fontSize: '1.65rem', fontWeight: '900', color: '#fff', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
                   {isEs ? 'RESERVA DE MESA VIP' : 'BOOK VIP TABLE'}
                 </h2>
               </div>
               <p style={{ color: 'var(--text-secondary)', fontSize: '0.88rem', marginBottom: '1.75rem', lineHeight: '1.5' }}>
                 {isEs 
-                  ? <>Reserva de mesas preferenciales y servicio de botellas en los mejores venues de Panamá con anfitriones de <strong>Arrive Model Management</strong>.</>
-                  : <>VIP table reservations and bottle service at Panama&apos;s premier venues with <strong>Arrive Model Management</strong> hosts.</>}
+                  ? <>Reserva de mesas preferenciales y servicio de botellas en los mejores venues de Panamá con anfitriones de <strong>Hangout Panamá</strong>.</>
+                  : <>VIP table reservations and bottle service at Panama&apos;s premier venues with <strong>Hangout Panamá</strong> hosts.</>}
               </p>
 
               {/* Event Selector Tabs */}
@@ -135,9 +135,9 @@ export const BookVipModal = () => {
                       style={{
                         padding: '0.6rem 0.5rem',
                         borderRadius: 'var(--radius-sm)',
-                        background: (activeEvent?.id === evt.id) ? '#c10230' : 'rgba(255, 255, 255, 0.04)',
+                        background: (activeEvent?.id === evt.id) ? '#FF0000' : 'rgba(255, 255, 255, 0.04)',
                         color: '#ffffff',
-                        border: '1px solid ' + ((activeEvent?.id === evt.id) ? '#c10230' : 'rgba(255, 255, 255, 0.1)'),
+                        border: '1px solid ' + ((activeEvent?.id === evt.id) ? '#FF0000' : 'rgba(255, 255, 255, 0.1)'),
                         fontWeight: '800',
                         fontSize: '0.75rem',
                         textAlign: 'center',
@@ -171,7 +171,7 @@ export const BookVipModal = () => {
                     style={{ width: '60px', height: '60px', borderRadius: 'var(--radius-sm)', objectFit: 'cover' }}
                   />
                   <div style={{ flex: 1 }}>
-                    <div style={{ color: '#ff3b5c', fontSize: '0.72rem', fontWeight: '800', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
+                    <div style={{ color: '#FF2A2A', fontSize: '0.72rem', fontWeight: '800', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
                       {currentEvent.date}
                     </div>
                     <div style={{ color: '#ffffff', fontWeight: '800', fontSize: '0.95rem' }}>
@@ -197,9 +197,9 @@ export const BookVipModal = () => {
                     style={{
                       padding: '1rem 1.15rem',
                       borderRadius: 'var(--radius-md)',
-                      background: selectedZone === 'area-vip' ? 'rgba(193, 2, 48, 0.12)' : 'rgba(255, 255, 255, 0.02)',
-                      border: '1px solid ' + (selectedZone === 'area-vip' ? '#c10230' : 'rgba(255, 255, 255, 0.08)'),
-                      boxShadow: selectedZone === 'area-vip' ? '0 0 16px rgba(193, 2, 48, 0.25)' : 'none',
+                      background: selectedZone === 'area-vip' ? 'rgba(255, 0, 0, 0.12)' : 'rgba(255, 255, 255, 0.02)',
+                      border: '1px solid ' + (selectedZone === 'area-vip' ? '#FF0000' : 'rgba(255, 255, 255, 0.08)'),
+                      boxShadow: selectedZone === 'area-vip' ? '0 0 16px rgba(255, 0, 0, 0.25)' : 'none',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'space-between',
@@ -214,7 +214,7 @@ export const BookVipModal = () => {
                           {isEs ? 'Área VIP' : 'VIP Area'}
                         </span>
                         <span style={{
-                          background: '#c10230',
+                          background: '#FF0000',
                           color: '#fff',
                           fontSize: '0.62rem',
                           fontWeight: 800,
@@ -230,15 +230,15 @@ export const BookVipModal = () => {
                       </div>
                       <div style={{ color: 'var(--text-secondary)', fontSize: '0.74rem', marginTop: '2px' }}>
                         {isEs 
-                          ? 'Ubicación VIP preferencial, 100% canjeable en botellas y menú. Anfitrión Arrive dedicado.'
-                          : 'Prime VIP table, 100% redeemable in bottles & dining. Dedicated Arrive host.'}
+                          ? 'Ubicación VIP preferencial, 100% canjeable en botellas y menú. Anfitrión Hangout dedicado.'
+                          : 'Prime VIP table, 100% redeemable in bottles & dining. Dedicated Hangout host.'}
                       </div>
                     </div>
                     <div style={{ textAlign: 'right', flexShrink: 0, marginLeft: '1rem' }}>
                       <div style={{ color: '#ffffff', fontWeight: '900', fontSize: '1.25rem' }}>
                         $600
                       </div>
-                      <div style={{ color: '#ff3b5c', fontSize: '0.68rem', fontWeight: 700 }}>
+                      <div style={{ color: '#FF2A2A', fontSize: '0.68rem', fontWeight: 700 }}>
                         + 7% ITBMS ($42.00)
                       </div>
                       <div style={{ color: 'var(--text-muted)', fontSize: '0.65rem', textTransform: 'uppercase', marginTop: '2px' }}>
@@ -253,9 +253,9 @@ export const BookVipModal = () => {
                     style={{
                       padding: '1rem 1.15rem',
                       borderRadius: 'var(--radius-md)',
-                      background: selectedZone === 'main-room' ? 'rgba(193, 2, 48, 0.12)' : 'rgba(255, 255, 255, 0.02)',
-                      border: '1px solid ' + (selectedZone === 'main-room' ? '#c10230' : 'rgba(255, 255, 255, 0.08)'),
-                      boxShadow: selectedZone === 'main-room' ? '0 0 16px rgba(193, 2, 48, 0.25)' : 'none',
+                      background: selectedZone === 'main-room' ? 'rgba(255, 0, 0, 0.12)' : 'rgba(255, 255, 255, 0.02)',
+                      border: '1px solid ' + (selectedZone === 'main-room' ? '#FF0000' : 'rgba(255, 255, 255, 0.08)'),
+                      boxShadow: selectedZone === 'main-room' ? '0 0 16px rgba(255, 0, 0, 0.25)' : 'none',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'space-between',
@@ -265,7 +265,7 @@ export const BookVipModal = () => {
                   >
                     <div>
                       <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '4px' }}>
-                        <Sparkles size={15} color="#ff3b5c" />
+                        <Sparkles size={15} color="#FF2A2A" />
                         <span style={{ color: '#fff', fontWeight: '800', fontSize: '0.95rem' }}>
                           {isEs ? 'Área Main Room' : 'Main Room Area'}
                         </span>
@@ -294,7 +294,7 @@ export const BookVipModal = () => {
                       <div style={{ color: '#ffffff', fontWeight: '900', fontSize: '1.25rem' }}>
                         $350
                       </div>
-                      <div style={{ color: '#ff3b5c', fontSize: '0.68rem', fontWeight: 700 }}>
+                      <div style={{ color: '#FF2A2A', fontSize: '0.68rem', fontWeight: 700 }}>
                         + 7% ITBMS ($24.50)
                       </div>
                       <div style={{ color: 'var(--text-muted)', fontSize: '0.65rem', textTransform: 'uppercase', marginTop: '2px' }}>
@@ -395,13 +395,13 @@ export const BookVipModal = () => {
                 width: '65px',
                 height: '65px',
                 borderRadius: '50%',
-                background: 'rgba(193, 2, 48, 0.15)',
-                border: '2px solid #c10230',
+                background: 'rgba(255, 0, 0, 0.15)',
+                border: '2px solid #FF0000',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
                 margin: '0 auto 1.5rem',
-                color: '#ff3b5c'
+                color: '#FF2A2A'
               }}>
                 <Crown size={32} />
               </div>
@@ -411,9 +411,9 @@ export const BookVipModal = () => {
               </h3>
               <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', maxWidth: '440px', margin: '0 auto 1.75rem', lineHeight: '1.6' }}>
                 {isEs ? (
-                  <>Referencia: <strong style={{ color: 'var(--accent-red)' }}>{reservationRef}</strong>. Nuestro concierge de <strong>Arrive Model Management</strong> se comunicará contigo de inmediato para confirmar tu mesa.</>
+                  <>Referencia: <strong style={{ color: 'var(--accent-red)' }}>{reservationRef}</strong>. Nuestro concierge de <strong>Hangout Panamá</strong> se comunicará contigo de inmediato para confirmar tu mesa.</>
                 ) : (
-                  <>Reference: <strong style={{ color: 'var(--accent-red)' }}>{reservationRef}</strong>. Our <strong>Arrive Model Management</strong> concierge will contact you immediately to confirm your table.</>
+                  <>Reference: <strong style={{ color: 'var(--accent-red)' }}>{reservationRef}</strong>. Our <strong>Hangout Panamá</strong> concierge will contact you immediately to confirm your table.</>
                 )}
               </p>
 

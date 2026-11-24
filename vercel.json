@@ -427,6 +427,26 @@
       "source": "/en/events/viernes-27-de-noviembre-reggaeton-viejito-party-en-piano-bar/",
       "destination": "/en/events/piano-bar-reggaeton-viejito-viernes-27-de-noviembre/",
       "permanent": true
+    },
+    {
+      "source": "/es/blog/guia-nightlife-casco-antiguo-panama/",
+      "destination": "/es/guias/vida-nocturna-casco-antiguo/",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/mejores-rooftops-vista-al-mar-panama/",
+      "destination": "/es/guias/mejores-rooftops-panama/",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/como-reservar-mesa-vip-bottle-service-panama/",
+      "destination": "/es/guias/experiencias-vip-reservas-mesas-panama/",
+      "permanent": true
+    },
+    {
+      "source": "/en/guias/:path*",
+      "destination": "/es/guias/:path*",
+      "permanent": false
     }
   ]
 }

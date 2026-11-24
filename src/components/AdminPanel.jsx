@@ -47,7 +47,7 @@ export const AdminPanel = () => {
     spotsLeft: 30,
     featured: true,
     image: 'https://images.unsplash.com/photo-1509631179647-0177331693ae?w=1200&auto=format&fit=crop',
-    description: 'Evento oficial organizado por Arrive Model Management en Panamá.',
+    description: 'Evento oficial organizado por Hangout Panamá en Panamá.',
     dressCode: 'Black Tie / Monochrome Chic',
     ageLimit: '18+'
   });
@@ -59,9 +59,9 @@ export const AdminPanel = () => {
     discount: '25% OFF',
     validUntil: 'Domingo, 14 Septiembre',
     daysValid: 'Lunes a Jueves',
-    code: 'ARRIVE-VIP25',
+    code: 'HANGOUT-VIP25',
     image: 'https://images.unsplash.com/photo-1579871494447-9811cf80d66c?w=800&auto=format&fit=crop',
-    description: 'Descuento especial para miembros y talentos Arrive.',
+    description: 'Descuento especial para miembros y talentos Hangout.',
     terms: 'Válido presentando código antes de solicitar la cuenta.',
     location: 'Casco Antiguo / Costa del Este'
   });
@@ -120,9 +120,9 @@ export const AdminPanel = () => {
       discount: '20% OFF',
       validUntil: 'Domingo, 14 Septiembre',
       daysValid: 'Todos los días',
-      code: 'ARRIVE-' + Math.random().toString(36).substring(2, 6).toUpperCase(),
+      code: 'HANGOUT-' + Math.random().toString(36).substring(2, 6).toUpperCase(),
       image: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&auto=format&fit=crop',
-      description: 'Beneficio exclusivo para la comunidad Arrive en Panamá.',
+      description: 'Beneficio exclusivo para la comunidad Hangout en Panamá.',
       terms: 'Válido presentando código antes de pagar.',
       location: 'Ciudad de Panamá'
     });
@@ -154,7 +154,7 @@ export const AdminPanel = () => {
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '1.5rem' }}>
             <div>
               <h2 style={{ fontSize: '1.6rem', fontWeight: '900', color: '#fff' }}>
-                Panel de Administración • Arrive Panamá
+                Panel de Administración • Hangout Panamá
               </h2>
               <p style={{ color: 'var(--text-secondary)', fontSize: '0.85rem' }}>
                 Gestiona y publica los eventos de la semana, castings y beneficios comerciales.

@@ -34,7 +34,7 @@ export const ConciergePage = ({ locale = 'es' }) => {
       return;
     }
     try {
-      confetti({ particleCount: 80, spread: 60, colors: ['#c10230', '#ffffff', '#ff3b5c', '#000000'] });
+      confetti({ particleCount: 80, spread: 60, colors: ['#FF0000', '#ffffff', '#FF2A2A', '#000000'] });
     } catch (err) { console.error(err); }
     setIsSent(true);
     showToast(isEs ? '¡Solicitud recibida! Nuestro equipo de Concierge se comunicará contigo.' : 'Request received! Our Concierge team will contact you shortly.', 'success');
@@ -42,17 +42,17 @@ export const ConciergePage = ({ locale = 'es' }) => {
 
   const openWhatsAppConcierge = (msg) => {
     const selectedVenue = (venues || []).find(v => v.id === selectedRestaurantId) || (venues && venues[0]);
-    const venueName = selectedVenue ? selectedVenue.name : (isEs ? 'Restaurante Oficial Arrive' : 'Official Arrive Restaurant');
+    const venueName = selectedVenue ? selectedVenue.name : (isEs ? 'Restaurante Oficial Hangout' : 'Official Hangout Restaurant');
     const venueArea = selectedVenue ? ` (${selectedVenue.area})` : '';
     let defaultMsg = '';
     if (selectedCategory === 'restaurants') {
       defaultMsg = isEs
-        ? `Hola Arrive Concierge! Deseo reservar mesa para cena en *${venueName}*${venueArea} para el día ${formData.date || 'próximo fin de semana'} a las ${formData.time || '8:00 PM'} para ${formData.people} a nombre de ${formData.name || 'Cliente VIP'}.${formData.specialRequests ? ` Solicitud especial: ${formData.specialRequests}` : ''}`
-        : `Hello Arrive Concierge! I would like to book a dinner table at *${venueName}*${venueArea} for ${formData.date || 'this upcoming weekend'} at ${formData.time || '8:00 PM'} for ${formData.people} under ${formData.name || 'VIP Guest'}.${formData.specialRequests ? ` Special requests: ${formData.specialRequests}` : ''}`;
+        ? `Hola Hangout Concierge! Deseo reservar mesa para cena en *${venueName}*${venueArea} para el día ${formData.date || 'próximo fin de semana'} a las ${formData.time || '8:00 PM'} para ${formData.people} a nombre de ${formData.name || 'Cliente VIP'}.${formData.specialRequests ? ` Solicitud especial: ${formData.specialRequests}` : ''}`
+        : `Hello Hangout Concierge! I would like to book a dinner table at *${venueName}*${venueArea} for ${formData.date || 'this upcoming weekend'} at ${formData.time || '8:00 PM'} for ${formData.people} under ${formData.name || 'VIP Guest'}.${formData.specialRequests ? ` Special requests: ${formData.specialRequests}` : ''}`;
     } else {
       defaultMsg = msg || (isEs
-        ? `Hola Arrive Concierge! Me interesa solicitar el servicio de: ${formData.serviceType} a nombre de ${formData.name || 'Cliente VIP'}.${formData.specialRequests ? ` Detalles: ${formData.specialRequests}` : ''}`
-        : `Hello Arrive Concierge! I would like to request the service of: ${formData.serviceType} under ${formData.name || 'VIP Guest'}.${formData.specialRequests ? ` Details: ${formData.specialRequests}` : ''}`);
+        ? `Hola Hangout Concierge! Me interesa solicitar el servicio de: ${formData.serviceType} a nombre de ${formData.name || 'Cliente VIP'}.${formData.specialRequests ? ` Detalles: ${formData.specialRequests}` : ''}`
+        : `Hello Hangout Concierge! I would like to request the service of: ${formData.serviceType} under ${formData.name || 'VIP Guest'}.${formData.specialRequests ? ` Details: ${formData.specialRequests}` : ''}`);
     }
     window.open(`https://wa.me/50760000000?text=${encodeURIComponent(defaultMsg)}`, '_blank');
   };
@@ -76,8 +76,8 @@ export const ConciergePage = ({ locale = 'es' }) => {
                 <img 
                   loading="eager" 
                   fetchpriority="high"
-                  src="/images/heart.gif" 
-                  alt="Corazón Arrive Concierge Izquierda" 
+                  src="/images/hangout-star.svg" 
+                  alt="Estrella Hangout Concierge Izquierda" 
                   className="heart_title_flame left" 
                   width="60"
                   height="60"
@@ -88,8 +88,8 @@ export const ConciergePage = ({ locale = 'es' }) => {
                 <img 
                   loading="eager" 
                   fetchpriority="high"
-                  src="/images/heart.gif" 
-                  alt="Corazón Arrive Concierge Derecha" 
+                  src="/images/hangout-star.svg" 
+                  alt="Estrella Hangout Concierge Derecha" 
                   className="heart_title_flame right" 
                   width="60"
                   height="60"
@@ -98,13 +98,13 @@ export const ConciergePage = ({ locale = 'es' }) => {
 
               {/* Subtitle with clean SVG Lucide icons - no OS emoji square glitch */}
               <div className="hero_subtitle_emojis">
-                <span className="hero_sub_badge"><Utensils size={14} color="#ff3b5c" /> {isEs ? 'RESTAURANTES' : 'RESTAURANTS'}</span>
+                <span className="hero_sub_badge"><Utensils size={14} color="#FF2A2A" /> {isEs ? 'RESTAURANTES' : 'RESTAURANTS'}</span>
                 <span className="hero_sub_dot">•</span>
-                <span className="hero_sub_badge"><Car size={14} color="#ff3b5c" /> {isEs ? 'CHAUFFEUR PRIVADO' : 'PRIVATE CHAUFFEUR'}</span>
+                <span className="hero_sub_badge"><Car size={14} color="#FF2A2A" /> {isEs ? 'CHAUFFEUR PRIVADO' : 'PRIVATE CHAUFFEUR'}</span>
                 <span className="hero_sub_dot">•</span>
-                <span className="hero_sub_badge"><Compass size={14} color="#ff3b5c" /> {isEs ? 'YATES' : 'YACHTS'}</span>
+                <span className="hero_sub_badge"><Compass size={14} color="#FF2A2A" /> {isEs ? 'YATES' : 'YACHTS'}</span>
                 <span className="hero_sub_dot">•</span>
-                <span className="hero_sub_badge"><Building2 size={14} color="#ff3b5c" /> {isEs ? 'ESTADÍAS PREMIUM' : 'PREMIUM STAYS'}</span>
+                <span className="hero_sub_badge"><Building2 size={14} color="#FF2A2A" /> {isEs ? 'ESTADÍAS PREMIUM' : 'PREMIUM STAYS'}</span>
               </div>
 
               {/* Centered description text — concise, refined & broad */}
@@ -275,8 +275,8 @@ export const ConciergePage = ({ locale = 'es' }) => {
                   </h3>
                   <p style={{ fontSize: '0.86rem', color: '#aaaaaa', maxWidth: '620px', margin: '0 auto' }}>
                     {isEs 
-                      ? 'Cuéntanos fechas, número de personas y el tipo de experiencia que buscas. ARRIVE puede ayudarte a organizar restaurantes, transporte, nightlife, yates y alojamiento alrededor de tu viaje.'
-                      : 'Tell us your dates, group size, and what kind of experience you are looking for. ARRIVE can help coordinate restaurants, transport, nightlife, yachts, and accommodation for your trip.'}
+                      ? 'Cuéntanos fechas, número de personas y el tipo de experiencia que buscas. HANGOUT puede ayudarte a organizar restaurantes, transporte, nightlife, yates y alojamiento alrededor de tu viaje.'
+                      : 'Tell us your dates, group size, and what kind of experience you are looking for. HANGOUT can help coordinate restaurants, transport, nightlife, yachts, and accommodation for your trip.'}
                   </p>
                 </div>
 
@@ -358,7 +358,7 @@ export const ConciergePage = ({ locale = 'es' }) => {
                     <Send size={15} /><span>{isEs ? 'PLAN MY EXPERIENCE' : 'PLAN MY EXPERIENCE'}</span>
                   </button>
                   <button type="button" className="btn-secondary concierge_whatsapp_btn" onClick={() => openWhatsAppConcierge()}>
-                    <MessageCircle size={16} color="#ff3b5c" /><span>{isEs ? 'Chat WhatsApp' : 'WhatsApp Chat'}</span>
+                    <MessageCircle size={16} color="#FF2A2A" /><span>{isEs ? 'Chat WhatsApp' : 'WhatsApp Chat'}</span>
                   </button>
                 </div>
               </form>
@@ -374,9 +374,9 @@ export const ConciergePage = ({ locale = 'es' }) => {
               <h2 className="concierge_success_title">{isEs ? '¡Solicitud de Concierge Recibida!' : 'Concierge Request Received!'}</h2>
               <p className="concierge_success_desc">
                 {isEs ? (
-                  <>Tu solicitud de <strong>{formData.serviceType}</strong> ha sido enviada al equipo VIP de <strong>Arrive Model Management</strong>. Te escribiremos de inmediato vía WhatsApp para coordinar los detalles.</>
+                  <>Tu solicitud de <strong>{formData.serviceType}</strong> ha sido enviada al equipo VIP de <strong>Hangout Panamá</strong>. Te escribiremos de inmediato vía WhatsApp para coordinar los detalles.</>
                 ) : (
-                  <>Your request for <strong>{formData.serviceType}</strong> has been sent to the <strong>Arrive VIP Concierge</strong> team. We will reach out immediately via WhatsApp to coordinate details.</>
+                  <>Your request for <strong>{formData.serviceType}</strong> has been sent to the <strong>Hangout VIP Concierge</strong> team. We will reach out immediately via WhatsApp to coordinate details.</>
                 )}
               </p>
               <div className="concierge_success_actions">

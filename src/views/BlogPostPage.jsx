@@ -1,3 +1,4 @@
+import { blogHref } from '../seo/guides';
 import React from 'react';
 import { editorialCopy } from '../seo/editorial';
 import { getBlogPostBySlug, BLOG_POSTS } from '../data/blogData';
@@ -14,7 +15,7 @@ export const BlogPostPage = ({ postSlug, locale = 'es' }) => {
     return (
       <div className="blog_not_found" style={{ textAlign: 'center', padding: '10rem 1rem', color: '#888' }}>
         <h1>{isEs ? 'Artículo no encontrado' : 'Article Not Found'}</h1>
-        <a href={`/${locale}/blog/`} style={{ color: '#ff3b5c', marginTop: '1rem', display: 'inline-block' }}>
+        <a href={`/${locale}/blog/`} style={{ color: '#FF2A2A', marginTop: '1rem', display: 'inline-block' }}>
           {isEs ? '← Volver al Blog' : '← Back to Blog'}
         </a>
       </div>
@@ -91,7 +92,7 @@ export const BlogPostPage = ({ postSlug, locale = 'es' }) => {
       <div className="blog_post_cover_wrapper">
         <img loading="eager" fetchPriority="high" decoding="async" width="1200" height="630"
           src={post.coverImage} 
-          alt={isEs ? "Ilustración editorial de ARRIVE; no es una fotografía del destino" : "ARRIVE editorial illustration; not a destination photograph"} 
+          alt={isEs ? "Ilustración editorial de HANGOUT; no es una fotografía del destino" : "HANGOUT editorial illustration; not a destination photograph"} 
           className="blog_post_cover_img"
         />
       </div>
@@ -121,8 +122,8 @@ export const BlogPostPage = ({ postSlug, locale = 'es' }) => {
             <div className="blog_cta_glow"></div>
             <div className="blog_cta_content">
               <div className="blog_cta_badge">
-                <Crown size={14} color="#ff3b5c" />
-                <span>{isEs ? 'EXPERIENCIA VIP ARRIVE' : 'ARRIVE VIP EXPERIENCE'}</span>
+                <Crown size={14} color="#FF2A2A" />
+                <span>{isEs ? 'EXPERIENCIA VIP HANGOUT' : 'HANGOUT VIP EXPERIENCE'}</span>
               </div>
               <h3>{isEs ? '¿Planeas tu Noche en Panamá?' : 'Planning Your Night in Panama?'}</h3>
               <p>
@@ -153,7 +154,7 @@ export const BlogPostPage = ({ postSlug, locale = 'es' }) => {
               {relatedPosts.map(rel => {
                 const relData = rel[locale] || rel.es;
                 return (
-                  <a key={rel.id} href={`/${locale}/blog/${rel.slug}/`} className="blog_related_card">
+                  <a key={rel.id} href={blogHref(locale, rel.slug)} className="blog_related_card">
                     <img loading="lazy" decoding="async" src={rel.coverImage} alt="" width="1200" height="630" className="blog_related_img" />
                     <div>
                       <span className="blog_related_cat">{rel.category}</span>

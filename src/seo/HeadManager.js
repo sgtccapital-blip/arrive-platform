@@ -1,5 +1,5 @@
 // =========================================================================
-// ARRIVE PLATFORM — HEAD & METADATA MANAGER
+// HANGOUT PLATFORM — HEAD & METADATA MANAGER
 // Dynamically synchronizes document title, canonical, meta, OG & JSON-LD
 // =========================================================================
 
@@ -34,7 +34,11 @@ export const updateHeadMetadata = ({
   pathname = '/',
   breadcrumbs = [],
   mainEntity = null,
-  faqItems = null
+  faqItems = null,
+  // Optional: languages that really exist for this page (e.g. ['es'] for Spanish-only guides)
+  alternateLocales = ['es', 'en'],
+  // Optional: page-specific schema nodes that replace the generic graph builder
+  schemaNodes = null
 }) => {
   if (typeof document === 'undefined') return;
 
@@ -93,9 +97,12 @@ export const updateHeadMetadata = ({
     el.href = href;
   };
 
-  setHrefLang('es', esUrl);
-  setHrefLang('en', enUrl);
-  setHrefLang('x-default', esUrl);
+  document.querySelectorAll('link[rel="alternate"][hreflang]').forEach(el => {
+    if (el.hreflang !== 'x-default' && !alternateLocales.includes(el.hreflang)) el.remove();
+  });
+  if (alternateLocales.includes('es')) setHrefLang('es', esUrl);
+  if (alternateLocales.includes('en')) setHrefLang('en', enUrl);
+  setHrefLang('x-default', alternateLocales.includes('es') ? esUrl : enUrl);
 
   // 6. Open Graph Tags
   const setOg = (property, content) => {
@@ -114,7 +121,7 @@ export const updateHeadMetadata = ({
   setOg('og:image', ogImage);
   setOg('og:type', ogType);
   setOg('og:locale', locale === 'es' ? 'es_PA' : 'en_US');
-  setOg('og:site_name', 'ARRIVE Platform');
+  setOg('og:site_name', 'HANGOUT Platform');
 
   // 7. Twitter Tags
   const setTwitter = (name, content) => {
@@ -134,12 +141,14 @@ export const updateHeadMetadata = ({
   setTwitter('twitter:image', ogImage);
 
   // 8. Dynamic Schema.org JSON-LD Injection
-  const graph = buildPageGraph({
-    locale,
-    breadcrumbs,
-    mainEntity,
-    faqItems
-  });
+  const graph = schemaNodes
+    ? { '@context': 'https://schema.org', '@graph': schemaNodes }
+    : buildPageGraph({
+      locale,
+      breadcrumbs,
+      mainEntity,
+      faqItems
+    });
 
   let jsonLdScript = document.getElementById('arrive-dynamic-jsonld');
   if (!jsonLdScript) {

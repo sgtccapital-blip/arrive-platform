@@ -1,5 +1,5 @@
 // =========================================================================
-// ARRIVE PLATFORM — CLIENT-SIDE SPA ROUTER HOOK
+// HANGOUT PLATFORM — CLIENT-SIDE SPA ROUTER HOOK
 // Intercepts navigation, updates URL history and manages browser back/forward
 // =========================================================================
 

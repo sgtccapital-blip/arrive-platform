@@ -7,6 +7,7 @@ import './styles/custom.css';
 import './styles/gallery.css';
 import './index.css';
 import './styles/event-detail.css';
+import './styles/guides.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

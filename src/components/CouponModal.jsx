@@ -21,7 +21,7 @@ export const CouponModal = () => {
       confetti({
         particleCount: 65,
         spread: 55,
-        colors: ['#c10230', '#ffffff', '#ff3b5c', '#000000'],
+        colors: ['#FF0000', '#ffffff', '#FF2A2A', '#000000'],
         origin: { y: 0.7 }
       });
     } catch (e) {
@@ -126,7 +126,7 @@ export const CouponModal = () => {
               <button 
                 onClick={handleCopyCode}
                 style={{
-                  background: copied ? '#c10230' : '#ffffff',
+                  background: copied ? '#FF0000' : '#ffffff',
                   color: copied ? '#ffffff' : '#000000',
                   fontWeight: '800',
                   padding: '0.65rem 1.1rem',
@@ -144,8 +144,8 @@ export const CouponModal = () => {
 
             <p style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>
               {isEs 
-                ? 'Muestra este código o tu pase Arrive al mesero o encargado en el establecimiento en Panamá.'
-                : 'Present this code or your Arrive digital pass to the staff at the venue in Panama.'}
+                ? 'Muestra este código o tu pase Hangout al mesero o encargado en el establecimiento en Panamá.'
+                : 'Present this code or your Hangout digital pass to the staff at the venue in Panama.'}
             </p>
           </div>
 

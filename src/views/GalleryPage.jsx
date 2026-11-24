@@ -204,7 +204,7 @@ export const GalleryPage = ({ locale = 'es', navigate }) => {
       try {
         await navigator.share({
           title: photo.title[locale] || photo.title.es,
-          text: isEs ? '¡Mira esta foto en ARRIVE Nightlife Panamá!' : 'Check out this photo on ARRIVE Nightlife Panama!',
+          text: isEs ? '¡Mira esta foto en HANGOUT Nightlife Panamá!' : 'Check out this photo on HANGOUT Nightlife Panama!',
           url: fullUrl
         });
         return;
@@ -252,7 +252,7 @@ export const GalleryPage = ({ locale = 'es', navigate }) => {
   return (
     <div className="arrive_gallery_page">
       {/* =========================================================================
-          HERO BANNER: Luxury Arrive Aesthetics with Disco Balls & Red Accents
+          HERO BANNER: Luxury Hangout Aesthetics with Disco Balls & Red Accents
           ========================================================================= */}
       <header className="section_home_hero gallery_hero_section" aria-label="Girls Photo Gallery">
         <div className="py">
@@ -264,19 +264,19 @@ export const GalleryPage = ({ locale = 'es', navigate }) => {
                   loading="eager" 
                   fetchpriority="high"
                   src="/images/gifs/Discoball.gif" 
-                  alt="Disco Ball Arrive Left" 
+                  alt="Disco Ball Hangout Left" 
                   className="heart_title_flame left hero_gif_discoball" 
                   width="60"
                   height="60"
                 />
                 <h1 className="is-center hero_title_text">
-                  {isEs ? 'Galería de Fotos • Arrive Girls' : 'Girls & Nightlife Photo Hub'}
+                  {isEs ? 'Galería de Fotos • Hangout Girls' : 'Girls & Nightlife Photo Hub'}
                 </h1>
                 <img 
                   loading="eager" 
                   fetchpriority="high"
                   src="/images/gifs/Discoball.gif" 
-                  alt="Disco Ball Arrive Right" 
+                  alt="Disco Ball Hangout Right" 
                   className="heart_title_flame right hero_gif_discoball" 
                   width="60"
                   height="60"
@@ -286,17 +286,17 @@ export const GalleryPage = ({ locale = 'es', navigate }) => {
               {/* Subtitle Badges */}
               <div className="hero_subtitle_emojis">
                 <span className="hero_sub_badge">
-                  <Camera size={14} color="#ff3b5c" /> 
+                  <Camera size={14} color="#FF2A2A" /> 
                   {isEs ? 'FOTOS OFICIALES 4K' : '4K OFFICIAL PHOTOS'}
                 </span>
                 <span className="hero_sub_dot">•</span>
                 <span className="hero_sub_badge">
-                  <ArrowDownToLine size={14} color="#ff3b5c" /> 
+                  <ArrowDownToLine size={14} color="#FF2A2A" /> 
                   {isEs ? 'DESCARGA DIRECTA AL CARRETE' : 'DIRECT HD DOWNLOAD'}
                 </span>
                 <span className="hero_sub_dot">•</span>
                 <span className="hero_sub_badge">
-                  <Sparkles size={14} color="#ff3b5c" /> 
+                  <Sparkles size={14} color="#FF2A2A" /> 
                   {isEs ? 'EXCLUSIVO MODELOS & CHICAS' : 'MODELS & GUESTS EXCLUSIVE'}
                 </span>
               </div>
@@ -373,7 +373,7 @@ export const GalleryPage = ({ locale = 'es', navigate }) => {
                 onClick={() => setShowOnlyFavorites(prev => !prev)}
                 title={isEs ? 'Ver mis favoritas' : 'View my favorites'}
               >
-                <Heart size={15} fill={showOnlyFavorites ? '#ff3b5c' : 'none'} color={showOnlyFavorites ? '#ff3b5c' : 'currentColor'} />
+                <Heart size={15} fill={showOnlyFavorites ? '#FF2A2A' : 'none'} color={showOnlyFavorites ? '#FF2A2A' : 'currentColor'} />
                 <span>{isEs ? 'Favoritas' : 'Favorites'} ({favorites.length})</span>
               </button>
 
@@ -563,7 +563,7 @@ export const GalleryPage = ({ locale = 'es', navigate }) => {
                                 onClick={(e) => toggleSelectPhoto(photo.id, e)}
                                 aria-label={isSelected ? 'Deseleccionar foto' : 'Seleccionar foto'}
                               >
-                                {isSelected ? <CheckSquare size={20} color="#ff3b5c" /> : <Square size={20} color="#ffffff" />}
+                                {isSelected ? <CheckSquare size={20} color="#FF2A2A" /> : <Square size={20} color="#ffffff" />}
                               </button>
                             ) : (
                               <button
@@ -573,7 +573,7 @@ export const GalleryPage = ({ locale = 'es', navigate }) => {
                                 title={isFav ? (isEs ? 'Eliminar de favoritas' : 'Remove from favorites') : (isEs ? 'Guardar en favoritas' : 'Save to favorites')}
                                 aria-label="Favorita"
                               >
-                                <Heart size={16} fill={isFav ? '#ff3b5c' : 'none'} color={isFav ? '#ff3b5c' : '#ffffff'} />
+                                <Heart size={16} fill={isFav ? '#FF2A2A' : 'none'} color={isFav ? '#FF2A2A' : '#ffffff'} />
                               </button>
                             )}
                           </div>
@@ -643,7 +643,7 @@ export const GalleryPage = ({ locale = 'es', navigate }) => {
             {/* Card 1: Maximiza tu calidad */}
             <div className="gallery_tip_card">
               <div className="gallery_tip_icon_wrap">
-                <Sparkles size={22} color="#ff3b5c" />
+                <Sparkles size={22} color="#FF2A2A" />
               </div>
               <h4>{isEs ? '100% Calidad Sin Compresión' : '100% Uncompressed Quality'}</h4>
               <p>
@@ -656,7 +656,7 @@ export const GalleryPage = ({ locale = 'es', navigate }) => {
             {/* Card 2: Etiqueta y Reposteos */}
             <div className="gallery_tip_card">
               <div className="gallery_tip_icon_wrap">
-                <InstagramIcon size={22} color="#ff3b5c" />
+                <InstagramIcon size={22} color="#FF2A2A" />
               </div>
               <h4>{isEs ? 'Etiqueta @arrivemodels' : 'Tag @arrivemodels'}</h4>
               <p>
@@ -669,7 +669,7 @@ export const GalleryPage = ({ locale = 'es', navigate }) => {
             {/* Card 3: ¿Buscas más fotos de la noche? */}
             <div className="gallery_tip_card">
               <div className="gallery_tip_icon_wrap">
-                <Camera size={22} color="#ff3b5c" />
+                <Camera size={22} color="#FF2A2A" />
               </div>
               <h4>{isEs ? '¿No encuentras tu foto?' : 'Looking for More Photos?'}</h4>
               <p>
@@ -678,7 +678,7 @@ export const GalleryPage = ({ locale = 'es', navigate }) => {
                   : 'Our visual team captures hundreds of shots weekly. Reach out directly on WhatsApp with the club and date to request your full photo set.'}
               </p>
               <a 
-                href="https://wa.me/50760000000?text=Hola%20Arrive,%20estoy%20buscando%20mis%20fotos%20de%20la%20noche"
+                href="https://wa.me/50760000000?text=Hola%20Hangout,%20estoy%20buscando%20mis%20fotos%20de%20la%20noche"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="gallery_tip_whatsapp_btn"
@@ -713,7 +713,7 @@ export const GalleryPage = ({ locale = 'es', navigate }) => {
             </div>
 
             <div className="gallery_lightbox_venue_pill">
-              <MapPin size={13} color="#ff3b5c" />
+              <MapPin size={13} color="#FF2A2A" />
               <span>{activePhoto.venue}</span>
               <span style={{ opacity: 0.4 }}>•</span>
               <span>{activePhoto.date}</span>
@@ -802,7 +802,7 @@ export const GalleryPage = ({ locale = 'es', navigate }) => {
                   onClick={(e) => toggleFavorite(activePhoto.id, e)}
                   title={isEs ? 'Guardar en favoritas' : 'Save to favorites'}
                 >
-                  <Heart size={18} fill={favorites.includes(activePhoto.id) ? '#ff3b5c' : 'none'} color={favorites.includes(activePhoto.id) ? '#ff3b5c' : '#ffffff'} />
+                  <Heart size={18} fill={favorites.includes(activePhoto.id) ? '#FF2A2A' : 'none'} color={favorites.includes(activePhoto.id) ? '#FF2A2A' : '#ffffff'} />
                   <span>{favorites.includes(activePhoto.id) ? (isEs ? 'Favorita' : 'Favorited') : (isEs ? 'Favorita' : 'Favorite')}</span>
                 </button>
 

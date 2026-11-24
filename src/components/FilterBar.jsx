@@ -123,7 +123,7 @@ export const FilterBar = () => {
           className={`day_dropdown_trigger ${selectedDay !== 'all' ? 'is_active' : ''}`}
         >
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-            <Calendar size={14} color={selectedDay !== 'all' ? '#ffffff' : '#c10230'} style={{ flexShrink: 0 }} />
+            <Calendar size={14} color={selectedDay !== 'all' ? '#ffffff' : '#FF0000'} style={{ flexShrink: 0 }} />
             <span style={{
               fontFamily: 'Montserrat, sans-serif',
               fontSize: '0.74rem',

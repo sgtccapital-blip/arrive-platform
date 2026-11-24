@@ -1,5 +1,5 @@
 // =========================================================================
-// ARRIVE PLATFORM — SCHEMA.ORG JSON-LD GENERATOR
+// HANGOUT PLATFORM — SCHEMA.ORG JSON-LD GENERATOR
 // Produces valid, rich Schema.org structured data for Google Search
 // =========================================================================
 
@@ -11,10 +11,10 @@ import { BASE_CANONICAL_URL } from '../data/seoModels';
 export const getOrganizationSchema = () => ({
   '@type': 'Organization',
   '@id': `${BASE_CANONICAL_URL}/#organization`,
-  name: 'Arrive Model Management',
-  alternateName: 'ARRIVE Platform Panama',
+  name: 'Hangout Panamá',
+  alternateName: 'HANGOUT Platform Panama',
   url: BASE_CANONICAL_URL,
-  logo: `${BASE_CANONICAL_URL}/images/arrive-logo-white.png`,
+  logo: `${BASE_CANONICAL_URL}/images/hangout-logo.png`,
   description: 'Agencia de modelaje y plataforma de beneficios exclusivos de nightlife, discotecas, rooftops y concierge en Panamá.',
   sameAs: [
     'https://www.instagram.com/arrivemodels/',
@@ -35,7 +35,7 @@ export const getWebSiteSchema = (locale = 'es') => ({
   '@type': 'WebSite',
   '@id': `${BASE_CANONICAL_URL}/${locale}/#website`,
   url: `${BASE_CANONICAL_URL}/${locale}/`,
-  name: 'ARRIVE Platform',
+  name: 'HANGOUT Platform',
   description: 'Descubre qué hacer hoy en Panamá, discotecas, rooftops, eventos y reservas VIP.',
   publisher: {
     '@id': `${BASE_CANONICAL_URL}/#organization`

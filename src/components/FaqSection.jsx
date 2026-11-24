@@ -28,7 +28,7 @@ export const FaqSection = ({
       <div className="faq_container">
         <div className="faq_header">
           <div className="faq_eyebrow">
-            <HelpCircle size={14} color="#c10230" />
+            <HelpCircle size={14} color="#FF0000" />
             <span>FAQ &amp; GUÍA VIP</span>
           </div>
           <h2 className="faq_title">{title || defaultTitle}</h2>

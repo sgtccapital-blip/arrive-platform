@@ -57,9 +57,9 @@ export const BenefitsBanner = () => {
           </div>
           <p className="benefits-banner-subtitle">
             {isEs ? (
-              <>Open Bar gratis en <strong>3 noches</strong> — Solo con tu pase Arrive</>
+              <>Open Bar gratis en <strong>3 noches</strong> — Solo con tu pase Hangout</>
             ) : (
-              <>Free Open Bar across <strong>3 nights</strong> — Only with your Arrive pass</>
+              <>Free Open Bar across <strong>3 nights</strong> — Only with your Hangout pass</>
             )}
           </p>
         </div>

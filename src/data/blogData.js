@@ -8,9 +8,9 @@ export const BLOG_POSTS = [
     "dateModified": "2026-11-23",
     "reviewedAt": "2026-11-23",
     "author": {
-      "name": "ARRIVE",
+      "name": "HANGOUT",
       "role": "Guías / Guides",
-      "avatar": "/images/arrive-logo-white.png"
+      "avatar": "/images/hangout-logo.png"
     },
     "coverImage": "/images/editorial-guide.svg",
     "sources": [
@@ -32,7 +32,7 @@ export const BLOG_POSTS = [
     ],
     "es": {
       "title": "Casco Antiguo de noche: cómo organizar tu visita",
-      "seoTitle": "Casco Antiguo de noche: cómo organizar tu visita | ARRIVE",
+      "seoTitle": "Casco Antiguo de noche: cómo organizar tu visita | HANGOUT",
       "seoDescription": "Planifica una noche en Casco Antiguo: zona histórica, terrazas verificadas, reservas y regreso. Consulta las condiciones directamente con cada local.",
       "excerpt": "Planifica una noche en Casco Antiguo: zona histórica, terrazas verificadas, reservas y regreso. Consulta las condiciones directamente con cada local.",
       "content": [
@@ -80,7 +80,7 @@ export const BLOG_POSTS = [
     },
     "en": {
       "title": "Casco Viejo at night: planning your visit",
-      "seoTitle": "Casco Viejo at night: planning your visit | ARRIVE",
+      "seoTitle": "Casco Viejo at night: planning your visit | HANGOUT",
       "seoDescription": "Plan a night in Casco Viejo with verified rooftop options, booking questions and a return plan. Check current conditions directly with each venue.",
       "excerpt": "Plan a night in Casco Viejo with verified rooftop options, booking questions and a return plan. Check current conditions directly with each venue.",
       "content": [
@@ -142,9 +142,9 @@ export const BLOG_POSTS = [
     "dateModified": "2026-11-23",
     "reviewedAt": "2026-11-23",
     "author": {
-      "name": "ARRIVE",
+      "name": "HANGOUT",
       "role": "Guías / Guides",
-      "avatar": "/images/arrive-logo-white.png"
+      "avatar": "/images/hangout-logo.png"
     },
     "coverImage": "/images/editorial-guide.svg",
     "sources": [
@@ -161,7 +161,7 @@ export const BLOG_POSTS = [
     ],
     "es": {
       "title": "Cómo reservar mesa VIP en Panamá: qué confirmar",
-      "seoTitle": "Cómo reservar mesa VIP en Panamá: qué confirmar | ARRIVE",
+      "seoTitle": "Cómo reservar mesa VIP en Panamá: qué confirmar | HANGOUT",
       "seoDescription": "Lista práctica para solicitar mesa VIP en Panamá: cotización, consumos, invitados, pagos y cancelación, sin promesas de entrada ni precios inventados.",
       "excerpt": "Lista práctica para solicitar mesa VIP en Panamá: cotización, consumos, invitados, pagos y cancelación, sin promesas de entrada ni precios inventados.",
       "content": [
@@ -203,13 +203,13 @@ export const BLOG_POSTS = [
         },
         {
           "type": "paragraph",
-          "text": "Pregunta hasta cuándo puedes modificar invitados, si el depósito es reembolsable y cómo se trata una cancelación del organizador. Si la mesa es al aire libre, consulta la alternativa en caso de lluvia. Antes de salir, revisa la confirmación final: dirección, fecha, nombre de reserva, importe pendiente e inclusiones. Si solicitas ayuda a ARRIVE, la disponibilidad y los beneficios deben confirmarse para tu caso."
+          "text": "Pregunta hasta cuándo puedes modificar invitados, si el depósito es reembolsable y cómo se trata una cancelación del organizador. Si la mesa es al aire libre, consulta la alternativa en caso de lluvia. Antes de salir, revisa la confirmación final: dirección, fecha, nombre de reserva, importe pendiente e inclusiones. Si solicitas ayuda a HANGOUT, la disponibilidad y los beneficios deben confirmarse para tu caso."
         }
       ]
     },
     "en": {
       "title": "Booking a VIP table in Panama: what to confirm",
-      "seoTitle": "Booking a VIP table in Panama: what to confirm | ARRIVE",
+      "seoTitle": "Booking a VIP table in Panama: what to confirm | HANGOUT",
       "seoDescription": "A practical Panama VIP booking checklist covering quotes, spending, guests, payment and cancellation, without invented prices or admission guarantees.",
       "excerpt": "A practical Panama VIP booking checklist covering quotes, spending, guests, payment and cancellation, without invented prices or admission guarantees.",
       "content": [
@@ -251,7 +251,7 @@ export const BLOG_POSTS = [
         },
         {
           "type": "paragraph",
-          "text": "Ask about guest changes, deposit refunds and cancellation by the organiser. For outdoor seating, request the rain alternative. Before leaving, check the address, date, booking name, outstanding balance and inclusions. If you request ARRIVE assistance, availability and benefits need confirmation for your specific booking."
+          "text": "Ask about guest changes, deposit refunds and cancellation by the organiser. For outdoor seating, request the rain alternative. Before leaving, check the address, date, booking name, outstanding balance and inclusions. If you request HANGOUT assistance, availability and benefits need confirmation for your specific booking."
         }
       ]
     },
@@ -271,9 +271,9 @@ export const BLOG_POSTS = [
     "dateModified": "2026-11-23",
     "reviewedAt": "2026-11-23",
     "author": {
-      "name": "ARRIVE",
+      "name": "HANGOUT",
       "role": "Guías / Guides",
-      "avatar": "/images/arrive-logo-white.png"
+      "avatar": "/images/hangout-logo.png"
     },
     "coverImage": "/images/editorial-guide.svg",
     "sources": [
@@ -290,7 +290,7 @@ export const BLOG_POSTS = [
     ],
     "es": {
       "title": "Rooftops en Panamá: Ammi y CasaCasco",
-      "seoTitle": "Rooftops en Panamá: Ammi y CasaCasco | ARRIVE",
+      "seoTitle": "Rooftops en Panamá: Ammi y CasaCasco | HANGOUT",
       "seoDescription": "Compara dos rooftops reales de Casco Viejo, Ammi y CasaCasco: ubicación, propuesta y preguntas para reservar desde sus canales oficiales.",
       "excerpt": "Compara dos rooftops reales de Casco Viejo, Ammi y CasaCasco: ubicación, propuesta y preguntas para reservar desde sus canales oficiales.",
       "content": [
@@ -338,7 +338,7 @@ export const BLOG_POSTS = [
     },
     "en": {
       "title": "Panama rooftops: Ammi and CasaCasco",
-      "seoTitle": "Panama rooftops: Ammi and CasaCasco | ARRIVE",
+      "seoTitle": "Panama rooftops: Ammi and CasaCasco | HANGOUT",
       "seoDescription": "Compare two real Casco Viejo rooftops, Ammi and CasaCasco, with official locations, concepts and practical questions to ask before booking.",
       "excerpt": "Compare two real Casco Viejo rooftops, Ammi and CasaCasco, with official locations, concepts and practical questions to ask before booking.",
       "content": [
@@ -400,9 +400,9 @@ export const BLOG_POSTS = [
     "dateModified": "2026-11-23",
     "reviewedAt": "2026-11-23",
     "author": {
-      "name": "ARRIVE",
+      "name": "HANGOUT",
       "role": "Guías / Guides",
-      "avatar": "/images/arrive-logo-white.png"
+      "avatar": "/images/hangout-logo.png"
     },
     "coverImage": "/images/editorial-guide.svg",
     "sources": [
@@ -419,7 +419,7 @@ export const BLOG_POSTS = [
     ],
     "es": {
       "title": "Dress code en Panamá: qué preguntar antes de salir",
-      "seoTitle": "Dress code en Panamá: qué preguntar antes de salir | ARRIVE",
+      "seoTitle": "Dress code en Panamá: qué preguntar antes de salir | HANGOUT",
       "seoDescription": "Prepara tu ropa para una noche en Panamá: cómo confirmar vestimenta, calzado y admisión con el local sin confundir consejos con reglas oficiales.",
       "excerpt": "Prepara tu ropa para una noche en Panamá: cómo confirmar vestimenta, calzado y admisión con el local sin confundir consejos con reglas oficiales.",
       "content": [
@@ -467,7 +467,7 @@ export const BLOG_POSTS = [
     },
     "en": {
       "title": "Panama nightlife dress code: what to ask",
-      "seoTitle": "Panama nightlife dress code: what to ask | ARRIVE",
+      "seoTitle": "Panama nightlife dress code: what to ask | HANGOUT",
       "seoDescription": "Prepare for a night out in Panama by checking clothing, footwear and admission with the venue, separating practical advice from official rules.",
       "excerpt": "Prepare for a night out in Panama by checking clothing, footwear and admission with the venue, separating practical advice from official rules.",
       "content": [
@@ -529,9 +529,9 @@ export const BLOG_POSTS = [
     "dateModified": "2026-11-23",
     "reviewedAt": "2026-11-23",
     "author": {
-      "name": "ARRIVE",
+      "name": "HANGOUT",
       "role": "Guías / Guides",
-      "avatar": "/images/arrive-logo-white.png"
+      "avatar": "/images/hangout-logo.png"
     },
     "coverImage": "/images/editorial-guide.svg",
     "sources": [
@@ -543,7 +543,7 @@ export const BLOG_POSTS = [
     ],
     "es": {
       "title": "Visitar el Canal de Panamá en Miraflores",
-      "seoTitle": "Visitar el Canal de Panamá en Miraflores | ARRIVE",
+      "seoTitle": "Visitar el Canal de Panamá en Miraflores | HANGOUT",
       "seoDescription": "Organiza tu visita a Miraflores: observación de esclusas, película, entradas oficiales y qué confirmar para ver barcos sin depender de horarios supuestos.",
       "excerpt": "Organiza tu visita a Miraflores: observación de esclusas, película, entradas oficiales y qué confirmar para ver barcos sin depender de horarios supuestos.",
       "content": [
@@ -599,7 +599,7 @@ export const BLOG_POSTS = [
     },
     "en": {
       "title": "Visiting the Panama Canal at Miraflores",
-      "seoTitle": "Visiting the Panama Canal at Miraflores | ARRIVE",
+      "seoTitle": "Visiting the Panama Canal at Miraflores | HANGOUT",
       "seoDescription": "Plan Miraflores with lock viewing, the film, official tickets and questions to ask about ship movements instead of relying on assumed transit times.",
       "excerpt": "Plan Miraflores with lock viewing, the film, official tickets and questions to ask about ship movements instead of relying on assumed transit times.",
       "content": [
@@ -669,9 +669,9 @@ export const BLOG_POSTS = [
     "dateModified": "2026-11-23",
     "reviewedAt": "2026-11-23",
     "author": {
-      "name": "ARRIVE",
+      "name": "HANGOUT",
       "role": "Guías / Guides",
-      "avatar": "/images/arrive-logo-white.png"
+      "avatar": "/images/hangout-logo.png"
     },
     "coverImage": "/images/editorial-guide.svg",
     "sources": [
@@ -688,7 +688,7 @@ export const BLOG_POSTS = [
     ],
     "es": {
       "title": "Biomuseo y Amador: cómo planificar el paseo",
-      "seoTitle": "Biomuseo y Amador: cómo planificar el paseo | ARRIVE",
+      "seoTitle": "Biomuseo y Amador: cómo planificar el paseo | HANGOUT",
       "seoDescription": "Combina el Biomuseo y un paseo por Amador: qué elegir, cómo consultar entradas, transporte y alternativas para ajustar el plan al clima y al grupo.",
       "excerpt": "Combina el Biomuseo y un paseo por Amador: qué elegir, cómo consultar entradas, transporte y alternativas para ajustar el plan al clima y al grupo.",
       "content": [
@@ -744,7 +744,7 @@ export const BLOG_POSTS = [
     },
     "en": {
       "title": "Biomuseo and Amador: planning your outing",
-      "seoTitle": "Biomuseo and Amador: planning your outing | ARRIVE",
+      "seoTitle": "Biomuseo and Amador: planning your outing | HANGOUT",
       "seoDescription": "Combine Biomuseo with an Amador outing: exhibition choices, official tickets, transport and ways to adapt the plan to weather and your group.",
       "excerpt": "Combine Biomuseo with an Amador outing: exhibition choices, official tickets, transport and ways to adapt the plan to weather and your group.",
       "content": [
@@ -814,9 +814,9 @@ export const BLOG_POSTS = [
     "dateModified": "2026-11-23",
     "reviewedAt": "2026-11-23",
     "author": {
-      "name": "ARRIVE",
+      "name": "HANGOUT",
       "role": "Guías / Guides",
-      "avatar": "/images/arrive-logo-white.png"
+      "avatar": "/images/hangout-logo.png"
     },
     "coverImage": "/images/editorial-guide.svg",
     "sources": [
@@ -833,7 +833,7 @@ export const BLOG_POSTS = [
     ],
     "es": {
       "title": "Panamá Viejo o Casco Antiguo: cuál visitar",
-      "seoTitle": "Panamá Viejo o Casco Antiguo: cuál visitar | ARRIVE",
+      "seoTitle": "Panamá Viejo o Casco Antiguo: cuál visitar | HANGOUT",
       "seoDescription": "Distingue Panamá Viejo de Casco Antiguo y elige según tu interés: arqueología, historia urbana o paseo. Incluye fuentes y consejos para planificar.",
       "excerpt": "Distingue Panamá Viejo de Casco Antiguo y elige según tu interés: arqueología, historia urbana o paseo. Incluye fuentes y consejos para planificar.",
       "content": [
@@ -881,7 +881,7 @@ export const BLOG_POSTS = [
     },
     "en": {
       "title": "Panamá Viejo or Casco Viejo: which to visit",
-      "seoTitle": "Panamá Viejo or Casco Viejo: which to visit | ARRIVE",
+      "seoTitle": "Panamá Viejo or Casco Viejo: which to visit | HANGOUT",
       "seoDescription": "Distinguish Panamá Viejo from Casco Viejo and choose archaeology, city history or an urban walk, with official sources and practical planning advice.",
       "excerpt": "Distinguish Panamá Viejo from Casco Viejo and choose archaeology, city history or an urban walk, with official sources and practical planning advice.",
       "content": [
@@ -943,9 +943,9 @@ export const BLOG_POSTS = [
     "dateModified": "2026-11-23",
     "reviewedAt": "2026-11-23",
     "author": {
-      "name": "ARRIVE",
+      "name": "HANGOUT",
       "role": "Guías / Guides",
-      "avatar": "/images/arrive-logo-white.png"
+      "avatar": "/images/hangout-logo.png"
     },
     "coverImage": "/images/editorial-guide.svg",
     "sources": [
@@ -967,7 +967,7 @@ export const BLOG_POSTS = [
     ],
     "es": {
       "title": "Qué hacer en Ciudad de Panamá en tres días",
-      "seoTitle": "Qué hacer en Ciudad de Panamá en tres días | ARRIVE",
+      "seoTitle": "Qué hacer en Ciudad de Panamá en tres días | HANGOUT",
       "seoDescription": "Itinerario flexible de tres días: Casco Antiguo, Canal en Miraflores y Biomuseo con Amador. Decide por intereses y verifica reservas con cada operador.",
       "excerpt": "Itinerario flexible de tres días: Casco Antiguo, Canal en Miraflores y Biomuseo con Amador. Decide por intereses y verifica reservas con cada operador.",
       "content": [
@@ -1023,7 +1023,7 @@ export const BLOG_POSTS = [
     },
     "en": {
       "title": "Things to do in Panama City in three days",
-      "seoTitle": "Things to do in Panama City in three days | ARRIVE",
+      "seoTitle": "Things to do in Panama City in three days | HANGOUT",
       "seoDescription": "A flexible three-day plan for Casco Viejo, Miraflores and Biomuseo with Amador. Choose by interest and verify bookings directly with each operator.",
       "excerpt": "A flexible three-day plan for Casco Viejo, Miraflores and Biomuseo with Amador. Choose by interest and verify bookings directly with each operator.",
       "content": [

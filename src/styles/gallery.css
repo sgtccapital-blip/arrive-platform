@@ -1,5 +1,5 @@
 /* =========================================================================
-   ARRIVE NIGHTLIFE — GIRLS & MODELS HIGH-RESOLUTION PHOTO GALLERY
+   HANGOUT NIGHTLIFE — GIRLS & MODELS HIGH-RESOLUTION PHOTO GALLERY
    Ultra-luxury styling, 4K badges, batch download bar & fullscreen lightbox
    ========================================================================= */
 
@@ -194,7 +194,7 @@
 
 .gallery_search_input:focus {
   background: rgba(255, 255, 255, 0.08);
-  border-color: #ff3b5c;
+  border-color: #FF2A2A;
   box-shadow: 0 0 15px rgba(255, 59, 92, 0.25);
 }
 
@@ -253,8 +253,8 @@
 
 .gallery_tool_btn.active {
   background: rgba(255, 59, 92, 0.18);
-  border-color: #ff3b5c;
-  color: #ff3b5c;
+  border-color: #FF2A2A;
+  color: #FF2A2A;
   box-shadow: 0 0 12px rgba(255, 59, 92, 0.25);
 }
 
@@ -298,10 +298,10 @@
 }
 
 .gallery_album_pill.active {
-  background: #c10230;
-  border-color: #ff3b5c;
+  background: #FF0000;
+  border-color: #FF2A2A;
   color: #ffffff;
-  box-shadow: 0 4px 18px rgba(193, 2, 48, 0.45);
+  box-shadow: 0 4px 18px rgba(255, 0, 0, 0.45);
 }
 
 .gallery_album_count {
@@ -360,7 +360,7 @@
 
 /* Multi-select bar */
 .gallery_selection_banner {
-  background: linear-gradient(90deg, rgba(193, 2, 48, 0.25) 0%, rgba(25, 25, 25, 0.95) 100%);
+  background: linear-gradient(90deg, rgba(255, 0, 0, 0.25) 0%, rgba(25, 25, 25, 0.95) 100%);
   border: 1px solid rgba(255, 59, 92, 0.35);
   border-radius: 14px;
   padding: 0.75rem 1.25rem;
@@ -423,7 +423,7 @@
   align-items: center;
   justify-content: center;
   gap: 8px;
-  background: linear-gradient(135deg, #c10230 0%, #ff3b5c 100%);
+  background: linear-gradient(135deg, #FF0000 0%, #FF2A2A 100%);
   border: none;
   color: #ffffff;
   padding: 0.6rem 1.3rem;
@@ -462,7 +462,7 @@
 .gallery_reset_filters_btn {
   background: none;
   border: none;
-  color: #ff3b5c;
+  color: #FF2A2A;
   font-size: 0.76rem;
   font-weight: 700;
   cursor: pointer;
@@ -520,8 +520,8 @@
 }
 
 .gallery_card.is-selected {
-  border-color: #ff3b5c;
-  box-shadow: 0 0 0 2px #ff3b5c, 0 12px 35px rgba(255, 59, 92, 0.3);
+  border-color: #FF2A2A;
+  box-shadow: 0 0 0 2px #FF2A2A, 0 12px 35px rgba(255, 59, 92, 0.3);
 }
 
 .gallery_card_media {
@@ -611,7 +611,7 @@
 
 .gallery_card_fav_btn.active {
   background: rgba(255, 59, 92, 0.25);
-  border-color: #ff3b5c;
+  border-color: #FF2A2A;
 }
 
 .gallery_card_checkbox {
@@ -650,7 +650,7 @@
   gap: 5px;
   font-size: 0.7rem;
   font-weight: 700;
-  color: #ff3b5c;
+  color: #FF2A2A;
   letter-spacing: 0.04em;
   margin-bottom: 0.25rem;
   text-transform: uppercase;
@@ -683,7 +683,7 @@
   display: inline-flex;
   align-items: center;
   gap: 5px;
-  background: #c10230;
+  background: #FF0000;
   border: 1px solid rgba(255, 255, 255, 0.2);
   color: #ffffff;
   padding: 0.45rem 0.85rem;
@@ -692,12 +692,12 @@
   font-weight: 800;
   cursor: pointer;
   transition: all 0.2s ease;
-  box-shadow: 0 4px 14px rgba(193, 2, 48, 0.5);
+  box-shadow: 0 4px 14px rgba(255, 0, 0, 0.5);
   font-family: inherit;
 }
 
 .gallery_card_download_btn:hover {
-  background: #ff3b5c;
+  background: #FF2A2A;
   transform: translateY(-1px);
   box-shadow: 0 6px 18px rgba(255, 59, 92, 0.6);
 }
@@ -766,7 +766,7 @@
 }
 
 .gallery_empty_reset_btn {
-  background: #c10230;
+  background: #FF0000;
   border: none;
   color: #ffffff;
   font-size: 0.84rem;
@@ -778,7 +778,7 @@
 }
 
 .gallery_empty_reset_btn:hover {
-  background: #ff3b5c;
+  background: #FF2A2A;
 }
 
 /* =========================================================================
@@ -918,7 +918,7 @@
 }
 
 .gallery_lightbox_divider {
-  color: #ff3b5c;
+  color: #FF2A2A;
   margin: 0 4px;
 }
 
@@ -956,8 +956,8 @@
 }
 
 .gallery_lightbox_close_btn:hover {
-  background: #c10230;
-  border-color: #ff3b5c;
+  background: #FF0000;
+  border-color: #FF2A2A;
   transform: scale(1.1);
 }
 
@@ -982,10 +982,10 @@
 }
 
 .gallery_lightbox_arrow:hover {
-  background: #c10230;
-  border-color: #ff3b5c;
+  background: #FF0000;
+  border-color: #FF2A2A;
   transform: translateY(-50%) scale(1.1);
-  box-shadow: 0 0 20px rgba(193, 2, 48, 0.5);
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
 }
 
 .gallery_lightbox_arrow.prev {
@@ -1091,7 +1091,7 @@
   display: inline-flex;
   align-items: center;
   gap: 4px;
-  color: #ff3b5c;
+  color: #FF2A2A;
   font-weight: 800;
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -1153,8 +1153,8 @@
 
 .gallery_lightbox_action_btn.active {
   background: rgba(255, 59, 92, 0.2);
-  border-color: #ff3b5c;
-  color: #ff3b5c;
+  border-color: #FF2A2A;
+  color: #FF2A2A;
 }
 
 .gallery_lightbox_download_main_btn {
@@ -1162,7 +1162,7 @@
   align-items: center;
   justify-content: center;
   gap: 8px;
-  background: linear-gradient(135deg, #c10230 0%, #ff3b5c 100%);
+  background: linear-gradient(135deg, #FF0000 0%, #FF2A2A 100%);
   border: none;
   color: #ffffff;
   padding: 0.65rem 1.4rem;
@@ -1203,7 +1203,7 @@
   font-size: 0.58rem;
   font-weight: 900;
   color: #ffffff;
-  background: #ff3b5c;
+  background: #FF2A2A;
   padding: 1px 4px;
   border-radius: 6px;
   margin-left: 3px;

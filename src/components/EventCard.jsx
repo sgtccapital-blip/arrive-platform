@@ -119,7 +119,7 @@ export const EventCard = ({ event }) => {
     const shareUrl = `${window.location.origin}/${activeLocale}/events/${event.slug || 'event'}/`;
     const shareData = {
       title: `${event.title} • ${cleanVenueName}`,
-      text: `${event.title} en ${cleanVenueName} | Beneficios y entradas en ARRIVE:`,
+      text: `${event.title} en ${cleanVenueName} | Beneficios y entradas en HANGOUT:`,
       url: shareUrl
     };
     if (navigator.share) {
@@ -239,7 +239,7 @@ export const EventCard = ({ event }) => {
             <div className="event_card_bottom_pinned">
               <div className="perk_badge_red">
                 <span className="perk_icon_wrap">
-                  <Wine size={12} color="#ff3b5c" className="perk_icon" />
+                  <Wine size={12} color="#FF2A2A" className="perk_icon" />
                 </span>
                 <span className="perk_text">
                   {formatPerk(event.perkHeadline, isEs)}
@@ -260,7 +260,7 @@ export const EventCard = ({ event }) => {
           }}
           className="location_tag_link"
         >
-          <MapPin size={11} color="#c10230" style={{ flexShrink: 0 }} />
+          <MapPin size={11} color="#FF0000" style={{ flexShrink: 0 }} />
           <span>{cleanVenueName}, {isEs ? 'PANAMÁ' : 'PANAMA'}</span>
         </a>
       </div>

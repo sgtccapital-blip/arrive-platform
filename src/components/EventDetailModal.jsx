@@ -183,8 +183,8 @@ export const EventDetailModal = () => {
     const shareData = {
       title: `${selectedEvent.title} • ${cleanVenue}`,
       text: isEs
-        ? `${selectedEvent.title} en ${cleanVenue} | Beneficios y entradas en ARRIVE:`
-        : `${selectedEvent.title} at ${cleanVenue} | Perks and tickets on ARRIVE:`,
+        ? `${selectedEvent.title} en ${cleanVenue} | Beneficios y entradas en HANGOUT:`
+        : `${selectedEvent.title} at ${cleanVenue} | Perks and tickets on HANGOUT:`,
       url: shareUrl
     };
     if (navigator.share) {
@@ -353,12 +353,12 @@ export const EventDetailModal = () => {
           </div>
         </section>
 
-        {/* ── ARRIVE BENEFITS (our edge: what you get by entering with Arrive) ── */}
+        {/* ── HANGOUT BENEFITS (our edge: what you get by entering with Hangout) ── */}
         {perks.length > 0 && (
           <section className="evd_section">
             <h2 className="evd_h2">{isEs ? 'BENEFICIOS' : 'BENEFITS'}</h2>
             <p className="evd_h2_sub">
-              {isEs ? 'CORTESÍAS DE LA NOCHE CON TU PASE ARRIVE' : 'COMPLIMENTARY PERKS WITH YOUR ARRIVE PASS'}
+              {isEs ? 'CORTESÍAS DE LA NOCHE CON TU PASE HANGOUT' : 'COMPLIMENTARY PERKS WITH YOUR HANGOUT PASS'}
             </p>
             <ul className="evd_perks">
               {perks.map((perk, idx) => (
@@ -481,9 +481,9 @@ export const EventDetailModal = () => {
           </section>
         )}
 
-        {/* ── READY TO ARRIVE ── */}
+        {/* ── READY TO HANGOUT ── */}
         <section className="evd_section evd_ready">
-          <h2 className="evd_h2">{isEs ? '¿LISTO PARA VIVIR LA NOCHE?' : 'READY TO ARRIVE?'}</h2>
+          <h2 className="evd_h2">{isEs ? '¿LISTO PARA VIVIR LA NOCHE?' : 'READY TO HANGOUT?'}</h2>
           <p className="evd_h2_sub">{isEs ? 'Lista de Invitados • Entradas • Mesas VIP' : 'Guest List • Tickets • VIP Tables'}</p>
           <div className="evd_pillars">
             <div>
