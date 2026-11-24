@@ -4,6 +4,7 @@
 // =========================================================================
 
 import fs from 'fs';
+import { INITIAL_EVENTS } from '../src/data/initialData.js';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
@@ -84,8 +85,7 @@ export const runSeoAudit = () => {
       'es/concierge/index.html',
       'es/venues/furia-club/index.html',
       'es/venues/terraplen-rooftop/index.html',
-      'es/events/furia-midweek-boiler-reggaeton/index.html',
-      'es/events/terraplen-hiphop-reggaeton-party/index.html',
+      ...INITIAL_EVENTS.filter(e => e.indexable !== false && e.slug).slice(0, 2).map(e => `es/events/${e.slug}/index.html`),
       'es/restaurants/furia-club/index.html',
       'es/blog/index.html',
       'es/blog/guia-nightlife-casco-antiguo-panama/index.html',

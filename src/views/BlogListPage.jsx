@@ -1,3 +1,4 @@
+import { editorialCopy } from '../seo/editorial';
 import React, { useState } from 'react';
 import { BLOG_POSTS } from '../data/blogData';
 import { BookOpen, Clock, Calendar, ArrowRight, Sparkles, Search } from 'lucide-react';
@@ -7,8 +8,10 @@ export const BlogListPage = ({ locale = 'es' }) => {
   const [searchQuery, setSearchQuery] = useState('');
 
   const isEs = locale === 'es';
+  const copy = editorialCopy(locale);
 
   const categories = [
+    { key: 'Panama Travel', label: isEs ? 'LUGARES Y RECORRIDOS' : 'PLACES AND ITINERARIES' },
     { key: 'all', label: isEs ? 'TODOS LOS ARTÍCULOS' : 'ALL ARTICLES' },
     { key: 'Nightlife Guide', label: isEs ? 'GUÍAS NIGHTLIFE' : 'NIGHTLIFE GUIDES' },
     { key: 'VIP Experience', label: isEs ? 'EXPERIENCIA VIP' : 'VIP EXPERIENCE' },
@@ -34,7 +37,7 @@ export const BlogListPage = ({ locale = 'es' }) => {
               <div className="hero_title_row">
                 <img 
                   loading="eager" 
-                  fetchpriority="high"
+                  fetchPriority="high"
                   src="/images/heart.gif" 
                   alt="Corazón Arrive Izquierda" 
                   className="heart_title_flame left" 
@@ -42,11 +45,11 @@ export const BlogListPage = ({ locale = 'es' }) => {
                   height="60"
                 />
                 <h1 className="is-center hero_title_text">
-                  {isEs ? 'BLOG & GUÍA VIP PANAMÁ' : 'PANAMA VIP NIGHTLIFE BLOG'}
+                  {copy.blogTitle}
                 </h1>
                 <img 
                   loading="eager" 
-                  fetchpriority="high"
+                  fetchPriority="high"
                   src="/images/heart.gif" 
                   alt="Corazón Arrive Derecha" 
                   className="heart_title_flame right" 
@@ -60,13 +63,13 @@ export const BlogListPage = ({ locale = 'es' }) => {
                 <span className="hero_sub_dot">•</span>
                 <span>{isEs ? '🍸 CONSEJOS VIP' : '🍸 VIP TIPS'}</span>
                 <span className="hero_sub_dot">•</span>
-                <span>{isEs ? '🌆 CASCO ANTIGUO SECRETS' : '🌆 CASCO VIEJO SECRETS'}</span>
+                <span>{isEs ? '🌆 LUGARES REALES' : '🌆 REAL PLACES'}</span>
               </div>
 
               <p className="hero_page_centered_desc">
                 {isEs
-                  ? 'Artículos editoriales, tendencias de moda nocturna, guías de discotecas y secretos de hospitalidad en Ciudad de Panamá.'
-                  : 'Editorial articles, nightlife fashion trends, clubbing guides, and hospitality insights in Panama City.'}
+                  ? copy.blogDescription
+                  : copy.blogDescription}
               </p>
             </div>
           </div>
@@ -113,7 +116,7 @@ export const BlogListPage = ({ locale = 'es' }) => {
                   <div className="blog_card_img_wrap">
                     <img 
                       src={post.coverImage} 
-                      alt={postData.title} 
+                      alt="" width="1200" height="630" 
                       className="blog_card_img"
                       loading="lazy"
                     />
@@ -124,7 +127,7 @@ export const BlogListPage = ({ locale = 'es' }) => {
 
                   <div className="blog_card_body">
                     <div className="blog_card_meta">
-                      <span><Calendar size={12} /> {post.date}</span>
+                      <span><Calendar size={12} /> {post.reviewedAt}</span>
                       <span>•</span>
                       <span><Clock size={12} /> {post.readTime}</span>
                     </div>

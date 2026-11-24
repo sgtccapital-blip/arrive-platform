@@ -1,0 +1,11 @@
+.blog_post_body a, .arrive_directory_page a { color: #ff8499; text-decoration: underline; text-underline-offset: .2em; }
+.blog_post_body h2[id] { scroll-margin-top: 7rem; }
+.blog_post_body ul { padding-left: 1.5rem; line-height: 1.8; margin: 1rem 0 2rem; }
+.blog_post_body li { margin-bottom: .6rem; overflow-wrap: anywhere; }
+.blog_post_body a:focus-visible, .arrive_directory_page a:focus-visible { outline: 2px solid #fff; outline-offset: 4px; }
+.blog_post_cover_img { aspect-ratio: 1200 / 630; }
+.arrive_directory_page header p { line-height: 1.7; max-width: 78ch; margin: 1rem 0; }
+.arrive_directory_page h1 { font-size: clamp(2rem, 5vw, 3.2rem); line-height: 1.2; }
+.arrive_directory_page h2 { margin-bottom: 1.25rem; }
+.arrive_directory_page h3 { font-size: 1.2rem; line-height: 1.5; }
+.arrive_directory_page .blog_card p { margin: 1rem 0; line-height: 1.6; }

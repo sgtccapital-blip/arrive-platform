@@ -9,7 +9,7 @@ export const TRANSLATIONS = {
     buyTickets: { es: 'COMPRAR ENTRADAS', en: 'BUY TICKETS' },
     venues: { es: 'LOCALES', en: 'VENUES' },
     concierge: { es: 'SERVICIOS & CONCIERGE', en: 'SERVICES & CONCIERGE' },
-    bookVip: { es: 'RESERVAR VIP', en: 'BOOK VIP' },
+    bookVip: { es: 'RESERVA VIP', en: 'VIP RESERVATION' },
     menuAria: { es: 'Abrir menú principal', en: 'Open main navigation menu' },
     homeAria: { es: 'Ir al inicio de ARRIVE Panamá', en: 'Go to ARRIVE Panama homepage' }
   },
@@ -51,7 +51,7 @@ export const TRANSLATIONS = {
     blogDesc: { es: 'Artículos, Nightlife Panamá & Consejos VIP', en: 'Articles, Panama Nightlife & VIP Tips' },
     explorePanama: { es: 'EXPLORAR PANAMÁ', en: 'EXPLORE PANAMA' },
     exploreDesc: { es: 'Directorio Completo de Rooftops, Clubs & Guías', en: 'Complete Directory of Rooftops, Clubs & Guides' },
-    bookVipZone: { es: 'RESERVAR ZONA VIP', en: 'BOOK VIP ZONE' },
+    bookVipZone: { es: 'RESERVA VIP', en: 'VIP RESERVATION' },
     vipDesc: { es: 'Mesas Exclusivas & Bottle Service VIP', en: 'Exclusive Tables & VIP Bottle Service' },
     whatsappVip: { es: 'WHATSAPP VIP 24/7', en: 'WHATSAPP VIP 24/7' },
     closeAria: { es: 'Cerrar menú', en: 'Close menu' }
@@ -68,14 +68,15 @@ export const TRANSLATIONS = {
   filter: {
     allEvents: { es: 'TODOS LOS EVENTOS', en: 'ALL EVENTS' },
     allDaysLabel: { es: 'TODOS LOS DÍAS', en: 'ALL DAYS' },
-    allDaysRange: { es: 'TODOS LOS DÍAS (15 - 18 SEP)', en: 'ALL DAYS (SEP 15 - 18)' },
-    allDaysSub: { es: 'Semana 15 - 18 Sep', en: 'Week of Sep 15 - 18' },
-    allEventsNote: { es: 'Todos los eventos', en: 'All events' },
+    allDaysRange: { es: 'TODOS LOS DÍAS (25 - 29 NOV)', en: 'ALL DAYS (NOV 25 - 29)' },
+    allDaysSub: { es: 'Semana 25 - 29 Nov', en: 'Week of Nov 25 - 29' },
+    allEventsNote: { es: 'Cartelera completa', en: 'All events' },
     days: {
-      martes: { es: 'MARTES 15 SEP', en: 'TUESDAY SEP 15' },
-      miercoles: { es: 'MIÉRCOLES 16 SEP', en: 'WEDNESDAY SEP 16' },
-      jueves: { es: 'JUEVES 17 SEP', en: 'THURSDAY SEP 17' },
-      viernes: { es: 'VIERNES 18 SEP', en: 'FRIDAY SEP 18' }
+      miercoles: { es: 'MIÉRCOLES 25 NOV', en: 'WEDNESDAY NOV 25' },
+      jueves: { es: 'JUEVES 26 NOV', en: 'THURSDAY NOV 26' },
+      viernes: { es: 'VIERNES 27 NOV', en: 'FRIDAY NOV 27' },
+      sabado: { es: 'SÁBADO 28 NOV', en: 'SATURDAY NOV 28' },
+      domingo: { es: 'DOMINGO 29 NOV', en: 'SUNDAY NOV 29' }
     },
     noEventsFoundTitle: { es: 'No se encontraron eventos para este filtro', en: 'No events found for this filter' },
     noEventsFoundDesc: {
@@ -91,7 +92,7 @@ export const TRANSLATIONS = {
     party: { es: 'FIESTA:', en: 'PARTY:' },
     lineup: { es: 'LINEUP:', en: 'LINEUP:' },
     ticketsQr: { es: 'ENTRADAS / QR', en: 'TICKETS / QR' },
-    bookVipZone: { es: 'RESERVAR ZONA VIP', en: 'BOOK VIP ZONE' },
+    bookVipZone: { es: 'RESERVA VIP', en: 'VIP RESERVATION' },
     consumableText: { es: '100% CANJEABLE EN CONSUMO', en: '100% REDEEMABLE IN FOOD & DRINKS' },
     venuePhotos: { es: 'FOTOS DEL VENUE', en: 'VENUE PHOTOS' },
     photosCount: { es: 'fotos', en: 'photos' },
@@ -138,7 +139,7 @@ export const TRANSLATIONS = {
     venueGallery: { es: 'Galería del Local', en: 'Venue Gallery' },
     liveDjs: { es: 'DJs & Artistas en Vivo', en: 'Live DJs & Artists' },
     getFreePass: { es: 'OBTENER PASE GRATUITO', en: 'GET COMPLIMENTARY PASS' },
-    bookVipTable: { es: 'RESERVAR MESA VIP', en: 'BOOK VIP TABLE' },
+    bookVipTable: { es: 'RESERVA VIP', en: 'VIP RESERVATION' },
     freePassSubtitle: {
       es: 'Incluye Open Bar cortesía para ellas hasta las 11:30 PM',
       en: 'Includes ladies complimentary open bar until 11:30 PM'

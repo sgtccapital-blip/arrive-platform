@@ -692,10 +692,15 @@ body, .body, .main-wrapper {
   }
 
   .para_24px.is_caps.name {
-    font-size: 0.95rem !important;
-    line-height: 1.28 !important;
-    min-height: auto !important;
-    margin: 0.35rem 0 !important;
+    font-size: clamp(0.72rem, 3.2vw, 0.92rem) !important;
+    line-height: 1.2 !important;
+    height: 1.35rem !important;
+    min-height: 1.35rem !important;
+    max-height: 1.35rem !important;
+    margin: 0.2rem 0 !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
   }
 
   .schedule_label {
@@ -707,28 +712,46 @@ body, .body, .main-wrapper {
   }
 
   .para_16px.lineup {
-    font-size: 0.74rem !important;
+    font-size: clamp(0.58rem, 2.2vw, 0.70rem) !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    height: 1.1rem !important;
+    min-height: 1.1rem !important;
   }
 
   .perk_badge_red {
-    padding: 5px 10px !important;
-    font-size: 0.72rem !important;
+    padding: 4px 8px !important;
+    font-size: clamp(0.58rem, 2.2vw, 0.68rem) !important;
+    height: 26px !important;
+    min-height: 26px !important;
   }
 
   .perk_text {
-    font-size: 0.70rem !important;
+    font-size: clamp(0.58rem, 2.1vw, 0.68rem) !important;
     font-weight: 800 !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
   }
 
   .general {
-    height: 44px !important;
-    font-size: 0.78rem !important;
+    height: 38px !important;
+    min-height: 38px !important;
+    max-height: 38px !important;
+    font-size: clamp(0.62rem, 2.5vw, 0.74rem) !important;
     font-weight: 800 !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
   }
 
   .red_button {
-    height: 46px !important;
-    min-height: 46px !important;
+    height: 42px !important;
+    min-height: 42px !important;
+    max-height: 42px !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
   }
 
   .section_home_events {
@@ -848,18 +871,27 @@ body, .body, .main-wrapper {
 }
 
 .para_24px.is_caps.name {
-  font-size: 0.88rem !important;
+  font-size: clamp(0.72rem, 3vw, 0.92rem) !important;
   font-weight: 800 !important;
   line-height: 1.25 !important;
   text-transform: uppercase !important;
   letter-spacing: 0.02em !important;
   color: #ffffff !important;
   margin: 0.2rem 0 !important;
-  min-height: 2.2rem !important;
-  display: -webkit-box !important;
-  -webkit-line-clamp: 2 !important;
-  -webkit-box-orient: vertical !important;
+  height: 1.35rem !important;
+  min-height: 1.35rem !important;
+  max-height: 1.35rem !important;
+  display: block !important;
+  white-space: nowrap !important;
   overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
+
+.para_24px.is_caps.name a {
+  display: block !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
 }
 
 /* Two Schedules: Dinner and Party */
@@ -1155,23 +1187,27 @@ body, .body, .main-wrapper {
 /* Courtesy Benefit Badge in Brand RED */
 .perk_badge_red {
   display: flex !important;
-  align-items: flex-start !important;
-  gap: 7px !important;
+  align-items: center !important;
+  gap: 6px !important;
   background: linear-gradient(135deg, rgba(193, 2, 48, 0.22) 0%, rgba(193, 2, 48, 0.08) 100%) !important;
   border: 1px solid rgba(193, 2, 48, 0.45) !important;
   color: #ffffff !important;
-  font-size: 0.64rem !important;
+  font-size: clamp(0.56rem, 2vw, 0.64rem) !important;
   font-weight: 700 !important;
   letter-spacing: 0.025em !important;
-  line-height: 1.3 !important;
+  line-height: 1.2 !important;
   text-transform: uppercase !important;
-  padding: 5px 8px !important;
+  padding: 4px 8px !important;
   border-radius: 6px !important;
   margin: 0.35rem 0 0 0 !important;
   width: 100% !important;
+  height: 26px !important;
+  min-height: 26px !important;
   box-sizing: border-box !important;
   box-shadow: 0 0 10px rgba(193, 2, 48, 0.15) !important;
   transition: all 0.2s ease !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
 }
 
 .perk_badge_red .perk_icon_wrap {
@@ -1179,7 +1215,6 @@ body, .body, .main-wrapper {
   align-items: center !important;
   justify-content: center !important;
   flex-shrink: 0 !important;
-  margin-top: 1.5px !important;
 }
 
 .perk_badge_red .perk_icon {
@@ -1188,10 +1223,10 @@ body, .body, .main-wrapper {
 
 .perk_badge_red .perk_text {
   flex: 1 !important;
-  white-space: normal;
-  word-break: normal;
-  overflow-wrap: break-word !important;
-  line-height: 1.3 !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  line-height: 1.2 !important;
 }
 
 .perk_badge_red:hover {
@@ -1296,10 +1331,10 @@ body, .body, .main-wrapper {
 /* Buy Tickets / QR Pill Button (Compact Height) */
 .general {
   width: 100% !important;
-  height: 35px !important;
-  min-height: 35px !important;
-  max-height: 35px !important;
-  padding: 0 1rem !important;
+  height: 38px !important;
+  min-height: 38px !important;
+  max-height: 38px !important;
+  padding: 0 0.75rem !important;
   margin: 0 !important;
   color: #ffffff !important;
   border: 1px solid rgba(255, 255, 255, 0.2) !important;
@@ -1308,17 +1343,26 @@ body, .body, .main-wrapper {
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
-  gap: 0.4rem !important;
+  gap: 0.35rem !important;
   text-decoration: none !important;
   font-family: 'Montserrat', sans-serif !important;
-  font-size: 0.70rem !important;
+  font-size: clamp(0.62rem, 2.5vw, 0.74rem) !important;
   font-weight: 700 !important;
   letter-spacing: 0.05em !important;
   text-transform: uppercase !important;
   line-height: 1 !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
   transition: all 0.25s ease !important;
   box-sizing: border-box !important;
   cursor: pointer;
+}
+
+.general span {
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
 }
 
 .general:hover {
@@ -1337,11 +1381,12 @@ body, .body, .main-wrapper {
 }
 
 /* Book VIP Zone Pill Button (Adjusted Height & Margins identical to Tickets) */
-
 .red_button {
   width: 100% !important;
-  min-height: 38px !important;
-  padding: 0.35rem 1rem !important;
+  height: 42px !important;
+  min-height: 42px !important;
+  max-height: 42px !important;
+  padding: 0.35rem 0.75rem !important;
   margin: 0 !important;
   background: #c10230 !important;
   color: #ffffff !important;
@@ -1357,6 +1402,8 @@ body, .body, .main-wrapper {
   transition: all 0.25s ease !important;
   box-sizing: border-box !important;
   cursor: pointer;
+  white-space: nowrap !important;
+  overflow: hidden !important;
 }
 
 .red_button:hover {
@@ -1370,28 +1417,38 @@ body, .body, .main-wrapper {
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
-  gap: 0.5rem !important;
-  font-size: 0.70rem !important;
+  gap: 0.35rem !important;
+  font-size: clamp(0.64rem, 2.6vw, 0.78rem) !important;
   font-weight: 800 !important;
   letter-spacing: 0.05em !important;
   text-transform: uppercase !important;
-  line-height: 1.15 !important;
+  line-height: 1 !important;
   width: 100% !important;
   text-align: center !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
+
+.red_flex span {
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
 }
 
 .vip_champagne_emoji {
-  font-size: 0.78rem !important;
+  font-size: 0.76rem !important;
   line-height: 1 !important;
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
+  flex-shrink: 0 !important;
   filter: drop-shadow(0 0 4px rgba(255, 215, 0, 0.25));
 }
 
 .red_button .para_12px {
   margin: 2px 0 0 0 !important;
-  font-size: 0.55rem !important;
+  font-size: clamp(0.48rem, 1.8vw, 0.58rem) !important;
   font-weight: 700 !important;
   letter-spacing: 0.04em !important;
   opacity: 0.95 !important;
@@ -1399,6 +1456,9 @@ body, .body, .main-wrapper {
   line-height: 1 !important;
   text-align: center !important;
   width: 100% !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
 }
 
 /* =========================================================================
@@ -6710,6 +6770,30 @@ body, .body, .main-wrapper {
   }
 
   /* Adjust Venue page mobile sticky bar offset if bottom nav is active */
+}
+
+/* =========================================================================
+   STRICT RULE: Single-line buttons & titles with fluid scaling (No wrapping)
+   ========================================================================= */
+.evd_cta,
+.evd_cta_main,
+.evd_cta_sub,
+.evd_sticky_vip,
+.evd_sticky_ticket,
+.evd_title,
+.para_24px.is_caps.name,
+.hero_title_text,
+.event_card_date,
+.perk_text {
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
+
+.evd_cta *,
+.evd_sticky_vip *,
+.evd_sticky_ticket * {
+  white-space: nowrap !important;
 }
 
 

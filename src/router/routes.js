@@ -3,7 +3,8 @@
 // Centralized mapping of all semantic URLs in the platform
 // =========================================================================
 
-import { SEO_CATEGORY_HUBS } from '../data/seoModels';
+import { SEO_CATEGORY_HUBS, toSlug } from '../data/seoModels.js';
+import { BLOG_POSTS } from '../data/blogData.js';
 
 /**
  * Parses a raw URL pathname into structured route parameters
@@ -25,6 +26,8 @@ export const parseRoute = (pathname = '/') => {
   }
 
   const normalizedPath = `/${cleanSegments.join('/')}${cleanSegments.length ? '/' : ''}`;
+  const notFound = {type:'not_found',locale,path,canonicalPath:path,params:{}};
+  if (cleanSegments[0] === 'blog' && cleanSegments.length > 2) return notFound;
 
   // 1. Root / Home
   if (cleanSegments.length === 0) {
@@ -45,7 +48,7 @@ export const parseRoute = (pathname = '/') => {
       type: 'event',
       locale,
       path,
-      canonicalPath: `/${locale}/panama/events/${eventSlug}/`,
+      canonicalPath: `/${locale}/events/${eventSlug}/`,
       params: { eventSlug }
     };
   }
@@ -193,6 +196,7 @@ export const parseRoute = (pathname = '/') => {
     // Casco Viejo sub-hub: /panama/casco-viejo/:category/
     if (cleanSegments[1] === 'casco-viejo' && cleanSegments[2]) {
       const hubKey = `casco-viejo-${cleanSegments[2]}`;
+      if (!SEO_CATEGORY_HUBS[hubKey] || cleanSegments.length > 3) return notFound;
       return {
         type: 'hub',
         hubKey,
@@ -212,7 +216,7 @@ export const parseRoute = (pathname = '/') => {
         hubKey,
         locale,
         path,
-        canonicalPath: `/${locale}/panama/events/${cleanSegments[2]}/`,
+        canonicalPath: `/${locale}/panama/events/${filter}/`,
         params: { temporalFilter: cleanSegments[2] }
       };
     }
@@ -222,6 +226,7 @@ export const parseRoute = (pathname = '/') => {
       let cat = cleanSegments[1];
       if (cat === 'casco-viejo') cat = 'casco-antiguo';
       const hubKey = `panama-${cat}`;
+      if (!SEO_CATEGORY_HUBS[hubKey] || cleanSegments.length > 2) return notFound;
       return {
         type: 'hub',
         hubKey,
@@ -233,13 +238,9 @@ export const parseRoute = (pathname = '/') => {
     }
   }
 
-  // Fallback: Default to home with current locale
+  // Unknown URLs are not home pages.
   return {
-    type: 'home',
-    locale,
-    path: `/${locale}/`,
-    canonicalPath: `/${locale}/`,
-    params: {}
+    type: 'not_found', locale, path, canonicalPath: path, params: {}
   };
 };
 
@@ -279,17 +280,13 @@ export const getAllCanonicalRoutes = (events = [], venues = []) => {
 
     // 6. Blog & Guides
     routes.push({ path: `/${loc}/blog/`, priority: 0.85, changefreq: 'weekly' });
-    routes.push({ path: `/${loc}/blog/guia-nightlife-casco-antiguo-panama/`, priority: 0.8, changefreq: 'monthly' });
-    routes.push({ path: `/${loc}/blog/como-reservar-mesa-vip-bottle-service-panama/`, priority: 0.8, changefreq: 'monthly' });
-    routes.push({ path: `/${loc}/blog/mejores-rooftops-vista-al-mar-panama/`, priority: 0.8, changefreq: 'monthly' });
-    routes.push({ path: `/${loc}/blog/dress-code-discotecas-clubs-panama/`, priority: 0.8, changefreq: 'monthly' });
+    BLOG_POSTS.forEach(post => routes.push({path: `/${loc}/blog/${post.slug}/`, priority: 0.8, changefreq: 'monthly'}));
 
     // 6.1 Gallery & Girls High-Res Photos
     routes.push({ path: `/${loc}/galeria/`, priority: 0.85, changefreq: 'weekly' });
 
     // 7. Directory & Legal Pages
     routes.push({ path: `/${loc}/explore/`, priority: 0.85, changefreq: 'weekly' });
-    routes.push({ path: `/${loc}/directorio/`, priority: 0.85, changefreq: 'weekly' });
     routes.push({ path: `/${loc}/cookies/`, priority: 0.5, changefreq: 'yearly' });
     routes.push({ path: `/${loc}/privacy/`, priority: 0.5, changefreq: 'yearly' });
     routes.push({ path: `/${loc}/terms-and-conditions/`, priority: 0.5, changefreq: 'yearly' });

@@ -1,12 +1,6 @@
 {
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
-  "rewrites": [
-    {
-      "source": "/(.*)",
-      "destination": "/index.html"
-    }
-  ],
   "headers": [
     {
       "source": "/assets/(.*)",
@@ -25,6 +19,414 @@
           "value": "public, max-age=86400, stale-while-revalidate=604800"
         }
       ]
+    }
+  ],
+  "trailingSlash": true,
+  "redirects": [
+    {
+      "source": "/",
+      "destination": "/es/",
+      "permanent": true
+    },
+    {
+      "source": "/es/directorio/",
+      "destination": "/es/explore/",
+      "permanent": true
+    },
+    {
+      "source": "/es/directory/",
+      "destination": "/es/explore/",
+      "permanent": true
+    },
+    {
+      "source": "/es/explore-panama/",
+      "destination": "/es/explore/",
+      "permanent": true
+    },
+    {
+      "source": "/es/explora/",
+      "destination": "/es/explore/",
+      "permanent": true
+    },
+    {
+      "source": "/es/explora-panama/",
+      "destination": "/es/explore/",
+      "permanent": true
+    },
+    {
+      "source": "/es/venues/",
+      "destination": "/es/panama/venues/",
+      "permanent": true
+    },
+    {
+      "source": "/es/concierge/",
+      "destination": "/es/panama/concierge/",
+      "permanent": true
+    },
+    {
+      "source": "/es/panama/events/this-weekend/",
+      "destination": "/es/panama/events/weekend/",
+      "permanent": true
+    },
+    {
+      "source": "/es/panama/casco-viejo/",
+      "destination": "/es/panama/casco-antiguo/",
+      "permanent": true
+    },
+    {
+      "source": "/en/directorio/",
+      "destination": "/en/explore/",
+      "permanent": true
+    },
+    {
+      "source": "/en/directory/",
+      "destination": "/en/explore/",
+      "permanent": true
+    },
+    {
+      "source": "/en/explore-panama/",
+      "destination": "/en/explore/",
+      "permanent": true
+    },
+    {
+      "source": "/en/explora/",
+      "destination": "/en/explore/",
+      "permanent": true
+    },
+    {
+      "source": "/en/explora-panama/",
+      "destination": "/en/explore/",
+      "permanent": true
+    },
+    {
+      "source": "/en/venues/",
+      "destination": "/en/panama/venues/",
+      "permanent": true
+    },
+    {
+      "source": "/en/concierge/",
+      "destination": "/en/panama/concierge/",
+      "permanent": true
+    },
+    {
+      "source": "/en/panama/events/this-weekend/",
+      "destination": "/en/panama/events/weekend/",
+      "permanent": true
+    },
+    {
+      "source": "/en/panama/casco-viejo/",
+      "destination": "/en/panama/casco-antiguo/",
+      "permanent": true
+    },
+    {
+      "source": "/es/venues/primavera-rooftop/",
+      "destination": "/es/venues/primavera-panama/",
+      "permanent": true
+    },
+    {
+      "source": "/es/panama/casco-viejo/clubs/",
+      "destination": "/es/panama/casco-viejo/nightlife/",
+      "permanent": true
+    },
+    {
+      "source": "/es/panama/casco-viejo/restaurants/",
+      "destination": "/es/blog/guia-nightlife-casco-antiguo-panama/",
+      "permanent": true
+    },
+    {
+      "source": "/es/panama/events/tomorrow/",
+      "destination": "/es/panama/events/",
+      "permanent": true
+    },
+    {
+      "source": "/es/gallery/",
+      "destination": "/es/galeria/",
+      "permanent": true
+    },
+    {
+      "source": "/es/photos/",
+      "destination": "/es/galeria/",
+      "permanent": true
+    },
+    {
+      "source": "/es/fotos/",
+      "destination": "/es/galeria/",
+      "permanent": true
+    },
+    {
+      "source": "/es/fotos-chicas/",
+      "destination": "/es/galeria/",
+      "permanent": true
+    },
+    {
+      "source": "/es/girls-photos/",
+      "destination": "/es/galeria/",
+      "permanent": true
+    },
+    {
+      "source": "/es/privacidad/",
+      "destination": "/es/privacy/",
+      "permanent": true
+    },
+    {
+      "source": "/es/terms/",
+      "destination": "/es/terms-and-conditions/",
+      "permanent": true
+    },
+    {
+      "source": "/es/terminos/",
+      "destination": "/es/terms-and-conditions/",
+      "permanent": true
+    },
+    {
+      "source": "/es/terminos-y-condiciones/",
+      "destination": "/es/terms-and-conditions/",
+      "permanent": true
+    },
+    {
+      "source": "/es/contact/",
+      "destination": "/es/contact-us/",
+      "permanent": true
+    },
+    {
+      "source": "/es/contacto/",
+      "destination": "/es/contact-us/",
+      "permanent": true
+    },
+    {
+      "source": "/es/locations/",
+      "destination": "/es/contact-us/",
+      "permanent": true
+    },
+    {
+      "source": "/es/jobs/",
+      "destination": "/es/work-with-us/",
+      "permanent": true
+    },
+    {
+      "source": "/es/trabaja-con-nosotros/",
+      "destination": "/es/work-with-us/",
+      "permanent": true
+    },
+    {
+      "source": "/es/canal-etico/",
+      "destination": "/es/whistleblowing/",
+      "permanent": true
+    },
+    {
+      "source": "/es/prensa/",
+      "destination": "/es/press/",
+      "permanent": true
+    },
+    {
+      "source": "/en/venues/primavera-rooftop/",
+      "destination": "/en/venues/primavera-panama/",
+      "permanent": true
+    },
+    {
+      "source": "/en/panama/casco-viejo/clubs/",
+      "destination": "/en/panama/casco-viejo/nightlife/",
+      "permanent": true
+    },
+    {
+      "source": "/en/panama/casco-viejo/restaurants/",
+      "destination": "/en/blog/guia-nightlife-casco-antiguo-panama/",
+      "permanent": true
+    },
+    {
+      "source": "/en/panama/events/tomorrow/",
+      "destination": "/en/panama/events/",
+      "permanent": true
+    },
+    {
+      "source": "/en/gallery/",
+      "destination": "/en/galeria/",
+      "permanent": true
+    },
+    {
+      "source": "/en/photos/",
+      "destination": "/en/galeria/",
+      "permanent": true
+    },
+    {
+      "source": "/en/fotos/",
+      "destination": "/en/galeria/",
+      "permanent": true
+    },
+    {
+      "source": "/en/fotos-chicas/",
+      "destination": "/en/galeria/",
+      "permanent": true
+    },
+    {
+      "source": "/en/girls-photos/",
+      "destination": "/en/galeria/",
+      "permanent": true
+    },
+    {
+      "source": "/en/privacidad/",
+      "destination": "/en/privacy/",
+      "permanent": true
+    },
+    {
+      "source": "/en/terms/",
+      "destination": "/en/terms-and-conditions/",
+      "permanent": true
+    },
+    {
+      "source": "/en/terminos/",
+      "destination": "/en/terms-and-conditions/",
+      "permanent": true
+    },
+    {
+      "source": "/en/terminos-y-condiciones/",
+      "destination": "/en/terms-and-conditions/",
+      "permanent": true
+    },
+    {
+      "source": "/en/contact/",
+      "destination": "/en/contact-us/",
+      "permanent": true
+    },
+    {
+      "source": "/en/contacto/",
+      "destination": "/en/contact-us/",
+      "permanent": true
+    },
+    {
+      "source": "/en/locations/",
+      "destination": "/en/contact-us/",
+      "permanent": true
+    },
+    {
+      "source": "/en/jobs/",
+      "destination": "/en/work-with-us/",
+      "permanent": true
+    },
+    {
+      "source": "/en/trabaja-con-nosotros/",
+      "destination": "/en/work-with-us/",
+      "permanent": true
+    },
+    {
+      "source": "/en/canal-etico/",
+      "destination": "/en/whistleblowing/",
+      "permanent": true
+    },
+    {
+      "source": "/en/prensa/",
+      "destination": "/en/press/",
+      "permanent": true
+    },
+    {
+      "source": "/es/events/furia-midweek-party-host-jorkan-miercoles-24-de-noviembre/",
+      "destination": "/es/events/furia-midweek-party-host-jorkan-miercoles-25-de-noviembre/",
+      "permanent": true
+    },
+    {
+      "source": "/en/events/furia-midweek-party-host-jorkan-miercoles-24-de-noviembre/",
+      "destination": "/en/events/furia-midweek-party-host-jorkan-miercoles-25-de-noviembre/",
+      "permanent": true
+    },
+    {
+      "source": "/es/events/furia-mansin-reggaeton-reggaeton-y-plena-sbado-28-de-noviembre/",
+      "destination": "/es/events/furia-mansion-reggaeton-y-plena-sabado-28-de-noviembre/",
+      "permanent": true
+    },
+    {
+      "source": "/en/events/furia-mansin-reggaeton-reggaeton-y-plena-sbado-28-de-noviembre/",
+      "destination": "/en/events/furia-mansion-reggaeton-y-plena-sabado-28-de-noviembre/",
+      "permanent": true
+    },
+    {
+      "source": "/es/events/miercoles-25-de-noviembre-terrapln-rooftop-ladies-first-dj-joseph/",
+      "destination": "/es/events/terraplen-rooftop-ladies-first-dj-joseph-miercoles-25-de-noviembre/",
+      "permanent": true
+    },
+    {
+      "source": "/en/events/miercoles-25-de-noviembre-terrapln-rooftop-ladies-first-dj-joseph/",
+      "destination": "/en/events/terraplen-rooftop-ladies-first-dj-joseph-miercoles-25-de-noviembre/",
+      "permanent": true
+    },
+    {
+      "source": "/es/events/jueves-26-de-noviembre-terrapln-rooftop-thanksgiving-party/",
+      "destination": "/es/events/terraplen-rooftop-thanksgiving-party-jueves-26-de-noviembre/",
+      "permanent": true
+    },
+    {
+      "source": "/en/events/jueves-26-de-noviembre-terrapln-rooftop-thanksgiving-party/",
+      "destination": "/en/events/terraplen-rooftop-thanksgiving-party-jueves-26-de-noviembre/",
+      "permanent": true
+    },
+    {
+      "source": "/es/events/viernes-27-de-noviembre-terrapln-rooftop-/",
+      "destination": "/es/events/terraplen-rooftop-rnb-reggaeton-viejito-viernes-27-de-noviembre/",
+      "permanent": true
+    },
+    {
+      "source": "/en/events/viernes-27-de-noviembre-terrapln-rooftop-/",
+      "destination": "/en/events/terraplen-rooftop-rnb-reggaeton-viejito-viernes-27-de-noviembre/",
+      "permanent": true
+    },
+    {
+      "source": "/es/events/viernes-27-de-noviembre-terrapln-piso-002-red-room-versus-party-dj-irviing-dj-jospeh/",
+      "destination": "/es/events/terraplen-piso-002-red-room-versus-viernes-27-de-noviembre/",
+      "permanent": true
+    },
+    {
+      "source": "/en/events/viernes-27-de-noviembre-terrapln-piso-002-red-room-versus-party-dj-irviing-dj-jospeh/",
+      "destination": "/en/events/terraplen-piso-002-red-room-versus-viernes-27-de-noviembre/",
+      "permanent": true
+    },
+    {
+      "source": "/es/events/sabado-28-de-noviembre-terrapln-piso-002-los-2000s-reggaeton-glam-edition-vol2-baila-reggaeton/",
+      "destination": "/es/events/terraplen-piso-002-los-2000s-glam-sabado-28-de-noviembre/",
+      "permanent": true
+    },
+    {
+      "source": "/en/events/sabado-28-de-noviembre-terrapln-piso-002-los-2000s-reggaeton-glam-edition-vol2-baila-reggaeton/",
+      "destination": "/en/events/terraplen-piso-002-los-2000s-glam-sabado-28-de-noviembre/",
+      "permanent": true
+    },
+    {
+      "source": "/es/events/domingo-29-de-noviembre-terrapln-rooftop-casco-peatonal-/",
+      "destination": "/es/events/terraplen-casco-peatonal-domingo-29-de-noviembre/",
+      "permanent": true
+    },
+    {
+      "source": "/en/events/domingo-29-de-noviembre-terrapln-rooftop-casco-peatonal-/",
+      "destination": "/en/events/terraplen-casco-peatonal-domingo-29-de-noviembre/",
+      "permanent": true
+    },
+    {
+      "source": "/es/events/mircoles-25-re-set-en-piano-bar/",
+      "destination": "/es/events/piano-bar-re-set-miercoles-25-de-noviembre/",
+      "permanent": true
+    },
+    {
+      "source": "/en/events/mircoles-25-re-set-en-piano-bar/",
+      "destination": "/en/events/piano-bar-re-set-miercoles-25-de-noviembre/",
+      "permanent": true
+    },
+    {
+      "source": "/es/events/jueves-26-de-noviembre-desahogo-night-friendsgiving-edition-en-piano-bar/",
+      "destination": "/es/events/piano-bar-desahogo-night-jueves-26-de-noviembre/",
+      "permanent": true
+    },
+    {
+      "source": "/en/events/jueves-26-de-noviembre-desahogo-night-friendsgiving-edition-en-piano-bar/",
+      "destination": "/en/events/piano-bar-desahogo-night-jueves-26-de-noviembre/",
+      "permanent": true
+    },
+    {
+      "source": "/es/events/viernes-27-de-noviembre-reggaeton-viejito-party-en-piano-bar/",
+      "destination": "/es/events/piano-bar-reggaeton-viejito-viernes-27-de-noviembre/",
+      "permanent": true
+    },
+    {
+      "source": "/en/events/viernes-27-de-noviembre-reggaeton-viejito-party-en-piano-bar/",
+      "destination": "/en/events/piano-bar-reggaeton-viejito-viernes-27-de-noviembre/",
+      "permanent": true
     }
   ]
 }

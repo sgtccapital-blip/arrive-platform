@@ -15,3 +15,5 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     </AppProvider>
   </React.StrictMode>
 );
+
+import './styles/editorial.css';

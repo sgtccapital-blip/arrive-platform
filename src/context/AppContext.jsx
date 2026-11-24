@@ -4,7 +4,7 @@ import { INITIAL_VENUES } from '../data/venuesData';
 import { t as translateHelper } from '../data/translations';
 
 const AppContext = createContext();
-const DATA_VERSION = "arrive_v21_nov_official_catalog";
+const DATA_VERSION = "arrive_v25_29_nov_official_catalog";
 
 export const AppProvider = ({ children }) => {
   // Load saved state or fall back to initialData with versioning

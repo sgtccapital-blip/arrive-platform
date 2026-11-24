@@ -69,6 +69,7 @@ export const EventDetailModal = () => {
     setSelectedVipEvent,
     setIsBookVipModalOpen,
     venues,
+    events,
     locale,
     showToast
   } = useApp();
@@ -228,13 +229,30 @@ export const EventDetailModal = () => {
   const VipCta = ({ className = '' }) => (
     <button type="button" className={`evd_cta evd_cta_red ${className}`} onClick={handleOpenVipModal}>
       <span className="evd_cta_main">
-        <Crown size={15} />
-        <span>{isEs ? 'RESERVAR ZONA VIP' : 'BOOK VIP ZONE'}</span>
+        <Crown size={14} style={{ flexShrink: 0 }} />
+        <span>{isEs ? 'RESERVA VIP' : 'VIP RESERVATION'}</span>
         {ev.vipPrice > 0 && <strong>{isEs ? 'DESDE' : 'FROM'} {currency}{ev.vipPrice}</strong>}
       </span>
       <span className="evd_cta_sub">{isEs ? '100% CANJEABLE EN CONSUMO' : 'FULLY REDEEMABLE'}</span>
     </button>
   );
+
+  // More events: same venue first, then the rest of the cartelera (internal links for SEO + discovery)
+  const relatedEvents = (() => {
+    const others = (events || []).filter((o) => o.id !== ev.id && o.slug);
+    const sameVenue = others.filter((o) => o.venueSlug && o.venueSlug === ev.venueSlug);
+    const rest = others.filter((o) => !sameVenue.includes(o));
+    return [...sameVenue, ...rest].slice(0, 6);
+  })();
+
+  const openRelated = (e, o) => {
+    if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return;
+    e.preventDefault();
+    window.history.pushState(null, '', `/${locale || 'es'}/events/${o.slug}/`);
+    window.dispatchEvent(new PopStateEvent('popstate'));
+    setSelectedEvent(o);
+    pageRef.current?.scrollTo({ top: 0 });
+  };
 
   return (
     <div className="evd_overlay" onClick={handleClose}>
@@ -272,17 +290,20 @@ export const EventDetailModal = () => {
           </div>
         </div>
 
-        {/* ── HERO: flyer + key info ── */}
-        <section className="evd_hero">
+        {/* ── LAYOUT: square flyer (fixed left on desktop) + scrolling content ── */}
+        <div className="evd_layout">
           <div className="evd_flyer_col">
             <div className="evd_flyer">
               <img src={ev.image} alt={ev.imageAlt || ev.title} fetchpriority="high" />
             </div>
           </div>
 
+          <div className="evd_main">
+          <section className="evd_hero">
+
           <div className="evd_info_col">
             <div className="evd_eyebrow">
-              {ev.dayOfWeek?.toUpperCase()} • {cleanVenue} • PANAMA CITY
+              {ev.dayOfWeek?.toUpperCase()} • {cleanVenue} • {isEs ? 'CIUDAD DE PANAMÁ' : 'PANAMA CITY'}
             </div>
             <h1 className="evd_title">{ev.title}</h1>
             <p className="evd_datetime">
@@ -318,7 +339,7 @@ export const EventDetailModal = () => {
                   </span>
                 )}
                 {isAfterParty && (
-                  <span className="evd_badge evd_badge_amber">🔥 AFTER PARTY HASTA LAS 8:00 AM</span>
+                  <span className="evd_badge evd_badge_amber">🔥 {isEs ? 'AFTER PARTY HASTA LAS 8:00 AM' : 'AFTER PARTY UNTIL 8:00 AM'}</span>
                 )}
               </div>
             )}
@@ -438,17 +459,39 @@ export const EventDetailModal = () => {
           </div>
         </section>
 
+        {/* ── MORE EVENTS ── */}
+        {relatedEvents.length > 0 && (
+          <section className="evd_section">
+            <h2 className="evd_h2">{isEs ? 'MÁS EVENTOS' : 'MORE EVENTS'}</h2>
+            <p className="evd_h2_sub">{isEs ? `ESTA SEMANA EN ${cleanVenue?.toUpperCase()} Y MÁS` : `THIS WEEK AT ${cleanVenue?.toUpperCase()} AND MORE`}</p>
+            <ul className="evd_related">
+              {relatedEvents.map((o) => (
+                <li key={o.id}>
+                  <a href={`/${locale || 'es'}/events/${o.slug}/`} onClick={(e) => openRelated(e, o)} className="evd_related_card">
+                    <img src={o.image} alt={o.imageAlt || o.title} loading="lazy" decoding="async" />
+                    <span className="evd_related_text">
+                      <span className="evd_related_date">{formatEventDate(o, isEs)}</span>
+                      <strong>{o.title}</strong>
+                      <span className="evd_related_venue">{o.location}</span>
+                    </span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
+
         {/* ── READY TO ARRIVE ── */}
         <section className="evd_section evd_ready">
-          <h2 className="evd_h2">READY TO ARRIVE?</h2>
-          <p className="evd_h2_sub">Guest List • Tickets • VIP Tables</p>
+          <h2 className="evd_h2">{isEs ? '¿LISTO PARA VIVIR LA NOCHE?' : 'READY TO ARRIVE?'}</h2>
+          <p className="evd_h2_sub">{isEs ? 'Lista de Invitados • Entradas • Mesas VIP' : 'Guest List • Tickets • VIP Tables'}</p>
           <div className="evd_pillars">
             <div>
-              <strong className="is_red"><ListChecks size={14} /> Guest List</strong>
+              <strong className="is_red"><ListChecks size={14} /> {isEs ? 'Lista de Invitados' : 'Guest List'}</strong>
               <span>{isEs ? 'Solicita acceso a la lista de invitados antes del evento.' : 'Request guest list access before the event.'}</span>
             </div>
             <div>
-              <strong className="is_gold"><Crown size={14} /> VIP Tables</strong>
+              <strong className="is_gold"><Crown size={14} /> {isEs ? 'Mesas VIP' : 'VIP Tables'}</strong>
               <span>{isEs ? 'Consulta disponibilidad de mesas y paquetes de botellas.' : 'Check table availability and bottle packages.'}</span>
             </div>
             <div>
@@ -461,6 +504,8 @@ export const EventDetailModal = () => {
             <VipCta />
           </div>
         </section>
+          </div>
+        </div>
 
         {/* ── Sticky mobile action bar ── */}
         <div className={`evd_sticky_bar ${heroCtasVisible ? 'is_hidden' : ''}`} aria-hidden={heroCtasVisible}>
@@ -472,7 +517,7 @@ export const EventDetailModal = () => {
           )}
           <button type="button" className="evd_sticky_vip" onClick={handleOpenVipModal}>
             <Crown size={15} />
-            <span>{isEs ? 'RESERVAR VIP' : 'BOOK VIP'}</span>
+            <span>{isEs ? 'RESERVA VIP' : 'VIP RESERVATION'}</span>
           </button>
         </div>
 

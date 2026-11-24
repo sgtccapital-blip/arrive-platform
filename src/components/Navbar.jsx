@@ -99,14 +99,14 @@ export const Navbar = ({
         </a>
 
         <a 
-          href={`/${locale}/venues/`}
+          href={`/${locale}/panama/venues/`}
           className={`nav_links underline-trail w-inline-block ${isVenuesActive ? 'w--current active' : ''}`}
         >
           <p>{locale === 'es' ? 'LOCALES' : 'VENUES'}</p>
         </a>
 
         <a 
-          href={`/${locale}/concierge/`}
+          href={`/${locale}/panama/concierge/`}
           className={`nav_links underline-trail w-inline-block ${isConciergeActive ? 'w--current active' : ''}`}
         >
           <p>{locale === 'es' ? 'SERVICIOS & CONCIERGE' : 'SERVICES & CONCIERGE'}</p>
@@ -145,7 +145,7 @@ export const Navbar = ({
           title={locale === 'es' ? 'Reservar Mesa VIP & Bottle Service' : 'Book VIP Table & Bottle Service'}
         >
           <Crown size={13} className="nav_vip_gold_crown" />
-          <span>{locale === 'es' ? 'RESERVAR VIP' : 'BOOK VIP'}</span>
+          <span>{locale === 'es' ? 'RESERVA VIP' : 'VIP RESERVATION'}</span>
         </a>
       </div>
 

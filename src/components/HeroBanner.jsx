@@ -1,7 +1,11 @@
 import React from 'react';
 import { MapPin } from 'lucide-react';
+import { useApp } from '../context/AppContext';
 
 export const HeroBanner = ({ hubInfo, locale = 'es' }) => {
+  // When an event page is open on top, its title is the page's only <h1>.
+  const { selectedEvent } = useApp();
+  const HeroHeading = selectedEvent ? 'p' : 'h1';
   const isHub = Boolean(hubInfo);
   const localizedHub = hubInfo ? (hubInfo[locale] || hubInfo.es) : null;
 
@@ -56,9 +60,11 @@ export const HeroBanner = ({ hubInfo, locale = 'es' }) => {
                 height="60"
               />
               <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                <h1 className="is-center hero_title_text" style={{ fontSize: isHub ? 'clamp(1.75rem, 3.5vw, 2.5rem)' : undefined, margin: 0 }}>
-                  {isHub ? localizedHub.h1.toUpperCase() : 'THE EXCLUSIVE NIGHTLIFE EXPERIENCE'}
-                </h1>
+                <HeroHeading className="is-center hero_title_text" style={{ fontSize: isHub ? 'clamp(1.75rem, 3.5vw, 2.5rem)' : undefined, margin: 0 }}>
+                  {isHub 
+                    ? localizedHub.h1.toUpperCase() 
+                    : (locale === 'es' ? 'LA EXPERIENCIA EXCLUSIVA DE NIGHTLIFE' : 'THE EXCLUSIVE NIGHTLIFE EXPERIENCE')}
+                </HeroHeading>
                 {/* H1 SEO text visually hidden for pure aesthetic presentation if home, while preserving 100% crawlability */}
                 {!isHub && (
                   <span className="sr-only" style={{
@@ -90,7 +96,7 @@ export const HeroBanner = ({ hubInfo, locale = 'es' }) => {
             {/* Subtitle / Location */}
             <div className="is-small-text" style={{ marginTop: '0.4rem' }}>
               <MapPin size={13} color="#c10230" style={{ flexShrink: 0 }} />
-              <span>PANAMA CITY, PANAMA</span>
+              <span>{locale === 'es' ? 'CIUDAD DE PANAMÁ, PANAMÁ' : 'PANAMA CITY, PANAMA'}</span>
             </div>
 
             {/* Hub Editorial Intro (Only shown on specific category hubs, not clogging Home) */}

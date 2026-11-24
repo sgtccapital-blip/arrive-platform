@@ -1,20 +1,8 @@
-# ARRIVE Platform — Robots.txt for Panama Nightlife & Experiences
-# Official Domain: https://arrivepanama.com
-
+# Public pages may be crawled; page-level noindex excludes thin category hubs.
 User-agent: *
 Allow: /
-Allow: /images/
-Allow: /assets/
-
-# Disallow private and administrative utilities
 Disallow: /admin/
 Disallow: /api/
 Disallow: /auth/
 Disallow: /checkout/
-
-# Sitemaps
 Sitemap: https://arrivepanama.com/sitemap.xml
-Sitemap: https://arrivepanama.com/sitemap-pages.xml
-Sitemap: https://arrivepanama.com/sitemap-events.xml
-Sitemap: https://arrivepanama.com/sitemap-venues.xml
-Sitemap: https://arrivepanama.com/sitemap-restaurants.xml

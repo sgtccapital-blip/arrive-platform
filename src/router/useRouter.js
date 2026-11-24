@@ -41,7 +41,7 @@ export const useRouter = () => {
     } else {
       window.history.pushState(null, '', toPath);
     }
-    setCurrentPath(toPath);
+    setCurrentPath(toPath.split('#')[0].split('?')[0]);
 
     // Reset scroll to top instantly to prevent browser landing at previous page offset
     if (scrollToTop) {
@@ -65,7 +65,7 @@ export const useRouter = () => {
         !link.getAttribute('download') &&
         !e.metaKey &&
         !e.ctrlKey &&
-        !e.shiftKey
+        !e.shiftKey && !e.altKey && e.button === 0
       ) {
         e.preventDefault();
         navigate(href);

@@ -1,4 +1,5 @@
 import React from 'react';
+import { editorialCopy } from '../seo/editorial';
 import { getBlogPostBySlug, BLOG_POSTS } from '../data/blogData';
 import { Calendar, Clock, ArrowLeft, Share2, Crown, Sparkles, CheckCircle2 } from 'lucide-react';
 import { useApp } from '../context/AppContext';
@@ -7,11 +8,12 @@ export const BlogPostPage = ({ postSlug, locale = 'es' }) => {
   const { setIsBookVipModalOpen } = useApp();
   const post = getBlogPostBySlug(postSlug);
   const isEs = locale === 'es';
+  const copy = editorialCopy(locale);
 
   if (!post) {
     return (
       <div className="blog_not_found" style={{ textAlign: 'center', padding: '10rem 1rem', color: '#888' }}>
-        <h2>{isEs ? 'Artículo no encontrado' : 'Article Not Found'}</h2>
+        <h1>{isEs ? 'Artículo no encontrado' : 'Article Not Found'}</h1>
         <a href={`/${locale}/blog/`} style={{ color: '#ff3b5c', marginTop: '1rem', display: 'inline-block' }}>
           {isEs ? '← Volver al Blog' : '← Back to Blog'}
         </a>
@@ -20,7 +22,7 @@ export const BlogPostPage = ({ postSlug, locale = 'es' }) => {
   }
 
   const postData = post[locale] || post.es;
-  const relatedPosts = BLOG_POSTS.filter(p => p.id !== post.id).slice(0, 2);
+  const relatedPosts = post.relatedSlugs.map(slug => getBlogPostBySlug(slug)).filter(Boolean);
 
   const handleShare = () => {
     if (navigator.share) {
@@ -66,7 +68,7 @@ export const BlogPostPage = ({ postSlug, locale = 'es' }) => {
               </div>
 
               <div className="blog_post_details">
-                <span><Calendar size={13} /> {post.date}</span>
+                <span><Calendar size={13} /> {copy.reviewed}: <time dateTime={post.reviewedAt}>{post.reviewedAt}</time></span>
                 <span>•</span>
                 <span><Clock size={13} /> {post.readTime}</span>
               </div>
@@ -87,9 +89,9 @@ export const BlogPostPage = ({ postSlug, locale = 'es' }) => {
 
       {/* Featured Cover Image */}
       <div className="blog_post_cover_wrapper">
-        <img loading="lazy" decoding="async" 
+        <img loading="eager" fetchPriority="high" decoding="async" width="1200" height="630"
           src={post.coverImage} 
-          alt={postData.title} 
+          alt={isEs ? "Ilustración editorial de ARRIVE; no es una fotografía del destino" : "ARRIVE editorial illustration; not a destination photograph"} 
           className="blog_post_cover_img"
         />
       </div>
@@ -101,15 +103,19 @@ export const BlogPostPage = ({ postSlug, locale = 'es' }) => {
             {postData.excerpt}
           </p>
 
+          <p className="blog_content_p">{copy.note}</p>
+          <nav aria-label={isEs ? 'En este artículo' : 'In this guide'}><ul>{postData.content.filter(b => b.type === 'heading').map((b,i) => <li key={i}><a href={`#section-${i}`}>{b.text}</a></li>)}</ul></nav>
           <div className="blog_post_text">
             {postData.content.map((block, idx) => {
               if (block.type === 'heading') {
-                return <h2 key={idx} className="blog_content_h2">{block.text}</h2>;
+                return <h2 id={`section-${postData.content.slice(0,idx).filter(b=>b.type==='heading').length}`} key={idx} className="blog_content_h2">{block.text}</h2>;
               }
               return <p key={idx} className="blog_content_p">{block.text}</p>;
             })}
           </div>
 
+          <section><h2>{copy.sources}</h2><ul>{post.sources.map(source => <li key={source.url}><a href={source.url} target="_blank" rel="noopener noreferrer">{source.name}</a> — <time dateTime={source.reviewedAt}>{source.reviewedAt}</time></li>)}</ul></section>
+          <p><a href={`/${locale}/explore/`}>{copy.exploreTitle}</a></p>
           {/* Inline CTA Box */}
           <div className="blog_cta_box">
             <div className="blog_cta_glow"></div>
@@ -121,8 +127,8 @@ export const BlogPostPage = ({ postSlug, locale = 'es' }) => {
               <h3>{isEs ? '¿Planeas tu Noche en Panamá?' : 'Planning Your Night in Panama?'}</h3>
               <p>
                 {isEs
-                  ? 'Accede a pases digitales de cortesía con barra libre para chicas o reserva tu mesa VIP con atención personalizada.'
-                  : 'Get complimentary digital guest list passes or secure a VIP table with dedicated bottle service.'}
+                  ? 'Consulta la cartelera o solicita una reserva. Disponibilidad, inclusiones y condiciones requieren confirmación.'
+                  : 'Browse events or request a reservation. Availability, inclusions and conditions require confirmation.'}
               </p>
               <div className="blog_cta_actions">
                 <a href={`/${locale}/`} className="btn-primary" style={{ textDecoration: 'none' }}>
@@ -148,7 +154,7 @@ export const BlogPostPage = ({ postSlug, locale = 'es' }) => {
                 const relData = rel[locale] || rel.es;
                 return (
                   <a key={rel.id} href={`/${locale}/blog/${rel.slug}/`} className="blog_related_card">
-                    <img loading="lazy" decoding="async" src={rel.coverImage} alt={relData.title} className="blog_related_img" />
+                    <img loading="lazy" decoding="async" src={rel.coverImage} alt="" width="1200" height="630" className="blog_related_img" />
                     <div>
                       <span className="blog_related_cat">{rel.category}</span>
                       <h4 className="blog_related_card_title">{relData.title}</h4>

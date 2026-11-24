@@ -38,6 +38,11 @@ export const updateHeadMetadata = ({
 }) => {
   if (typeof document === 'undefined') return;
 
+  document.documentElement.lang = locale;
+  document.querySelectorAll('script[type="application/ld+json"]:not(#arrive-dynamic-jsonld)').forEach(el => el.remove());
+  document.querySelectorAll('meta[name="title"], meta[name="keywords"], meta[property="og:image:alt"], meta[property="og:image:width"], meta[property="og:image:height"]').forEach(el => el.remove());
+  ogImage = new URL(ogImage, BASE_CANONICAL_URL).href;
+  if (/\/panama\/(?:events\/(?:today|tomorrow|weekend|this-weekend)|casco-viejo\/|nightlife|clubs|rooftops|casco-antiguo|parties|restaurants|events\/)/.test(pathname)) robots = 'noindex, follow';
   // 1. Document Title
   if (title) {
     document.title = title;
@@ -122,6 +127,7 @@ export const updateHeadMetadata = ({
     el.content = content;
   };
 
+  setTwitter('twitter:url', fullCanonical);
   setTwitter('twitter:card', 'summary_large_image');
   setTwitter('twitter:title', title || document.title);
   setTwitter('twitter:description', description || '');

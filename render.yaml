@@ -9,6 +9,180 @@ services:
         name: X-Frame-Options
         value: SAMEORIGIN
     routes:
-      - type: rewrite
-        source: /*
-        destination: /index.html
+      - type: redirect
+        source: /
+        destination: /es/
+      - type: redirect
+        source: /es/directorio/
+        destination: /es/explore/
+      - type: redirect
+        source: /es/directory/
+        destination: /es/explore/
+      - type: redirect
+        source: /es/explore-panama/
+        destination: /es/explore/
+      - type: redirect
+        source: /es/explora/
+        destination: /es/explore/
+      - type: redirect
+        source: /es/explora-panama/
+        destination: /es/explore/
+      - type: redirect
+        source: /es/venues/
+        destination: /es/panama/venues/
+      - type: redirect
+        source: /es/concierge/
+        destination: /es/panama/concierge/
+      - type: redirect
+        source: /es/panama/events/this-weekend/
+        destination: /es/panama/events/weekend/
+      - type: redirect
+        source: /es/panama/casco-viejo/
+        destination: /es/panama/casco-antiguo/
+      - type: redirect
+        source: /en/directorio/
+        destination: /en/explore/
+      - type: redirect
+        source: /en/directory/
+        destination: /en/explore/
+      - type: redirect
+        source: /en/explore-panama/
+        destination: /en/explore/
+      - type: redirect
+        source: /en/explora/
+        destination: /en/explore/
+      - type: redirect
+        source: /en/explora-panama/
+        destination: /en/explore/
+      - type: redirect
+        source: /en/venues/
+        destination: /en/panama/venues/
+      - type: redirect
+        source: /en/concierge/
+        destination: /en/panama/concierge/
+      - type: redirect
+        source: /en/panama/events/this-weekend/
+        destination: /en/panama/events/weekend/
+      - type: redirect
+        source: /en/panama/casco-viejo/
+        destination: /en/panama/casco-antiguo/
+      - type: redirect
+        source: /es/venues/primavera-rooftop/
+        destination: /es/venues/primavera-panama/
+      - type: redirect
+        source: /es/panama/casco-viejo/clubs/
+        destination: /es/panama/casco-viejo/nightlife/
+      - type: redirect
+        source: /es/panama/casco-viejo/restaurants/
+        destination: /es/blog/guia-nightlife-casco-antiguo-panama/
+      - type: redirect
+        source: /es/panama/events/tomorrow/
+        destination: /es/panama/events/
+      - type: redirect
+        source: /es/gallery/
+        destination: /es/galeria/
+      - type: redirect
+        source: /es/photos/
+        destination: /es/galeria/
+      - type: redirect
+        source: /es/fotos/
+        destination: /es/galeria/
+      - type: redirect
+        source: /es/fotos-chicas/
+        destination: /es/galeria/
+      - type: redirect
+        source: /es/girls-photos/
+        destination: /es/galeria/
+      - type: redirect
+        source: /es/privacidad/
+        destination: /es/privacy/
+      - type: redirect
+        source: /es/terms/
+        destination: /es/terms-and-conditions/
+      - type: redirect
+        source: /es/terminos/
+        destination: /es/terms-and-conditions/
+      - type: redirect
+        source: /es/terminos-y-condiciones/
+        destination: /es/terms-and-conditions/
+      - type: redirect
+        source: /es/contact/
+        destination: /es/contact-us/
+      - type: redirect
+        source: /es/contacto/
+        destination: /es/contact-us/
+      - type: redirect
+        source: /es/locations/
+        destination: /es/contact-us/
+      - type: redirect
+        source: /es/jobs/
+        destination: /es/work-with-us/
+      - type: redirect
+        source: /es/trabaja-con-nosotros/
+        destination: /es/work-with-us/
+      - type: redirect
+        source: /es/canal-etico/
+        destination: /es/whistleblowing/
+      - type: redirect
+        source: /es/prensa/
+        destination: /es/press/
+      - type: redirect
+        source: /en/venues/primavera-rooftop/
+        destination: /en/venues/primavera-panama/
+      - type: redirect
+        source: /en/panama/casco-viejo/clubs/
+        destination: /en/panama/casco-viejo/nightlife/
+      - type: redirect
+        source: /en/panama/casco-viejo/restaurants/
+        destination: /en/blog/guia-nightlife-casco-antiguo-panama/
+      - type: redirect
+        source: /en/panama/events/tomorrow/
+        destination: /en/panama/events/
+      - type: redirect
+        source: /en/gallery/
+        destination: /en/galeria/
+      - type: redirect
+        source: /en/photos/
+        destination: /en/galeria/
+      - type: redirect
+        source: /en/fotos/
+        destination: /en/galeria/
+      - type: redirect
+        source: /en/fotos-chicas/
+        destination: /en/galeria/
+      - type: redirect
+        source: /en/girls-photos/
+        destination: /en/galeria/
+      - type: redirect
+        source: /en/privacidad/
+        destination: /en/privacy/
+      - type: redirect
+        source: /en/terms/
+        destination: /en/terms-and-conditions/
+      - type: redirect
+        source: /en/terminos/
+        destination: /en/terms-and-conditions/
+      - type: redirect
+        source: /en/terminos-y-condiciones/
+        destination: /en/terms-and-conditions/
+      - type: redirect
+        source: /en/contact/
+        destination: /en/contact-us/
+      - type: redirect
+        source: /en/contacto/
+        destination: /en/contact-us/
+      - type: redirect
+        source: /en/locations/
+        destination: /en/contact-us/
+      - type: redirect
+        source: /en/jobs/
+        destination: /en/work-with-us/
+      - type: redirect
+        source: /en/trabaja-con-nosotros/
+        destination: /en/work-with-us/
+      - type: redirect
+        source: /en/canal-etico/
+        destination: /en/whistleblowing/
+      - type: redirect
+        source: /en/prensa/
+        destination: /en/press/

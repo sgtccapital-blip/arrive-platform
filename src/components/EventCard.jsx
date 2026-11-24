@@ -28,6 +28,27 @@ const normalizeText = (str) =>
     .toLowerCase()
     .trim();
 
+const formatPerk = (text, isEs) => {
+  if (!text) return '';
+  let clean = text.replace(/^[\s\p{Extended_Pictographic}\p{Emoji_Component}\u200d\uFE0F\u200E]+/gu, '').trim();
+  if (!isEs) {
+    clean = clean
+      .replace(/OPEN BAR HASTA (\d+)\s*(MN|AM|PM)/gi, 'OPEN BAR UNTIL $1$2')
+      .replace(/\(ELLAS & ELLOS\)/gi, '(LADIES & GENTS)')
+      .replace(/OPEN GIN & SANGRÍA PARA ELLAS/gi, 'LADIES OPEN GIN & SANGRIA')
+      .replace(/TICKETS FREE HASTA LAS (\d+:\d+)\s*(MN|AM|PM)/gi, 'FREE PASS UNTIL $1 $2')
+      .replace(/ENTRADA FREE ELLAS Y ELLOS/gi, 'FREE ENTRY FOR LADIES & GENTS')
+      .replace(/TODOS GRATIS CON OPEN BAR HASTA (\d+)\s*(AM|PM)/gi, 'FREE ENTRY + OPEN BAR UNTIL $1$2')
+      .replace(/TODOS GRATIS HASTA LAS (\d+:\d+)\s*(AM|PM)/gi, 'FREE ENTRY UNTIL $1 $2')
+      .replace(/PASE DIGITAL EXCLUSIVO/gi, 'EXCLUSIVE DIGITAL PASS');
+  } else {
+    clean = clean
+      .replace(/TICKETS FREE/gi, 'ENTRADAS GRATIS')
+      .replace(/ENTRADA FREE/gi, 'ENTRADA GRATIS');
+  }
+  return clean;
+};
+
 export const EventCard = ({ event }) => {
   const { setSelectedEvent, setSelectedVipEvent, setIsBookVipModalOpen, venues, openVenueDetail, locale } = useApp();
   const [showMapPreview, setShowMapPreview] = useState(false);
@@ -144,7 +165,7 @@ export const EventCard = ({ event }) => {
 
   const dayShort = getDayShort(event.dayOfWeek || event.date);
   const dayMatch = (event.date || '').match(/\b(\d{1,2})\b/);
-  const dayNum = dayMatch ? dayMatch[1] : (event.date ? (event.date.split(' ')[1] || '18') : '18');
+  const dayNum = dayMatch ? dayMatch[1] : (event.date ? (event.date.split(' ')[1] || '25') : '25');
   const monthShort = getMonthShort(event.date || event.eventDate || 'Nov');
   const dateStr = isEs ? `${dayShort}, ${dayNum} ${monthShort} 2026` : `${dayShort}, ${monthShort} ${dayNum}, 2026`;
 
@@ -174,7 +195,7 @@ export const EventCard = ({ event }) => {
           ) && (
             <div className="afterparty_alert_badge">
               <span className="afterparty_fire">🔥</span>
-              <span>AFTER PARTY HASTA LAS 8:00 AM</span>
+              <span>{isEs ? 'AFTER PARTY HASTA LAS 8:00 AM' : 'AFTER PARTY UNTIL 8:00 AM'}</span>
             </div>
           )}
           {/* Selling Fast Badge */}
@@ -221,7 +242,7 @@ export const EventCard = ({ event }) => {
                   <Wine size={12} color="#ff3b5c" className="perk_icon" />
                 </span>
                 <span className="perk_text">
-                  {event.perkHeadline.replace(/^[\s\p{Extended_Pictographic}\p{Emoji_Component}\u200d\uFE0F\u200E]+/gu, '').trim()}
+                  {formatPerk(event.perkHeadline, isEs)}
                 </span>
               </div>
             </div>
@@ -240,7 +261,7 @@ export const EventCard = ({ event }) => {
           className="location_tag_link"
         >
           <MapPin size={11} color="#c10230" style={{ flexShrink: 0 }} />
-          <span>{cleanVenueName}, PANAMÁ</span>
+          <span>{cleanVenueName}, {isEs ? 'PANAMÁ' : 'PANAMA'}</span>
         </a>
       </div>
 
@@ -276,11 +297,11 @@ export const EventCard = ({ event }) => {
           type="button"
           className="red_button bottom w-inline-block"
           onClick={handleBookVip}
-          aria-label={isEs ? `Reservar mesa VIP para ${event.title}` : `Book VIP table for ${event.title}`}
+          aria-label={isEs ? `Reserva VIP para ${event.title}` : `VIP Reservation for ${event.title}`}
         >
           <div className="red_flex">
             <span className="vip_champagne_emoji">🍾</span>
-            <span>{isEs ? 'RESERVAR ZONA VIP' : 'BOOK VIP ZONE'}</span>
+            <span>{isEs ? 'RESERVA VIP' : 'VIP RESERVATION'}</span>
             <span className="vip_champagne_emoji">🍾</span>
           </div>
           <p className="para_12px">{isEs ? '100% CANJEABLE EN CONSUMO' : '100% REDEEMABLE IN FOOD & DRINKS'}</p>

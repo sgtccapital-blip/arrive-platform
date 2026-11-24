@@ -23,6 +23,7 @@ import { BlogPostPage } from './views/BlogPostPage';
 import { DirectoryPage } from './views/DirectoryPage';
 import { InfoPage } from './views/InfoPage';
 import { GalleryPage } from './views/GalleryPage';
+import { getEditorialPage } from './seo/editorial';
 import { getBlogPostBySlug } from './data/blogData';
 import { INFO_PAGES } from './data/infoPagesData';
 
@@ -80,7 +81,7 @@ export const App = () => {
   const isDirectoryPage = route.type === 'directory';
   const isInfoPage = route.type === 'info_page';
   const isGalleryPage = route.type === 'gallery';
-  const isHomePage = !isVenuePage && !isVenuesListPage && !isConciergePage && !isBlogListPage && !isBlogPostPage && !isDirectoryPage && !isInfoPage && !isGalleryPage;
+  const isHomePage = route.type !== 'not_found' && !isVenuePage && !isVenuesListPage && !isConciergePage && !isBlogListPage && !isBlogPostPage && !isDirectoryPage && !isInfoPage && !isGalleryPage;
 
   // Synchronize route state with head metadata
   useEffect(() => {
@@ -239,8 +240,7 @@ export const App = () => {
             headline: postData.title,
             description: postData.excerpt,
             image: post.coverImage,
-            datePublished: '2026-09-15T00:00:00-05:00',
-            dateModified: '2026-09-15T00:00:00-05:00',
+            dateModified: post.dateModified,
             author: {
               '@type': 'Organization',
               name: 'Arrive Model Management',
@@ -267,13 +267,13 @@ export const App = () => {
         description: isEs 
           ? 'Explora todas las guías de discotecas, rooftops en Casco Antiguo, eventos por día, venues asociados y recursos de ARRIVE.' 
           : 'Explore all nightlife guides, Casco Viejo rooftops, events by day, partner venues and corporate resources on ARRIVE.',
-        canonicalUrl: `${BASE_CANONICAL_URL}/${locale}/directorio/`,
-        pathname: `/${locale}/directorio/`,
+        canonicalUrl: `${BASE_CANONICAL_URL}/${locale}/explore/`,
+        pathname: `/${locale}/explore/`,
         locale,
         ogType: 'website',
         breadcrumbs: [
           { name: isEs ? 'Inicio' : 'Home', path: `/${locale}/` },
-          { name: isEs ? 'Directorio' : 'Directory', path: `/${locale}/directorio/` }
+          { name: isEs ? 'Directorio' : 'Directory', path: `/${locale}/explore/` }
         ]
       });
     } else if (isInfoPage) {
@@ -352,7 +352,10 @@ export const App = () => {
         ]
       });
     }
-  }, [route.type, route.params?.eventSlug, route.params?.venueSlug, route.hubKey, locale, events, venues]);
+    const editorial = getEditorialPage(currentPath);
+    if (editorial) updateHeadMetadata(editorial);
+    if (route.type === 'not_found' || (isBlogPostPage && !getBlogPostBySlug(route.params.postSlug))) updateHeadMetadata({title: locale === 'es' ? 'Página no encontrada | ARRIVE' : 'Page not found | ARRIVE', description: locale === 'es' ? 'Consulta las guías de Panamá disponibles.' : 'Browse available Panama guides.', pathname: currentPath, locale, robots: 'noindex, follow'});
+  }, [currentPath, route.type, route.params?.eventSlug, route.params?.venueSlug, route.hubKey, locale, events, venues]);
 
   // Ensure scroll is cleanly reset to top on every route/page change
   useEffect(() => {
@@ -382,6 +385,7 @@ export const App = () => {
       />
 
       {/* ── PAGE ROUTING ── */}
+      {route.type === 'not_found' && <main style={{padding:'10rem 2rem'}}><h1>{locale === 'es' ? 'Página no encontrada' : 'Page not found'}</h1><a href={`/${locale}/explore/`}>{locale === 'es' ? 'Explorar Panamá' : 'Explore Panama'}</a></main>}
       {isVenuePage && (
         <VenuePage venueSlug={route.params.venueSlug} locale={locale} />
       )}
@@ -447,7 +451,7 @@ export const App = () => {
                       </h3>
                       <p style={{ fontSize: '0.88rem' }}>
                         {locale === 'es'
-                          ? 'Prueba seleccionando "ALL EVENTS" o "TODOS LOS DÍAS".'
+                          ? 'Prueba seleccionando "TODOS LOS EVENTOS" o "TODOS LOS DÍAS".'
                           : 'Try selecting "ALL EVENTS" or "ALL DAYS".'}
                       </p>
                     </div>

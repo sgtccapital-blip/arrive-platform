@@ -4,6 +4,8 @@
 // =========================================================================
 
 import fs from 'fs';
+import { BLOG_POSTS } from '../src/data/blogData.js';
+import { getEditorialPage, editorialHtml, escapeHtml } from '../src/seo/editorial.js';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { INITIAL_EVENTS } from '../src/data/initialData.js';
@@ -224,6 +226,26 @@ const EVENTS = INITIAL_EVENTS
     perkHeadline: e.perkHeadline || ''
   }));
 
+// English meta description for events (event copy in the data is Spanish-only).
+const englishEventDescription = (e) => {
+  const when = e.eventDate ? new Date(`${e.eventDate}-05:00`).toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', timeZone: 'America/Panama' }) : e.date;
+  const free = e.price === 0 ? ' Free digital pass available on ARRIVE.' : '';
+  const genres = (e.musicGenres || []).slice(0, 3).join(', ');
+  return `${e.title} at ${e.venueName}, Panama City — ${when}${e.time ? `, ${e.time}` : ''}.${genres ? ` Music: ${genres}.` : ''}${free} Perks, guest list and VIP tables.`;
+};
+
+// Archive of every event ever prerendered, so past event URLs keep resolving.
+const ARCHIVE_PATH = path.join(ROOT_DIR, 'src/data/eventArchive.json');
+const readArchive = () => { try { return JSON.parse(fs.readFileSync(ARCHIVE_PATH, 'utf-8')); } catch { return []; } };
+const archive = readArchive();
+const currentSlugs = new Set(EVENTS.map(e => e.slug));
+EVENTS.forEach(e => {
+  const entry = { slug: e.slug, title: e.title, venueSlug: e.venueSlug, venueName: e.venueName, date: e.date, eventDate: e.eventDate, image: e.image };
+  const i = archive.findIndex(a => a.slug === e.slug);
+  if (i >= 0) archive[i] = entry; else archive.push(entry);
+});
+const PAST_EVENTS = archive.filter(a => !currentSlugs.has(a.slug) && /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(a.slug));
+
 const VENUES_FAQS = {
   es: [
     {
@@ -310,74 +332,9 @@ const CONCIERGE_FAQS = {
   ]
 };
 
-const BLOG_POSTS = [
-  {
-    slug: 'guia-nightlife-casco-antiguo-panama',
-    category: 'Nightlife Guide',
-    es: {
-      title: 'Guía Definitiva del Nightlife en Casco Antiguo: Terrazas, Rooftops y Clubs Secretos',
-      seoTitle: 'Guía Nightlife Casco Antiguo Panamá — Bares, Rooftops & Clubs | ARRIVE',
-      description: 'Explora la vida nocturna de Casco Antiguo en Panamá: terrazas frente al mar, discotecas secretas, dress code y cómo entrar en lista VIP con Arrive.',
-      intro: 'El Casco Antiguo de Ciudad de Panamá es el epicentro nocturno más vibrante de Centroamérica. Terrazas con vistas panorámicas, rooftops históricos y clubs exclusivos.'
-    },
-    en: {
-      title: 'Ultimate Guide to Casco Viejo Nightlife: Rooftops, Speakeasies & Clubs',
-      seoTitle: 'Casco Viejo Nightlife Guide — Bars, Rooftops & Clubs | ARRIVE',
-      description: 'Explore Casco Viejo nightlife in Panama City: ocean-view rooftops, hidden clubs, dress code rules, and VIP guestlist access with Arrive.',
-      intro: 'Casco Viejo in Panama City is the premier nightlife hub of Central America. Historic rooftop bars, speakeasies and high-energy nightclubs.'
-    }
-  },
-  {
-    slug: 'como-reservar-mesa-vip-bottle-service-panama',
-    category: 'VIP Concierge',
-    es: {
-      title: 'Cómo Reservar Mesa VIP y Bottle Service en Discotecas de Panamá',
-      seoTitle: 'Reserva de Mesas VIP & Bottle Service Panamá — Guía Completa | ARRIVE',
-      description: 'Aprende los consumos mínimos, zonas preferenciales, protocolo de propinas y beneficios de reservar mesas VIP en Furia Club y rooftops de Panamá.',
-      intro: 'Asegurar una mesa VIP con bottle service en los mejores clubes de Panamá garantiza una noche sin filas con atención preferencial y vista privilegiada.'
-    },
-    en: {
-      title: 'How to Book VIP Tables & Bottle Service at Panama City Nightclubs',
-      seoTitle: 'VIP Table Booking & Bottle Service Panama City Guide | ARRIVE',
-      description: 'Complete guide to minimum spends, VIP booth tiers, tipping protocol, and reserving bottle service at Furia Club and Panama rooftops.',
-      intro: 'Booking a VIP table with bottle service in Panama City guarantees skip-the-line entry, dedicated waitress service and prime booth locations.'
-    }
-  },
-  {
-    slug: 'mejores-rooftops-vista-al-mar-panama',
-    category: 'Rooftops & Views',
-    es: {
-      title: 'Los 5 Mejores Rooftops con Vista al Mar en Ciudad de Panamá',
-      seoTitle: 'Mejores Rooftops con Vista al Mar en Panamá — Terrazas VIP | ARRIVE',
-      description: 'Descubre los rooftops más espectaculares de Casco Antiguo y Ciudad de Panamá con vistas a la bahía, atardeceres dorados y coctelería premium.',
-      intro: 'Ciudad de Panamá cuenta con uno de los skylines costeros más impactantes de Latinoamérica. Los mejores rooftops combinan vista al mar y gran ambiente.'
-    },
-    en: {
-      title: 'Top 5 Ocean-View Rooftop Bars in Panama City',
-      seoTitle: 'Top Ocean-View Rooftop Bars in Panama City | ARRIVE',
-      description: 'Discover the most breathtaking rooftop lounges in Casco Viejo and Panama City with skyline vistas, golden hour sunsets and craft cocktails.',
-      intro: 'Panama City features one of Latin America most impressive coastal skylines. Discover the top rooftop terraces for sunsets and nightlife.'
-    }
-  },
-  {
-    slug: 'dress-code-discotecas-clubs-panama',
-    category: 'Nightlife Tips',
-    es: {
-      title: 'Código de Vestimenta (Dress Code) para Discotecas y Rooftops en Panamá',
-      seoTitle: 'Dress Code Discotecas Panamá — Qué Vestir en Clubs & Rooftops | ARRIVE',
-      description: 'Evita problemas en la puerta: guía definitiva sobre el dress code upscale casual, calzado permitido y qué evitar en clubs exclusivos de Panamá.',
-      intro: 'Las políticas de entrada en discotecas y rooftops exclusivos de Panamá exigen un atuendo upscale casual. Conoce qué ropa y calzado están permitidos.'
-    },
-    en: {
-      title: 'Dress Code Guide for Panama City Nightclubs & Rooftop Lounges',
-      seoTitle: 'Panama City Nightclub Dress Code — What to Wear | ARRIVE',
-      description: 'Avoid door rejections: essential upscale casual dress code guidelines, accepted footwear and tips for top clubs and rooftops in Panama.',
-      intro: 'Upscale nightlife venues in Panama City enforce door policies. Discover exactly what to wear to gain seamless entry to the best venues.'
-    }
-  }
-];
 
-export const prerenderAllPages = () => {
+
+export const prerenderAllPages = async () => {
   if (!fs.existsSync(DIST_DIR)) {
     console.warn('⚠️ No se encontró la carpeta dist/. Ejecuta primero `vite build`.');
     return;
@@ -549,29 +506,45 @@ export const prerenderAllPages = () => {
       });
     });
 
-    // 4. Events
+    // 4. Events (+ related links so every event page links to the rest of the cartelera)
     EVENTS.forEach(e => {
+      const sameVenue = EVENTS.filter(o => o.slug !== e.slug && o.venueSlug === e.venueSlug);
+      const otherVenues = EVENTS.filter(o => o.slug !== e.slug && o.venueSlug !== e.venueSlug).slice(0, 6);
+      const eventLink = o => ({ title: o.title, url: `/${loc}/events/${o.slug}/`, sub: `${o.date} • ${o.venueName}` });
       pagesToPrerender.push({
         relPath: `${loc}/events/${e.slug}/`,
         title: isEs ? `${e.title} • ${e.venueName} | ARRIVE Panamá` : `${e.title} • ${e.venueName} | ARRIVE Panama`,
-        description: `${e.description} ${e.perkHeadline}`,
+        description: isEs ? `${e.description} ${e.perkHeadline}`.trim() : englishEventDescription(e),
         h1: e.title,
         intro: `${e.date} • ${e.location} • Lineup: ${e.artists}`,
         breadcrumbs: [{ name: isEs ? 'Inicio' : 'Home', url: `/${loc}/` }, { name: isEs ? 'Eventos' : 'Events', url: `/${loc}/panama/events/` }, { name: e.title, url: `/${loc}/events/${e.slug}/` }],
-        items: [{ title: `Venue: ${e.venueName}`, url: `/${loc}/venues/${e.venueSlug}/`, sub: 'Ver perfil del local, fotos y menú' }],
+        items: [
+          { title: `Venue: ${e.venueName}`, url: `/${loc}/venues/${e.venueSlug}/`, sub: isEs ? 'Ver perfil del local, fotos y menú' : 'Venue profile, photos and menu' },
+          ...sameVenue.map(eventLink),
+          ...otherVenues.map(eventLink)
+        ],
+        image: e.image,
         eventData: e
       });
-      if (e.altSlug) {
-        pagesToPrerender.push({
-          relPath: `${loc}/events/${e.altSlug}/`,
-          title: isEs ? `${e.title} • ${e.venueName} | ARRIVE Panamá` : `${e.title} • ${e.venueName} | ARRIVE Panama`,
-          description: `${e.description} ${e.perkHeadline}`,
-          h1: e.title,
-          intro: `${e.date} • ${e.location} • Lineup: ${e.artists}`,
-          breadcrumbs: [{ name: isEs ? 'Inicio' : 'Home', url: `/${loc}/` }, { name: isEs ? 'Eventos' : 'Events', url: `/${loc}/panama/events/` }, { name: e.title, url: `/${loc}/events/${e.altSlug}/` }],
-          items: [{ title: `Venue: ${e.venueName}`, url: `/${loc}/venues/${e.venueSlug}/`, sub: 'Ver perfil del local, fotos y menú' }]
-        });
-      }
+    });
+
+    // 4.1 Past events: keep their URLs alive (shared links, backlinks) as noindex pages
+    // that point to the venue and the current cartelera instead of returning a 404.
+    PAST_EVENTS.forEach(e => {
+      pagesToPrerender.push({
+        relPath: `${loc}/events/${e.slug}/`,
+        title: isEs ? `${e.title} (finalizado) • ${e.venueName} | ARRIVE Panamá` : `${e.title} (ended) • ${e.venueName} | ARRIVE Panama`,
+        description: isEs ? `Este evento en ${e.venueName} ya finalizó. Mira los próximos eventos y beneficios en ARRIVE.` : `This event at ${e.venueName} has ended. See upcoming events and perks on ARRIVE.`,
+        h1: e.title,
+        intro: isEs ? `Este evento ya finalizó (${e.date}). Te esperamos en los próximos.` : `This event has ended (${e.date}). See what's next.`,
+        breadcrumbs: [{ name: isEs ? 'Inicio' : 'Home', url: `/${loc}/` }, { name: isEs ? 'Eventos' : 'Events', url: `/${loc}/panama/events/` }, { name: e.title, url: `/${loc}/events/${e.slug}/` }],
+        items: [
+          ...(VENUES.some(v => v.slug === e.venueSlug) ? [{ title: e.venueName, url: `/${loc}/venues/${e.venueSlug}/`, sub: isEs ? 'Próximos eventos en este local' : 'Upcoming events at this venue' }] : []),
+          ...EVENTS.slice(0, 8).map(o => ({ title: o.title, url: `/${loc}/events/${o.slug}/`, sub: `${o.date} • ${o.venueName}` }))
+        ],
+        image: e.image,
+        noindex: true
+      });
     });
 
     // 5. Restaurants
@@ -612,9 +585,9 @@ export const prerenderAllPages = () => {
       pagesToPrerender.push({
         relPath: `${loc}/blog/${p.slug}/`,
         title: pLang.seoTitle,
-        description: pLang.description,
+        description: pLang.seoDescription,
         h1: pLang.title,
-        intro: pLang.intro,
+        intro: pLang.excerpt,
         breadcrumbs: [
           { name: isEs ? 'Inicio' : 'Home', url: `/${loc}/` },
           { name: 'Blog', url: `/${loc}/blog/` },
@@ -741,15 +714,27 @@ export const prerenderAllPages = () => {
     });
   });
 
+  // Ensure all canonical hubs have a static response. Thin/overlapping hubs stay noindex.
+  const { SEO_CATEGORY_HUBS } = await import('../src/data/seoModels.js');
+  for (const loc of ['es', 'en']) {
+    for (const hub of Object.values(SEO_CATEGORY_HUBS)) {
+      const relPath = loc + hub.path;
+      if (!pagesToPrerender.some(p => p.relPath === relPath)) pagesToPrerender.push({relPath, title:hub[loc].title, description:hub[loc].description, h1:hub[loc].h1, intro:hub[loc].description, items:[]});
+    }
+    pagesToPrerender.push({relPath:`${loc}/explore/`});
+  }
   // Generate each file
   let generatedCount = 0;
   pagesToPrerender.forEach(page => {
+    const editorial = getEditorialPage('/' + page.relPath);
+    if (editorial) Object.assign(page, {title:editorial.title,description:editorial.description,h1:editorial.h1,intro:editorial.post ? editorial.data.excerpt : editorial.description,breadcrumbs:editorial.breadcrumbs.map(b=>({...b,url:b.path})),items:[]});
     const targetDir = path.join(DIST_DIR, page.relPath);
     fs.mkdirSync(targetDir, { recursive: true });
 
-    const canonicalUrl = `${BASE_URL}/${page.relPath}`;
-    const altEs = `${BASE_URL}/es/${page.relPath.slice(3)}`;
-    const altEn = `${BASE_URL}/en/${page.relPath.slice(3)}`;
+    const canonicalPath = ('/'+page.relPath).replace(/^\/(es|en)\/venues\/$/, '/$1/panama/venues/').replace(/^\/(es|en)\/concierge\/$/, '/$1/panama/concierge/').replace('/panama/events/this-weekend/', '/panama/events/weekend/');
+    const canonicalUrl = editorial?.canonicalUrl || BASE_URL + (canonicalPath === '/' ? '/es/' : canonicalPath);
+    const altEs = canonicalUrl.replace(/\/(es|en)\//, '/es/');
+    const altEn = canonicalUrl.replace(/\/(es|en)\//, '/en/');
 
     // Build structured fallback HTML inside #root so bots have 100% crawlable content
     const breadcrumbsHtml = (page.breadcrumbs || []).map((b, i) => `<li><a href="${b.url}">${b.name}</a>${i < page.breadcrumbs.length - 1 ? ' &gt; ' : ''}</li>`).join('');
@@ -761,7 +746,7 @@ export const prerenderAllPages = () => {
       </article>
     `).join('');
 
-    const semanticContent = `
+    let semanticContent = `
       <div class="arrive_prerender_container" style="max-width: 900px; margin: 0 auto; padding: 2rem 1.25rem; font-family: Montserrat, sans-serif; color: #ffffff;">
         <nav aria-label="Breadcrumbs" style="margin-bottom: 1.25rem;">
           <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 6px; font-size: 0.78rem; color: #888888;">
@@ -801,6 +786,7 @@ export const prerenderAllPages = () => {
       </div>
     `;
 
+    if (editorial) semanticContent = `<main class="arrive_prerender_container" style="max-width:900px;margin:0 auto;padding:3rem 1.25rem;color:white;line-height:1.7"><nav><a href="/${editorial.locale}/">ARRIVE</a> / <a href="/${editorial.locale}/explore/">${editorial.copy.exploreTitle}</a></nav><h1>${escapeHtml(editorial.h1)}</h1><p>${escapeHtml(page.intro)}</p>${editorialHtml(editorial)}</main>`;
     // Build Page Schema.org JSON-LD graph
     const schemaGraph = [
       {
@@ -856,7 +842,7 @@ export const prerenderAllPages = () => {
         '@id': `${canonicalUrl}#event`,
         name: e.title,
         description: e.description,
-        startDate: e.eventDate ? `${e.eventDate}-05:00` : undefined,
+        startDate: e.eventDate ? (/Z$|[+-]\d{2}:\d{2}$/.test(e.eventDate) ? e.eventDate : `${e.eventDate}-05:00`) : undefined,
         eventStatus: 'https://schema.org/EventScheduled',
         eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
         image: e.image ? [abs(e.image)] : undefined,
@@ -872,7 +858,7 @@ export const prerenderAllPages = () => {
           }
         },
         organizer: { '@type': 'Organization', name: 'ARRIVE Panamá', url: BASE_URL },
-        ...(e.ticketUrl ? { offers: { '@type': 'Offer', url: e.ticketUrl, price: e.price ?? 0, priceCurrency: 'USD', availability: 'https://schema.org/InStock' } } : {}),
+        ...(e.ticketUrl && e.price != null ? { offers: { '@type': 'Offer', url: e.ticketUrl, price: e.price ?? 0, priceCurrency: 'USD', availability: 'https://schema.org/InStock' } } : {}),
         ...(e.artists && e.artists !== 'Por anunciar' ? { performer: e.artists.split(', ').map(name => ({ '@type': 'Person', name })) } : {})
       });
     }
@@ -886,8 +872,7 @@ export const prerenderAllPages = () => {
         name: v.name,
         url: canonicalUrl,
         image: v.coverImage?.startsWith('http') ? v.coverImage : `${BASE_URL}${v.coverImage}`,
-        telephone: v.phone || '+507 6223-5453',
-        priceRange: '$$$',
+        telephone: undefined,
         servesCuisine: v.cuisine || 'Fusión Japonesa & Robata Internacional',
         address: {
           '@type': 'PostalAddress',
@@ -896,37 +881,14 @@ export const prerenderAllPages = () => {
           addressRegion: 'Panamá',
           addressCountry: 'PA'
         },
-        aggregateRating: {
-          '@type': 'AggregateRating',
-          ratingValue: v.slug?.includes('cielo') ? '4.6' : v.slug?.includes('terraplen') || v.slug?.includes('piano') ? '4.7' : '4.8',
-          reviewCount: v.slug?.includes('cielo') ? '1320' : v.slug?.includes('furia') ? '520' : v.slug?.includes('piano') ? '340' : v.slug?.includes('terraplen') ? '246' : '190',
-          bestRating: '5',
-          worstRating: '1'
-        },
         hasMap: v.googleMapsUrl || undefined,
         sameAs: [v.googleMapsUrl].filter(Boolean)
       };
 
-      if (v.menuHighlights && v.menuHighlights.length > 0) {
-        venueSchemaNode.hasMenu = {
-          '@type': 'Menu',
-          name: `Menú Oficial ${v.name}`,
-          url: canonicalUrl,
-          hasMenuItem: v.menuHighlights.map(item => ({
-            '@type': 'MenuItem',
-            name: item.name,
-            description: item.desc,
-            offers: {
-              '@type': 'Offer',
-              price: (item.price || '').replace(/[^0-9.]/g, '') || '0',
-              priceCurrency: 'USD'
-            }
-          }))
-        };
-      }
       schemaGraph.push(venueSchemaNode);
     }
 
+    if (editorial) schemaGraph.push(editorial.mainEntity);
     const jsonLdTag = `
     <script type="application/ld+json" id="arrive-ssg-jsonld">
     ${JSON.stringify({ '@context': 'https://schema.org', '@graph': schemaGraph }, null, 2)}
@@ -948,12 +910,20 @@ export const prerenderAllPages = () => {
     <link rel="alternate" hreflang="en" href="${altEn}" />
     <link rel="alternate" hreflang="x-default" href="${altEs}" />
     `;
-    customizedHtml = customizedHtml.replace('</head>', `${hreflangTags}\n${jsonLdTag}\n</head>`);
+    // All social metadata must agree with the canonical document, before JavaScript.
+    const rawImage = page.image || page.venueData?.coverImage || (editorial?.post ? editorial.data?.coverImage : null);
+    const ogImage = rawImage && !/\.svg$/i.test(rawImage) ? (rawImage.startsWith('http') ? rawImage : BASE_URL + rawImage) : `${BASE_URL}/images/arrive-logo-white.png`;
+    const noindex = page.noindex || /\/panama\/(?:nightlife|clubs|rooftops|casco-antiguo|casco-viejo|parties|restaurants|events)/.test('/'+page.relPath);
+    customizedHtml = customizedHtml.replace(/<meta\s+(?:name|property)="(?:title|keywords|description|robots|og:[^"]+|twitter:[^"]+)"[^>]*>/gi, '');
+    customizedHtml = customizedHtml.replace('</head>', `<meta name="description" content="${escapeHtml(page.description)}"/><meta name="robots" content="${noindex ? 'noindex, follow' : 'index, follow, max-image-preview:large'}"/><meta property="og:title" content="${escapeHtml(page.title)}"/><meta property="og:description" content="${escapeHtml(page.description)}"/><meta property="og:url" content="${canonicalUrl}"/><meta property="og:type" content="${editorial?.post ? 'article':'website'}"/><meta property="og:image" content="${ogImage}"/><meta property="og:locale" content="${pageLocale==='es'?'es_PA':'en_US'}"/><meta name="twitter:card" content="${ogImage.endsWith('arrive-logo-white.png') ? 'summary' : 'summary_large_image'}"/><meta name="twitter:image" content="${ogImage}"/><meta name="twitter:title" content="${escapeHtml(page.title)}"/><meta name="twitter:description" content="${escapeHtml(page.description)}"/>\n</head>`);
+    customizedHtml = customizedHtml.replace('</head>',  `${hreflangTags}\n${jsonLdTag}\n</head>`);
 
     fs.writeFileSync(path.join(targetDir, 'index.html'), customizedHtml, 'utf-8');
     generatedCount++;
   });
 
+  fs.writeFileSync(path.join(DIST_DIR, '404.html'), '<!doctype html><html lang="es"><head><meta charset="UTF-8"><meta name="robots" content="noindex, follow"><title>Página no encontrada | ARRIVE</title></head><body><h1>Página no encontrada / Page not found</h1><a href="/es/explore/">Explorar Panamá</a> · <a href="/en/explore/">Explore Panama</a></body></html>');
+  fs.writeFileSync(ARCHIVE_PATH, JSON.stringify(archive, null, 2) + '\n', 'utf-8');
   console.log(`✅ ${generatedCount} páginas pre-renderizadas con éxito en dist/`);
 };
 

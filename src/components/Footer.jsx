@@ -145,19 +145,19 @@ export const Footer = ({ locale = 'es', navigate }) => {
                   setIsBookVipModalOpen(true);
                 }}
               >
-                <span>{isEs ? 'RESERVAR ZONA VIP' : 'BOOK VIP ZONE'}</span>
+                <span>{isEs ? 'RESERVA VIP' : 'VIP RESERVATION'}</span>
               </a>
               <a 
-                href={`/${locale}/venues/`} 
+                href={`/${locale}/panama/venues/`} 
                 className="arrive_footer_nav_link"
-                onClick={(e) => handleLinkClick(e, `/${locale}/venues/`)}
+                onClick={(e) => handleLinkClick(e, `/${locale}/panama/venues/`)}
               >
                 {isEs ? 'LOCALES' : 'VENUES'}
               </a>
               <a 
-                href={`/${locale}/concierge/`} 
+                href={`/${locale}/panama/concierge/`} 
                 className="arrive_footer_nav_link"
-                onClick={(e) => handleLinkClick(e, `/${locale}/concierge/`)}
+                onClick={(e) => handleLinkClick(e, `/${locale}/panama/concierge/`)}
               >
                 {isEs ? 'SERVICIOS & CONCIERGE' : 'SERVICES & CONCIERGE'}
               </a>

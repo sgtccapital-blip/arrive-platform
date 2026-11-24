@@ -18,7 +18,7 @@ export const getOrganizationSchema = () => ({
   description: 'Agencia de modelaje y plataforma de beneficios exclusivos de nightlife, discotecas, rooftops y concierge en Panamá.',
   sameAs: [
     'https://www.instagram.com/arrivemodels/',
-    'https://wa.me/50760000000'
+
   ],
   address: {
     '@type': 'PostalAddress',
@@ -84,8 +84,8 @@ export const getEventSchema = (event, locale = 'es') => {
     '@id': `${canonicalUrl}#event`,
     name: event.title || event.name,
     url: canonicalUrl,
-    startDate: event.eventDate || '2026-09-15T22:00:00-05:00',
-    endDate: event.eventEndDate || '2026-09-16T04:00:00-05:00',
+    startDate: event.eventDate || undefined,
+    endDate: event.eventEndDate || undefined,
     eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
     eventStatus: 'https://schema.org/EventScheduled',
     image: event.image?.startsWith('http') ? event.image : `${BASE_CANONICAL_URL}${event.image}`,
@@ -95,37 +95,17 @@ export const getEventSchema = (event, locale = 'es') => {
       name: cleanVenue,
       address: {
         '@type': 'PostalAddress',
-        streetAddress: event.address || 'Calle Principal',
+        streetAddress: event.address || undefined,
         addressLocality: event.city || 'Ciudad de Panamá',
         addressRegion: 'Panamá',
         addressCountry: 'PA'
       },
-      geo: {
-        '@type': 'GeoCoordinates',
-        latitude: event.latitude || 8.9824,
-        longitude: event.longitude || -79.5199
-      }
     },
     performer: performers.length > 0 ? performers : undefined,
     organizer: {
       '@id': `${BASE_CANONICAL_URL}/#organization`
     },
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: '4.9',
-      reviewCount: '136',
-      bestRating: '5',
-      worstRating: '1'
-    },
-    offers: {
-      '@type': 'Offer',
-      name: 'Pase Digital Lista Arrive (Cortesía)',
-      price: event.price !== undefined ? event.price.toString() : '0',
-      priceCurrency: 'USD',
-      availability: 'https://schema.org/InStock',
-      url: event.ticketUrl || canonicalUrl,
-      validFrom: '2026-09-01T00:00:00-05:00'
-    }
+    offers: event.price != null && event.ticketUrl ? { '@type': 'Offer', price: event.price, priceCurrency: 'USD', url: event.ticketUrl } : undefined
   };
 };
 
@@ -162,16 +142,8 @@ export const getVenueSchema = (venue, locale = 'es') => {
     name: venue.name,
     url: canonicalUrl,
     image: venue.coverImage?.startsWith('http') ? venue.coverImage : `${BASE_CANONICAL_URL}${venue.coverImage}`,
-    telephone: venue.phone || '+50760000000',
-    priceRange: '$$$',
-    servesCuisine: venue.tagline || 'Alta Gastronomía & Coctelería de Autor',
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: '4.9',
-      reviewCount: venue.slug?.includes('furia') ? '248' : '182',
-      bestRating: '5',
-      worstRating: '1'
-    },
+    telephone: venue.phone || undefined,
+    servesCuisine: venue.cuisine || undefined,
     address: {
       '@type': 'PostalAddress',
       streetAddress: venue.address || 'Ciudad de Panamá',
@@ -179,19 +151,6 @@ export const getVenueSchema = (venue, locale = 'es') => {
       addressRegion: 'Panamá',
       addressCountry: 'PA'
     },
-    geo: {
-      '@type': 'GeoCoordinates',
-      latitude: venue.latitude || (venue.slug?.includes('terraplen') ? 8.9532 : 8.9824),
-      longitude: venue.longitude || (venue.slug?.includes('terraplen') ? -79.5339 : -79.5199)
-    },
-    openingHoursSpecification: [
-      {
-        '@type': 'OpeningHoursSpecification',
-        dayOfWeek: ['Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
-        opens: '17:00',
-        closes: '04:00'
-      }
-    ],
     hasMap: venue.googleMapsUrl || undefined,
     sameAs: [
       venue.googleMapsUrl,
@@ -200,27 +159,6 @@ export const getVenueSchema = (venue, locale = 'es') => {
     ].filter(Boolean)
   };
 
-  if (venue.menu) {
-    schemaObj.hasMenu = {
-      '@type': 'Menu',
-      name: `Menú Oficial ${venue.name}`,
-      url: canonicalUrl,
-      hasMenuSection: Object.entries(venue.menu).map(([sectionKey, items]) => ({
-        '@type': 'MenuSection',
-        name: sectionKey,
-        hasMenuItem: (items || []).map(item => ({
-          '@type': 'MenuItem',
-          name: item.name,
-          description: item.desc,
-          offers: {
-            '@type': 'Offer',
-            price: (item.price || '').replace(/[^0-9.]/g, '') || '0',
-            priceCurrency: 'USD'
-          }
-        }))
-      }))
-    };
-  }
 
   return schemaObj;
 };
@@ -238,9 +176,8 @@ export const getRestaurantSchema = (restaurant, locale = 'es') => {
     name: restaurant.name,
     url: canonicalUrl,
     image: restaurant.coverImage?.startsWith('http') ? restaurant.coverImage : `${BASE_CANONICAL_URL}${restaurant.coverImage}`,
-    servesCuisine: restaurant.cuisine || 'Fusión Internacional & Coctelería',
-    priceRange: '$$$',
-    telephone: restaurant.phone || '+50760000000',
+    servesCuisine: restaurant.cuisine || undefined,
+    telephone: restaurant.phone || undefined,
     address: {
       '@type': 'PostalAddress',
       streetAddress: restaurant.address || 'Ciudad de Panamá',

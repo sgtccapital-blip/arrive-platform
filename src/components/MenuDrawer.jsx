@@ -185,7 +185,7 @@ export const MenuDrawer = ({ isOpen, onClose, route }) => {
                 }}
               >
                 <Crown size={18} color="#ffd700" />
-                <span>{isEs ? 'RESERVAR ZONA VIP' : 'BOOK VIP ZONE'}</span>
+                <span>{isEs ? 'RESERVA VIP' : 'VIP RESERVATION'}</span>
               </a>
               <span className="menu_sublink_desc gold" style={{ color: 'rgba(255, 215, 0, 0.75)' }}>
                 {isEs ? 'Mesas Exclusivas & Bottle Service VIP' : 'Exclusive Tables & VIP Bottle Service'}
@@ -217,7 +217,9 @@ export const MenuDrawer = ({ isOpen, onClose, route }) => {
             <div className="menu_nightlife_card_overlay">
               <h4 className="menu_nightlife_card_title">Arrive Nightlife</h4>
               <p className="menu_nightlife_card_text">
-                Acceso libre, Open Bar y beneficios exclusivos para la comunidad de Arrive Model Management cada semana en los mejores clubs de Panamá.
+                {isEs 
+                  ? 'Acceso libre, Open Bar y beneficios exclusivos para la comunidad de Arrive Model Management cada semana en los mejores clubs de Panamá.'
+                  : 'Free entry, complimentary open bar, and exclusive perks for the Arrive Model Management community every week at premier Panama venues.'}
               </p>
             </div>
           </div>

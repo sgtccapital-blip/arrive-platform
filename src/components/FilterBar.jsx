@@ -40,25 +40,28 @@ export const FilterBar = () => {
   const getSelectedDayLabel = () => {
     switch (selectedDay) {
       case 'Miercoles':
-        return isEs ? 'HOY MIÉRCOLES 18 NOV' : 'TODAY WEDNESDAY NOV 18';
+        return isEs ? 'MIÉRCOLES 25 NOV' : 'WEDNESDAY NOV 25';
       case 'Jueves':
-        return isEs ? 'JUEVES 19 NOV' : 'THURSDAY NOV 19';
+        return isEs ? 'JUEVES 26 NOV' : 'THURSDAY NOV 26';
       case 'Viernes':
-        return isEs ? 'VIERNES 20 NOV' : 'FRIDAY NOV 20';
+        return isEs ? 'VIERNES 27 NOV' : 'FRIDAY NOV 27';
       case 'Sabado':
-        return isEs ? 'SÁBADO 21 NOV' : 'SATURDAY NOV 21';
+        return isEs ? 'SÁBADO 28 NOV' : 'SATURDAY NOV 28';
+      case 'Domingo':
+        return isEs ? 'DOMINGO 29 NOV' : 'SUNDAY NOV 29';
       case 'all':
       default:
-        return isEs ? 'TODOS LOS DÍAS (18 - 21 NOV)' : 'ALL DAYS (NOV 18 - 21)';
+        return isEs ? 'TODOS LOS DÍAS (25 - 29 NOV)' : 'ALL DAYS (NOV 25 - 29)';
     }
   };
 
   const dayOptions = [
-    { id: 'all', label: isEs ? 'TODOS LOS DÍAS' : 'ALL DAYS', dateText: isEs ? 'Semana 18 - 21 Nov' : 'Week of Nov 18 - 21', note: isEs ? 'Cartelera completa' : 'All events' },
-    { id: 'Miercoles', label: isEs ? 'MIÉRCOLES 18 NOV' : 'WEDNESDAY NOV 18', dateText: '9:00 PM - 04:00 AM', note: 'Furia • Terraplén • Piano Bar' },
-    { id: 'Jueves', label: isEs ? 'JUEVES 19 NOV' : 'THURSDAY NOV 19', dateText: '7:00 PM - 04:00 AM', note: 'Furia • Terraplén Rooftop & 002 • Piano Bar' },
-    { id: 'Viernes', label: isEs ? 'VIERNES 20 NOV' : 'FRIDAY NOV 20', dateText: '9:00 PM - 04:00 AM', note: 'Furia • Terraplén • La Rosalía • Piano Bar' },
-    { id: 'Sabado', label: isEs ? 'SÁBADO 21 NOV' : 'SATURDAY NOV 21', dateText: '9:00 PM - 07:00 AM', note: 'Furia Mansión • Terraplén • La Rosalía • Piano Bar' }
+    { id: 'all', label: isEs ? 'TODOS LOS DÍAS' : 'ALL DAYS', dateText: isEs ? 'Semana 25 - 29 Nov' : 'Week of Nov 25 - 29', note: isEs ? 'Cartelera completa' : 'All events' },
+    { id: 'Miercoles', label: isEs ? 'MIÉRCOLES 25 NOV' : 'WEDNESDAY NOV 25', dateText: '5:00 PM - 04:00 AM', note: 'Furia • Terraplén Rooftop • Piano Bar' },
+    { id: 'Jueves', label: isEs ? 'JUEVES 26 NOV' : 'THURSDAY NOV 26', dateText: '9:00 PM - 04:00 AM', note: 'Furia • Terraplén Rooftop • Piano Bar' },
+    { id: 'Viernes', label: isEs ? 'VIERNES 27 NOV' : 'FRIDAY NOV 27', dateText: '9:00 PM - 04:00 AM', note: 'Furia • Terraplén Rooftop & 002 • Piano Bar' },
+    { id: 'Sabado', label: isEs ? 'SÁBADO 28 NOV' : 'SATURDAY NOV 28', dateText: '10:00 PM - 04:00 AM', note: 'Furia Mansión • Terraplén Piso 002' },
+    { id: 'Domingo', label: isEs ? 'DOMINGO 29 NOV' : 'SUNDAY NOV 29', dateText: '3:00 PM - 12:00 MN', note: 'Terraplén Casco Peatonal' }
   ];
 
   return (

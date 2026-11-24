@@ -12,10 +12,10 @@ export const DEFAULT_LOCALE = 'es';
 export const TRANSLATIONS = {
   es: {
     nav: {
-      allEvents: 'ALL EVENTS',
-      venues: 'VENUES & PERFILES',
-      bookVip: 'BOOK VIP ZONE',
-      services: 'SERVICES & CONCIERGE',
+      allEvents: 'TODOS LOS EVENTOS',
+      venues: 'LOCALES',
+      bookVip: 'RESERVA VIP',
+      services: 'SERVICIOS & CONCIERGE',
       vipSquad: 'ARRIVE VIP SQUAD',
       switchLang: 'EN',
       searchPlaceholder: 'Buscar evento, club o artista...'
@@ -35,8 +35,8 @@ export const TRANSLATIONS = {
       allDays: 'TODOS LOS DÍAS'
     },
     event: {
-      tickets: 'TICKETS / QR',
-      bookVip: 'BOOK VIP',
+      tickets: 'ENTRADAS',
+      bookVip: 'RESERVA VIP',
       dinner: 'DINNER',
       party: 'PARTY',
       lineup: 'LINEUP',
@@ -70,8 +70,8 @@ export const TRANSLATIONS = {
   en: {
     nav: {
       allEvents: 'ALL EVENTS',
-      venues: 'VENUES & PROFILES',
-      bookVip: 'BOOK VIP ZONE',
+      venues: 'VENUES',
+      bookVip: 'VIP RESERVATION',
       services: 'SERVICES & CONCIERGE',
       vipSquad: 'ARRIVE VIP SQUAD',
       switchLang: 'ES',
@@ -92,8 +92,8 @@ export const TRANSLATIONS = {
       allDays: 'ALL DAYS'
     },
     event: {
-      tickets: 'GUEST LIST / QR',
-      bookVip: 'BOOK VIP',
+      tickets: 'TICKETS',
+      bookVip: 'VIP RESERVATION',
       dinner: 'DINNER',
       party: 'PARTY',
       lineup: 'LINEUP',
