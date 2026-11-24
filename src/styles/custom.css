@@ -680,7 +680,7 @@ body, .body, .main-wrapper {
 
 @media screen and (max-width: 560px) {
   .event_image_wrapper {
-    aspect-ratio: 16 / 11 !important;
+    aspect-ratio: 1 / 1 !important;
   }
 
   .event_item {
