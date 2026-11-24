@@ -8,7 +8,8 @@
     "build": "vite build && node scripts/prerender-seo.mjs && node scripts/generate-sitemaps.mjs",
     "test:seo": "node scripts/seo-audit.mjs",
     "preview": "vite preview",
-    "test:editorial": "node scripts/test-editorial.mjs"
+    "test:editorial": "node scripts/test-editorial.mjs",
+    "guides:import": "node scripts/import-guides.mjs"
   },
   "dependencies": {
     "canvas-confetti": "^1.9.4",

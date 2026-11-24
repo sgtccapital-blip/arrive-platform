@@ -5827,6 +5827,8 @@ body, .body, .main-wrapper {
   -webkit-box-orient: vertical;
   overflow: hidden !important;
   flex: 1;
+  text-align: justify !important;
+  text-justify: inter-word !important;
 }
 
 .blog_card_footer {
@@ -5998,6 +6000,8 @@ body, .body, .main-wrapper {
   margin-bottom: 2rem !important;
   padding-bottom: 1.5rem !important;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  text-align: justify !important;
+  text-justify: inter-word !important;
 }
 
 .blog_content_h2 {
@@ -6013,6 +6017,8 @@ body, .body, .main-wrapper {
   color: #a8a8aa !important;
   line-height: 1.8 !important;
   margin-bottom: 1.25rem !important;
+  text-align: justify !important;
+  text-justify: inter-word !important;
 }
 
 .blog_cta_box {

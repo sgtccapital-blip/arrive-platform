@@ -1,4 +1,5 @@
 .blog_post_body a, .arrive_directory_page a { color: #ff8499; text-decoration: underline; text-underline-offset: .2em; }
+.blog_post_body p, .blog_post_text p, .blog_post_lead, .blog_content_p { text-align: justify !important; text-justify: inter-word !important; }
 .blog_post_body h2[id] { scroll-margin-top: 7rem; }
 .blog_post_body ul { padding-left: 1.5rem; line-height: 1.8; margin: 1rem 0 2rem; }
 .blog_post_body li { margin-bottom: .6rem; overflow-wrap: anywhere; }

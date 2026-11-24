@@ -108,7 +108,7 @@ export const Navbar = ({
           href={`/${locale}/panama/concierge/`}
           className={`nav_links underline-trail w-inline-block ${isConciergeActive ? 'w--current active' : ''}`}
         >
-          <p>{locale === 'es' ? 'SERVICIOS & CONCIERGE' : 'SERVICES & CONCIERGE'}</p>
+          <p>CONCIERGE</p>
         </a>
 
         <a 

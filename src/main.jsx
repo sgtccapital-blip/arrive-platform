@@ -18,3 +18,4 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 );
 
 import './styles/editorial.css';
+import './styles/spacing.css'; // keep last: spacing system
